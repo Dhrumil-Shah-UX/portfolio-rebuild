@@ -1,0 +1,28 @@
+{
+  "id": "trialbridge",
+  "title": "TrialBridge",
+  "context": "Academic healthcare project",
+  "team": "Six-person team",
+  "collaboration": "Mayo Clinic physicians + academic faculty",
+  "validation": "3 rounds of physician think-aloud testing",
+  "personalContributions": [
+    "onboarding flow",
+    "trial comparison",
+    "caregiver interaction features",
+    "educational resources interface",
+    "FAQs",
+    "AI chatbot concept for educational support",
+    "connection-request feature suggestion for peer interactions",
+    "organizing information through affinity mapping",
+    "translating physician feedback into design refinements"
+  ],
+  "assetsUsed": [
+    "trialbridge__dashboard__annotated__04.png",
+    "trialbridge__onboarding__annotated__04.png",
+    "trialbridge__onboarding__travel-preferences__04.png",
+    "trialbridge__dashboard__matching-trials__01.png",
+    "trialbridge__community__hub-annotated__04.png",
+    "trialbridge__care-circle__assigned-tasks__04.png",
+    "trialbridge__assistant__chat__04.png"
+  ]
+}

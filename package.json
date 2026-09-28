@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "check:case-studies": "node scripts/check-case-studies.js"
+  }
+}
