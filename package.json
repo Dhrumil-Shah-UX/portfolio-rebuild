@@ -1,5 +1,9 @@
 {
+  "name": "portfolio-rebuild",
+  "private": true,
   "scripts": {
-    "check:case-studies": "node scripts/check-case-studies.js"
+    "check:case-studies": "node scripts/check-case-studies.js",
+    "start": "npx --yes serve .",
+    "pages:extract": "node scripts/extract-pages.js"
   }
 }

@@ -1,123 +1,11 @@
-const pages = [...document.querySelectorAll("[data-page-view]")];
+let pages = [];
 const navLinks = [...document.querySelectorAll(".nav-link")];
-const routedControls = [...document.querySelectorAll("[data-page]")];
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav-links");
-const initialWritingNoteIndex = 2;
-const designNotes = [
-  {
-    id: "note-placeholder-01",
-    title: "Untitled note",
-    topic: "[NEEDS NOTE CONTENT]",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "[NEEDS NOTE CONTENT]",
-    experience: "[NEEDS NOTE CONTENT]",
-    solution: "[NEEDS NOTE CONTENT]"
-  },
-  {
-    id: "note-placeholder-02",
-    title: "Untitled note",
-    topic: "[NEEDS NOTE CONTENT]",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "[NEEDS NOTE CONTENT]",
-    experience: "[NEEDS NOTE CONTENT]",
-    solution: "[NEEDS NOTE CONTENT]"
-  },
-  {
-    id: "frustration-opening-door",
-    title: "Frustration of opening the door",
-    topic: "Everyday UX",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "From which side to open the door? Whether to push it or pull it?",
-    experience: "When I was new on campus, I used to get confused on whether to push or pull this door. Then I developed muscle memory to push it open, but I still got confused from which side to push the handle.",
-    solution: "Place a small metallic plate on the side of the door to be pushed. No handle needed."
-  },
-  {
-    id: "note-placeholder-04",
-    title: "Untitled note",
-    topic: "[NEEDS NOTE CONTENT]",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "[NEEDS NOTE CONTENT]",
-    experience: "[NEEDS NOTE CONTENT]",
-    solution: "[NEEDS NOTE CONTENT]"
-  },
-  {
-    id: "note-placeholder-05",
-    title: "Untitled note",
-    topic: "[NEEDS NOTE CONTENT]",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "[NEEDS NOTE CONTENT]",
-    experience: "[NEEDS NOTE CONTENT]",
-    solution: "[NEEDS NOTE CONTENT]"
-  },
-  {
-    id: "note-placeholder-06",
-    title: "Untitled note",
-    topic: "[NEEDS NOTE CONTENT]",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "[NEEDS NOTE CONTENT]",
-    experience: "[NEEDS NOTE CONTENT]",
-    solution: "[NEEDS NOTE CONTENT]"
-  },
-  {
-    id: "note-placeholder-07",
-    title: "Untitled note",
-    topic: "[NEEDS NOTE CONTENT]",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "[NEEDS NOTE CONTENT]",
-    experience: "[NEEDS NOTE CONTENT]",
-    solution: "[NEEDS NOTE CONTENT]"
-  },
-  {
-    id: "note-placeholder-08",
-    title: "Untitled note",
-    topic: "[NEEDS NOTE CONTENT]",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "[NEEDS NOTE CONTENT]",
-    experience: "[NEEDS NOTE CONTENT]",
-    solution: "[NEEDS NOTE CONTENT]"
-  },
-  {
-    id: "note-placeholder-09",
-    title: "Untitled note",
-    topic: "[NEEDS NOTE CONTENT]",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "[NEEDS NOTE CONTENT]",
-    experience: "[NEEDS NOTE CONTENT]",
-    solution: "[NEEDS NOTE CONTENT]"
-  },
-  {
-    id: "note-placeholder-10",
-    title: "Untitled note",
-    topic: "[NEEDS NOTE CONTENT]",
-    image: "",
-    caption: "[NEEDS NOTE IMAGE]",
-    viewpoint: "[NEEDS NOTE CONTENT]",
-    experience: "[NEEDS NOTE CONTENT]",
-    solution: "[NEEDS NOTE CONTENT]"
-  }
-];
-const articles = [
-  {
-    slug: "article-placeholder",
-    title: "[NEEDS ARTICLE CONTENT]",
-    summary: "[NEEDS ARTICLE CONTENT]",
-    topic: "[NEEDS ARTICLE CONTENT]",
-    image: "",
-    platform: "[NEEDS PUBLICATION PLATFORM]",
-    externalUrl: "",
-    content: ["[NEEDS ARTICLE CONTENT]"]
-  }
-];
+const backToTopButton = document.querySelector(".back-to-top");
+let backToTopObserver = null;
+let appBootstrapped = false;
+
 let currentNoteIndex = 0;
 let currentArticleIndex = 0;
 let designNotesPageFlip = null;
@@ -169,18 +57,6 @@ function showPage(pageName, scrollTargetId = "") {
     }
   });
 }
-
-routedControls.forEach((control) => {
-  control.addEventListener("click", (event) => {
-    const pageName = control.dataset.page;
-    if (!pageName) {
-      return;
-    }
-
-    event.preventDefault();
-    showPage(pageName, control.dataset.scrollTarget || "");
-  });
-});
 
 function padNumber(index) {
   return String(index + 1).padStart(2, "0");
@@ -256,9 +132,9 @@ function renderNoteBook() {
     width: 550,
     height: 733,
     size: "stretch",
-    minWidth: 315,
+    minWidth: 300,
     maxWidth: 550,
-    minHeight: 420,
+    minHeight: 400,
     maxHeight: 733,
     drawShadow: !reducedMotion,
     flippingTime: reducedMotion ? 1 : 1000,
@@ -388,159 +264,6 @@ function renderArticle(slug) {
   document.querySelector("[data-article-next]").disabled = currentArticleIndex >= articles.length - 1;
 }
 
-document.querySelector("[data-note-prev]")?.addEventListener("click", () => {
-  if (currentNoteIndex > 0) {
-    if (designNotesPageFlip && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      designNotesPageFlip.flipPrev("bottom");
-    } else {
-      selectNote(currentNoteIndex - 1);
-    }
-  }
-});
-
-document.querySelector("[data-note-next]")?.addEventListener("click", () => {
-  if (currentNoteIndex < designNotes.length - 1) {
-    if (designNotesPageFlip && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      designNotesPageFlip.flipNext("bottom");
-    } else {
-      selectNote(currentNoteIndex + 1);
-    }
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  if (!document.querySelector('[data-page-view="writing"].is-visible')) {
-    return;
-  }
-
-  if (event.key === "ArrowLeft" && currentNoteIndex > 0) {
-    selectNote(currentNoteIndex - 1);
-  }
-
-  if (event.key === "ArrowRight" && currentNoteIndex < designNotes.length - 1) {
-    selectNote(currentNoteIndex + 1);
-  }
-});
-
-document.querySelector("[data-article-prev]")?.addEventListener("click", () => {
-  if (currentArticleIndex > 0) {
-    showPage(`article-${articles[currentArticleIndex - 1].slug}`);
-  }
-});
-
-document.querySelector("[data-article-next]")?.addEventListener("click", () => {
-  if (currentArticleIndex < articles.length - 1) {
-    showPage(`article-${articles[currentArticleIndex + 1].slug}`);
-  }
-});
-
-renderNoteCards();
-renderArticleCards();
-
-if (menuToggle && nav) {
-  menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("is-open");
-  });
-}
-
-window.addEventListener("hashchange", () => {
-  const hash = location.hash.slice(1) || "home";
-  const homeAnchor = hash === "about" || hash === "about-home" ? hash.replace("about-home", "about") : "";
-  showPage(homeAnchor ? "home" : hash, homeAnchor);
-});
-
-const initialHash = location.hash.slice(1) || "home";
-const initialHomeAnchor = initialHash === "about" || initialHash === "about-home" ? initialHash.replace("about-home", "about") : "";
-showPage(initialHomeAnchor ? "home" : initialHash, initialHomeAnchor);
-
-const testimonials = [...document.querySelectorAll(".testimonial-card")];
-const slideButtons = [...document.querySelectorAll("[data-slide]")];
-let currentSlide = 0;
-
-function renderSlide(index) {
-  if (!testimonials.length) {
-    return;
-  }
-
-  currentSlide = (index + testimonials.length) % testimonials.length;
-  testimonials.forEach((card, cardIndex) => {
-    card.classList.toggle("is-current", cardIndex === currentSlide);
-  });
-}
-
-slideButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    renderSlide(currentSlide + (button.dataset.slide === "next" ? 1 : -1));
-  });
-});
-
-setInterval(() => {
-  renderSlide(currentSlide + 1);
-}, 7000);
-
-const form = document.querySelector(".contact-form");
-const portfolioAiForm = document.querySelector(".portfolio-ai-input");
-const portfolioAiInput = document.querySelector("#portfolio-ai-query");
-const suggestionButtons = [...document.querySelectorAll(".ai-suggestions button")];
-const caseSidebarLinks = [...document.querySelectorAll(".case-sidebar nav a")];
-const caseSections = caseSidebarLinks
-  .map((link) => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
-
-if (portfolioAiForm) {
-  portfolioAiForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    portfolioAiInput?.focus();
-  });
-}
-
-suggestionButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    if (!portfolioAiInput) {
-      return;
-    }
-
-    portfolioAiInput.value = button.textContent.trim();
-    portfolioAiInput.focus();
-  });
-});
-
-function setActiveCaseNavLink(activeLink) {
-  caseSidebarLinks.forEach((sidebarLink) => {
-    sidebarLink.setAttribute("aria-current", sidebarLink === activeLink ? "true" : "false");
-  });
-}
-
-function jumpToCaseSection(href, activeLink) {
-  const section = document.querySelector(href);
-  if (!section) {
-    return;
-  }
-
-  section.scrollIntoView({ behavior: "smooth", block: "start" });
-  const navLink = activeLink || caseSidebarLinks.find((link) => link.getAttribute("href") === href);
-  if (navLink) {
-    setActiveCaseNavLink(navLink);
-  }
-}
-
-caseSidebarLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    jumpToCaseSection(link.getAttribute("href"), link);
-  });
-});
-
-document.querySelectorAll(".case-inpage-jump").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    jumpToCaseSection(link.getAttribute("href"));
-  });
-});
-
-const backToTopButton = document.querySelector(".back-to-top");
-let backToTopObserver = null;
-
 function getPageScrollAnchor() {
   const visiblePage = document.querySelector(".page.is-visible");
   if (!visiblePage) {
@@ -589,44 +312,221 @@ function initBackToTopObserver() {
   backToTopObserver.observe(scrollAnchor);
 }
 
-if (backToTopButton) {
-  backToTopButton.addEventListener("click", () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  });
-}
+function bootstrapApp() {
+  if (appBootstrapped) {
+    return;
+  }
+  appBootstrapped = true;
 
-initBackToTopObserver();
+  pages = [...document.querySelectorAll("[data-page-view]")];
 
-if (caseSections.length) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visibleEntry = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-      if (!visibleEntry) {
+  [...document.querySelectorAll("[data-page]")].forEach((control) => {
+    control.addEventListener("click", (event) => {
+      const pageName = control.dataset.page;
+      if (!pageName) {
         return;
       }
 
-      caseSidebarLinks.forEach((link) => {
-        link.setAttribute("aria-current", link.getAttribute("href") === `#${visibleEntry.target.id}` ? "true" : "false");
-      });
-    },
-    { rootMargin: "-35% 0px -55% 0px", threshold: [0, 0.2, 0.5, 1] }
-  );
-
-  caseSections.forEach((section) => observer.observe(section));
-}
-
-if (form) {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const button = form.querySelector("button");
-    const originalText = button.textContent;
-    button.textContent = "Message ready";
-    setTimeout(() => {
-      button.textContent = originalText;
-      form.reset();
-    }, 1400);
+      event.preventDefault();
+      showPage(pageName, control.dataset.scrollTarget || "");
+    });
   });
+
+  document.querySelector("[data-note-prev]")?.addEventListener("click", () => {
+    if (currentNoteIndex > 0) {
+      if (designNotesPageFlip && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        designNotesPageFlip.flipPrev("bottom");
+      } else {
+        selectNote(currentNoteIndex - 1);
+      }
+    }
+  });
+
+  document.querySelector("[data-note-next]")?.addEventListener("click", () => {
+    if (currentNoteIndex < designNotes.length - 1) {
+      if (designNotesPageFlip && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        designNotesPageFlip.flipNext("bottom");
+      } else {
+        selectNote(currentNoteIndex + 1);
+      }
+    }
+  });
+
+  document.querySelector("[data-article-prev]")?.addEventListener("click", () => {
+    if (currentArticleIndex > 0) {
+      showPage(`article-${articles[currentArticleIndex - 1].slug}`);
+    }
+  });
+
+  document.querySelector("[data-article-next]")?.addEventListener("click", () => {
+    if (currentArticleIndex < articles.length - 1) {
+      showPage(`article-${articles[currentArticleIndex + 1].slug}`);
+    }
+  });
+
+  renderNoteCards();
+  renderArticleCards();
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("is-open");
+    });
+  }
+
+  const testimonials = [...document.querySelectorAll(".testimonial-card")];
+  const slideButtons = [...document.querySelectorAll("[data-slide]")];
+  let currentSlide = 0;
+
+  function renderSlide(index) {
+    if (!testimonials.length) {
+      return;
+    }
+
+    currentSlide = (index + testimonials.length) % testimonials.length;
+    testimonials.forEach((card, cardIndex) => {
+      card.classList.toggle("is-current", cardIndex === currentSlide);
+    });
+  }
+
+  slideButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      renderSlide(currentSlide + (button.dataset.slide === "next" ? 1 : -1));
+    });
+  });
+
+  if (testimonials.length) {
+    setInterval(() => {
+      renderSlide(currentSlide + 1);
+    }, 7000);
+  }
+
+  const form = document.querySelector(".contact-form");
+  const portfolioAiForm = document.querySelector(".portfolio-ai-input");
+  const portfolioAiInput = document.querySelector("#portfolio-ai-query");
+  const suggestionButtons = [...document.querySelectorAll(".ai-suggestions button")];
+  const caseSidebarLinks = [...document.querySelectorAll(".case-sidebar nav a")];
+  const caseSections = caseSidebarLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  if (portfolioAiForm) {
+    portfolioAiForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      portfolioAiInput?.focus();
+    });
+  }
+
+  suggestionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!portfolioAiInput) {
+        return;
+      }
+
+      portfolioAiInput.value = button.textContent.trim();
+      portfolioAiInput.focus();
+    });
+  });
+
+  function setActiveCaseNavLink(activeLink) {
+    caseSidebarLinks.forEach((sidebarLink) => {
+      sidebarLink.setAttribute("aria-current", sidebarLink === activeLink ? "true" : "false");
+    });
+  }
+
+  function jumpToCaseSection(href, activeLink) {
+    const section = document.querySelector(href);
+    if (!section) {
+      return;
+    }
+
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    const navLink = activeLink || caseSidebarLinks.find((link) => link.getAttribute("href") === href);
+    if (navLink) {
+      setActiveCaseNavLink(navLink);
+    }
+  }
+
+  caseSidebarLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      jumpToCaseSection(link.getAttribute("href"), link);
+    });
+  });
+
+  document.querySelectorAll(".case-inpage-jump").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      jumpToCaseSection(link.getAttribute("href"));
+    });
+  });
+
+  if (backToTopButton) {
+    backToTopButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    });
+  }
+
+  if (caseSections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visibleEntry) {
+          return;
+        }
+
+        caseSidebarLinks.forEach((link) => {
+          link.setAttribute("aria-current", link.getAttribute("href") === `#${visibleEntry.target.id}` ? "true" : "false");
+        });
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: [0, 0.2, 0.5, 1] }
+    );
+
+    caseSections.forEach((section) => observer.observe(section));
+  }
+
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const button = form.querySelector("button");
+      const originalText = button.textContent;
+      button.textContent = "Message ready";
+      setTimeout(() => {
+        button.textContent = originalText;
+        form.reset();
+      }, 1400);
+    });
+  }
+
+  window.addEventListener("hashchange", () => {
+    const hash = location.hash.slice(1) || "home";
+    const homeAnchor = hash === "about" || hash === "about-home" ? hash.replace("about-home", "about") : "";
+    showPage(homeAnchor ? "home" : hash, homeAnchor);
+  });
+
+  const initialHash = location.hash.slice(1) || "home";
+  const initialHomeAnchor =
+    initialHash === "about" || initialHash === "about-home" ? initialHash.replace("about-home", "about") : "";
+  showPage(initialHomeAnchor ? "home" : initialHash, initialHomeAnchor);
 }
+
+document.addEventListener("keydown", (event) => {
+  if (!document.querySelector('[data-page-view="writing"].is-visible')) {
+    return;
+  }
+
+  if (event.key === "ArrowLeft" && currentNoteIndex > 0) {
+    selectNote(currentNoteIndex - 1);
+  }
+
+  if (event.key === "ArrowRight" && currentNoteIndex < designNotes.length - 1) {
+    selectNote(currentNoteIndex + 1);
+  }
+});
+
+const pagesReady = window.portfolioPagesReady || Promise.resolve();
+pagesReady.then(bootstrapApp).catch((error) => {
+  console.error("Failed to load page content:", error);
+});

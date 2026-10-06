@@ -1,0 +1,64 @@
+{
+  "pages": [
+    {
+      "id": "home",
+      "file": "home.html",
+      "defaultVisible": true
+    },
+    {
+      "id": "work",
+      "file": "work.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "about",
+      "file": "about.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "contact",
+      "file": "contact.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "ai-lab",
+      "file": "ai-lab.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "writing",
+      "file": "writing.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "article",
+      "file": "article.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "case-ruhl",
+      "file": "case-ruhl.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "case-soor",
+      "file": "case-soor.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "case-azhartt",
+      "file": "case-azhartt.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "case-trial",
+      "file": "case-trial.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "case-diaries",
+      "file": "case-diaries.html",
+      "defaultVisible": false
+    }
+  ]
+}
