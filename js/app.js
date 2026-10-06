@@ -11,7 +11,11 @@ let currentArticleIndex = 0;
 let designNotesPageFlip = null;
 
 function showPage(pageName, scrollTargetId = "") {
-  const articleSlug = pageName.startsWith("article-") ? pageName.replace("article-", "") : "";
+  const articleSlug = pageName.startsWith("article-")
+    ? pageName.replace("article-", "")
+    : pageName.startsWith("writing/")
+      ? pageName.replace("writing/", "")
+      : "";
   const targetPageName = articleSlug ? "article" : pageName;
   const target = pages.find((page) => page.dataset.pageView === targetPageName);
   const nextPage = target ? targetPageName : "home";
@@ -230,13 +234,12 @@ function renderArticleCards() {
   list.innerHTML = articles
     .map((article, index) => `
       <article class="article-card">
-        <div class="article-card-image">${article.image ? `<img src="${article.image}" alt="" />` : "[NEEDS ARTICLE IMAGE]"}</div>
+        <div class="article-card-image">${article.image ? `<img src="${article.image}" alt="" />` : `<span>${article.platform}</span>`}</div>
         <div>
-          <span>${article.topic}</span>
+          <span>${article.platform} &middot; ${article.topic}</span>
           <h3>${article.title}</h3>
           <p>${article.summary}</p>
-          <small>${article.platform}</small>
-          <a href="#article-${article.slug}" data-article-link="${index}">Read article &rarr;</a>
+          <a href="#writing/${article.slug}" data-article-link="${index}">Read article &rarr;</a>
         </div>
       </article>
     `)
@@ -244,7 +247,74 @@ function renderArticleCards() {
   list.querySelectorAll("[data-article-link]").forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      showPage(`article-${articles[Number(link.dataset.articleLink)].slug}`);
+      showPage(`writing/${articles[Number(link.dataset.articleLink)].slug}`);
+    });
+  });
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function articleBlockMarkup(block) {
+  if (typeof block === "string") {
+    return `<p>${escapeHtml(block)}</p>`;
+  }
+
+  if (block.type === "h2") {
+    return `<h2>${escapeHtml(block.text)}</h2>`;
+  }
+
+  if (block.type === "h3") {
+    return `<h3>${escapeHtml(block.text)}</h3>`;
+  }
+
+  if (block.type === "blockquote") {
+    return `<blockquote>${escapeHtml(block.text)}</blockquote>`;
+  }
+
+  if (block.type === "ul" || block.type === "ol") {
+    const items = (block.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    return `<${block.type}>${items}</${block.type}>`;
+  }
+
+  if (block.type === "note") {
+    return `<aside class="article-source-note">${escapeHtml(block.text)}</aside>`;
+  }
+
+  return `<p>${escapeHtml(block.text || "")}</p>`;
+}
+
+function renderMoreWriting(article) {
+  const list = document.querySelector("[data-more-writing]");
+  if (!list) {
+    return;
+  }
+
+  list.innerHTML = articles
+    .filter((item) => item.slug !== article.slug)
+    .slice(0, 2)
+    .map(
+      (item) => `
+        <a class="more-writing-link" href="#writing/${item.slug}" data-more-writing-link="${item.slug}">
+          <span>${item.topic}</span>
+          <strong>${item.title}</strong>
+          <small>${item.summary}</small>
+          <em>Read article &rarr;</em>
+        </a>
+      `
+    )
+    .join("");
+
+  list.querySelectorAll("[data-more-writing-link]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      showPage(`writing/${link.dataset.moreWritingLink}`);
     });
   });
 }
@@ -257,9 +327,10 @@ function renderArticle(slug) {
   document.querySelector("[data-article-summary]").textContent = article.summary;
   document.querySelector("[data-article-platform]").textContent = article.platform;
   const external = document.querySelector("[data-article-external]");
-  external.href = article.externalUrl || "#";
-  external.toggleAttribute("aria-disabled", !article.externalUrl);
-  document.querySelector("[data-article-body]").innerHTML = article.content.map((paragraph) => `<p>${paragraph}</p>`).join("");
+  external.href = article.originalUrl || "#";
+  external.toggleAttribute("aria-disabled", !article.originalUrl);
+  document.querySelector("[data-article-body]").innerHTML = article.content.map(articleBlockMarkup).join("");
+  renderMoreWriting(article);
   document.querySelector("[data-article-prev]").disabled = currentArticleIndex <= 0;
   document.querySelector("[data-article-next]").disabled = currentArticleIndex >= articles.length - 1;
 }
@@ -354,13 +425,13 @@ function bootstrapApp() {
 
   document.querySelector("[data-article-prev]")?.addEventListener("click", () => {
     if (currentArticleIndex > 0) {
-      showPage(`article-${articles[currentArticleIndex - 1].slug}`);
+      showPage(`writing/${articles[currentArticleIndex - 1].slug}`);
     }
   });
 
   document.querySelector("[data-article-next]")?.addEventListener("click", () => {
     if (currentArticleIndex < articles.length - 1) {
-      showPage(`article-${articles[currentArticleIndex + 1].slug}`);
+      showPage(`writing/${articles[currentArticleIndex + 1].slug}`);
     }
   });
 
