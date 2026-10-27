@@ -17,17 +17,74 @@
     <div class="ai-lab-section-heading">
       <span>01</span>
       <div>
-        <p class="section-kicker">My AI Process</p>
-        <h2 id="ai-process-title">Process experiments.</h2>
+        <h2 id="ai-process-title">My AI process</h2>
       </div>
-      <p>[NEEDS PROCESS COPY]</p>
     </div>
 
-    <ol class="ai-process-steps" aria-label="AI process steps">
-      <li><strong>[NEEDS STEP]</strong><span>[NEEDS PROCESS COPY]</span></li>
-      <li><strong>[NEEDS STEP]</strong><span>[NEEDS PROCESS COPY]</span></li>
-      <li><strong>[NEEDS STEP]</strong><span>[NEEDS PROCESS COPY]</span></li>
-    </ol>
+    <div class="ai-process-scroll">
+      <ol class="ai-process-phases" aria-label="My AI process">
+        <li class="ai-process-phase">
+          <button class="ai-process-label" type="button" aria-describedby="ai-phase-frame"><span class="ai-process-number" aria-hidden="true">01</span><span>FRAME</span></button>
+          <div class="ai-process-tooltip" id="ai-phase-frame" role="tooltip">
+            <ul>
+              <li>define the problem and constraints</li>
+              <li>keep it vague so we have more wiggle room</li>
+              <li>AI hypothesis &ne; user evidence</li>
+            </ul>
+          </div>
+        </li>
+        <li class="ai-process-phase">
+          <button class="ai-process-label" type="button" aria-describedby="ai-phase-explore"><span class="ai-process-number" aria-hidden="true">02</span><span>EXPLORE</span></button>
+          <div class="ai-process-tooltip" id="ai-phase-explore" role="tooltip">
+            <ul>
+              <li>give me visual options</li>
+              <li>show that portion well&hellip; or completely remove it</li>
+              <li>generate directions, alternatives and references</li>
+            </ul>
+          </div>
+        </li>
+        <li class="ai-process-phase">
+          <button class="ai-process-label" type="button" aria-describedby="ai-phase-prototype"><span class="ai-process-number" aria-hidden="true">03</span><span>PROTOTYPE</span></button>
+          <div class="ai-process-tooltip" id="ai-phase-prototype" role="tooltip">
+            <ul>
+              <li>turn concepts into testable outputs</li>
+              <li>make a prompt for Codex to implement this</li>
+              <li>replace the current rooftop model with the Virtual Showroom</li>
+            </ul>
+          </div>
+        </li>
+        <li class="ai-process-phase">
+          <button class="ai-process-label" type="button" aria-describedby="ai-phase-critique"><span class="ai-process-number" aria-hidden="true">04</span><span>CRITIQUE</span></button>
+          <div class="ai-process-tooltip" id="ai-phase-critique" role="tooltip">
+            <ul>
+              <li>this table looks kinda unprofessional</li>
+              <li>why is browser memory 827 MB?</li>
+              <li>check for accuracy, UX and feasibility</li>
+            </ul>
+          </div>
+        </li>
+        <li class="ai-process-phase">
+          <button class="ai-process-label" type="button" aria-describedby="ai-phase-refine"><span class="ai-process-number" aria-hidden="true">05</span><span>REFINE</span></button>
+          <div class="ai-process-tooltip" id="ai-phase-refine" role="tooltip">
+            <ul>
+              <li>just focus on this one</li>
+              <li>don&rsquo;t affect any other screens</li>
+              <li>modify only requested files</li>
+            </ul>
+          </div>
+        </li>
+        <li class="ai-process-phase">
+          <button class="ai-process-label" type="button" aria-describedby="ai-phase-build"><span class="ai-process-number" aria-hidden="true">06</span><span>BUILD</span></button>
+          <div class="ai-process-tooltip" id="ai-phase-build" role="tooltip">
+            <ul>
+              <li>preserve the existing implementation</li>
+              <li>move to Figma/code and validate</li>
+              <li>don&rsquo;t invent content</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
   </section>
 
   <section class="ai-lab-section" id="ai-projects" aria-labelledby="ai-projects-title">
@@ -41,26 +98,38 @@
     </div>
 
     <div class="ai-project-grid">
-      <article class="ai-project-card ai-project-card-featured">
-        <div class="ai-card-media"><span>[NEEDS IMAGE]</span></div>
-        <div class="ai-card-copy">
-          <h3>Mindle</h3>
-          <p>[NEEDS PROJECT COPY]</p>
-          <span>[NEEDS LINK]</span>
+      <a class="ai-project-card perspective-project-card" href="#case-mindle" data-page="case-mindle" aria-labelledby="mindle-card-title">
+        <div class="ai-card-media project-video-card project-video-card--mindle" aria-hidden="true">
+          <video muted autoplay loop playsinline preload="metadata" tabindex="-1">
+            <source src="assets/videos/mindle-preview.mp4" type="video/mp4" />
+          </video>
         </div>
-      </article>
+        <div class="ai-card-copy">
+          <h3 id="mindle-card-title">Mindle</h3>
+          <p>A weekly UX word game designed to turn a short puzzle into learning, reflection, and community participation.</p>
+          <span>View case study &rarr;</span>
+        </div>
+      </a>
 
-      <article class="ai-project-card">
-        <div class="ai-card-media"><span>[NEEDS IMAGE]</span></div>
-        <div class="ai-card-copy">
-          <h3>Space Shooter</h3>
-          <p>[NEEDS PROJECT COPY]</p>
-          <span>[NEEDS LINK]</span>
+      <a class="ai-project-card perspective-project-card" href="#case-space-shooter" data-page="case-space-shooter" aria-labelledby="space-shooter-card-title">
+        <div class="ai-card-media project-video-card" aria-hidden="true">
+          <video muted autoplay loop playsinline preload="metadata" tabindex="-1">
+            <source src="assets/videos/space_shooter-preview.mp4" type="video/mp4" />
+          </video>
         </div>
-      </article>
+        <div class="ai-card-copy">
+          <h3 id="space-shooter-card-title">Space Shooter</h3>
+          <p>My first AI-assisted build: from a rough game idea in ChatGPT to a playable experience in Cursor.</p>
+          <span>View case study &rarr;</span>
+        </div>
+      </a>
 
       <a class="ai-project-card perspective-project-card" href="#case-perspective" data-page="case-perspective" aria-labelledby="perspective-card-title">
-        <div class="ai-card-media perspective-card-media" aria-hidden="true"><span>Perspective<span>Ideas &middot; Criteria &middot; Judgment</span></span></div>
+        <div class="ai-card-media project-video-card" aria-hidden="true">
+          <video muted autoplay loop playsinline preload="metadata" tabindex="-1">
+            <source src="assets/videos/perspective-preview.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div class="ai-card-copy">
           <h3 id="perspective-card-title">Perspective</h3>
           <p>A Workshop 6 concept game that makes AI-assisted decision-making something people can feel.</p>

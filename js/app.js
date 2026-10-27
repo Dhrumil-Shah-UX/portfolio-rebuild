@@ -27,7 +27,7 @@ function showPage(pageName, scrollTargetId = "") {
   pages.forEach((page) => {
     page.classList.toggle("is-visible", page.dataset.pageView === nextPage);
   });
-  const activeNavPage = nextPage === "case-perspective" ? "ai-lab" : nextPage === "article" ? "writing" : nextPage;
+  const activeNavPage = ["case-perspective", "case-space-shooter", "case-mindle"].includes(nextPage) ? "ai-lab" : nextPage === "article" ? "writing" : nextPage;
   document.body.dataset.currentPage = activeNavPage;
 
   navLinks.forEach((link) => {
@@ -392,11 +392,59 @@ function initBackToTopObserver() {
   backToTopObserver.observe(scrollAnchor);
 }
 
+function initGameVideos() {
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(({ target: video, isIntersecting }) => {
+      if (isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".project-video-card video, .case-game-video").forEach((video) => {
+    videoObserver.observe(video);
+  });
+}
+
 function bootstrapApp() {
   if (appBootstrapped) {
     return;
   }
   appBootstrapped = true;
+  initGameVideos();
+
+  const aboutArtDialog = document.querySelector(".about-art-dialog");
+  if (aboutArtDialog) {
+    const enlargedArt = aboutArtDialog.querySelector(".about-art-enlarged");
+    const artCaption = aboutArtDialog.querySelector("#about-art-caption");
+    document.querySelectorAll("[data-about-art]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const artwork = button.querySelector("img");
+        enlargedArt.src = artwork.src;
+        enlargedArt.alt = artwork.alt;
+        enlargedArt.style.transform = button.closest(".about-sketch-piece--ellie") ? "rotate(-90deg)" : "";
+        artCaption.textContent = button.closest("figure").querySelector("figcaption").textContent;
+        aboutArtDialog.showModal();
+      });
+    });
+    aboutArtDialog.querySelector(".about-art-close").addEventListener("click", () => aboutArtDialog.close());
+    aboutArtDialog.addEventListener("click", (event) => {
+      if (event.target !== aboutArtDialog) return;
+      const bounds = aboutArtDialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) aboutArtDialog.close();
+    });
+  }
+
+  document.querySelectorAll(".ai-process-phase").forEach((phase) => {
+    phase.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") phase.dataset.dismissed = "true";
+    });
+    ["pointerenter", "focusin"].forEach((eventName) => {
+      phase.addEventListener(eventName, () => delete phase.dataset.dismissed);
+    });
+  });
 
   pages = [...document.querySelectorAll("[data-page-view]")];
 
@@ -674,16 +722,20 @@ function bootstrapApp() {
     });
   }
 
-  window.addEventListener("hashchange", () => {
-    const hash = location.hash.slice(1) || "home";
-    const homeAnchor = hash === "about" || hash === "about-home" ? hash.replace("about-home", "about") : "";
+  function showHashPage(hash) {
+    if (["about-journey", "about-sketchbook", "about-outside"].includes(hash)) {
+      showPage("about", hash);
+      return;
+    }
+    const homeAnchor = hash === "about-home" ? "about" : "";
     showPage(homeAnchor ? "home" : hash, homeAnchor);
+  }
+
+  window.addEventListener("hashchange", () => {
+    showHashPage(location.hash.slice(1) || "home");
   });
 
-  const initialHash = location.hash.slice(1) || "home";
-  const initialHomeAnchor =
-    initialHash === "about" || initialHash === "about-home" ? initialHash.replace("about-home", "about") : "";
-  showPage(initialHomeAnchor ? "home" : initialHash, initialHomeAnchor);
+  showHashPage(location.hash.slice(1) || "home");
 }
 
 document.addEventListener("keydown", (event) => {

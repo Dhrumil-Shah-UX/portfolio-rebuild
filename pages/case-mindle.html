@@ -1,0 +1,117 @@
+<section class="page" data-page-view="case-mindle">
+  <article class="case-study case-study-mindle" aria-labelledby="mindle-title">
+    <div class="case-study-shell">
+      <aside class="case-sidebar" aria-label="Mindle case study sections">
+        <div class="case-sidebar-inner">
+          <button class="back-link" type="button" data-page="ai-lab" data-scroll-target="ai-projects">&larr; AI Lab projects</button>
+          <nav>
+            <a href="#mindle-overview" aria-current="true">Overview</a>
+            <a href="#mindle-challenge">Challenge</a>
+            <a href="#mindle-decisions">Key Decisions</a>
+            <a href="#mindle-experience">Final Experience</a>
+            <a href="#mindle-reflection">Reflection</a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="case-study-content">
+        <section class="case-section case-overview" id="mindle-overview">
+          <p class="case-kicker">Product design &amp; development &middot; Designed Minds</p>
+          <h1 id="mindle-title">Mindle</h1>
+          <p class="case-lede">I built a weekly UX word game to make learning, reflection, and sharing feel like a natural community ritual.</p>
+          <figure class="perspective-video case-media-hero" aria-label="Mindle gameplay video">
+            <video class="case-game-video" controls autoplay muted loop playsinline preload="metadata" aria-label="Watch Mindle gameplay">
+              <source src="assets/videos/mindle.mp4" type="video/mp4" />
+              Your browser does not support embedded video. <a href="assets/videos/mindle.mp4">Download the Mindle video</a>.
+            </video>
+          </figure>
+          <dl class="project-snapshot" aria-label="Project snapshot">
+            <div><dt>My role</dt><dd>Product designer and developer</dd></div>
+            <div><dt>Timeline</dt><dd>June&ndash;October 2026 &middot; Ongoing iterations</dd></div>
+            <div><dt>Platform</dt><dd>Responsive web application</dd></div>
+          </dl>
+          <p><a href="https://mindle-xi.vercel.app/" target="_blank" rel="noopener noreferrer">Play Mindle &rarr;</a> &middot; <a href="https://github.com/Dhrumil-Shah-UX/mindle" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></p>
+        </section>
+
+        <section class="case-section section-challenge" id="mindle-challenge">
+          <div class="section-copy">
+            <p class="case-kicker">Challenge</p>
+            <h2>The community had a place to share. People needed a reason to begin.</h2>
+            <p>Designed Minds members were building products, exploring AI, and navigating career transitions, but much of that work stayed invisible. Weekly prompts asking what people built or struggled with received approximately two reflections over one month.</p>
+            <p>Open-ended questions ask people to recall their week, decide what matters, and judge whether to share it publicly. I reframed the opportunity: how might reflection become a low-effort part of a rewarding weekly experience?</p>
+          </div>
+        </section>
+
+        <section class="case-section section-decisions" id="mindle-decisions">
+          <div class="section-copy">
+            <p class="case-kicker">Key decisions</p>
+            <h2>Let the puzzle invite people in. Make participation easier afterward.</h2>
+          </div>
+          <section class="decision-card decision-card--stacked">
+            <div class="decision-copy">
+              <span>Decision 01</span>
+              <h3>Start with a familiar, two-minute challenge.</h3>
+              <p>A word-guessing game offered a short, repeatable way to revisit UX concepts without learning a new interaction model. Players guess letters or the full word, with 13 attempts, three progressive hints, and optional prefilled letters. Configurable hints let me adjust difficulty for each concept.</p>
+              <p>A concise UX lesson follows the result, creating a transition from solving a puzzle to thinking about the player&rsquo;s own work.</p>
+            </div>
+          </section>
+          <section class="decision-card decision-card--stacked">
+            <div class="decision-copy">
+              <span>Decision 02</span>
+              <h3>Replace two universal questions with one adaptive check-in.</h3>
+              <p>The original reflection asked what players built and what challenges they faced. That assumed everyone had the same kind of week. I redesigned it around four choices: made progress, hit a challenge, learned something, or need help.</p>
+              <p>Only the relevant follow-up appears. Recognizing a category gives people a starting point, and one meaningful thought is enough to contribute.</p>
+            </div>
+          </section>
+          <section class="decision-card decision-card--stacked">
+            <div class="decision-copy">
+              <span>Decision 03</span>
+              <h3>Separate playing, identity, and public sharing.</h3>
+              <p>I redesigned onboarding from landing, name/email, and game to immediate play, with optional identity when needed for sharing. Browser-based identity keeps entry lightweight, with the trade-off that switching devices or clearing storage can create a new identity.</p>
+              <p>The reflection design offers named community sharing, anonymous sharing, or a private response. Sharing behavior is disclosed before submission. The proposed weekly streak would credit every completed reflection, regardless of visibility.</p>
+            </div>
+          </section>
+          <section class="decision-card decision-card--stacked">
+            <div class="decision-copy">
+              <span>Decision 04</span>
+              <h3>Design the weekly operation alongside the player experience.</h3>
+              <p>I built an admin workflow for words, hints, lessons, prefilled letters, and timezone-aware scheduling, so new puzzles could go live without code changes. The reflection redesign also required a flexible data model for category, response, and sharing preference while preserving older responses.</p>
+              <p>For community distribution, I consolidated the content strategy into one Friday roundup: last week&rsquo;s lesson, reflection highlights, and an invitation to the new puzzle. This gives members recognition without spoiling the current answer.</p>
+            </div>
+          </section>
+        </section>
+
+        <section class="case-section section-sage" id="mindle-experience">
+          <div class="section-copy">
+            <p class="case-kicker">Final experience</p>
+            <h2>Discover. Play. Learn. Reflect. Return.</h2>
+            <p>Mindle shipped as a responsive production application built with Next.js, React, TypeScript, Tailwind CSS, Supabase, PostgreSQL, and Vercel. I used Figma and AI-assisted development to work across design and implementation while retaining responsibility for product decisions and validation.</p>
+            <p>The core experience connects a weekly puzzle, a short UX lesson, and a reflection. Ongoing iterations focus on reducing onboarding effort, making the check-in contextual, and helping members choose how they participate.</p>
+            <h3>Early participation was encouraging, with a small sample.</h3>
+            <p>An early community comparison recorded three reflections over two weeks after launch, versus two over approximately one month before Mindle. This supported continued iteration, but did not establish causality or a sustained weekly habit.</p>
+            <p>A July 6 snapshot recorded seven non-seed registered players and six UX concepts. Earlier test-player cleanup also removed associated results, so the retained result count could not represent lifetime participation.</p>
+            <h3>Measure where reflection breaks down.</h3>
+            <p>I defined a proposed six-event funnel covering game start, game completion, reflection view, category selection, response start, and submission. Its purpose is to identify the next product decision. Production instrumentation and conversion improvements still need verification.</p>
+          </div>
+        </section>
+
+        <section class="case-section reflection-section" id="mindle-reflection">
+          <div class="section-copy">
+            <p class="case-kicker">Reflection</p>
+            <h2>The game was the invitation. Participation was the product challenge.</h2>
+            <p>A required name field can stop someone from trying. A generic question can make a check-in feel difficult. An unclear sharing preference can make someone hesitate. Building Mindle taught me how these small decisions shape whether people feel ready to participate.</p>
+            <p>Next, I want to validate the adaptive reflection flow, understand contribution quality, and observe whether reflections lead to useful support or conversation. Puzzle completion is a starting point; the community value continues after the player leaves.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <section class="case-next-project next-project" aria-labelledby="mindle-more-title">
+      <div class="case-next-project__inner">
+        <p class="case-kicker">More experiments</p>
+        <h3 id="mindle-more-title">Explore AI Lab</h3>
+        <p>Projects, workshops, and experiments in designing with AI.</p>
+        <a href="#ai-lab" data-page="ai-lab" data-scroll-target="ai-projects">Back to AI Lab projects &rarr;</a>
+      </div>
+    </section>
+  </article>
+</section>

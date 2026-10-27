@@ -265,9 +265,6 @@
     margin-top: 0.4rem;
   }
 
-  .ai-process-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
   .ai-project-card-featured {
     grid-row: auto;
@@ -672,9 +669,6 @@
     width: min(100% - 2.3rem, 560px);
   }
 
-  .ai-process-steps {
-    grid-template-columns: 1fr;
-  }
 
   .ai-card-media,
   .ai-project-card-featured .ai-card-media {
@@ -882,3 +876,24 @@
   }
 }
 
+/* Keep the process in one readable row on narrow screens, with room for tooltips. */
+@media (max-width: 800px) {
+  .ai-lab-process .ai-process-scroll {
+    overflow-x: auto;
+    padding-top: 11rem;
+    padding-bottom: var(--space-2);
+    margin-top: -8rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-warm-soft) var(--bg-main);
+  }
+
+  .ai-lab-process .ai-process-phases {
+    min-width: 720px;
+  }
+
+  .ai-lab-process .ai-lab-section-heading {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+  }
+}

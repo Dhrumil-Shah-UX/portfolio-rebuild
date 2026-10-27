@@ -61,8 +61,18 @@
       "defaultVisible": false
     },
     {
+      "id": "case-space-shooter",
+      "file": "case-space-shooter.html",
+      "defaultVisible": false
+    },
+    {
       "id": "case-perspective",
       "file": "case-perspective.html",
+      "defaultVisible": false
+    },
+    {
+      "id": "case-mindle",
+      "file": "case-mindle.html",
       "defaultVisible": false
     }
   ]
