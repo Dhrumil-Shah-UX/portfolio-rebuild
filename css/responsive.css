@@ -55,6 +55,7 @@
   }
 
   .article-hero {
+    --article-hero-pad-x: clamp(1.4rem, 5vw, 2.5rem);
     width: min(100% - 3rem, 820px);
     padding: 6.75rem 0 0;
   }
@@ -65,13 +66,16 @@
   }
 
   .article-back-link {
+    position: static;
     justify-self: start;
     margin-top: 0;
   }
 
   .article-header {
     grid-column: 1;
-    padding: clamp(3.4rem, 7vw, 4.6rem) 0 clamp(2.7rem, 6vw, 3.6rem);
+    margin-right: 0;
+    margin-left: 0;
+    padding: clamp(3.4rem, 7vw, 4.6rem) var(--article-hero-pad-x) clamp(2.7rem, 6vw, 3.6rem);
   }
 
   .article-page h1 {
@@ -134,7 +138,7 @@
   }
 
   .writing-page {
-    --writing-book-max-height: min(46vh, 440px);
+    --writing-book-max-height: min(50vh, 470px);
   }
 
   .notebook-stage {
@@ -232,8 +236,63 @@
 
   .lab-preview-grid,
   .quote-grid,
-  .writing-list {
+  .writing-list,
+  .ai-lab-section-heading,
+  .ai-project-grid,
+  .ai-workshop-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ai-lab-hero {
+    min-height: 680px;
+    padding-top: 8.5rem;
+    background:
+      linear-gradient(90deg, rgba(243, 240, 232, 0.94) 0%, rgba(243, 240, 232, 0.82) 48%, rgba(243, 240, 232, 0.24) 100%),
+      linear-gradient(180deg, rgba(31, 25, 17, 0.18), rgba(31, 25, 17, 0.08)),
+      url("../assets/images/home/hero-background.png") center / cover no-repeat;
+  }
+
+  .ai-lab-jump {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .ai-lab-section-heading {
+    gap: 0.7rem;
+  }
+
+  .ai-lab-section-heading p:not(.section-kicker) {
+    margin-top: 0.4rem;
+  }
+
+  .ai-process-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ai-project-card-featured {
+    grid-row: auto;
+  }
+
+  .ai-workshop-series {
+    grid-template-columns: 1fr;
+    width: min(680px, 88vw);
+  }
+
+  .ai-workshop-meta,
+  .ai-workshop-feature,
+  .ai-workshop-outcomes {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-workshop-meta div {
+    padding: 1rem 0 0;
+    border-top: 1px solid rgba(104, 112, 105, 0.16);
+    border-left: 0;
+  }
+
+  .ai-workshop-meta div:first-child {
+    padding-top: 0;
+    border-top: 0;
   }
 
   .selected-project {
@@ -403,7 +462,7 @@
   }
 
   .writing-page {
-    --writing-book-max-height: min(44vh, 380px);
+    --writing-book-max-height: min(48vh, 410px);
   }
 
   .writing-hero-copy h1 {
@@ -446,8 +505,7 @@
     width: min(100% - 2.3rem, 560px);
   }
 
-  .writing-section-heading,
-  .article-more-writing {
+  .writing-section-heading {
     align-items: stretch;
     flex-direction: column;
   }
@@ -472,7 +530,7 @@
   }
 
   .note-image-shell {
-    width: min(82%, 280px);
+    width: calc(100% - 2rem);
   }
 
   .notebook-controls {
@@ -488,6 +546,10 @@
   .note-card,
   .article-card {
     grid-template-columns: 1fr;
+  }
+
+  .article-card-image {
+    order: -1;
   }
 
   .note-card-thumb {
@@ -580,6 +642,78 @@
     grid-template-columns: 1fr;
     gap: 0.3rem;
   }
+
+  body[data-current-page="ai-lab"] .menu-toggle {
+    border-color: rgba(255, 252, 245, 0.5);
+    background: rgba(23, 34, 28, 0.38);
+    color: #fffdf8;
+  }
+
+  body[data-current-page="ai-lab"] .nav-links {
+    background: rgba(23, 34, 28, 0.92);
+    border-color: rgba(255, 252, 245, 0.18);
+  }
+
+  .ai-lab-hero {
+    min-height: 620px;
+    padding: 7.5rem 1.15rem 4rem;
+    background:
+      linear-gradient(180deg, rgba(243, 240, 232, 0.9), rgba(243, 240, 232, 0.78) 52%, rgba(243, 240, 232, 0.28)),
+      linear-gradient(180deg, rgba(31, 25, 17, 0.14), rgba(31, 25, 17, 0.08)),
+      url("../assets/images/home/hero-background.png") center / cover no-repeat;
+  }
+
+  .ai-lab-hero-copy h1 {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+  }
+
+  .ai-lab-jump,
+  .ai-lab-section {
+    width: min(100% - 2.3rem, 560px);
+  }
+
+  .ai-process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-card-media,
+  .ai-project-card-featured .ai-card-media {
+    min-height: 170px;
+    aspect-ratio: 1.7 / 1;
+  }
+
+  .ai-workshop-series {
+    width: min(100% - 2.3rem, 560px);
+  }
+
+  .ai-workshop-sidebar,
+  .ai-workshop-detail {
+    padding: 1rem;
+  }
+
+  .ai-workshop-list-item {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    padding: 0.65rem;
+  }
+
+  .ai-workshop-detail h2 {
+    font-size: clamp(2.5rem, 13vw, 4rem);
+  }
+
+  .ai-workshop-visual {
+    min-height: 0;
+  }
+
+  .ai-workshop-takeaways li {
+    grid-template-columns: 1.9rem minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+
+  .ai-workshop-takeaways li::before {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -599,6 +733,152 @@
   .sunlight-layer,
   .leaf-shadow-layer {
     animation: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .writing-hero-copy h1,
+  .ai-lab-hero-copy h1,
+  .article-page h1,
+  .case-study h1,
+  .contact-page h1,
+  .contact-page h2 {
+    font-size: 2.875rem;
+  }
+
+  .selected-project-copy h3,
+  .ai-workshop-detail h2,
+  .stat-grid strong,
+  .before-after strong {
+    font-size: 2.25rem;
+  }
+
+  .home-section-heading h2,
+  .home-about h2,
+  .placeholder-page h1,
+  .writing-section-heading h2,
+  .section-heading h2,
+  .skills-section h2,
+  .testimonials h2,
+  .ai-lab-section-heading h2,
+  .case-study h2,
+  .work-page h1,
+  .about-copy h1,
+  .wide-heading,
+  .sketch-block h2,
+  .case-page h1 {
+    font-size: 1.875rem;
+  }
+
+  .article-body h2,
+  .article-body h3,
+  .article-footer h2,
+  .case-study h3,
+  .decision-copy h3,
+  .scope-note h3,
+  .case-next-project h3,
+  .next-project h3,
+  .ai-workshop-takeaways h3 {
+    font-size: 1.5rem;
+  }
+
+  .home-section,
+  .section,
+  .case-section {
+    padding-block: clamp(4.5rem, 8vw, 5.5rem);
+  }
+
+  .ai-lab-jump,
+  .ai-lab-section,
+  .ai-workshop-series {
+    width: 100%;
+    padding-right: clamp(1.5rem, 6vw, 7.5rem);
+    padding-left: clamp(1.5rem, 6vw, 7.5rem);
+  }
+}
+
+@media (max-width: 620px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.75rem;
+  }
+
+  .writing-hero-copy h1,
+  .ai-lab-hero-copy h1,
+  .article-page h1,
+  .case-study h1,
+  .contact-page h1,
+  .contact-page h2 {
+    font-size: 2.375rem;
+  }
+
+  .selected-project-copy h3,
+  .ai-workshop-detail h2,
+  .stat-grid strong,
+  .before-after strong {
+    font-size: 2rem;
+  }
+
+  .home-section-heading h2,
+  .home-about h2,
+  .placeholder-page h1,
+  .writing-section-heading h2,
+  .section-heading h2,
+  .skills-section h2,
+  .testimonials h2,
+  .ai-lab-section-heading h2,
+  .case-study h2,
+  .work-page h1,
+  .about-copy h1,
+  .wide-heading,
+  .sketch-block h2,
+  .case-page h1 {
+    font-size: 1.75rem;
+  }
+
+  .lab-preview-grid h3,
+  .quote-grid h3,
+  .writing-list h3,
+  .beyond-work h3,
+  .ai-project-card h3,
+  .ai-workshop-list-item h3,
+  .ai-workshop-outcomes h3,
+  .case-info-card h3,
+  .article-card h3 {
+    font-size: 1.1875rem;
+  }
+
+  .home-section,
+  .section,
+  .case-section {
+    padding-block: clamp(3.5rem, 10vw, 4rem);
+  }
+
+  .selected-project,
+  .decision-card {
+    padding: 1.5rem;
+  }
+
+  .lab-preview-grid article,
+  .quote-grid article,
+  .writing-list article,
+  .case-info-card,
+  .ai-workshop-outcomes section {
+    padding: 1rem;
+  }
+
+  .ai-lab-jump,
+  .ai-lab-section {
+    width: 100%;
+    padding-right: 1.15rem;
+    padding-left: 1.15rem;
   }
 }
 

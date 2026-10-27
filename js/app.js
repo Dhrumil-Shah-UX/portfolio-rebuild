@@ -27,10 +27,11 @@ function showPage(pageName, scrollTargetId = "") {
   pages.forEach((page) => {
     page.classList.toggle("is-visible", page.dataset.pageView === nextPage);
   });
-  document.body.dataset.currentPage = nextPage === "article" ? "writing" : nextPage;
+  const activeNavPage = nextPage === "case-perspective" ? "ai-lab" : nextPage === "article" ? "writing" : nextPage;
+  document.body.dataset.currentPage = activeNavPage;
 
   navLinks.forEach((link) => {
-    const activePage = nextPage === "article" ? "writing" : nextPage;
+    const activePage = activeNavPage;
     link.classList.toggle("is-active", link.dataset.page === activePage && !link.dataset.scrollTarget);
   });
 
@@ -88,12 +89,11 @@ function notePageMarkup(note, index, side) {
     return `
       <article class="notebook-page notebook-page-left" data-note-index="${index}">
         <div class="notebook-page-content">
-          <p class="note-number">${padNumber(index)} / ${designNotes.length}</p>
           <h2>${note.title}</h2>
           <figure class="note-figure">
             <div class="note-image-shell">${noteImageMarkup(note)}</div>
-            <figcaption>${note.caption || ""}</figcaption>
           </figure>
+          <p class="note-number">${index + 1}</p>
         </div>
       </article>
     `;
@@ -233,21 +233,26 @@ function renderArticleCards() {
 
   list.innerHTML = articles
     .map((article, index) => `
-      <article class="article-card">
-        <div class="article-card-image">${article.image ? `<img src="${article.image}" alt="" />` : `<span>${article.platform}</span>`}</div>
-        <div>
-          <span>${article.platform} &middot; ${article.topic}</span>
+      <article class="article-card" data-article-card="${index}" role="link" tabindex="0">
+        <div class="article-card-copy">
           <h3>${article.title}</h3>
           <p>${article.summary}</p>
-          <a href="#writing/${article.slug}" data-article-link="${index}">Read article &rarr;</a>
+          <span>${article.platform} &middot; ${article.topic}</span>
         </div>
+        <div class="article-card-image">${article.image ? `<img src="${article.image}" alt="" />` : `<span>${article.platform}</span>`}</div>
       </article>
     `)
     .join("");
-  list.querySelectorAll("[data-article-link]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      showPage(`writing/${articles[Number(link.dataset.articleLink)].slug}`);
+  list.querySelectorAll("[data-article-card]").forEach((card) => {
+    const openArticle = () => {
+      showPage(`writing/${articles[Number(card.dataset.articleCard)].slug}`);
+    };
+    card.addEventListener("click", openArticle);
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openArticle();
+      }
     });
   });
 }
@@ -264,6 +269,12 @@ function escapeHtml(value) {
 function articleBlockMarkup(block) {
   if (typeof block === "string") {
     return `<p>${escapeHtml(block)}</p>`;
+  }
+
+  if (block.type === "image") {
+    const alt = escapeHtml(block.alt || "");
+    const caption = block.caption ? `<figcaption>${escapeHtml(block.caption)}</figcaption>` : "";
+    return `<figure class="article-figure"><img src="${escapeHtml(block.src || "")}" alt="${alt}" />${caption}</figure>`;
   }
 
   if (block.type === "h2") {
@@ -298,7 +309,7 @@ function renderMoreWriting(article) {
 
   list.innerHTML = articles
     .filter((item) => item.slug !== article.slug)
-    .slice(0, 2)
+    .slice(0, 1)
     .map(
       (item) => `
         <a class="more-writing-link" href="#writing/${item.slug}" data-more-writing-link="${item.slug}">
@@ -331,8 +342,6 @@ function renderArticle(slug) {
   external.toggleAttribute("aria-disabled", !article.originalUrl);
   document.querySelector("[data-article-body]").innerHTML = article.content.map(articleBlockMarkup).join("");
   renderMoreWriting(article);
-  document.querySelector("[data-article-prev]").disabled = currentArticleIndex <= 0;
-  document.querySelector("[data-article-next]").disabled = currentArticleIndex >= articles.length - 1;
 }
 
 function getPageScrollAnchor() {
@@ -391,6 +400,112 @@ function bootstrapApp() {
 
   pages = [...document.querySelectorAll("[data-page-view]")];
 
+  const workshopCards = [...document.querySelectorAll("[data-workshop]")];
+  const workshopTitle = document.querySelector("[data-workshop-title]");
+  if (workshopCards.length && workshopTitle) {
+    const workshops = [
+      {
+        title: "AI for Designers",
+        summary: "A grounding session for designers to understand what AI is, what it can and cannot do, and how to approach AI tools more intentionally instead of relying on trial and error.",
+        role: "Co-designed and co-hosted",
+        audience: "Designers, product teams, and curious builders",
+        attendance: 68,
+        taught: "My AI workflow across design and build, with a live demo from a ChatGPT idea to a working interaction in Cursor.",
+        artifacts: "FigJam board, live demo, and workflow examples.",
+        takeaways: ["Understand AI fundamentals and where its limits are.", "Build an intentional workflow instead of copying prompts.", "Explore how AI can support everyday design work."],
+        visual: "assets/images/workshops/ws1.png"
+      },
+      {
+        title: "Prompt Writing for Designers",
+        summary: "Move beyond repeated prompt tweaking and learn to direct, refine, and evaluate AI outputs with more intention.",
+        role: "Co-designed and co-hosted",
+        audience: "Designers seeking more consistent AI workflows",
+        attendance: 35,
+        taught: "How designers can use sketches, prototypes, references, and data to give AI stronger context.",
+        artifacts: "FigJam board, prompt refinement activity, design references, and a persona generation demo.",
+        takeaways: ["Use a repeatable framework instead of endlessly rewriting prompts.", "See how context and iteration change an output.", "Evaluate when an AI result is actually useful."],
+        visual: "assets/images/workshops/ws2.png"
+      },
+      {
+        title: "The New Designer Role & Process with AI",
+        summary: "Compare how designers are bringing AI into their process, and where it amplifies or interferes with their abilities.",
+        role: "Co-designed and co-hosted",
+        audience: "Designers and design leaders",
+        attendance: 71,
+        taught: "A real project timeline showing AI assisting research, prototyping, debugging, and delivery while the process stayed human-led.",
+        artifacts: "FigJam workflow map, process timeline, and real project example.",
+        takeaways: ["There is no single correct AI-enabled design process.", "Learn how peers are integrating AI into their work.", "Identify where AI can amplify your strengths."],
+        visual: "assets/images/workshops/ws3.png"
+      },
+      {
+        title: "AI in Ideation, Prototyping & Design Delivery",
+        summary: "Move from design intent to a working prototype while preserving brand consistency, design logic, and the original vision.",
+        role: "Co-designed and co-hosted",
+        audience: "Designers experienced in prototyping and delivery",
+        attendance: 37,
+        taught: "A structured Pomodoro prototype activity with requirements, constraints, and a done checklist.",
+        artifacts: "FigJam board, activity PRD, completion checklist, and participant sharing spaces.",
+        takeaways: ["Prototype with AI from idea to working demo.", "Maintain brand and design consistency.", "Tell polished output apart from output that works."],
+        visual: "assets/images/workshops/ws4.png"
+      },
+      {
+        title: "AI Portfolio Playground: Mini Hackathon",
+        summary: "Small groups built an AI-enhanced portfolio interaction to help visitors understand a designer’s work, thinking, or personality.",
+        role: "Designed and led",
+        audience: "Designers, product teams, and curious builders",
+        attendance: 41,
+        taught: "A mini hackathon format for ideation, rapid prototyping, sharing, and lightweight voting.",
+        artifacts: "FigJam board, challenge template, working areas, prototype checklist, and participant outputs.",
+        takeaways: ["Turn an AI portfolio idea into a rough prototype.", "Explore ways a portfolio can respond, guide, or surprise.", "Keep AI interactions intentional instead of generic."],
+        visual: "assets/images/workshops/ws5.png"
+      },
+      {
+        title: "Making Decisions With AI When Building Products",
+        summary: "Notice when AI begins steering your thinking, and become more intentional about making your own decisions.",
+        role: "Designed and led",
+        audience: "Designers and builders at any AI experience level",
+        attendance: 12,
+        taught: "Reflection exercises to map ideation patterns and notice when AI influences or redirects a decision.",
+        artifacts: "FigJam board, ideation pattern exercise, self-reflection prompt, and interactive game.",
+        takeaways: ["Understand why and how you use AI to make decisions.", "Recognize when AI begins driving instead of assisting.", "Keep ownership of decisions you can explain."],
+        visual: "assets/images/workshops/ws6.png"
+      }
+    ];
+    const fields = {
+      kicker: document.querySelector("[data-workshop-kicker]"),
+      summary: document.querySelector("[data-workshop-summary]"),
+      role: document.querySelector("[data-workshop-role]"),
+      audience: document.querySelector("[data-workshop-audience]"),
+      format: document.querySelector("[data-workshop-format]"),
+      visual: document.querySelector("[data-workshop-visual]"),
+      takeaways: [...document.querySelectorAll("[data-workshop-takeaway]")],
+      taught: document.querySelector("[data-workshop-taught]"),
+      artifacts: document.querySelector("[data-workshop-artifacts]")
+    };
+    const selectWorkshop = (index) => {
+      const workshop = workshops[index];
+      if (!workshop) return;
+      workshopCards.forEach((card, cardIndex) => {
+        const selected = cardIndex === index;
+        card.classList.toggle("is-selected", selected);
+        card.setAttribute("aria-pressed", String(selected));
+      });
+      workshopTitle.textContent = workshop.title;
+      fields.kicker.textContent = `Workshop ${String(index + 1).padStart(2, "0")}`;
+      fields.summary.textContent = workshop.summary;
+      fields.role.textContent = workshop.role;
+      fields.audience.textContent = workshop.audience;
+      fields.format.textContent = `90-minute interactive virtual workshop · ${workshop.attendance} joined`;
+      fields.takeaways.forEach((item, itemIndex) => { item.textContent = workshop.takeaways[itemIndex] || ""; });
+      fields.taught.textContent = workshop.taught;
+      fields.artifacts.textContent = workshop.artifacts;
+      fields.visual.src = workshop.visual;
+      fields.visual.alt = `${workshop.title} workshop visual`;
+    };
+    workshopCards.forEach((card) => card.addEventListener("click", () => selectWorkshop(Number(card.dataset.workshop))));
+    selectWorkshop(0);
+  }
+
   [...document.querySelectorAll("[data-page]")].forEach((control) => {
     control.addEventListener("click", (event) => {
       const pageName = control.dataset.page;
@@ -420,18 +535,6 @@ function bootstrapApp() {
       } else {
         selectNote(currentNoteIndex + 1);
       }
-    }
-  });
-
-  document.querySelector("[data-article-prev]")?.addEventListener("click", () => {
-    if (currentArticleIndex > 0) {
-      showPage(`writing/${articles[currentArticleIndex - 1].slug}`);
-    }
-  });
-
-  document.querySelector("[data-article-next]")?.addEventListener("click", () => {
-    if (currentArticleIndex < articles.length - 1) {
-      showPage(`writing/${articles[currentArticleIndex + 1].slug}`);
     }
   });
 

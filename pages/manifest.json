@@ -59,6 +59,11 @@
       "id": "case-diaries",
       "file": "case-diaries.html",
       "defaultVisible": false
+    },
+    {
+      "id": "case-perspective",
+      "file": "case-perspective.html",
+      "defaultVisible": false
     }
   ]
 }

@@ -1,24 +1,80 @@
 :root {
-  --bg: #f3f0e8;
-  --surface: #e8e4da;
-  --text: #17221c;
-  --text-secondary: #687069;
-  --accent: #365444;
-  --warm-accent: #b89b72;
-  --warm-accent-strong: #76562f;
-  --border: #d5d1c8;
-  --radius-card: 14px;
-  --radius-media: 10px;
-  --radius-field: 12px;
+  --bg-main: #f3f0e8;
+  --surface: #f8f5ee;
+  --surface-muted: #eae4d9;
+  --surface-sage: #e3e8e1;
+  --text-primary: #17221c;
+  --text-secondary: #5f665f;
+  --text-muted: #7b817a;
+  --text-inverse: #f7f4ed;
+  --accent-green: #365444;
+  --accent-green-hover: #2e493b;
+  --accent-warm: #b89b72;
+  --accent-warm-soft: #d9c8ac;
+  --border-default: #d5d1c8;
+  --border-subtle: #e3ded4;
+  --dark-forest: #17221c;
+  --dark-secondary: #243229;
+
   --font-display: Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", Arial, Helvetica, sans-serif;
-  --blue: #2c4a7d;
-  --ink: #303238;
-  --muted: #5f6470;
-  --line: #d9d9d9;
-  --card: #f7f8fa;
-  --cream: #f4efdd;
-  --aqua: #8bd7d7;
-  --yellow: #f2c14b;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --type-display-xl: clamp(2.75rem, 5.2vw, 4rem);
+  --type-display-lg: clamp(2.375rem, 4.2vw, 3.25rem);
+  --type-display-md: clamp(2rem, 3.2vw, 2.5rem);
+  --type-heading-lg: clamp(1.75rem, 2.8vw, 2rem);
+  --type-heading-md: clamp(1.375rem, 2.1vw, 1.625rem);
+  --type-heading-sm: clamp(1.1875rem, 1.55vw, 1.3125rem);
+  --type-body-lg: clamp(1.0625rem, 1.35vw, 1.125rem);
+  --type-body-md: 1rem;
+  --type-body-sm: 0.875rem;
+  --type-label: clamp(0.6875rem, 0.78vw, 0.75rem);
+  --type-caption: clamp(0.75rem, 0.85vw, 0.8125rem);
+
+  --leading-display: 1.02;
+  --leading-heading: 1.16;
+  --leading-body: 1.62;
+  --leading-label: 1.3;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --container-page: min(100% - 3rem, 1280px);
+  --container-editorial: min(100% - 3rem, 1100px);
+  --container-article: min(100% - 3rem, 760px);
+  --container-text: min(100% - 3rem, 680px);
+
+  --radius-sm: 8px;
+  --radius-card: 16px;
+  --radius-media: 20px;
+  --radius-field: 8px;
+  --radius-pill: 999px;
+
+  --card-bg: rgba(255, 255, 255, 0.18);
+  --shadow-soft: 0 12px 28px rgba(54, 84, 68, 0.08);
+
+  --bg: var(--bg-main);
+  --text: var(--text-primary);
+  --accent: var(--accent-green);
+  --warm-accent: var(--accent-warm);
+  --warm-accent-strong: #76562f;
+  --border: var(--border-default);
+  --blue: var(--accent-green);
+  --ink: var(--text-primary);
+  --muted: var(--text-secondary);
+  --line: var(--border-subtle);
+  --card: var(--surface);
+  --cream: var(--surface-muted);
+  --aqua: var(--surface-sage);
+  --yellow: var(--accent-warm);
+  --shadow: var(--shadow-soft);
 }

@@ -1,1 +1,1 @@
-var initialWritingNoteIndex = 2;
+var initialWritingNoteIndex = 0;

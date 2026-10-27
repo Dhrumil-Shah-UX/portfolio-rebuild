@@ -8,7 +8,7 @@ var articles = [
     platform: "Substack",
     originalUrl: "https://designedminds.substack.com/p/the-art-of-task-framing",
     publishedDate: "",
-    image: "",
+    image: "assets/images/writing/better_ai_inputs_article.webp",
     content: [
       { type: "p", text: "Sometimes, the better result does not come from changing the AI tool." },
       { type: "p", text: "It comes from changing how you frame the task." },
@@ -29,6 +29,12 @@ var articles = [
           "To see whether the issue was specific to that image, I decided to run another experiment using a different visual I found on Freepik. I used it as a test case and tried the same extraction process to compare the results and better understand where the limitations were coming from."
       },
       {
+        type: "image",
+        src: "assets/images/writing/better_ai_inputs_article.webp",
+        alt: "AI input experiment reference visual",
+        caption: "Initial experiment reference for testing icon extraction."
+      },
+      {
         type: "p",
         text:
           'To keep the experiment fair, I used almost the same basic prompt across GPT, Claude, and Gemini - "Extract the icon and give me in SVG format. It should be exactly like the image, but in SVG. It should be perfect as I need to use it commercially."'
@@ -41,6 +47,12 @@ var articles = [
       {
         type: "p",
         text: "Some outputs were closer than others, but none of them felt clean enough for professional use."
+      },
+      {
+        type: "image",
+        src: "assets/images/writing/better_ai_inputs_article_2.webp",
+        alt: "Comparison of AI-generated icon extraction outputs",
+        caption: "Comparing outputs helped reveal where the extraction task was breaking down."
       },
       {
         type: "p",
@@ -56,6 +68,12 @@ var articles = [
         type: "p",
         text:
           "The result from GPT was better than my earlier attempts, but still not perfect. The icon was usable as a direction, but it still had inconsistencies, distortion, and details that would need manual cleanup before using it professionally."
+      },
+      {
+        type: "image",
+        src: "assets/images/writing/better_ai_inputs_article_3.webp",
+        alt: "Cropped-icon AI output after reframing the input",
+        caption: "Cropping the input made the task narrower and improved the result."
       },
       {
         type: "p",
@@ -95,7 +113,7 @@ var articles = [
     platform: "Substack",
     originalUrl: "https://designedminds.substack.com/p/sometimes-the-best-ai-prompt-is-a",
     publishedDate: "",
-    image: "",
+    image: "assets/images/writing/ai_with_sketch.webp",
     content: [
       { type: "p", text: "I was experimenting with AI image generation for a case study visual." },
       { type: "p", text: "The output was close, but not exactly what I wanted." },
@@ -118,6 +136,12 @@ var articles = [
       {
         type: "blockquote",
         text: "Initial prompt -> AI output -> refined prompt -> rough sketch/wireframe -> final output"
+      },
+      {
+        type: "image",
+        src: "assets/images/writing/ai_with_sketch.webp",
+        alt: "Sketch used to guide an AI visual generation workflow",
+        caption: "A rough sketch gave the AI clearer visual context than text alone."
       },
       {
         type: "p",
@@ -168,8 +192,14 @@ var articles = [
     originalUrl:
       "https://medium.com/@dhrumilshah_4837/accessibility-isnt-a-checklist-it-s-a-product-responsibility-cd38087749e9",
     publishedDate: "January 27, 2026",
-    image: "",
+    image: "assets/images/writing/accessibility_article.webp",
     content: [
+      {
+        type: "image",
+        src: "assets/images/writing/accessibility_article.webp",
+        alt: "Accessibility audit article visual",
+        caption: "Accessibility issues often reveal deeper system and product responsibility gaps."
+      },
       {
         type: "p",
         text:
