@@ -623,6 +623,51 @@ function bootstrapApp() {
   }
 
   const form = document.querySelector(".contact-form");
+  document.querySelectorAll("[data-showroom-sequence]").forEach((sequence) => {
+    const tabs = [...sequence.querySelectorAll('[role="tab"]')];
+    const panel = sequence.querySelector("[data-phase-panel]");
+    const imageLink = panel.querySelector("a");
+    const image = panel.querySelector("img");
+    const title = panel.querySelector("[data-phase-title]");
+    const takeaway = panel.querySelector("[data-phase-takeaway]");
+
+    function selectPhase(tab) {
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.setAttribute("aria-selected", String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      const phaseTitle = tab.textContent.trim().replace(/^\d+\s*/, "");
+      const source = `assets/images/case-studies/showroom/${tab.dataset.image}`;
+      image.src = source;
+      image.alt = tab.dataset.alt;
+      imageLink.href = source;
+      imageLink.setAttribute("aria-label", `Enlarge the ${phaseTitle} walkthrough`);
+      title.textContent = `${tab.querySelector("span").textContent} / ${phaseTitle}`;
+      takeaway.textContent = tab.dataset.takeaway;
+      panel.setAttribute("aria-labelledby", tab.id);
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => selectPhase(tab));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex;
+        if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+        else if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === "Home") nextIndex = 0;
+        else if (event.key === "End") nextIndex = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        tabs[nextIndex].focus();
+        selectPhase(tabs[nextIndex]);
+      });
+    });
+    panel.setAttribute("role", "tabpanel");
+    panel.tabIndex = 0;
+    selectPhase(tabs[0]);
+    sequence.querySelector('[role="tablist"]').hidden = false;
+  });
+
   const portfolioAiForm = document.querySelector(".portfolio-ai-input");
   const portfolioAiInput = document.querySelector("#portfolio-ai-query");
   const suggestionButtons = [...document.querySelectorAll(".ai-suggestions button")];

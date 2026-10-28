@@ -1,0 +1,115 @@
+<section class="page" data-page-view="case-showroom">
+  <article class="case-study case-study-showroom" aria-labelledby="showroom-title">
+    <div class="case-study-shell">
+      <aside class="case-sidebar" aria-label="Virtual Showroom case study sections">
+        <div class="case-sidebar-inner">
+          <button class="back-link" type="button" data-page="work">&larr; Back to Work</button>
+          <nav>
+            <a href="#showroom-overview" aria-current="true">Overview</a>
+            <a href="#showroom-challenge">Challenge</a>
+            <a href="#showroom-decisions">Key Decisions</a>
+            <a href="#showroom-responsive">Responsive Experience</a>
+            <a href="#showroom-outcomes">Outcomes</a>
+            <a href="#showroom-reflection">Reflection</a>
+          </nav>
+        </div>
+      </aside>
+      <div class="case-study-content">
+        <section class="case-section case-overview" id="showroom-overview">
+          <p class="case-kicker">UX/UI &amp; 3D interaction &middot; RUHL TecDesign</p>
+          <h1 id="showroom-title">200 Water Street<br>Virtual Showroom</h1>
+          <p class="case-lede">From a roof full of equipment to a story people can follow. I designed and built a guided 3D experience explaining how air and energy move through a rooftop system.</p>
+          <figure class="case-media case-media-hero showroom-hero">
+            <a href="assets/images/case-studies/showroom/live-rooftop.png" target="_blank" rel="noopener" aria-label="Enlarge the live rooftop overview"><img src="assets/images/case-studies/showroom/live-rooftop.png" alt="Live rooftop showroom with equipment markers, spatial building context, and an Explore System Flow control." width="1707" height="1067" fetchpriority="high" decoding="async"></a>
+            <figcaption>The live showroom: explore the roof freely or enter the guided System Flow.</figcaption>
+          </figure>
+          <div class="showroom-live-link"><a href="https://200-water-project.ruhl.workers.dev/" target="_blank" rel="noopener noreferrer">Explore live project &nearr;</a><span>In the building journey, choose &ldquo;Explore rooftop systems.&rdquo;</span></div>
+          <dl class="project-snapshot" aria-label="Project snapshot">
+            <div><dt>My role</dt><dd>UX/UI, 3D interaction &amp; frontend development</dd></div>
+            <div><dt>Collaboration</dt><dd>Engineering review of system logic and claims</dd></div>
+            <div><dt>Platform</dt><dd>Responsive web &middot; Three.js</dd></div>
+            <div><dt>Delivery</dt><dd>Integrated into the 200 Water project</dd></div>
+          </dl>
+        </section>
+
+        <section class="case-section section-challenge" id="showroom-challenge">
+          <div class="section-copy"><p class="case-kicker">Challenge</p><h2>Seeing equipment is different from understanding a system.</h2></div>
+          <div class="showroom-shift" aria-label="Experience reframing">
+            <div><span class="showroom-label">Starting point</span><h3>Inspect the rooftop</h3><p>Rotate the model. Read labels. Infer how the parts connect.</p></div>
+            <span class="showroom-shift-arrow" aria-hidden="true">&rarr;</span>
+            <div><span class="showroom-label">My direction</span><h3>Follow the system</h3><p>One step, one camera focus, one explanation of what happens and why.</p></div>
+          </div>
+        </section>
+
+        <section class="case-section section-decisions" id="showroom-decisions">
+          <div class="section-copy"><p class="case-kicker">Key decisions</p><h2>Let the scene do the explaining.</h2></div>
+          <section class="decision-card decision-card--stacked">
+            <div class="decision-copy"><span>01 &middot; Sequence the story</span><h3>One system. Six understandable steps.</h3><p>I separated energy recovery from heat-pump conditioning and paired each step with a focused camera view.</p></div>
+            <div class="showroom-sequence" data-showroom-sequence>
+              <div class="showroom-step-strip" role="tablist" aria-label="Six-step system narrative" hidden>
+                <button type="button" role="tab" id="showroom-phase-1" aria-controls="showroom-phase-view" aria-selected="true" data-image="phase-return-air.png" data-takeaway="Used indoor air reaches the rooftop, carrying energy that can be recovered." data-alt="Return Air step with an enlarged explanation panel, highlighted rooftop ducts, and collapsed impact details."><span>01</span>Return Air</button>
+                <button type="button" role="tab" id="showroom-phase-2" aria-controls="showroom-phase-view" aria-selected="false" tabindex="-1" data-image="phase-energy-recovery.png" data-takeaway="Energy transfers to incoming fresh air while the two air streams stay separate." data-alt="Energy Recovery step with an enlarged explanation panel, an AHU callout, and highlighted pipe circuits."><span>02</span>Energy Recovery</button>
+                <button type="button" role="tab" id="showroom-phase-3" aria-controls="showroom-phase-view" aria-selected="false" tabindex="-1" data-image="phase-exhaust.png" data-takeaway="After energy recovery, the remaining exhaust air is discharged outdoors." data-alt="Exhaust step with an enlarged explanation panel, an overhead rooftop view, and amber airflow at the discharge points."><span>03</span>Exhaust</button>
+                <button type="button" role="tab" id="showroom-phase-4" aria-controls="showroom-phase-view" aria-selected="false" tabindex="-1" data-image="phase-fresh-air.png" data-takeaway="Fresh outdoor air enters the system and benefits from the recovered energy." data-alt="Fresh Outdoor Air step with an enlarged explanation panel, blue airflow cues at the intake hoods, and a focused view of the supply units."><span>04</span>Fresh Outdoor Air</button>
+                <button type="button" role="tab" id="showroom-phase-5" aria-controls="showroom-phase-view" aria-selected="false" tabindex="-1" data-image="phase-heat-pump.png" data-takeaway="The heat pump adds heating or cooling when recovered energy is not enough." data-alt="Heat Pump step with an enlarged explanation panel, a close view of the connected pipe cluster behind a translucent wall, and a heat pump callout."><span>05</span>Heat Pump</button>
+                <button type="button" role="tab" id="showroom-phase-6" aria-controls="showroom-phase-view" aria-selected="false" tabindex="-1" data-image="phase-supply-air.png" data-takeaway="Conditioned fresh air is delivered back into the building, completing the story." data-alt="Supply Air step with an enlarged explanation panel, highlighted supply branches leading into the magenta header, and an AHU callout."><span>06</span>Supply Air</button>
+              </div>
+              <figure class="case-media showroom-evidence" id="showroom-phase-view" data-phase-panel>
+                <a href="assets/images/case-studies/showroom/phase-return-air.png" target="_blank" rel="noopener" aria-label="Enlarge the Return Air walkthrough"><img src="assets/images/case-studies/showroom/phase-return-air.png" alt="Return Air step with an enlarged explanation panel, highlighted rooftop ducts, and collapsed impact details." width="1707" height="1067" loading="lazy" decoding="async"></a>
+                <figcaption aria-live="polite" aria-atomic="true"><strong data-phase-title>01 / Return Air</strong><span data-phase-takeaway>Used indoor air reaches the rooftop, carrying energy that can be recovered.</span></figcaption>
+              </figure>
+              <a class="showroom-sequence-live" href="https://200-water-project.ruhl.workers.dev/" target="_blank" rel="noopener noreferrer">Explore the live showroom in the 200 Water project &nearr;</a>
+            </div>
+            <div class="showroom-reading-key"><p><b>01 / What</b>A short explanation gives the step meaning.</p><p><b>02 / Where</b>The camera and highlights locate it on the roof.</p><p><b>03 / Why</b>Selective impact cards connect it to the retrofit.</p></div>
+          </section>
+
+          <section class="decision-card decision-card--stacked">
+            <div class="decision-copy"><span>02 &middot; Preserve engineering accuracy</span><h3>Recover energy. Keep air streams separate.</h3><p>Directional paths and lightweight particles make movement visible. Equipment callouts identify the units; cyan cues explain energy transfer without suggesting air mixing.</p></div>
+            <figure class="case-media showroom-evidence">
+              <a href="assets/images/case-studies/showroom/live-energy-recovery.png" target="_blank" rel="noopener" aria-label="Enlarge the Energy Recovery step"><img src="assets/images/case-studies/showroom/live-energy-recovery.png" alt="Energy Recovery step with a small AHU equipment callout, visible pipe circuits, and an impact diagram showing separate air streams with energy transfer only." width="1707" height="1067" loading="lazy" decoding="async"></a>
+              <figcaption>Energy Recovery: the model, callout, and &ldquo;Recover energy, not air&rdquo; diagram reinforce the same idea. Equipment imagery is illustrative.</figcaption>
+            </figure>
+            <div class="showroom-focus-key" aria-label="Scene focus hierarchy"><span><i class="focus-active" aria-hidden="true"></i><b>Active</b> Strongest emphasis</span><span><i class="focus-related" aria-hidden="true"></i><b>Related</b> Still readable</span><span><i class="focus-context" aria-hidden="true"></i><b>Context</b> Visually subdued</span></div>
+          </section>
+
+          <section class="decision-card decision-card--stacked">
+            <div class="decision-copy"><span>03 &middot; Profile before simplifying</span><h3>Reduce the cost of the city. Preserve the rooftop story.</h3><p>An observed ~1 GB tab-memory spike led me to diagnose the scene. City textures were the dominant estimated cost, so I optimized the surroundings before cutting the flow effects.</p></div>
+            <div class="showroom-performance" aria-label="Performance diagnosis and response">
+              <div><span class="showroom-label">Diagnostic finding</span><strong>61</strong><p>Runtime city texture objects</p><small>~843 MiB estimated decoded footprint</small></div>
+              <div><span class="showroom-label">Design &amp; engineering response</span><ul><li>Three shared city materials</li><li>Optional, progressive city loading</li><li>Rendering pauses in hidden tabs</li></ul></div>
+            </div>
+            <details class="showroom-detail"><summary>What the stability checks showed</summary><p>Three complete forward/reverse flow cycles stabilized renderer resource counts. Recorded post-exit JavaScript heap samples differed by ~88 KB. These checks support flow stability; they do not establish an exact GPU-memory reduction.</p></details>
+          </section>
+        </section>
+
+        <section class="case-section section-sage" id="showroom-responsive">
+          <div class="section-copy"><p class="case-kicker">Responsive experience</p><h2>Make room for the model.</h2><p>I replaced competing floating controls with a bottom sheet on mobile and tablet. The same sheet handles exploration and System Flow, keeping Previous/Next primary.</p></div>
+          <div class="showroom-phone-comparison">
+            <figure class="case-media"><span class="showroom-label">Earlier iteration</span><div class="showroom-phone-stage"><img src="assets/images/case-studies/showroom/source-image1.png" alt="Earlier mobile layout with a large control card covering the rooftop and a separate Legal and Credits control." width="511" height="1225" loading="lazy" decoding="async"></div><figcaption>Large floating controls compete with the roof.</figcaption></figure>
+            <figure class="case-media"><span class="showroom-label">Current live mobile</span><div class="showroom-phone-stage"><img src="assets/images/case-studies/showroom/live-mobile.png" alt="Current mobile Fresh Outdoor Air step with visible rooftop, a compact AHU callout, and a bottom sheet for the explanation and Previous and Next controls." width="780" height="1688" loading="lazy" decoding="async"></div><figcaption>The guided flow sits below the scene. Captured at a 390 &times; 844 CSS-pixel viewport.</figcaption></figure>
+          </div>
+          <div class="showroom-reading-key"><p><b>Keep the scene visible</b>Impact details begin collapsed on smaller screens.</p><p><b>Keep the pattern familiar</b>Tablet uses the same bottom-sheet model with its own camera framing.</p><p><b>Keep it operable</b>Keyboard rotation, zoom, flow controls, and focus restoration.</p></div>
+        </section>
+
+        <section class="case-section section-neutral" id="showroom-outcomes">
+          <div class="section-copy"><p class="case-kicker">Outcomes</p><h2>Designed, built, and integrated.</h2><p>The showroom opens from the existing rooftop CTA. Heavy assets load on entry; closing cleans up resources and returns focus to the building page.</p></div>
+          <dl class="showroom-proof" aria-label="Recorded project QA outcomes"><div><dt>16 states</dt><dd>Automated accessibility checks</dd></div><div><dt>3 cycles</dt><dd>Keyboard-only flow passed</dd></div><div><dt>200% zoom</dt><dd>Browser zoom check passed</dd></div></dl>
+          <details class="showroom-detail"><summary>Evidence and measurement limits</summary><p>QA results come from the project report. User comprehension and engagement gains were not measured; a real screen-reader sanity check remained recommended. Engineering figures visible in the screenshots describe the ventilation intervention, not an impact caused by the showroom. The airflow effects are explanatory animations, not a physical simulation.</p></details>
+        </section>
+
+        <section class="case-section reflection-section" id="showroom-reflection">
+          <div class="section-copy"><p class="case-kicker">Reflection</p><h2>Clarity is a system-wide decision.</h2><p>Narrative, camera behavior, engineering accuracy, and browser performance had to work together. Next, I would test whether non-engineers can explain energy recovery without air mixing and distinguish the heat pump&rsquo;s role.</p></div>
+          <a class="showroom-final-link" href="https://200-water-project.ruhl.workers.dev/" target="_blank" rel="noopener noreferrer">Explore the live 200 Water project &nearr;</a>
+        </section>
+      </div>
+    </div>
+    <section class="case-next-project next-project" aria-labelledby="showroom-next-title">
+      <div class="case-next-project__inner">
+        <p class="case-kicker">More industry work</p>
+        <h3 id="showroom-next-title">RUHL Ai Product</h3>
+        <p>Turning sustainability requirements into actionable product workflows.</p>
+        <a href="#case-ruhl" data-page="case-ruhl">View case study &rarr;</a>
+      </div>
+    </section>
+  </article>
+</section>

@@ -74,6 +74,11 @@
       "id": "case-mindle",
       "file": "case-mindle.html",
       "defaultVisible": false
+    },
+    {
+      "id": "case-showroom",
+      "file": "case-showroom.html",
+      "defaultVisible": false
     }
   ]
 }
