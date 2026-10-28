@@ -1,0 +1,66 @@
+.portfolio-assistant {
+  width: min(1000px, calc(100% - var(--space-12)));
+  height: min(780px, 80dvh);
+  max-height: 80dvh;
+  max-width: none;
+  padding: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-soft);
+  font: var(--type-body-md)/var(--leading-body) var(--font-sans);
+}
+.portfolio-assistant::backdrop { background: rgba(23, 34, 28, 0.42); }
+.portfolio-assistant[open] { display: flex; flex-direction: column; animation: assistant-enter 160ms ease-out; }
+body:has(.portfolio-assistant[open]) { overflow: hidden; }
+.assistant-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); padding: var(--space-6) var(--space-8); border-bottom: 1px solid var(--border-subtle); flex-shrink: 0; }
+.assistant-header h2 { margin: 0; font: normal var(--type-heading-sm)/var(--leading-heading) var(--font-display); }
+.assistant-header p { margin: var(--space-2) 0 0; color: var(--text-secondary); font-size: var(--type-body-sm); }
+.portfolio-assistant button, .portfolio-assistant textarea, .portfolio-assistant input { font: inherit; }
+.portfolio-assistant button { cursor: pointer; }
+.assistant-close { min-width: 44px; min-height: 44px; margin-top: -8px; border: 0; border-radius: var(--radius-sm); color: var(--text-primary); background: transparent; font-size: 1.5rem !important; }
+.assistant-scroll { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-8); min-height: 0; scrollbar-gutter: stable; }
+.assistant-intro { max-width: 640px; margin: var(--space-6) auto; }
+.assistant-intro h3 { margin: 0 0 var(--space-6); font: normal var(--type-heading-md) var(--font-display); }
+.assistant-starters { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.assistant-starters button, .assistant-action { padding: var(--space-3) var(--space-4); border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: transparent; color: var(--text-primary); text-align: left; }
+.assistant-starters button { min-height: 72px; }
+.assistant-starters button:hover, .assistant-action:hover, .assistant-close:hover { background: var(--surface-sage); }
+.assistant-turn { max-width: 720px; margin: 0 auto var(--space-8); }
+.assistant-question { width: fit-content; max-width: 90%; margin: 0 0 var(--space-6) auto; padding: var(--space-3) var(--space-4); border-radius: var(--radius-card); background: var(--surface-sage); white-space: pre-wrap; overflow-wrap: anywhere; }
+.assistant-answer p { margin: 0 0 var(--space-4); }
+.assistant-answer h3, .assistant-references h4 { margin: var(--space-6) 0 var(--space-2); font-size: var(--type-body-sm); font-weight: 600; }
+.assistant-references a { display: inline-flex; align-items: center; gap: var(--space-4); margin: 0 var(--space-3) var(--space-2) 0; padding: var(--space-2) var(--space-3); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); text-decoration: none; font-size: var(--type-body-sm); }
+.assistant-references a:hover { border-color: var(--accent-green); }
+.assistant-answer details { margin-top: var(--space-4); color: var(--text-secondary); font-size: var(--type-body-sm); }
+.assistant-answer summary { width: fit-content; padding-block: var(--space-2); color: var(--accent-green); cursor: pointer; }
+.assistant-answer details p { margin-top: var(--space-3); }
+.assistant-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+.assistant-action { font-size: var(--type-body-sm) !important; text-decoration: none; }
+.assistant-composer { flex-shrink: 0; padding: var(--space-4) var(--space-8); border-top: 1px solid var(--border-subtle); background: var(--surface); }
+.assistant-input-row { display: flex; align-items: center; gap: var(--space-3); border: 1px solid var(--border-default); border-radius: var(--radius-pill); padding: var(--space-2) var(--space-3) var(--space-2) var(--space-6); }
+.assistant-input-row input { flex: 1; width: 0; min-width: 0; border: 0; background: transparent; color: var(--text-primary); padding-block: var(--space-2); }
+.assistant-input-row button, .assistant-submit { min-width: 44px; min-height: 44px; border: 0; border-radius: var(--radius-pill); color: var(--text-inverse); background: var(--accent-green); }
+.assistant-input-row button:hover, .assistant-submit:hover { background: var(--accent-green-hover); }
+.assistant-notice { margin: var(--space-2) 0 0; color: var(--text-secondary); font-size: var(--type-caption); }
+.assistant-jd label { display: block; margin-bottom: var(--space-3); font-weight: 600; }
+.assistant-jd textarea { display: block; width: 100%; min-height: 220px; resize: vertical; padding: var(--space-4); border: 1px solid var(--border-default); border-radius: var(--radius-field); background: var(--bg-main); color: var(--text-primary); }
+.assistant-submit { padding: var(--space-2) var(--space-6); }
+.assistant-match-level { display: inline-block; padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); background: var(--surface-sage); }
+.assistant-strengths { list-style: none; padding: 0; }
+.assistant-strengths li { margin-block: var(--space-2); }
+.assistant-strengths li::before { content: '✓'; color: var(--accent-green); margin-right: var(--space-3); }
+.portfolio-assistant :is(button, a, input, textarea, summary):focus-visible { outline: 2px solid var(--accent-green); outline-offset: 4px; }
+.portfolio-assistant [hidden] { display: none !important; }
+@keyframes assistant-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 600px) {
+  .portfolio-assistant { width: 100%; height: 100dvh; max-height: 100dvh; margin: 0; border: 0; border-radius: 0; }
+  .assistant-header { padding: max(var(--space-4), env(safe-area-inset-top)) var(--space-4) var(--space-4); }
+  .assistant-scroll { padding: var(--space-6) var(--space-4); }
+  .assistant-starters { grid-template-columns: 1fr; }
+  .assistant-starters button { min-height: 56px; }
+  .assistant-composer { padding: var(--space-3) var(--space-4) max(var(--space-3), env(safe-area-inset-bottom)); }
+  .assistant-intro { margin-top: var(--space-2); }
+}
+@media (prefers-reduced-motion: reduce) { .portfolio-assistant[open] { animation: none; } }

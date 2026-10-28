@@ -4,3 +4,7 @@ Thumbs.db
 .agents/
 .chrome-test/
 .chrome-edge-test/
+.env*
+!.env.example
+.vercel/
+dist/

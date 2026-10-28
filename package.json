@@ -3,7 +3,10 @@
   "private": true,
   "scripts": {
     "check:case-studies": "node scripts/check-case-studies.js",
-    "start": "npx --yes serve .",
+    "start": "node scripts/dev-server.js",
+    "build": "node scripts/build-static.js",
+    "test:assistant": "node --test tests/portfolio-assistant.test.js",
+    "test:assistant:live": "node scripts/test-assistant-live.js",
     "pages:extract": "node scripts/extract-pages.js"
   }
 }

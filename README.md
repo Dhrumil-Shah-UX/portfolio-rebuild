@@ -1,6 +1,6 @@
 # Portfolio rebuild
 
-Static portfolio site (HTML, CSS, vanilla JavaScript). Use a local static server (`npm start`) so page templates can load.
+Portfolio site (HTML, CSS, vanilla JavaScript) with server-side Gemini API routes. Run `npm start` for the portfolio and local API. See [assistant setup](docs/portfolio-assistant.md) for environment variables, Vercel deployment, retrieval, analytics, and tests.
 
 ## Project layout
 

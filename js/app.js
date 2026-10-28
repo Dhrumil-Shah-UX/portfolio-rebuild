@@ -668,31 +668,11 @@ function bootstrapApp() {
     sequence.querySelector('[role="tablist"]').hidden = false;
   });
 
-  const portfolioAiForm = document.querySelector(".portfolio-ai-input");
-  const portfolioAiInput = document.querySelector("#portfolio-ai-query");
-  const suggestionButtons = [...document.querySelectorAll(".ai-suggestions button")];
+  window.initPortfolioAssistant();
   const caseSidebarLinks = [...document.querySelectorAll(".case-sidebar nav a")];
   const caseSections = caseSidebarLinks
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
-
-  if (portfolioAiForm) {
-    portfolioAiForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      portfolioAiInput?.focus();
-    });
-  }
-
-  suggestionButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      if (!portfolioAiInput) {
-        return;
-      }
-
-      portfolioAiInput.value = button.textContent.trim();
-      portfolioAiInput.focus();
-    });
-  });
 
   function setActiveCaseNavLink(activeLink) {
     caseSidebarLinks.forEach((sidebarLink) => {
