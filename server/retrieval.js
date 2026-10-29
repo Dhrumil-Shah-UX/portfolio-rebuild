@@ -18,6 +18,7 @@ function retrieve(question, history = [], jd = false) {
   // Blocking these claims also prevents matching a six-person project team to management.
   if (!jd && /manag(?:e|ed|ing)|direct reports|team of\s*\d|salary|visa|sponsor|native ios|\bswift\b/i.test(question)) return [];
   let query = question;
+  if (/^(?:how i work|how do you work|how does dhrumil work)[?.!\s]*$/i.test(question)) query += ' design process';
   const explicit = knowledge.filter((fact) => normalize(question).includes(normalize(fact.project)) || normalize(question).includes(normalize(fact.title.split(' · ')[0]))).map((fact) => fact.project);
   // Carry forward only a named project, never a client's unverified assistant text.
   if (!explicit.length && /\b(that|this|it|role|decision|testing|difficult|why|own)\b/i.test(question)) {

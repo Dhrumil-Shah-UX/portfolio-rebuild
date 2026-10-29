@@ -4,7 +4,9 @@ const fs = require('node:fs');
 const config = require('../server/config');
 const knowledge = require('../server/knowledge');
 const { retrieve } = require('../server/retrieval');
-const { createHandler, groundedResult, limited } = require('../server/portfolio-api');
+const { createHandler, groundedResult } = require('../server/portfolio-api');
+const { createProtection, createMemoryStore } = require('../server/abuse');
+const { createAnswerCache } = require('../server/answer-cache');
 const { generate } = require('../server/gemini');
 const { track } = require('../server/analytics');
 const id = '12345678-1234-4234-8234-123456789abc';
@@ -14,7 +16,9 @@ async function invoke(body, options = {}) {
   const events = []; let called = 0;
   const handler = createHandler(Boolean(options.jdMode), {
     generate: async (args) => { called++; if (options.error) throw new Error('QUOTA'); return options.reply ? options.reply(args) : raw([args.facts[0].id]); },
-    track: async (event) => events.push(event), limited: () => Boolean(options.rateLimit)
+    track: async (event) => events.push(event),
+    protection: options.rateLimit ? { attempts: async () => ({ allowed: false, reason: 'rate_limited', retryAfter: 60 }) } : options.protection || createProtection({ store: createMemoryStore() }),
+    cache: options.cache || createAnswerCache()
   });
   const req = { method: options.method || 'POST', headers: { 'content-type': 'application/json', host: 'portfolio.test', ...options.headers }, body, socket: { remoteAddress: '127.0.0.1' } };
   const res = { headers: {}, setHeader(key, value) { this.headers[key] = value; }, status(code) { this.code = code; return this; }, json(value) { this.body = value; return this; } };
@@ -67,11 +71,13 @@ test('Product Designer JD returns qualitative fit, verified projects, and eviden
 test('unrelated general knowledge questions never call the model', async () => {
   const result = await invoke({ question: 'What is the capital of France?' });
   assert.equal(result.called, 0);
-  assert.equal(result.body.insufficientEvidence, true);
+  assert.equal(result.body.offTopic, true);
+  assert.equal(result.body.answer, config.offTopic);
 });
 test('follow-up retrieval keeps the previously named project', () => {
   const facts = retrieve('Why did he make that decision?', [{ role: 'user', content: 'Tell me about TrialBridge' }]);
   assert.ok(facts.some((fact) => fact.project === 'trialbridge'));
+  assert.ok(retrieve('How I work').some((fact) => fact.tags.includes('process')));
 });
 test('invalid citation IDs cannot create evidence links', () => {
   assert.throws(() => groundedResult(raw(['nonexistent']), knowledge, false, 'test'), /INVALID_RESPONSE/);
@@ -89,8 +95,8 @@ test('JD requirements must be actual excerpts, not model-invented requirements',
   assert.throws(() => groundedResult(raw(['trial-overview'], { requirements: [{ text: 'Invented requirement', factIds: [] }] }), knowledge, true, jd), /INVALID_RESPONSE/);
 });
 test('invalid inputs, attachments, overlong inputs, and malformed JSON fail safely', async () => {
-  for (const body of [{ question: '' }, { question: 'x'.repeat(2001) }, { question: ['hello'] }, { question: 'hello', file: 'attachment.pdf' }, '{broken']) assert.equal((await invoke(body)).code, 400);
-  assert.equal((await invoke({ jobDescription: 'x'.repeat(20001) }, { jdMode: true })).code, 400);
+  for (const body of [{ question: '' }, { question: 'x'.repeat(1501) }, { question: ['hello'] }, { question: 'hello', file: 'attachment.pdf' }, '{broken']) assert.equal((await invoke(body)).code, 400);
+  assert.equal((await invoke({ jobDescription: 'x'.repeat(12001) }, { jdMode: true })).code, 400);
 });
 test('method, content type, origin, and rate-limit protections are enforced', async () => {
   assert.equal((await invoke({}, { method: 'GET' })).code, 405);
@@ -99,15 +105,13 @@ test('method, content type, origin, and rate-limit protections are enforced', as
   const result = await invoke({ question: 'healthcare' }, { rateLimit: true });
   assert.equal(result.code, 429);
   assert.equal(result.headers['Retry-After'], '60');
-  for (let i = 0; i < 12; i++) assert.equal(limited({ headers: {}, socket: { remoteAddress: 'test-address' } }), false);
-  assert.equal(limited({ headers: {}, socket: { remoteAddress: 'test-address' } }), true);
 });
 test('Gemini quota failure returns friendly fallback links rather than invented answers', async () => {
   const result = await invoke({ question: 'Healthcare experience?' }, { error: true });
   assert.equal(result.code, 503);
-  assert.match(result.body.error, /usage limit/);
+  assert.equal(result.body.error, config.unavailable);
   assert.ok(result.body.evidence.length);
-  assert.equal(result.events[0].outcome, 'api_error');
+  assert.equal(result.events[0].outcome, 'provider_failure');
 });
 test('Gemini request includes only selected evidence, uses server key and structured output', async () => {
   const oldFetch = global.fetch; const oldKey = process.env.GEMINI_API_KEY;
@@ -117,6 +121,7 @@ test('Gemini request includes only selected evidence, uses server key and struct
       assert.ok(!url.includes(process.env.GEMINI_API_KEY));
       assert.equal(options.headers['x-goog-api-key'], process.env.GEMINI_API_KEY);
       const payload = JSON.parse(options.body);
+      assert.ok(!JSON.stringify(payload).includes(process.env.GEMINI_API_KEY));
       const data = JSON.parse(payload.contents[0].parts[0].text);
       assert.equal(data.evidence.length, 1);
       assert.ok(!JSON.stringify(data).includes('Mindle'));

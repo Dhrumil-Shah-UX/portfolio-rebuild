@@ -1,7 +1,7 @@
 // Never log a pasted JD, IP address, provider response, or credential.
 async function track(event) {
   if (process.env.ANALYTICS_ENABLED === 'false') return;
-  const row = { session_id: event.sessionId, timestamp: new Date().toISOString(), question: event.jdMode || process.env.ANALYTICS_STORE_QUESTIONS === 'false' ? null : event.question, category: event.category, retrieved_projects: [...new Set(event.facts.map((fact) => fact.project))], outcome: event.outcome, jd_mode: event.jdMode };
+  const row = { session_id: event.sessionId, timestamp: new Date().toISOString(), question: null, request_type: event.requestType || (event.jdMode ? 'jd' : 'chat'), category: event.category, retrieved_projects: [...new Set(event.facts.map((fact) => fact.project))], outcome: event.outcome, jd_mode: event.jdMode };
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) { console.info(JSON.stringify({ event: 'portfolio_assistant', ...row })); return; }

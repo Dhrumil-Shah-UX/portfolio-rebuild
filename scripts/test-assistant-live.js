@@ -11,7 +11,7 @@ const { createHandler } = require('../server/portfolio-api');
 const config = require('../server/config');
 const questions = ['What healthcare experience does Dhrumil have?', 'What did Dhrumil own in TrialBridge?', 'What technical projects has Dhrumil worked on?', 'Has Dhrumil managed a team of 20 designers?'];
 async function call(jdMode, body) {
-  const handler = createHandler(jdMode, { track: async () => {}, limited: () => false });
+  const handler = createHandler(jdMode, { track: async () => {} });
   const req = { method: 'POST', headers: { 'content-type': 'application/json' }, body };
   const res = { setHeader() {}, status(code) { this.code = code; return this; }, json(value) { this.body = value; return this; } };
   await handler(req, res);

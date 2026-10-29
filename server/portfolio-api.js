@@ -1,23 +1,13 @@
-const { createHash, randomUUID } = require('node:crypto');
+const { randomUUID } = require('node:crypto');
 const config = require('./config');
 const { retrieve, tokens, category } = require('./retrieval');
 const { generate } = require('./gemini');
 const { track } = require('./analytics');
-const buckets = new Map();
-let total = { count: 0, reset: 0 };
-function limited(req) {
-  const now = Date.now();
-  for (const [key, entry] of buckets) if (entry.reset < now) buckets.delete(key);
-  if (total.reset < now) total = { count: 0, reset: now + config.rateWindowMs };
-  total.count += 1;
-  if (total.count > 120) return true;
-  const ip = String(req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown').split(',')[0].trim();
-  const key = createHash('sha256').update(ip).digest('hex');
-  const bucket = buckets.get(key) || { count: 0, reset: now + config.rateWindowMs };
-  bucket.count += 1;
-  buckets.set(key, bucket);
-  return bucket.count > config.rateLimit;
-}
+const { classify } = require('./scope');
+const { createProtection, identity, requestHash, uuid } = require('./abuse');
+const { createAnswerCache, commonKey } = require('./answer-cache');
+const protection = createProtection();
+const answerCache = createAnswerCache();
 function clean(value, max) {
   if (typeof value !== 'string' || value.length > max) throw new Error('INPUT');
   return value.replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, '').trim();
@@ -106,19 +96,44 @@ function groundedResult(raw, facts, jdMode, question) {
 function createHandler(jdMode, dependencies = {}) {
   const provider = dependencies.generate || generate;
   const analytics = dependencies.track || track;
-  const rateLimited = dependencies.limited || limited;
+  const guard = dependencies.protection || protection;
+  const cache = dependencies.cache || answerCache;
   return async function handler(req, res) {
     res.setHeader('Cache-Control', 'no-store');
     res.setHeader('X-Content-Type-Options', 'nosniff');
-    const send = (code, data) => res.status(code).json(data);
-    if (req.method !== 'POST') { res.setHeader('Allow', 'POST'); return send(405, { error: 'Use POST for portfolio questions.' }); }
-    if (!/^application\/json\b/i.test(req.headers['content-type'] || '')) return send(415, { error: 'Please send text as JSON.' });
+    const candidate = req.headers['x-portfolio-session'] || req.body?.sessionId;
+    let sessionId = typeof candidate === 'string' && uuid.test(candidate) ? candidate : randomUUID();
+    let id = identity(req, sessionId), facts = [], usage, usageConsumed = false;
+    let question = '', history = [], requestCategory = jdMode ? 'jd_match' : 'validation';
+    const send = async (code, data, outcome) => {
+      await Promise.resolve().then(() => analytics({ sessionId, category: requestCategory, facts, outcome, jdMode, requestType: jdMode ? 'jd' : 'chat' })).catch(() => {});
+      return res.status(code).json({ ...data, ...(usage ? { usage } : {}), usageConsumed });
+    };
+    const fallback = (outcome = 'provider_failure') => send(503, { error: config.unavailable, retryable: true, evidence: evidenceFor(facts.slice(0, 3)), hasMoreDetail: false, insufficientEvidence: false }, outcome);
+    const deny = (result) => {
+      const messages = {
+        duplicate: 'This question is already being processed or was just answered. Please wait a moment before trying again.',
+        rate_limited: 'AI usage is temporarily limited. Please try again a little later; you can still explore the portfolio.',
+        browser_chat_limit: 'Your AI questions are temporarily limited for this 24-hour period. You can still explore the portfolio directly.',
+        browser_jd_limit: 'Your JD analyses are temporarily limited for this 24-hour period. You can still explore the portfolio directly.',
+        global_limit: 'AI assistant usage limit reached. You can still explore the portfolio directly.'
+      };
+      const browser = result.reason?.startsWith('browser_');
+      if (browser) {
+        const mode = result.reason === 'browser_jd_limit' ? 'jd' : 'chat';
+        usage = { ...(usage || {}), [mode]: { remaining: 0, limit: mode === 'jd' ? config.limits.jdDay : config.limits.chatDay, resetAt: Date.now() + result.retryAfter * 1000 } };
+      }
+      res.setHeader('Retry-After', String(result.retryAfter || 60));
+      return send(result.reason === 'duplicate' ? 409 : 429, { error: messages[result.reason] || config.unavailable, limitReason: result.reason, retryable: true }, browser ? 'browser_limited' : result.reason === 'global_limit' ? 'global_limited' : result.reason === 'duplicate' ? 'duplicate' : 'rate_limited');
+    };
+    if (req.method !== 'POST') { res.setHeader('Allow', 'POST'); return send(405, { error: 'Use POST for portfolio questions.' }, 'invalid_input'); }
+    try { const attempt = await guard.attempts(id); if (!attempt.allowed) return deny(attempt); }
+    catch { return fallback('guard_unavailable'); }
+    if (!/^application\/json\b/i.test(req.headers['content-type'] || '')) return send(415, { error: 'Please send text as JSON.' }, 'invalid_input');
     if (req.headers.origin) {
-      try { if (new URL(req.headers.origin).host !== req.headers.host) return send(403, { error: 'Please use the assistant on the portfolio website.' }); }
-      catch { return send(403, { error: 'Invalid request origin.' }); }
+      try { if (new URL(req.headers.origin).host !== req.headers.host) return send(403, { error: 'Please use the assistant on the portfolio website.' }, 'invalid_input'); }
+      catch { return send(403, { error: 'Invalid request origin.' }, 'invalid_input'); }
     }
-    if (rateLimited(req)) { res.setHeader('Retry-After', '60'); return send(429, { error: 'A few too many questions at once. Please try again in a minute.', retryable: true }); }
-    let question, sessionId, history;
     try {
       const body = await bodyOf(req);
       if (Object.keys(body).some((key) => !['question', 'jobDescription', 'history', 'sessionId'].includes(key))) throw new Error('INPUT');
@@ -127,27 +142,46 @@ function createHandler(jdMode, dependencies = {}) {
       if (body.history !== undefined && (!Array.isArray(body.history) || body.history.length > 8)) throw new Error('INPUT');
       history = (body.history || []).map((item) => {
         if (!item || !['user', 'assistant'].includes(item.role)) throw new Error('INPUT');
-        return { role: item.role, content: clean(item.content, config.maxQuestion).slice(0, 600) };
+        return { role: item.role, content: clean(item.content, config.maxQuestion).slice(0, 500) };
       });
-      sessionId = typeof body.sessionId === 'string' && /^[a-f0-9-]{36}$/i.test(body.sessionId) ? body.sessionId : randomUUID();
-    } catch { return send(400, { error: `Please enter ${jdMode ? 'a job description up to 20,000' : 'a question up to 2,000'} characters.` }); }
-    const facts = retrieve(question, history, jdMode);
-    let result, code = 200;
-    try { result = facts.length ? groundedResult(await provider({ question, history, facts, jdMode }), facts, jdMode, question) : insufficient(jdMode); }
-    catch (error) {
-      code = 503;
-      const messages = {
-        MISSING_API_KEY: 'The portfolio assistant is not configured yet. Please explore the portfolio directly for now.',
-        AUTH: 'The portfolio assistant could not connect to its AI provider. Please explore the portfolio directly for now.',
-        MODEL_UNAVAILABLE: 'The portfolio assistant needs a model configuration update. Please try again later.',
-        QUOTA: 'The portfolio assistant has reached its AI usage limit. Please try again later or explore the linked work.'
-      };
-      const safeCode = ['MISSING_API_KEY', 'AUTH', 'MODEL_UNAVAILABLE', 'QUOTA', 'INVALID_REQUEST', 'INVALID_RESPONSE'].includes(error.message) ? error.message : 'UNAVAILABLE';
-      console.warn('Portfolio assistant request failed:', safeCode);
-      result = { error: messages[safeCode] || 'The portfolio assistant is temporarily unavailable. Please try again shortly, or explore the linked work.', retryable: true, evidence: evidenceFor(facts.slice(0, 3)), suggestedFollowUps: [], hasMoreDetail: false, insufficientEvidence: false };
+      if (!req.headers['x-portfolio-session'] && typeof body.sessionId === 'string' && uuid.test(body.sessionId)) sessionId = body.sessionId;
+      id = identity(req, sessionId);
+      history = history.slice(-4);
+      requestCategory = jdMode ? 'jd_match' : category(question);
+    } catch { return send(400, { error: `Please enter ${jdMode ? 'a job description up to 12,000' : 'a question up to 1,500'} characters.` }, 'invalid_input'); }
+    try {
+      const allowance = await guard.usage(id, requestHash(question, history, jdMode), jdMode);
+      if (!allowance.allowed) return deny(allowance);
+      usage = allowance.usage;
+      usageConsumed = true;
+    } catch { return fallback('guard_unavailable'); }
+    const scope = classify(question, history, jdMode);
+    const injectedHistory = history.some((item) => classify(item.content, [], false) === 'prompt_injection');
+    if (scope !== 'portfolio' || injectedHistory) {
+      return send(200, { answer: config.offTopic, evidence: [], suggestedFollowUps: [], hasMoreDetail: false, insufficientEvidence: false, offTopic: true }, scope === 'prompt_injection' || injectedHistory ? 'prompt_injection' : 'off_topic');
     }
-    await analytics({ sessionId, question, category: jdMode ? 'jd_match' : category(question), facts, outcome: code !== 200 ? 'api_error' : result.insufficientEvidence ? 'insufficient_evidence' : 'answered', jdMode }).catch(() => {});
-    return send(code, result);
+    facts = retrieve(question, history, jdMode);
+    const key = commonKey(question, history, jdMode);
+    const cached = cache.get(key);
+    if (cached) return send(200, cached, cached.insufficientEvidence ? 'insufficient_evidence' : 'answered');
+    if (!facts.length) {
+      const result = insufficient(jdMode);
+      cache.set(key, result);
+      return send(200, result, 'insufficient_evidence');
+    }
+    try {
+      const reserved = await guard.gemini(id);
+      if (!reserved.allowed) return deny(reserved);
+    } catch { return fallback('guard_unavailable'); }
+    let result;
+    try { result = groundedResult(await provider({ question, history, facts, jdMode }), facts, jdMode, question); }
+    catch (error) {
+      const safeCode = ['MISSING_API_KEY', 'AUTH', 'MODEL_UNAVAILABLE', 'QUOTA', 'INVALID_REQUEST', 'INVALID_RESPONSE'].includes(error?.message) ? error.message : 'UNAVAILABLE';
+      console.warn('Portfolio assistant request failed:', safeCode);
+      return fallback();
+    }
+    cache.set(key, result);
+    return send(200, result, result.insufficientEvidence ? 'insufficient_evidence' : 'answered');
   };
 }
-module.exports = { createHandler, groundedResult, insufficient, limited };
+module.exports = { createHandler, groundedResult, insufficient };

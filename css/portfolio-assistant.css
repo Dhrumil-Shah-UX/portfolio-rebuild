@@ -19,6 +19,7 @@ body:has(.portfolio-assistant[open]) { overflow: hidden; }
 .assistant-header p { margin: var(--space-2) 0 0; color: var(--text-secondary); font-size: var(--type-body-sm); }
 .portfolio-assistant button, .portfolio-assistant textarea, .portfolio-assistant input { font: inherit; }
 .portfolio-assistant button { cursor: pointer; }
+.portfolio-assistant button:disabled { cursor: not-allowed; opacity: 0.55; }
 .assistant-close { min-width: 44px; min-height: 44px; margin-top: -8px; border: 0; border-radius: var(--radius-sm); color: var(--text-primary); background: transparent; font-size: 1.5rem !important; }
 .assistant-scroll { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-8); min-height: 0; scrollbar-gutter: stable; }
 .assistant-intro { max-width: 640px; margin: var(--space-6) auto; }

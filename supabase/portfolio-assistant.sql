@@ -4,8 +4,9 @@ create table if not exists public.portfolio_assistant_events (
   timestamp timestamptz not null default now(),
   question text,
   category text not null,
+  request_type text not null default 'chat',
   retrieved_projects text[] not null default '{}',
-  outcome text not null check (outcome in ('answered', 'insufficient_evidence', 'api_error')),
+  outcome text not null check (outcome in ('answered', 'off_topic', 'prompt_injection', 'rate_limited', 'browser_limited', 'global_limited', 'duplicate', 'invalid_input', 'insufficient_evidence', 'provider_failure', 'guard_unavailable', 'api_error')),
   jd_mode boolean not null default false,
   constraint jd_text_not_stored check (not jd_mode or question is null)
 );
