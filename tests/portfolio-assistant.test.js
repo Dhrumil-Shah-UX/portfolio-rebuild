@@ -29,10 +29,11 @@ async function invoke(body, options = {}) {
 test('requested healthcare question retrieves and returns healthcare evidence only', async () => {
   const result = await invoke({ question: 'What healthcare experience does Dhrumil have?', sessionId: id });
   assert.equal(result.code, 200);
-  assert.match(result.body.answer, /academic healthcare/);
+  assert.match(result.body.answer, /Mayo Clinic apprenticeship/);
   assert.ok(result.body.evidence.every((item) => item.url === '#case-trial'));
   assert.equal(result.body.insufficientEvidence, false);
-  assert.equal(result.events[0].category, 'healthcare');
+  assert.equal(result.events[0].category, 'common-answer:healthcare-experience');
+  assert.equal(result.called, 0);
 });
 test('requested TrialBridge ownership preserves personal versus team scope', async () => {
   const result = await invoke({ question: 'What did Dhrumil own in TrialBridge?' });

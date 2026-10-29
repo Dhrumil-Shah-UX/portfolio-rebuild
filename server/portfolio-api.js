@@ -6,6 +6,7 @@ const { track } = require('./analytics');
 const { classify } = require('./scope');
 const { createProtection, identity, requestHash, uuid } = require('./abuse');
 const { createAnswerCache, commonKey } = require('./answer-cache');
+const { matchCommonAnswer, commonResponse } = require('./common-answers');
 const protection = createProtection();
 const answerCache = createAnswerCache();
 function clean(value, max) {
@@ -106,7 +107,7 @@ function createHandler(jdMode, dependencies = {}) {
     let id = identity(req, sessionId), facts = [], usage, usageConsumed = false;
     let question = '', history = [], requestCategory = jdMode ? 'jd_match' : 'validation';
     const send = async (code, data, outcome) => {
-      await Promise.resolve().then(() => analytics({ sessionId, category: requestCategory, facts, outcome, jdMode, requestType: jdMode ? 'jd' : 'chat' })).catch(() => {});
+      await Promise.resolve().then(() => analytics({ sessionId, category: requestCategory, facts, outcome, jdMode, source: data.source, requestType: jdMode ? 'jd' : 'chat' })).catch(() => {});
       return res.status(code).json({ ...data, ...(usage ? { usage } : {}), usageConsumed });
     };
     const fallback = (outcome = 'provider_failure') => send(503, { error: config.unavailable, retryable: true, evidence: evidenceFor(facts.slice(0, 3)), hasMoreDetail: false, insufficientEvidence: false }, outcome);
@@ -149,14 +150,20 @@ function createHandler(jdMode, dependencies = {}) {
       history = history.slice(-4);
       requestCategory = jdMode ? 'jd_match' : category(question);
     } catch { return send(400, { error: `Please enter ${jdMode ? 'a job description up to 12,000' : 'a question up to 1,500'} characters.` }, 'invalid_input'); }
+    const scope = classify(question, history, jdMode);
+    const injectedHistory = history.some((item) => classify(item.content, [], false) === 'prompt_injection');
+    const common = !jdMode && scope !== 'prompt_injection' && !injectedHistory && matchCommonAnswer(question);
+    if (common) {
+      requestCategory = `common-answer:${common.id}`;
+      facts = common.evidence.map(item => ({ project: item.url.slice(1) }));
+      return send(200, commonResponse(common), 'answered');
+    }
     try {
       const allowance = await guard.usage(id, requestHash(question, history, jdMode), jdMode);
       if (!allowance.allowed) return deny(allowance);
       usage = allowance.usage;
       usageConsumed = true;
     } catch { return fallback('guard_unavailable'); }
-    const scope = classify(question, history, jdMode);
-    const injectedHistory = history.some((item) => classify(item.content, [], false) === 'prompt_injection');
     if (scope !== 'portfolio' || injectedHistory) {
       return send(200, { answer: config.offTopic, evidence: [], suggestedFollowUps: [], hasMoreDetail: false, insufficientEvidence: false, offTopic: true }, scope === 'prompt_injection' || injectedHistory ? 'prompt_injection' : 'off_topic');
     }

@@ -35,6 +35,66 @@ safe messages without provider details (400/403/405/409/415/429/503).
 
 ## Retrieval and grounding
 
+### Curated common questions
+
+`server/common-answers.js` is the single maintenance file for the 18 approved
+answers, canonical questions, alternate complete phrases, evidence links, tags,
+intent, and follow-up IDs. Edit that file to add a phrasing or update an answer.
+Follow-up IDs resolve to the canonical questions in the same file.
+
+Matching lowercases text, removes simple punctuation and apostrophes, collapses
+whitespace, and compares the entire normalized question to the approved phrases.
+There is no keyword, substring, fuzzy, or model-based classification. Additional
+conditions, compound questions, negation, and contextual references do not match
+unless explicitly curated; they continue through the existing scope, retrieval,
+cache, and Gemini flow. Unrelated, unsafe, or unsupported requests still receive
+the existing safe response instead of necessarily calling Gemini.
+
+After input/origin validation and injection screening, chat matches return the
+UI's normal answer/evidence/follow-up fields plus `source: "common-answer"` and
+`usageConsumed: false`. They skip retrieval, browser allowance reservations,
+duplicate reservations, and Gemini/global quota reservations. Raw attempt limits
+still apply. The browser refunds its temporary reservation, and can submit common
+questions even when its AI allowance is exhausted. Free-form questions still face
+the server's existing allowance checks; JD matching keeps its separate flow.
+Analytics records `source` in the handler event and persists
+`category: "common-answer:<id>"` using the existing analytics schema, with outcome
+`answered`; no schema migration is needed and no question text is stored.
+
+Canonical IDs, in question order:
+
+1. `designer-profile`
+2. `strongest-projects`
+3. `role-fit`
+4. `designer-difference`
+5. `project-ownership`
+6. `design-process`
+7. `research-experience`
+8. `healthcare-experience`
+9. `trialbridge`
+10. `technical-skills`
+11. `virtual-showroom`
+12. `ai-workflow`
+13. `ai-projects`
+14. `ai-philosophy`
+15. `accessibility`
+16. `teamwork`
+17. `tools`
+18. `first-project`
+
+Examples: “Can he code?” maps to `technical-skills`, “Tell me about his Mayo
+work” to `healthcare-experience`, “How does he use AI?” to `ai-workflow`, and
+“Show me his AI projects” to `ai-projects`. “Can he code in Rust?” does not
+match the broad technical answer. “How did physician feedback change TrialBridge
+onboarding?” continues through retrieval and Gemini.
+
+The four visible assistant starter prompts are the designer overview, strongest
+healthcare work, AI workflow, and technical work. The hero suggestions use those
+same four questions with the existing button styling. Typing a JD request still opens the
+existing separate JD form.
+
+### Retrieved free-form answers
+
 server/knowledge.js contains reviewed statements, source page paths, real internal
 URLs, project IDs, and tags. Update it with portfolio changes. Ownership boundaries
 and academic context are explicit. TODOs and unreviewed copy are excluded.
@@ -81,7 +141,9 @@ but does not disable abuse counters. Choose retention for your table/log provide
 Shared usage tables store only HMAC identifiers, counters' timestamps and duplicate
 hashes; expired entries are pruned on each guard transaction.
 
-Input is transmitted to Google Gemini. Portfolio analytics settings do not control
+Free-form input and JDs can be transmitted to Google Gemini. Curated common
+questions are answered on the portfolio server without contacting Gemini.
+Portfolio analytics settings do not control
 Google processing/retention. The UI discloses JD transmission and advises against
 confidential information.
 
@@ -121,7 +183,8 @@ their context. Changes in IP cannot bypass a session limit; new session IDs cann
 bypass the IP limit. These are v1 anonymous controls, not proof of a unique person.
 
 The browser stores only a stable UUID, rolling timestamps and allowance snapshots
-in localStorage. It disables submit while pending or exhausted, shows helper text
+in localStorage. It disables submit while pending and JD submit when exhausted,
+keeps chat available for curated questions, shows helper text
 only at three chat questions or one JD analysis remaining, and retains Work/Resume
 links. JD and chat quotas are independent. Storage failures fall back to page
 memory, while server checks still apply. Reloading does not reset localStorage.

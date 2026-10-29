@@ -5,7 +5,7 @@
     "check:case-studies": "node scripts/check-case-studies.js",
     "start": "node scripts/dev-server.js",
     "build": "node scripts/build-static.js",
-    "test:assistant": "node --test tests/portfolio-assistant.test.js tests/assistant-protection.test.js",
+    "test:assistant": "node --test tests/portfolio-assistant.test.js tests/assistant-protection.test.js tests/common-answers.test.js",
     "test:assistant:live": "node scripts/test-assistant-live.js",
     "pages:extract": "node scripts/extract-pages.js"
   }

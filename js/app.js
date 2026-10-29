@@ -415,20 +415,219 @@ function bootstrapApp() {
   appBootstrapped = true;
   initGameVideos();
 
+  const photoViewport = document.querySelector(".about-photo-viewport");
+  if (photoViewport) {
+    const wall = photoViewport.querySelector(".about-photo-wall");
+    const originals = [...wall.children];
+    const tiles = originals.map((tile, index) => ({ tile, index, cx: 0, cy: 0 }));
+    // Neighboring copies let the compact plane repeat without visible wrap jumps.
+    for (let cy = -1; cy <= 1; cy++) {
+      for (let cx = -1; cx <= 1; cx++) {
+        if (!cx && !cy) continue;
+        originals.forEach((original, index) => {
+          const tile = original.cloneNode(true);
+          tile.tabIndex = -1;
+          tile.setAttribute("aria-hidden", "true");
+          wall.append(tile);
+          tiles.push({ tile, index, cx, cy });
+        });
+      }
+    }
+    tiles.forEach(({ tile }) => {
+      tile.draggable = false;
+      tile.querySelector("img").draggable = false;
+    });
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    let panX = 0, panY = 0, targetX = 0, targetY = 0;
+    let velocityX = 0, velocityY = 0, joystickX = 0, joystickY = 0;
+    let drag = null, suppressClick = false, frame = 0, lastFrame = 0;
+    const wrap = (value, span) => ((value % span) + span) % span;
+    function paintWall() {
+      const viewWidth = photoViewport.clientWidth, viewHeight = photoViewport.clientHeight;
+      if (!viewWidth) return;
+      const mobile = viewWidth <= 640;
+      // Reserve each photograph's full rotated bounds, keeping the same close gaps
+      // as the images grow. A larger repeat area also reduces visible duplicates.
+      const gapX = mobile ? 48 : 64, gapY = mobile ? 32 : 40;
+      const angle = 2 * Math.PI / 180;
+      const sizes = originals.map((tile, index) => {
+        const image = tile.querySelector("img");
+        const width = parseFloat(tile.style.getPropertyValue("--w")) * (mobile ? .972 : 1.35);
+        const height = (width - 6) * Number(image.getAttribute("height")) / Number(image.getAttribute("width")) + 6;
+        const rotated = index % 3 !== 1;
+        const boundWidth = rotated ? width * Math.cos(angle) + height * Math.sin(angle) : width;
+        const boundHeight = rotated ? height * Math.cos(angle) + width * Math.sin(angle) : height;
+        return { width, height, boundWidth, boundHeight };
+      });
+      const columns = Array.from({ length: 4 }, (_, col) => Math.max(...sizes.filter((_, i) => i % 4 === col).map(size => size.boundWidth)));
+      const rows = Array.from({ length: 3 }, (_, row) => Math.max(...sizes.slice(row * 4, row * 4 + 4).map(size => size.boundHeight)));
+      const periodX = columns.reduce((sum, width) => sum + width + gapX, 0);
+      const periodY = rows.reduce((sum, height) => sum + height + gapY, 0);
+      wall.style.width = `${viewWidth}px`;
+      wall.style.height = `${viewHeight}px`;
+      tiles.forEach(({ tile, index, cx, cy }) => {
+        const col = index % 4, row = Math.floor(index / 4), size = sizes[index];
+        const x = columns.slice(0, col).reduce((sum, width) => sum + width + gapX, 0) + (columns[col] - size.boundWidth) / 2;
+        const y = rows.slice(0, row).reduce((sum, height) => sum + height + gapY, 0) + (rows[row] - size.boundHeight) * [0, .6, .25, .9][col];
+        const left = viewWidth / 2 + wrap(x + panX + periodX / 2, periodX) - periodX / 2 + cx * periodX;
+        const top = viewHeight / 2 + wrap(y + panY + periodY / 2, periodY) - periodY / 2 + cy * periodY;
+        tile.style.left = `${left + (size.boundWidth - size.width) / 2}px`;
+        tile.style.top = `${top + (size.boundHeight - size.height) / 2}px`;
+        // Keep neighboring copies out of rendering until they reach an edge.
+        tile.style.visibility = (cx || cy) && (left + size.boundWidth < -24 || left > viewWidth + 24 || top + size.boundHeight < -24 || top > viewHeight + 24) ? "hidden" : "visible";
+      });
+    }
+
+    function tick(now) {
+      frame = 0;
+      const dt = Math.min(32, Math.max(1, now - (lastFrame || now - 16)));
+      lastFrame = now;
+      if (!drag) {
+        if (joystickX || joystickY) {
+          velocityX += (joystickX * .65 - velocityX) * (1 - Math.exp(-dt / 90));
+          velocityY += (joystickY * .65 - velocityY) * (1 - Math.exp(-dt / 90));
+        } else {
+          const decay = Math.exp(-dt / 210);
+          velocityX *= decay; velocityY *= decay;
+        }
+        targetX += velocityX * dt; targetY += velocityY * dt;
+      }
+      const follow = reducedMotion.matches ? 1 : 1 - Math.exp(-dt / 44);
+      panX += (targetX - panX) * follow;
+      panY += (targetY - panY) * follow;
+      paintWall();
+      if (Math.hypot(targetX - panX, targetY - panY) > .1 || Math.hypot(velocityX, velocityY) > .003 || joystickX || joystickY) {
+        frame = requestAnimationFrame(tick);
+      } else { panX = targetX; panY = targetY; velocityX = velocityY = 0; lastFrame = 0; paintWall(); }
+    }
+    function move() {
+      if (reducedMotion.matches && !joystickX && !joystickY) {
+        velocityX = velocityY = 0; panX = targetX; panY = targetY; paintWall();
+      } else if (!frame) { lastFrame = 0; frame = requestAnimationFrame(tick); }
+    }
+    function stop() {
+      cancelAnimationFrame(frame); frame = 0; lastFrame = 0;
+      velocityX = velocityY = 0; targetX = panX; targetY = panY;
+    }
+    photoViewport.addEventListener("dragstart", (event) => event.preventDefault(), true);
+    photoViewport.addEventListener("pointerdown", (event) => {
+      if (!event.isPrimary || (event.pointerType === "mouse" && event.button !== 0)) return;
+      if (event.pointerType === "mouse") event.preventDefault();
+      stop();
+      drag = { id: event.pointerId, x: event.clientX, y: event.clientY, px: panX, py: panY,
+        lastX: event.clientX, lastY: event.clientY, time: performance.now(), vx: 0, vy: 0, moved: false };
+      suppressClick = false;
+    });
+    photoViewport.addEventListener("pointermove", (event) => {
+      if (!drag || drag.id !== event.pointerId) return;
+      const dx = event.clientX - drag.x, dy = event.clientY - drag.y;
+      if (!drag.moved && Math.hypot(dx, dy) < 6) return;
+      if (!drag.moved) photoViewport.setPointerCapture(event.pointerId);
+      drag.moved = true;
+      photoViewport.classList.add("is-dragging");
+      const now = performance.now(), dt = Math.max(8, now - drag.time);
+      drag.vx = Math.max(-1.8, Math.min(1.8, (event.clientX - drag.lastX) / dt));
+      drag.vy = Math.max(-1.8, Math.min(1.8, (event.clientY - drag.lastY) / dt));
+      drag.lastX = event.clientX; drag.lastY = event.clientY; drag.time = now;
+      targetX = drag.px + dx; targetY = drag.py + dy;
+      move();
+    });
+    function endDrag(event) {
+      if (!drag) return;
+      suppressClick = drag.moved;
+      if (drag.moved && event.type === "pointerup" && !reducedMotion.matches && performance.now() - drag.time < 90) {
+        velocityX = drag.vx; velocityY = drag.vy;
+      }
+      drag = null;
+      photoViewport.classList.remove("is-dragging");
+      move();
+    }
+    photoViewport.addEventListener("pointerup", endDrag);
+    photoViewport.addEventListener("pointercancel", endDrag);
+    photoViewport.addEventListener("lostpointercapture", endDrag);
+    window.addEventListener("pointerup", endDrag);
+    photoViewport.addEventListener("click", (event) => {
+      if (suppressClick && event.detail !== 0) { event.preventDefault(); event.stopPropagation(); suppressClick = false; }
+      else stop();
+    }, true);
+    photoViewport.addEventListener("keydown", (event) => {
+      if (event.target !== photoViewport) return;
+      const moves = { ArrowLeft: [96, 0], ArrowRight: [-96, 0], ArrowUp: [0, 96], ArrowDown: [0, -96] };
+      if (!moves[event.key]) return;
+      event.preventDefault(); velocityX = velocityY = 0;
+      targetX += moves[event.key][0]; targetY += moves[event.key][1]; move();
+    });
+    const joystick = document.querySelector(".about-photo-joystick");
+    function steer(x, y) {
+      if (reducedMotion.matches && !x && !y) stop();
+      joystickX = x; joystickY = y;
+      joystick.style.setProperty("--stick-x", `${-x * 12}px`);
+      joystick.style.setProperty("--stick-y", `${-y * 12}px`);
+      move();
+    }
+    joystick.addEventListener("pointermove", (event) => {
+      if (event.pointerType === "touch" || event.target.closest("[data-pan]")) return;
+      const rect = joystick.getBoundingClientRect();
+      const x = (event.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+      const y = (event.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+      const length = Math.max(1, Math.hypot(x, y));
+      steer(Math.abs(x) < .14 ? 0 : -x / length, Math.abs(y) < .14 ? 0 : -y / length);
+    });
+    joystick.addEventListener("pointerleave", () => steer(0, 0));
+    joystick.querySelectorAll("[data-pan]").forEach((button) => {
+      const [x, y] = button.dataset.pan.split(",").map(Number);
+      button.addEventListener("pointerenter", (event) => { if (event.pointerType !== "touch") steer(x, y); });
+      button.addEventListener("pointerleave", () => steer(0, 0));
+      button.addEventListener("click", () => { targetX += x * 96; targetY += y * 96; move(); });
+    });
+    document.querySelector("[data-photo-reset]").addEventListener("click", () => {
+      stop(); steer(0, 0); targetX = targetY = 0; move();
+    });
+    originals.forEach((tile) => tile.addEventListener("focus", () => {
+      const rect = tile.getBoundingClientRect(), view = photoViewport.getBoundingClientRect();
+      if (rect.left < view.left || rect.right > view.right || rect.top < view.top || rect.bottom > view.bottom) {
+        stop();
+        targetX += view.left + view.width / 2 - (rect.left + rect.width / 2);
+        targetY += view.top + view.height / 2 - (rect.top + rect.height / 2);
+        panX = targetX; panY = targetY; paintWall();
+      }
+    }));
+    reducedMotion.addEventListener("change", () => { stop(); steer(0, 0); });
+    window.addEventListener("blur", () => { stop(); steer(0, 0); });
+    document.addEventListener("visibilitychange", () => { if (document.hidden) { stop(); steer(0, 0); } });
+    new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) { stop(); steer(0, 0); } }).observe(photoViewport);
+    new ResizeObserver(paintWall).observe(photoViewport);
+    paintWall();
+  }
+
   const aboutArtDialog = document.querySelector(".about-art-dialog");
   if (aboutArtDialog) {
     const enlargedArt = aboutArtDialog.querySelector(".about-art-enlarged");
     const artCaption = aboutArtDialog.querySelector("#about-art-caption");
+    let gallery = [], active = 0, opener;
+    function showArt(index) {
+      active = (index + gallery.length) % gallery.length;
+      const button = gallery[active], artwork = button.querySelector("img");
+      enlargedArt.src = artwork.src;
+      enlargedArt.alt = artwork.alt;
+      enlargedArt.style.transform = artwork.src.endsWith("ellie_the_last_of_us.jpg") ? "rotate(-90deg)" : "";
+      artCaption.textContent = button.closest("figure")?.querySelector("figcaption")?.textContent || artwork.alt;
+    }
     document.querySelectorAll("[data-about-art]").forEach((button) => {
       button.addEventListener("click", () => {
-        const artwork = button.querySelector("img");
-        enlargedArt.src = artwork.src;
-        enlargedArt.alt = artwork.alt;
-        enlargedArt.style.transform = button.closest(".about-sketch-piece--ellie") ? "rotate(-90deg)" : "";
-        artCaption.textContent = button.closest("figure").querySelector("figcaption").textContent;
+        opener = button;
+        const group = button.closest(".about-sketch-gallery, .about-photo-wall");
+        gallery = [...group.querySelectorAll("[data-about-art]")].filter((item, index, all) => all.findIndex(other => other.querySelector("img").src === item.querySelector("img").src) === index);
+        showArt(gallery.findIndex(item => item.querySelector("img").src === button.querySelector("img").src));
         aboutArtDialog.showModal();
       });
     });
+    aboutArtDialog.querySelector("[data-art-prev]").addEventListener("click", () => showArt(active - 1));
+    aboutArtDialog.querySelector("[data-art-next]").addEventListener("click", () => showArt(active + 1));
+    aboutArtDialog.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") { event.preventDefault(); showArt(active + (event.key === "ArrowLeft" ? -1 : 1)); }
+    });
+    aboutArtDialog.addEventListener("close", () => opener?.focus({ preventScroll: true }));
     aboutArtDialog.querySelector(".about-art-close").addEventListener("click", () => aboutArtDialog.close());
     aboutArtDialog.addEventListener("click", (event) => {
       if (event.target !== aboutArtDialog) return;

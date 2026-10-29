@@ -164,7 +164,7 @@ test('warning threshold fires once at the configured count and contains no sensi
 });
 test('safe common answers are cached across sessions without using provider budget', async () => {
   const app = fixture({ daily: 1 });
-  const first = await app.call('What healthcare experience does Dhrumil have?');
+  const first = await app.call('healthcare');
   const second = await app.call('healthcare experience', { sessionId: randomUUID(), ip: 'another' });
   assert.equal(second.code, 200); assert.deepEqual(first.body.evidence, second.body.evidence);
   assert.equal(app.calls(), 1);

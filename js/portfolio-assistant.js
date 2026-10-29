@@ -11,10 +11,10 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
     experience: { name: 'Relevant experience', href: '#about' }
   };
   const starters = [
-    'What’s your strongest healthcare project?',
-    'How do you use AI in your work?',
-    'What did you personally own?',
-    'Match me to a job description'
+    'What kind of designer is Dhrumil?',
+    'What’s his strongest healthcare work?',
+    'How does he use AI?',
+    'What technical work has he done?'
   ];
   const dialog = document.createElement('dialog');
   dialog.className = 'portfolio-assistant';
@@ -101,9 +101,10 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
       helper.hidden = remaining > (mode === 'jd' ? 1 : 3);
       helper.textContent = remaining === 0 ? (mode === 'jd' ? 'JD analyses are temporarily limited for this 24-hour period. You can still explore the portfolio.' : 'AI questions are temporarily limited for this 24-hour period. You can still explore the portfolio.') : `${remaining} ${mode === 'jd' ? remaining === 1 ? 'JD analysis' : 'JD analyses' : remaining === 1 ? 'AI question' : 'AI questions'} left in this 24-hour period`;
     }
-    composer.querySelector('button[type="submit"]').disabled = busy || allowance.get('chat').remaining === 0;
+    // The server can still answer curated questions when the AI allowance is spent.
+    composer.querySelector('button[type="submit"]').disabled = busy;
     jdForm.querySelector('button[type="submit"]').disabled = busy || allowance.get('jd').remaining === 0;
-    dialog.querySelectorAll('[data-question]').forEach((button) => { button.disabled = busy || allowance.get(/job description|match me/i.test(button.dataset.question) ? 'jd' : 'chat').remaining === 0; });
+    dialog.querySelectorAll('[data-question]').forEach((button) => { button.disabled = busy || (/job description|match me/i.test(button.dataset.question) && allowance.get('jd').remaining === 0); });
     const jdSummary = dialog.querySelector('[data-jd-summary]');
     jdSummary.textContent = dialog.querySelector('#assistant-jd-usage').textContent;
     jdSummary.hidden = allowance.get('jd').remaining > 1;
@@ -115,7 +116,7 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
     if (busy) return;
     const mode = payload.jobDescription !== undefined ? 'jd' : 'chat';
     const reservation = allowance.reserve(mode);
-    if (!reservation) {
+    if (!reservation && mode === 'jd') {
       appendTurn(label, renderReply({ error: mode === 'jd' ? 'JD analyses are temporarily limited for this 24-hour period. You can still explore the portfolio directly.' : 'AI questions are temporarily limited for this 24-hour period. You can still explore the portfolio directly.' }));
       updateAllowance();
       return false;
@@ -224,7 +225,7 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
   // Focusing the existing entry opens the initial workspace without changing the hero.
   entry.querySelector('input').addEventListener('click', () => open());
   document.querySelectorAll('.ai-suggestions button').forEach((button, index) => {
-    button.addEventListener('click', () => open([starters[0], starters[1], 'How I work'][index]));
+    button.addEventListener('click', () => open(starters[index]));
   });
   updateAllowance();
 };
