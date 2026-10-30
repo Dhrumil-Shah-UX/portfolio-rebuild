@@ -1,0 +1,74 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg-main); color: var(--text-primary); font-family: var(--font-sans); }
+::selection { background: var(--accent-green); color: var(--text-inverse); }
+.not-found {
+  width: var(--container-page);
+  min-height: 100vh;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding-block: var(--space-12);
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: var(--space-8);
+}
+.not-found-copy { position: relative; z-index: 1; }
+h1 { margin: 0; font-family: var(--font-display); font-size: var(--type-display-md); font-weight: 400; line-height: var(--leading-heading); }
+h1 > span { display: block; margin-bottom: var(--space-4); font-size: clamp(6rem, 12vw, 11rem); line-height: 1; letter-spacing: -0.05em; }
+p { margin: var(--space-6) 0 0; max-width: 27rem; color: var(--text-secondary); font-size: var(--type-body-lg); line-height: var(--leading-body); }
+.not-found-copy a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  min-height: 58px;
+  margin-top: var(--space-8);
+  padding: var(--space-4) var(--space-8);
+  border: 1px solid var(--accent-green);
+  border-radius: var(--radius-pill);
+  background: var(--accent-green);
+  color: var(--text-inverse);
+  font-size: var(--type-body-md);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  transition: background 160ms ease, transform 160ms ease;
+}
+.not-found-copy a:hover { background: var(--accent-green-hover); transform: translateY(-2px); }
+a:focus-visible { outline: 3px solid var(--accent-green); outline-offset: 5px; }
+/* Crop away the reference's printed copy, preserving the original sketch. */
+.not-found-art {
+  position: relative;
+  width: min(100%, calc((100svh - 6rem) * 880 / 840));
+  aspect-ratio: 880 / 840;
+  justify-self: center;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent), linear-gradient(to bottom, transparent, #000 5%, #000 92%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent), linear-gradient(to bottom, transparent, #000 5%, #000 92%, transparent);
+  mask-composite: intersect;
+}
+.not-found-art img {
+  position: absolute;
+  width: 164.5455%;
+  max-width: none;
+  height: auto;
+  left: -62.5%;
+  top: -19.0476%;
+  /* Lift the warm paper to white; multiply lets the page ivory show through. */
+  filter: grayscale(1) brightness(1.12) contrast(1.12);
+}
+@media (max-width: 700px) {
+  .not-found { grid-template-columns: 1fr; gap: var(--space-6); padding-block: var(--space-8); align-content: center; }
+  .not-found-copy { max-width: 30rem; }
+  h1 { font-size: var(--type-heading-lg); }
+  h1 > span { font-size: clamp(4rem, 16vw, 6rem); margin-bottom: var(--space-2); }
+  p { margin-top: var(--space-4); font-size: var(--type-body-md); }
+  .not-found-copy a { margin-top: var(--space-6); }
+  .not-found-art { width: min(100%, 22rem, calc(40svh * 880 / 840)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .not-found-copy a { transition: none; }
+  .not-found-copy a:hover { transform: none; }
+}

@@ -6,6 +6,16 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background: var(--accent-green);
+  color: var(--text-inverse);
+}
+
+::-moz-selection {
+  background: var(--accent-green);
+  color: var(--text-inverse);
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -584,25 +594,22 @@ img {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.18);
   cursor: pointer;
-  transition: border-color 180ms ease;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .selected-project:hover,
 .selected-project:focus-within {
+  transform: translateY(-4px) scale(1.01);
   border-color: rgba(54, 84, 68, 0.38);
+  box-shadow: 0 16px 36px rgba(54, 84, 68, 0.12);
 }
 
 .selected-project img {
   width: 100%;
+  height: auto;
   aspect-ratio: 1.32;
   border-radius: var(--radius-media);
   object-fit: cover;
-  transition: transform 180ms ease;
-}
-
-.selected-project:hover img,
-.selected-project:focus-within img {
-  transform: scale(1.015);
 }
 
 .selected-project-copy {
@@ -777,6 +784,56 @@ img {
 
 .home-about h2 {
   margin-top: 0.65rem;
+}
+
+/* Homepage About: a quiet collage of real personal moments. */
+.home-about.home-about--collage {
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
+  gap: var(--space-12);
+}
+.home-about--collage .home-about-copy { min-width: 0; max-width: 30rem; }
+.home-about--collage .home-about-copy .section-kicker { margin: 0 0 var(--space-6); color: var(--accent-green); }
+.home-about--collage .home-about-copy h2 { margin: 0; font-size: var(--type-heading-lg); line-height: var(--leading-heading); }
+.home-about--collage .home-about-copy h2 em { color: var(--accent-green); font-weight: 400; }
+.home-about--collage .home-about-copy > p:not(.section-kicker) { margin-top: var(--space-6); font-size: var(--type-body-md); line-height: var(--leading-body); color: var(--text-secondary); }
+.home-about--collage .home-about-copy > p:nth-of-type(2) { color: var(--text-primary); }
+.home-about--collage .about-text-link { margin-top: var(--space-8); }
+.home-about-collage { position: relative; isolation: isolate; width: 100%; max-width: 640px; aspect-ratio: 1 / 1.16; justify-self: center; }
+.home-about-collage::before { content: ''; position: absolute; z-index: -1; inset: 15% 8% 10% 10%; border-radius: 50%; background: radial-gradient(ellipse, var(--surface-muted), transparent 70%); opacity: .6; }
+.home-collage-photo { position: absolute; margin: 0; padding: var(--space-2); background: var(--surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); box-shadow: var(--shadow-soft); }
+.home-collage-photo img { display: block; width: 100%; height: auto; border-radius: 0; }
+.home-collage-portrait { top: 4%; left: 5%; width: 49%; transform: rotate(-5deg); }
+.home-collage-team { top: 14%; left: 62%; width: 36%; transform: rotate(4deg); z-index: 1; }
+.home-collage-travel { top: 36%; left: 77%; width: 23%; transform: rotate(8deg); }
+.home-collage-candid { top: 59%; left: 55%; width: 43%; transform: rotate(-2deg); z-index: 2; }
+.home-collage-sketch { top: 73%; left: 33%; width: 27%; transform: rotate(7deg); z-index: 3; }
+.home-collage-annotation { position: absolute; color: var(--accent-green); font-family: var(--font-display); font-size: var(--type-caption); font-style: italic; line-height: 1.3; pointer-events: none; }
+.home-collage-annotation svg { position: absolute; width: var(--space-8); height: var(--space-8); overflow: visible; }
+.home-collage-annotation path { stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+.home-collage-annotation--people { top: 4%; left: 68%; transform: rotate(-7deg); }
+.home-collage-annotation--people svg { top: 70%; left: 12%; }
+.home-collage-annotation--sketch { top: 87%; left: 12%; transform: rotate(-6deg); }
+.home-collage-annotation--sketch svg { left: 95%; bottom: 60%; }
+.home-collage-annotation--conversation { top: 82%; left: 66%; max-width: 28%; transform: rotate(5deg); }
+.home-collage-annotation--conversation svg { bottom: 100%; left: -15%; }
+
+@media (max-width: 980px) {
+  .home-about.home-about--collage { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
+  .home-about--collage .home-about-copy { max-width: 36rem; }
+  .home-about-collage { max-width: 560px; }
+}
+@media (max-width: 620px) {
+  .home-about-collage { aspect-ratio: 1 / 1.22; }
+  .home-collage-photo { padding: var(--space-1); }
+  .home-collage-portrait { left: 3%; width: 48%; transform: rotate(-2deg); }
+  .home-collage-team { left: 59%; top: 12%; width: 38%; transform: rotate(2deg); }
+  .home-collage-travel { left: 73%; top: 35%; width: 24%; transform: rotate(3deg); }
+  .home-collage-candid { left: 53%; top: 66%; width: 43%; transform: rotate(-1deg); }
+  .home-collage-sketch { left: 22%; top: 74%; width: 27%; transform: rotate(2deg); }
+  .home-collage-annotation--people { top: 3%; left: 64%; }
+  .home-collage-annotation--sketch { top: 92%; left: 19%; }
+  .home-collage-annotation--sketch svg { display: none; }
+  .home-collage-annotation--conversation { top: 85%; left: 61%; max-width: 33%; }
 }
 
 .beyond-strip {
