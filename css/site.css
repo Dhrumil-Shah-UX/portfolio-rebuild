@@ -1071,6 +1071,9 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   padding: 0;
   list-style: none;
 }
+.ai-process-scroll {
+  padding-top: 19rem;
+}
 .ai-process-phases::before {
   content: "";
   position: absolute;
@@ -1115,10 +1118,11 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   align-items: flex-start;
   gap: var(--space-3);
   width: 100%;
-  border: 0;
-  border-radius: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
   padding: var(--space-8) var(--space-4) var(--space-4);
-  background: transparent;
+  background: var(--surface);
+  box-shadow: 0 2px 9px rgba(34, 49, 39, 0.045);
   color: var(--accent-green);
   font-family: var(--font-sans);
   font-size: var(--type-body-sm);
@@ -1126,6 +1130,7 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   line-height: var(--leading-label);
   letter-spacing: 0.06em;
   cursor: pointer;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
 }
 .ai-process-number {
   color: var(--text-muted);
@@ -1153,14 +1158,12 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   position: absolute;
   bottom: 100%;
   left: 50%;
-  width: 16rem;
+  width: 20rem;
   max-width: calc(100vw - var(--space-8));
-  padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
+  padding: 0 0 1.5rem;
+  border: 0;
+  background: transparent;
   color: var(--text-secondary);
-  box-shadow: var(--shadow-soft);
   font-family: var(--font-sans);
   font-size: var(--type-body-sm);
   line-height: var(--leading-body);
@@ -1170,12 +1173,62 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
   z-index: 2;
 }
+.ai-process-tooltip::before {
+  content: "My prompts to AI";
+  display: table;
+  margin: 0 0 1.35rem 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--accent-green);
+  color: var(--bg-main);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
 .ai-process-tooltip ul {
   display: grid;
-  gap: var(--space-2);
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.ai-process-tooltip li {
+  position: relative;
+  width: 90%;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--border-default);
+  border-radius: 0.9rem;
+  background: var(--bg-main);
+  color: var(--accent-green);
+  box-shadow: 0 10px 22px rgba(34, 49, 39, 0.1);
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.3;
+  text-wrap: pretty;
+  transform: rotate(-5deg);
+}
+.ai-process-tooltip li::before { content: '\201C'; }
+.ai-process-tooltip li::after { content: '\201D'; }
+.ai-process-tooltip li:nth-child(odd) {
+  background: color-mix(in srgb, var(--bg-main) 91%, var(--accent-green));
+}
+.ai-process-tooltip li:nth-child(2) {
+  margin: 0.35rem 0 0.35rem auto;
+  transform: rotate(4deg);
+  z-index: 1;
+}
+.ai-process-tooltip li:nth-child(3) {
+  margin-left: 0.65rem;
+  transform: rotate(-3deg);
+}
+.ai-process-phase:nth-child(even) .ai-process-tooltip li {
+  transform: rotate(5deg);
+}
+.ai-process-phase:nth-child(even) .ai-process-tooltip li:nth-child(2) {
+  transform: rotate(-4deg);
+}
+.ai-process-phase:nth-child(even) .ai-process-tooltip li:nth-child(3) {
+  transform: rotate(3deg);
 }
 .ai-process-phase:first-child .ai-process-tooltip {
   left: 0;
@@ -1186,24 +1239,28 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   right: 0;
   transform: translateY(var(--space-1));
 }
-.ai-process-phase:is(:hover, :focus-within):not([data-dismissed]) .ai-process-tooltip {
+.ai-process-phase:is(.is-active, :hover, :focus-within):not([data-dismissed]) .ai-process-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, 0);
 }
-.ai-process-phase:is(:first-child, :last-child):is(:hover, :focus-within):not([data-dismissed]) .ai-process-tooltip {
+.ai-process-phase:is(:first-child, :last-child):is(.is-active, :hover, :focus-within):not([data-dismissed]) .ai-process-tooltip {
   transform: translateY(0);
 }
-.ai-process-phase:is(:hover, :focus-within) .ai-process-label::after {
+.ai-process-phase:is(.is-active, :hover, :focus-within) .ai-process-label::after {
   opacity: 1;
 }
-.ai-process-phase:is(:hover, :focus-within) .ai-process-number {
+.ai-process-phase:is(.is-active, :hover, :focus-within) .ai-process-number {
   color: var(--accent-green);
 }
-.ai-process-phase:is(:hover, :focus-within)::after {
+.ai-process-phase:is(.is-active, :hover, :focus-within)::after {
   background: var(--accent-green);
 }
-.ai-process-phase:is(:hover, :focus-within) {
+.ai-process-phase:is(.is-active, :hover, :focus-within) .ai-process-label {
+  border-color: color-mix(in srgb, var(--border-default) 70%, var(--accent-green));
+  box-shadow: 0 5px 16px rgba(34, 49, 39, 0.09);
+}
+.ai-process-phase:is(.is-active, :hover, :focus-within) {
   z-index: 1;
 }
 @media (min-width: 981px) {
@@ -1225,7 +1282,8 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
 }
 @media (prefers-reduced-motion: reduce) {
   .ai-process-tooltip,
-  .ai-process-label::after {
+  .ai-process-label::after,
+  .ai-process-label {
     transition: none;
   }
 }
@@ -4693,7 +4751,18 @@ dd,
 .ai-workshop-heading { grid-column: 1 / -1; }
 @media (min-width: 981px) {
   .ai-workshop-series { height: auto; min-height: 100svh; }
-  .ai-workshop-sidebar { display: block; overflow: visible; }
+  .ai-workshop-sidebar {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+  .ai-workshop-list {
+    flex: 1;
+    grid-template-rows: repeat(6, minmax(5.5rem, 1fr));
+  }
+  .ai-workshop-list-item {
+    padding: 1.15rem 1.25rem;
+  }
 }
 
 .home-section.selected-work,

@@ -662,13 +662,19 @@ function bootstrapApp() {
     });
   }
 
-  document.querySelectorAll(".ai-process-phase").forEach((phase) => {
+  const processPhases = [...document.querySelectorAll(".ai-process-phase")];
+  processPhases.forEach((phase) => {
+    const activate = () => {
+      processPhases.forEach((item) => item.classList.toggle("is-active", item === phase));
+      delete phase.dataset.dismissed;
+    };
     phase.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") phase.dataset.dismissed = "true";
+      if (event.key === "Escape") {
+        phase.dataset.dismissed = "true";
+        phase.classList.remove("is-active");
+      }
     });
-    ["pointerenter", "focusin"].forEach((eventName) => {
-      phase.addEventListener(eventName, () => delete phase.dataset.dismissed);
-    });
+    ["pointerenter", "focusin", "click"].forEach((eventName) => phase.addEventListener(eventName, activate));
   });
 
   pages = [...document.querySelectorAll("[data-page-view]")];

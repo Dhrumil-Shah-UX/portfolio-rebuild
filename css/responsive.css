@@ -880,9 +880,9 @@
 @media (max-width: 800px) {
   .ai-lab-process .ai-process-scroll {
     overflow-x: auto;
-    padding-top: 11rem;
+    padding-top: 19rem;
     padding-bottom: var(--space-2);
-    margin-top: -8rem;
+    margin-top: 0;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-warm-soft) var(--bg-main);
   }
