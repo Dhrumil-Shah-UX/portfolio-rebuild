@@ -2,29 +2,43 @@
   <section class="ai-lab-hero" aria-labelledby="ai-lab-title">
     <div class="ai-lab-hero-copy">
       <p class="section-kicker">AI Lab</p>
-      <h1 id="ai-lab-title">[NEEDS HERO COPY]</h1>
-      <p>TODO: Build the full AI Lab page with Mindle, Space Shooter, WS6 concept game, workshops, and process experiments.</p>
+      <h1 id="ai-lab-title">A 6-Phase<br />AI Design Process</h1>
+      <p>A practical, end-to-end workflow for taking ideas from exploration to a working build.</p>
     </div>
-  </section>
 
-  <nav class="ai-lab-jump" aria-label="AI Lab sections">
+    <div class="ai-process-overview" aria-hidden="true">
+      <div class="ai-process-note">&ldquo;define the problem and constraints&rdquo;</div>
+      <div class="ai-process-note">&ldquo;give me visual options&rdquo;</div>
+      <div class="ai-process-note">&ldquo;check for accuracy,<br />UX and feasibility&rdquo;</div>
+      <div class="ai-process-note">&ldquo;make a prompt for<br />Codex to implement this&rdquo;</div>
+      <div class="ai-process-note">&ldquo;modify only<br />requested files&rdquo;</div>
+      <div class="ai-process-note">&ldquo;preserve the existing<br />implementation&rdquo;</div>
+      <svg class="ai-process-flourish" viewBox="0 0 50 56"><path d="M8 22 14 6M23 32 37 19M29 46 47 47" /></svg>
+    </div>
+
+  <!--<nav class="ai-lab-jump" aria-label="AI Lab sections">
     <a href="#ai-process"><span>01</span> My AI Process</a>
     <a href="#ai-projects"><span>02</span> Projects</a>
     <a href="#ai-workshops"><span>03</span> Workshops</a>
-  </nav>
+  </nav>-->
 
-  <section class="ai-lab-section ai-lab-process" id="ai-process" aria-labelledby="ai-process-title">
-    <div class="ai-lab-section-heading">
-      <span>01</span>
-      <div>
-        <p class="section-kicker">Process</p>
-        <h2 id="ai-process-title">My AI process</h2>
-      </div>
-    </div>
-
+  <section class="ai-lab-section ai-lab-process" id="ai-process" aria-label="Six phase AI design process">
     <div class="ai-process-scroll">
+      <svg class="ai-process-curve" viewBox="0 0 1672 940" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="ai-process-line" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#b99b72" stop-opacity="0.08" />
+            <stop offset="0.18" stop-color="#a88d60" />
+            <stop offset="0.58" stop-color="#7e8d66" />
+            <stop offset="0.8" stop-color="#cbb99c" />
+            <stop offset="1" stop-color="#a88d60" />
+          </linearGradient>
+          <marker id="ai-process-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#a88d60" /></marker>
+        </defs>
+        <path class="ai-process-path" d="M70 745 Q115 739 160 745 C260 751 300 817 420 812 S610 777 704 725 S895 606 986 608 S1172 690 1263 682 S1400 623 1498 572 L1594 533" marker-end="url(#ai-process-arrow)" />
+      </svg>
       <ol class="ai-process-phases" aria-label="My AI process">
-        <li class="ai-process-phase is-active">
+        <li class="ai-process-phase">
           <button class="ai-process-label" type="button" aria-describedby="ai-phase-frame"><span class="ai-process-number" aria-hidden="true">01</span><span>FRAME</span></button>
           <div class="ai-process-tooltip" id="ai-phase-frame" role="tooltip">
             <ul>
@@ -54,7 +68,7 @@
             </ul>
           </div>
         </li>
-        <li class="ai-process-phase">
+        <li class="ai-process-phase is-active">
           <button class="ai-process-label" type="button" aria-describedby="ai-phase-critique"><span class="ai-process-number" aria-hidden="true">04</span><span>CRITIQUE</span></button>
           <div class="ai-process-tooltip" id="ai-phase-critique" role="tooltip">
             <ul>
@@ -86,6 +100,7 @@
         </li>
       </ol>
     </div>
+  </section>
   </section>
 
   <section class="ai-lab-section" id="ai-projects" aria-labelledby="ai-projects-title">
@@ -146,7 +161,6 @@
         <p class="section-kicker">Workshops</p>
         <h2 id="ai-workshops-title">AI in Design Workshop Series</h2>
       </div>
-      <p>Six hands-on sessions on prompting, prototyping, portfolios, and product decisions.</p>
     </div>
     <aside class="ai-workshop-sidebar" aria-label="AI in Design Workshop Series">
 
@@ -200,24 +214,26 @@
     </aside>
 
     <article class="ai-workshop-detail" aria-labelledby="ai-workshop-feature-title">
-      <p class="section-kicker" data-workshop-kicker>Workshop</p>
-      <h2 id="ai-workshop-feature-title" data-workshop-title>AI for Designers</h2>
-      <p class="ai-workshop-summary" data-workshop-summary>A grounding session for designers to understand what AI is, what it can and cannot do, and how to approach AI tools more intentionally instead of relying on trial and error.</p>
+      <div class="ai-workshop-intro">
+        <p class="section-kicker" data-workshop-kicker>Workshop</p>
+        <h2 id="ai-workshop-feature-title" data-workshop-title>AI for Designers</h2>
+        <p class="ai-workshop-summary" data-workshop-summary>A grounding session for designers to understand what AI is, what it can and cannot do, and how to approach AI tools more intentionally instead of relying on trial and error.</p>
 
-      <dl class="ai-workshop-meta">
-        <div>
-          <dt>My Role</dt>
-          <dd data-workshop-role>Co-designed and co-hosted</dd>
-        </div>
-        <div>
-          <dt>Audience</dt>
-          <dd data-workshop-audience>Designers, product teams, and curious builders</dd>
-        </div>
-        <div>
-          <dt>Format</dt>
-          <dd data-workshop-format>90-minute interactive virtual workshop &middot; 68 joined</dd>
-        </div>
-      </dl>
+        <dl class="ai-workshop-meta">
+          <div>
+            <dt>My Role</dt>
+            <dd data-workshop-role>Co-designed and co-hosted</dd>
+          </div>
+          <div>
+            <dt>Audience</dt>
+            <dd data-workshop-audience>Designers, product teams, and curious builders</dd>
+          </div>
+          <div>
+            <dt>Format</dt>
+            <dd data-workshop-format>90-minute interactive virtual workshop &middot; 68 joined</dd>
+          </div>
+        </dl>
+      </div>
 
       <div class="ai-workshop-feature">
         <div class="ai-workshop-visual"><img data-workshop-visual src="assets/images/workshops/ws1.png" alt="AI for Designers workshop visual" decoding="async" /></div>

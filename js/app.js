@@ -664,14 +664,17 @@ function bootstrapApp() {
 
   const processPhases = [...document.querySelectorAll(".ai-process-phase")];
   processPhases.forEach((phase) => {
+    const hero = phase.closest(".ai-lab-hero");
     const activate = () => {
       processPhases.forEach((item) => item.classList.toggle("is-active", item === phase));
+      hero?.classList.add("has-process-interaction");
       delete phase.dataset.dismissed;
     };
     phase.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         phase.dataset.dismissed = "true";
         phase.classList.remove("is-active");
+        hero?.classList.remove("has-process-interaction");
       }
     });
     ["pointerenter", "focusin", "click"].forEach((eventName) => phase.addEventListener(eventName, activate));
