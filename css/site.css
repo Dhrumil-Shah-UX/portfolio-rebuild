@@ -473,7 +473,7 @@ img {
 .home-section {
   width: min(1120px, 86vw);
   margin: 0 auto;
-  padding: clamp(4.5rem, 10vh, 7rem) 0;
+  padding: clamp(3rem, 6vh, 4.5rem) 0;
   scroll-margin-top: 110px;
 }
 
@@ -482,7 +482,7 @@ img {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.5rem);
   width: min(1120px, 86vw);
-  margin: clamp(2rem, 5vh, 3rem) auto clamp(2.5rem, 6vh, 4.5rem);
+  margin: clamp(1.5rem, 4vh, 2.25rem) auto clamp(1.5rem, 4vh, 2.5rem);
 }
 
 .hero-testimonial-feed article {
@@ -575,9 +575,10 @@ img {
   text-underline-offset: 0.3em;
 }
 
-.selected-work {
-  min-height: 150vh;
-}
+.selected-work,
+.ai-lab-preview,
+.writing-preview,
+.home-about { min-height: 0; }
 
 .selected-work-list {
   display: grid;
@@ -869,7 +870,32 @@ img {
 
 .writing-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
+.writing-list article {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(104, 112, 105, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 252, 245, 0.42);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  cursor: pointer;
+}
+.writing-list article:hover,
+.writing-list article:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(54, 84, 68, 0.38);
+  box-shadow: 0 14px 30px rgba(54, 84, 68, 0.1);
+}
+.writing-list article:focus-visible { outline: 2px solid var(--accent-green); outline-offset: 4px; }
+.writing-list-image.ai-card-media { min-height: 180px; aspect-ratio: 2.8 / 1; border-radius: 0; }
+.writing-list-image.ai-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 240ms ease; }
+.writing-list-copy.ai-card-copy { display: grid; gap: 0.45rem; padding: clamp(1rem, 2vw, 1.35rem); }
+.writing-list-copy h3 { margin: 0; font-size: clamp(1.5rem, 2vw, 2rem); line-height: 1.05; }
+.writing-list-copy p { margin: 0; font-size: 0.98rem; line-height: 1.45; }
+.writing-list-copy > span:not(.writing-card-kicker) { justify-self: end; color: var(--accent); font-size: 0.9rem; font-weight: 700; }
+.writing-list-copy .writing-card-kicker { justify-self: start; margin: 0; padding: 0.25rem 0.6rem; border: 1px solid rgba(184, 155, 114, 0.35); border-radius: 999px; color: var(--text-secondary); font-size: var(--type-caption); font-weight: 600; letter-spacing: 0; }
 
 .placeholder-page {
   min-height: 70vh;
@@ -2062,13 +2088,20 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(170px, 22vw, 260px);
   gap: clamp(1.25rem, 3vw, 2rem);
-  align-items: start;
-  padding: 0 0 1.4rem;
-  border: 0;
-  border-bottom: 1px solid var(--border);
-  border-radius: 0;
-  background: transparent;
+  align-items: center;
+  padding: var(--space-8);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-media);
+  background: var(--card-bg);
   cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.article-card:hover,
+.article-card:focus-within {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(54, 84, 68, 0.38);
+  box-shadow: 0 16px 36px rgba(54, 84, 68, 0.12);
 }
 
 .article-card:focus-visible {
@@ -2076,12 +2109,19 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   outline-offset: 4px;
 }
 
+.article-card-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
 .article-card-image {
   display: grid;
   place-items: center;
   min-height: 120px;
   aspect-ratio: 16 / 9;
-  border-radius: 4px;
+  border-radius: var(--radius-media);
   background: #e6dfd1;
   color: #687069;
   font-size: 0.78rem;
@@ -2111,7 +2151,7 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
 
 .article-card p {
   max-width: 58ch;
-  margin: 0.55rem 0 0;
+  margin: 1rem 0 0;
   color: #59615b;
   font-size: clamp(1rem, 1.45vw, 1.18rem);
   line-height: 1.45;
@@ -2119,7 +2159,7 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
 
 .article-card span {
   display: block;
-  margin-top: 0.8rem;
+  margin-top: 1.25rem;
 }
 
 .article-page {
@@ -4650,3 +4690,13 @@ dd,
   font-size: var(--type-label);
   font-weight: 700;
 }
+.ai-workshop-heading { grid-column: 1 / -1; }
+@media (min-width: 981px) {
+  .ai-workshop-series { height: auto; min-height: 100svh; }
+  .ai-workshop-sidebar { display: block; overflow: visible; }
+}
+
+.home-section.selected-work,
+.home-section.ai-lab-preview,
+.home-section.writing-preview,
+.home-section.home-about { min-height: 0; }

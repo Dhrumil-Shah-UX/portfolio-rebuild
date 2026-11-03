@@ -3,8 +3,32 @@ const navLinks = [...document.querySelectorAll(".nav-link")];
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav-links");
 const backToTopButton = document.querySelector(".back-to-top");
+if (backToTopButton) {
+  const backToTopLabel = document.createElement("span");
+  backToTopLabel.className = "back-to-top-label";
+  backToTopLabel.textContent = "Back to top";
+  backToTopLabel.setAttribute("aria-hidden", "true");
+  backToTopButton.append(backToTopLabel);
+}
 let backToTopObserver = null;
 let appBootstrapped = false;
+const pageBackWrap = document.createElement("div");
+pageBackWrap.className = "page-back-wrap";
+pageBackWrap.hidden = true;
+pageBackWrap.innerHTML = '<button class="page-back" type="button" aria-label="Go back to the previous page"><svg class="page-back-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5m7-7-7 7 7 7"/></svg>Back</button>';
+const pageRoot = document.querySelector("[data-page-root]");
+const siteHeader = document.querySelector(".site-header");
+const headerLogo = siteHeader?.querySelector(".logo-link");
+if (headerLogo) {
+  const headerControls = document.createElement("div");
+  headerControls.className = "header-brand-controls";
+  headerLogo.before(headerControls);
+  headerControls.append(headerLogo, pageBackWrap);
+}
+pageRoot?.setAttribute("tabindex", "-1");
+const pageBackButton = pageBackWrap.querySelector("button");
+let portfolioHistoryDepth = history.state?.portfolioDepth || 0;
+history.replaceState({ ...history.state, portfolioDepth: portfolioHistoryDepth }, "", location.href);
 
 let currentNoteIndex = 0;
 let currentArticleIndex = 0;
@@ -40,8 +64,10 @@ function showPage(pageName, scrollTargetId = "") {
   }
 
   const nextHash = scrollTargetId || pageName;
+  pageBackWrap.hidden = nextPage === "home";
   if (location.hash.slice(1) !== nextHash) {
-    history.replaceState(null, "", `#${nextHash}`);
+    portfolioHistoryDepth += 1;
+    history.pushState({ portfolioDepth: portfolioHistoryDepth }, "", `#${nextHash}`);
   }
 
   requestAnimationFrame(() => {
@@ -754,6 +780,13 @@ function bootstrapApp() {
   }
 
   [...document.querySelectorAll("[data-page]")].forEach((control) => {
+    if (control.getAttribute("role") === "link" && control.tagName !== "A") {
+      control.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        control.click();
+      });
+    }
     control.addEventListener("click", (event) => {
       const pageName = control.dataset.page;
       if (!pageName) {
@@ -954,6 +987,24 @@ function bootstrapApp() {
     const homeAnchor = hash === "about-home" ? "about" : "";
     showPage(homeAnchor ? "home" : hash, homeAnchor);
   }
+
+  pageBackButton.addEventListener("click", () => {
+    if (portfolioHistoryDepth > 0) {
+      history.back();
+    } else {
+      const current = document.querySelector("[data-page-view].is-visible")?.dataset.pageView || "home";
+      const fallback = current === "article" ? "writing" : ["case-perspective", "case-space-shooter", "case-mindle"].includes(current) ? "ai-lab" : current.startsWith("case-") ? "work" : "home";
+      // Replace direct-entry routes so Back does not loop into the same detail page.
+      history.replaceState({ ...history.state, portfolioDepth: 0 }, "", `#${fallback}`);
+      showPage(fallback);
+      pageRoot?.focus({ preventScroll: true });
+    }
+  });
+  window.addEventListener("popstate", (event) => {
+    portfolioHistoryDepth = event.state?.portfolioDepth || 0;
+    showHashPage(location.hash.slice(1) || "home");
+    pageRoot?.focus({ preventScroll: true });
+  });
 
   window.addEventListener("hashchange", () => {
     showHashPage(location.hash.slice(1) || "home");

@@ -44,3 +44,22 @@
   .resume-toolbar { padding-inline: var(--space-6); }
 }
 @media (prefers-reduced-motion: reduce) { .resume-panel { transition: none; } }
+.resume-content section { padding-top: var(--space-8); border-top: 2px solid var(--accent-green); }
+.resume-content h2 { display: inline-block; margin-bottom: var(--space-8); padding: var(--space-2) var(--space-3); border: 0; background: var(--surface-sage); }
+.resume-skills p + p { margin-top: var(--space-6); }
+.resume-date { color: var(--text-secondary); opacity: 0.75; font-size: 0.9em; white-space: nowrap; }
+.resume-date::before { content: " · "; }
+.resume-details { margin-top: var(--space-3); }
+.resume-details summary { width: fit-content; color: var(--accent-green); cursor: pointer; font-size: var(--type-body-sm); font-weight: 600; }
+.resume-details summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.resume-details[open] summary { margin-bottom: var(--space-3); }
+.resume-details { margin-top: 0; }
+.resume-details summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); width: 100%; list-style: none; color: inherit; font-weight: inherit; }
+.resume-details summary::-webkit-details-marker { display: none; }
+.resume-details summary:hover { text-decoration: none; }
+.resume-summary-content { min-width: 0; }
+.resume-summary-title { display: block; font: 400 var(--type-heading-sm)/var(--leading-heading) var(--font-display); }
+.resume-summary-content .resume-meta { display: block; }
+.resume-chevron { flex: 0 0 auto; width: 10px; height: 10px; margin-right: 4px; border-right: 1.5px solid var(--accent-green); border-bottom: 1.5px solid var(--accent-green); transform: rotate(45deg); transition: transform 160ms ease; }
+.resume-details[open] .resume-chevron { transform: rotate(225deg); }
+@media (prefers-reduced-motion: reduce) { .resume-chevron { transition: none; } }
