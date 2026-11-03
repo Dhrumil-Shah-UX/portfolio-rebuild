@@ -152,7 +152,7 @@
 /* Shared heading system for page titles and major section titles. */
 .page h1 {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2.1rem, 4.4vw, 4.4rem);
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.025em;
@@ -160,7 +160,7 @@
 }
 .page :is(.home-section-heading h2, .writing-section-heading h2, .ai-lab-section-heading h2, .ai-lab-process #ai-process-title, .section-heading h2, .about-wall-note h2, .about-team-note h2, #about-photography-title, #about-closing-title, #home-about-title, .case-study h2) {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4.3vw, 4.3rem);
+  font-size: clamp(1.9rem, 3.5vw, 3.5rem);
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -168,9 +168,12 @@
 }
 .page :is(.home-section-heading, .writing-section-heading, .ai-lab-section-heading) h2 { margin-top: 0.55rem; }
 .page .section-kicker { font-family: var(--font-sans); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+@media (max-width: 800px) {
+  .ai-lab-hero .ai-lab-hero-copy h1 { font-size: clamp(2.1rem, 8vw, 3.2rem); }
+}
 /* Workshop titles sit below the page's primary section hierarchy. */
-.ai-lab-page .ai-workshop-heading h2 { font-size: clamp(2rem, 3.3vw, 3.2rem); line-height: 1.08; }
-.ai-lab-page .ai-workshop-detail h2 { font-size: clamp(1.8rem, 2.8vw, 2.75rem); line-height: 1.1; }
+.ai-lab-page .ai-workshop-heading h2 { font-size: clamp(1.7rem, 2.7vw, 2.6rem); line-height: 1.08; }
+.ai-lab-page .ai-workshop-detail h2 { font-size: clamp(1.55rem, 2.35vw, 2.3rem); line-height: 1.1; }
 .ai-lab-page .ai-workshop-takeaways h3,
 .ai-lab-page .ai-workshop-outcomes h3 { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; line-height: 1.3; letter-spacing: 0; }
 .ai-lab-page .ai-workshop-outcomes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -245,6 +248,14 @@
   background: var(--surface);
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
   cursor: pointer;
+}
+.home-section.writing-preview .writing-preview-card-link {
+  display: flex;
+  min-height: 100%;
+  flex: 1;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
 }
 .home-section.writing-preview .writing-list article:hover,
 .home-section.writing-preview .writing-list article:focus-within,

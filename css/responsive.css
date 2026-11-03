@@ -954,7 +954,7 @@
   }
   .ai-lab-hero .ai-lab-hero-copy { position: relative; inset: auto; width: 100%; }
   .ai-lab-hero .ai-process-overview { display: none; }
-  .ai-lab-hero .ai-lab-hero-copy h1 { font-size: clamp(3rem, 12vw, 4.5rem); }
+  .ai-lab-hero .ai-lab-hero-copy h1 { font-size: clamp(2.1rem, 8vw, 3.2rem); }
   .ai-lab-hero .ai-lab-section.ai-lab-process {
     position: relative;
     inset: auto;

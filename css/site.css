@@ -2655,6 +2655,17 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   margin-top: 76px;
 }
 
+.work-category + .work-category {
+  margin-top: clamp(4.5rem, 9vw, 8rem);
+  padding-top: clamp(3.5rem, 7vw, 6rem);
+  border-top: 1px solid var(--border-default);
+}
+
+.work-category-heading .section-kicker {
+  margin: 0;
+  color: var(--accent-green);
+}
+
 .project-list {
   display: grid;
   gap: clamp(1.5rem, 4vw, 3rem);
@@ -4819,7 +4830,7 @@ dd,
   z-index: 1;
 }
 .ai-lab-hero .ai-lab-hero-copy h1 {
-  font-size: clamp(3rem, 4.65vw, 6rem);
+  font-size: clamp(2.6rem, 3.7vw, 4.7rem);
   line-height: 1.02;
   font-weight: 400;
   letter-spacing: -0.045em;
