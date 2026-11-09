@@ -35,6 +35,70 @@ img {
   max-width: 100%;
 }
 
+.ui-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  vertical-align: -0.14em;
+  background-color: currentColor;
+  -webkit-mask: var(--ui-icon) center / contain no-repeat;
+  mask: var(--ui-icon) center / contain no-repeat;
+}
+
+.ui-icon--arrow-right { --ui-icon: url("../assets/icons/arrow-right.svg"); }
+.ui-icon--arrow-up-right { --ui-icon: url("../assets/icons/arrow-up-right.svg"); }
+.ui-icon--arrow-up { --ui-icon: url("../assets/icons/arrow-up.svg"); }
+.ui-icon--chevron-left { --ui-icon: url("../assets/icons/chevron-left.svg"); }
+.ui-icon--chevron-right { --ui-icon: url("../assets/icons/chevron-right.svg"); }
+.ui-icon--menu { --ui-icon: url("../assets/icons/menu.svg"); }
+.ui-icon--close { --ui-icon: url("../assets/icons/x.svg"); }
+.ui-icon--panel-open { --ui-icon: url("../assets/icons/panel-right-open.svg"); }
+
+.icon-link,
+.icon-button-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.icon-button-only .ui-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ui-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  vertical-align: -0.14em;
+  background-color: currentColor;
+  -webkit-mask: var(--ui-icon) center / contain no-repeat;
+  mask: var(--ui-icon) center / contain no-repeat;
+}
+
+.ui-icon--arrow-right { --ui-icon: url("../assets/icons/arrow-right.svg"); }
+.ui-icon--arrow-up-right { --ui-icon: url("../assets/icons/arrow-up-right.svg"); }
+.ui-icon--arrow-up { --ui-icon: url("../assets/icons/arrow-up.svg"); }
+.ui-icon--chevron-left { --ui-icon: url("../assets/icons/chevron-left.svg"); }
+.ui-icon--chevron-right { --ui-icon: url("../assets/icons/chevron-right.svg"); }
+.ui-icon--menu { --ui-icon: url("../assets/icons/menu.svg"); }
+.ui-icon--close { --ui-icon: url("../assets/icons/x.svg"); }
+.ui-icon--panel-open { --ui-icon: url("../assets/icons/panel-right-open.svg"); }
+
+.icon-link,
+.icon-button-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.icon-button-only .ui-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .site-header {
   position: absolute;
   top: 0;
@@ -567,8 +631,7 @@ img {
   line-height: 0.98;
 }
 
-.home-section-heading a,
-.selected-project-copy a {
+.home-section-heading a {
   color: var(--accent);
   font-weight: 800;
   text-decoration-color: rgba(184, 155, 114, 0.55);
@@ -594,6 +657,9 @@ img {
   border: 1px solid #d8d2c6;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.18);
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
   cursor: pointer;
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
@@ -639,6 +705,10 @@ img {
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.025em;
+}
+
+.selected-project .selected-project-copy h3 {
+  color: #17221c;
 }
 
 .selected-project-copy .project-kicker {
@@ -709,22 +779,22 @@ img {
   line-height: 1.4;
 }
 
-.selected-project-copy a {
+.project-card-cue {
   display: inline-block;
   margin-top: clamp(1.5rem, 2.6vw, 1.9rem);
   color: #365444;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1rem;
   font-weight: 650;
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-color: rgba(184, 155, 114, 0.55);
   text-underline-offset: 0.32em;
-  transition: text-decoration-color 160ms ease, transform 160ms ease;
+  transition: color 160ms ease, transform 160ms ease;
 }
 
-.selected-project-copy a:hover,
-.selected-project-copy a:focus-visible {
-  text-decoration-color: #365444;
+.selected-project:hover .project-card-cue,
+.selected-project:focus-visible .project-card-cue {
+  color: var(--accent);
   transform: translateX(3px);
 }
 
@@ -2844,6 +2914,10 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   overflow-wrap: anywhere;
 }
 
+.contact-info--phone {
+  padding-left: 88px;
+}
+
 .social-buttons {
   display: flex;
   justify-content: center;
@@ -2862,6 +2936,12 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   color: #fff;
   font-weight: 900;
   text-decoration: none;
+}
+
+.social-buttons img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .contact-form {
@@ -3982,7 +4062,7 @@ body {
 }
 
 .hero-cta,
-.selected-project-copy a,
+.project-card-cue,
 .home-section-heading a,
 .case-next-project a,
 .next-project a,
@@ -4131,6 +4211,11 @@ dd,
   border: 1px solid var(--border-default);
   border-radius: var(--radius-card);
   background: var(--card-bg);
+}
+
+.selected-project:focus-visible {
+  outline: 3px solid var(--accent-green);
+  outline-offset: 4px;
 }
 
 .selected-project,

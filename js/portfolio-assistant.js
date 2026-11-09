@@ -23,7 +23,7 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
   dialog.innerHTML = `
     <header class="assistant-header">
       <div><h2 id="assistant-title">Ask Dhrumil’s Portfolio</h2><p id="assistant-description">Ask about my projects, experience, skills, or process.</p></div>
-      <button class="assistant-close" type="button" aria-label="Close portfolio assistant">×</button>
+      <button class="assistant-close icon-button-only" type="button" aria-label="Close portfolio assistant"><span class="ui-icon ui-icon--close" aria-hidden="true"></span></button>
     </header>
     <div class="assistant-scroll" tabindex="0" aria-label="Portfolio conversation">
       <section class="assistant-intro"><h3>Where would you like to start?</h3><div class="assistant-starters">${starters.map((question) => `<button type="button" data-question="${escape(question)}">${escape(question)}</button>`).join('')}</div></section>
@@ -33,16 +33,16 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
         <textarea id="assistant-jd-text" placeholder="Paste the job description here…" required maxlength="12000" aria-describedby="assistant-jd-note assistant-jd-usage"></textarea>
         <p class="assistant-notice" id="assistant-jd-note">Text only. Your description is sent to Gemini for this comparison, but isn’t stored in portfolio analytics. Avoid confidential or personal information.</p>
         <p class="assistant-notice" id="assistant-jd-usage" aria-live="polite" hidden></p>
-        <nav class="assistant-actions" data-jd-limit-links aria-label="Explore the portfolio" hidden><a class="assistant-action" href="#work" data-assistant-link>View work →</a><a class="assistant-action" href="${escape(resume)}" target="_blank" rel="noopener">View resume ↗</a></nav>
+        <nav class="assistant-actions" data-jd-limit-links aria-label="Explore the portfolio" hidden><a class="assistant-action icon-link" href="#work" data-assistant-link>View work<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a><a class="assistant-action icon-link" href="${escape(resume)}" target="_blank" rel="noopener">View resume<span class="ui-icon ui-icon--arrow-up-right" aria-hidden="true"></span></a></nav>
         <div class="assistant-actions"><button class="assistant-submit" type="submit">Analyze description</button><button class="assistant-action" type="button" data-cancel-jd>Back to questions</button></div>
       </form>
     </div>
     <footer class="assistant-composer">
-      <form class="assistant-question-form"><label class="sr-only" for="assistant-query">Ask a question about the portfolio</label><div class="assistant-input-row"><input id="assistant-query" placeholder="Ask anything about my work…" maxlength="1500" autocomplete="off" aria-describedby="assistant-chat-usage"><button type="submit" aria-label="Send portfolio question">→</button></div></form>
+      <form class="assistant-question-form"><label class="sr-only" for="assistant-query">Ask a question about the portfolio</label><div class="assistant-input-row"><input id="assistant-query" placeholder="Ask anything about my work…" maxlength="1500" autocomplete="off" aria-describedby="assistant-chat-usage"><button class="icon-button-only" type="submit" aria-label="Send portfolio question"><span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></button></div></form>
       <p class="assistant-notice" data-assistant-notice>Answers use documented portfolio evidence. Anonymous usage is logged; question text isn’t stored.</p>
       <p class="assistant-notice" id="assistant-chat-usage" aria-live="polite" hidden></p>
       <p class="assistant-notice" data-jd-summary aria-live="polite" hidden></p>
-      <nav class="assistant-actions" data-limit-links aria-label="Explore the portfolio" hidden><a class="assistant-action" href="#work" data-assistant-link>View work →</a><a class="assistant-action" href="${escape(resume)}" target="_blank" rel="noopener">View resume ↗</a></nav>
+      <nav class="assistant-actions" data-limit-links aria-label="Explore the portfolio" hidden><a class="assistant-action icon-link" href="#work" data-assistant-link>View work<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a><a class="assistant-action icon-link" href="${escape(resume)}" target="_blank" rel="noopener">View resume<span class="ui-icon ui-icon--arrow-up-right" aria-hidden="true"></span></a></nav>
     </footer>
     <p class="sr-only" role="status" aria-live="polite" data-assistant-status></p>`;
   document.body.append(dialog);
@@ -65,13 +65,13 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
   entry.querySelector('input').maxLength = 1500;
 
   function projectReferences(keys, title = 'Relevant work') {
-    return `<nav class="assistant-references" aria-label="${title}"><h4>${title}</h4>${keys.map((key) => `<a href="${references[key].href}" data-assistant-link>${references[key].name}<span aria-hidden="true">→</span></a>`).join('')}</nav>`;
+    return `<nav class="assistant-references" aria-label="${title}"><h4>${title}</h4>${keys.map((key) => `<a class="icon-link" href="${references[key].href}" data-assistant-link>${references[key].name}<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a>`).join('')}</nav>`;
   }
 
   function renderEvidence(evidence = [], title = 'Relevant work') {
     const safe = evidence.filter((item) => typeof item.url === 'string' && /^#(?:case-[a-z-]+|about|ai-lab)$/.test(item.url));
     if (!safe.length) return '';
-    return `<nav class="assistant-references" aria-label="${escape(title)}"><h4>${escape(title)}</h4>${safe.map((item) => `<a href="${escape(item.url)}" data-assistant-link title="${escape(item.description || '')}">${escape(item.title)}<span aria-hidden="true">&rarr;</span></a>`).join('')}</nav>`;
+    return `<nav class="assistant-references" aria-label="${escape(title)}"><h4>${escape(title)}</h4>${safe.map((item) => `<a class="icon-link" href="${escape(item.url)}" data-assistant-link title="${escape(item.description || '')}">${escape(item.title)}<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a>`).join('')}</nav>`;
   }
 
   function renderReply(reply) {
@@ -81,7 +81,7 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
     markup += renderEvidence(reply.relevantProjects || reply.evidence, reply.matchLevel ? 'Relevant projects' : 'Relevant work');
     if (reply.potentialGaps?.length) markup += `<h3>Evidence to confirm</h3><ul>${reply.potentialGaps.map((gap) => `<li><strong>${escape(gap.requirement)}</strong>: ${escape(gap.explanation)}</li>`).join('')}</ul>`;
     if (reply.hasMoreDetail && reply.detail) markup += `<details><summary>Show more detail</summary><p>${escape(reply.detail)}</p>${reply.requirementsReviewed ? `<ul>${reply.requirementsReviewed.map((item) => `<li>${escape(item.requirement)}: ${item.supported ? 'Portfolio evidence found' : 'Not documented'}</li>`).join('')}</ul>` : ''}</details>`;
-    if (reply.insufficientEvidence || reply.error || reply.offTopic) markup += `${projectReferences(['experience'])}<div class="assistant-actions"><a class="assistant-action" href="#work" data-assistant-link>View work &rarr;</a><a class="assistant-action" href="${escape(resume)}" target="_blank" rel="noopener">View resume &nearr;</a><button type="button" class="assistant-action" data-ask-else>Ask something else</button></div>`;
+    if (reply.insufficientEvidence || reply.error || reply.offTopic) markup += `${projectReferences(['experience'])}<div class="assistant-actions"><a class="assistant-action icon-link" href="#work" data-assistant-link>View work<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a><a class="assistant-action icon-link" href="${escape(resume)}" target="_blank" rel="noopener">View resume<span class="ui-icon ui-icon--arrow-up-right" aria-hidden="true"></span></a><button type="button" class="assistant-action" data-ask-else>Ask something else</button></div>`;
     else if (reply.suggestedFollowUps?.length) markup += `<div class="assistant-actions">${reply.suggestedFollowUps.slice(0, 2).map((question) => `<button type="button" class="assistant-action" data-question="${escape(question)}">${escape(question)}</button>`).join('')}</div>`;
     return markup;
   }

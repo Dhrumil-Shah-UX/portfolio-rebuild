@@ -15,7 +15,7 @@ let appBootstrapped = false;
 const pageBackWrap = document.createElement("div");
 pageBackWrap.className = "page-back-wrap";
 pageBackWrap.hidden = true;
-pageBackWrap.innerHTML = '<button class="page-back" type="button" aria-label="Go back to the previous page"><svg class="page-back-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5m7-7-7 7 7 7"/></svg>Back</button>';
+pageBackWrap.innerHTML = '<button class="page-back icon-button-label" type="button" aria-label="Go back to the previous page"><span class="page-back-icon ui-icon ui-icon--chevron-left" aria-hidden="true"></span>Back</button>';
 const pageRoot = document.querySelector("[data-page-root]");
 const siteHeader = document.querySelector(".site-header");
 const headerLogo = siteHeader?.querySelector(".logo-link");
@@ -342,7 +342,7 @@ function renderMoreWriting(article) {
           <span>${item.topic}</span>
           <strong>${item.title}</strong>
           <small>${item.summary}</small>
-          <em>Read article &rarr;</em>
+          <em class="icon-link">Read article <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></em>
         </a>
       `
     )

@@ -1,25 +1,115 @@
 <section class="page" data-page-view="case-trial">
-        <article class="case-study case-study-trialbridge">
-          <div class="case-study-shell">
-            <aside class="case-sidebar" aria-label="TrialBridge case study sections">
-              <div class="case-sidebar-inner">
-                <button class="back-link" type="button" data-page="work">&larr; All Work</button>
-                <nav>
-                  <a href="#trial-overview" aria-current="true">Overview</a>
-                  <a href="#trial-challenge">Challenge</a>
-                  <a href="#trial-thinking">Thinking</a>
-                  <a href="#trial-contribution">My Contribution</a>
-                  <a href="#trial-decisions">Key Decisions</a>
-                  <a href="#trial-final">Final Experience</a>
-                  <a href="#trial-validation">Validation</a>
-                  <a href="#trial-ai">AI in my process</a>
-                  <a href="#trial-reflection">Reflection</a>
-                </nav>
-              </div>
-            </aside>
+  <article class="case-study case-study-trialbridge cs-system" aria-labelledby="trial-title">
+    <div class="case-study-shell">
+      <aside class="case-sidebar" aria-label="TrialBridge case study sections">
+        <div class="case-sidebar-inner">
+          <button class="back-link icon-button-label" type="button" data-page="work"><span class="ui-icon ui-icon--chevron-left" aria-hidden="true"></span>All Work</button>
+          <p class="cs-nav-title">TrialBridge</p>
+          <nav>
+            <a href="#trial-overview" aria-current="true"><span>01</span> Overview</a>
+            <a href="#trial-problem"><span>02</span> Problem</a>
+            <a href="#trial-decisions"><span>03</span> Decisions</a>
+            <a href="#trial-impact"><span>04</span> Impact</a>
+          </nav>
+        </div>
+      </aside>
+      <div class="case-study-content">
+        <section class="case-section cs-chapter cs-overview" id="trial-overview">
+          <header class="cs-intro">
+            <p class="case-kicker">Healthcare · Academic project</p>
+            <h1 id="trial-title">TrialBridge</h1>
+            <p class="cs-deck">A clearer path through clinical trial discovery.</p>
+            <p class="cs-summary">Helping patients explore suggested trials, compare practical differences, and decide what to share with caregivers—with physician input shaping the experience.</p>
+          </header>
+          <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-dashboard-full.png" target="_blank" rel="noopener" aria-label="Open complete screen: TrialBridge suggested trial cards and practical discovery filters"><img src="assets/images/case-studies/trialbridge/figma-dashboard-focus.png" alt="TrialBridge suggested trial cards and practical discovery filters" loading="lazy" decoding="async"></a><figcaption>The proposed experience brings suggested trials, filters, and comparison together. Prototype content shown.</figcaption></figure>
+          <dl class="cs-facts">
+            <div><dt>My role</dt><dd>Product Designer</dd></div>
+            <div><dt>Team</dt><dd>Six-person academic team</dd></div>
+            <div><dt>Collaboration</dt><dd>Mayo Clinic physicians &amp; academic faculty</dd></div>
+            <div><dt>Evidence</dt><dd>35+ screens · 3 physician testing rounds</dd></div>
+          </dl>
+          <div class="cs-role">
+            <h2>My contribution</h2>
+            <p>I owned key parts of onboarding, worked on trial comparison and caregiver interactions, led educational resources and FAQs, and proposed the peer connection-request model. I also organized information through affinity mapping and translated physician feedback into design refinements.</p>
+            <p class="cs-note">Research synthesis, testing, product direction, and system decisions were collaborative. The 35+ screens describe team delivery, not an individual screen count.</p>
+          </div>
+          <a class="cs-source icon-link" href="https://www.figma.com/design/mYwrcT8iuqvuLjgbmrUvLn/CX-Hi-fi" target="_blank" rel="noopener">Explore the high-fidelity design file<span class="ui-icon ui-icon--arrow-up-right" aria-hidden="true"></span></a>
+        </section>
 
-            <div class="case-study-content">
-            <section class="case-section case-overview" id="trial-overview">
+        <section class="case-section cs-chapter cs-problem" id="trial-problem">
+          <div class="cs-section-heading"><p class="case-kicker">02 / Problem</p><h2>Finding a trial is more than finding a medical match.</h2><p>Patients must interpret unfamiliar language, weigh travel and visit requirements, and involve others without losing control of their information.</p></div>
+          <div class="cs-insights">
+            <article><span>Comprehension</span><h3>Medical details need context.</h3><p>Terminology and fragmented trial information made clarity a core design concern.</p></article>
+            <article><span>Practical fit</span><h3>Eligibility is only part of the decision.</h3><p>Distance and appointment frequency also shape whether an option is practical.</p></article>
+            <article><span>Patient agency</span><h3>Support needs boundaries.</h3><p>Caregiver participation and peer communication require patient control.</p></article>
+          </div>
+          <p class="cs-method"><strong>Evidence foundation:</strong> literature review, affinity mapping, recurring physician collaboration, and three rounds of physician think-aloud testing. Testing involved physicians; real patients were not tested.</p>
+        </section>
+
+        <section class="case-section cs-chapter" id="trial-decisions">
+          <div class="cs-section-heading"><p class="case-kicker">03 / Decisions</p><h2>Clinical feedback, made visible in the interface.</h2><p>Four decisions connect the research, prototype iterations, and the responsibilities I held.</p></div>
+
+          <article class="cs-decision" aria-labelledby="trial-suggestions-title">
+            <header><p class="cs-label">Decision 01 · Discovery &amp; clinical clarity</p><h3 id="trial-suggestions-title">Suggest possibilities without implying eligibility.</h3></header>
+            <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-dashboard-full.png" target="_blank" rel="noopener" aria-label="Open complete screen: Suggested Trials dashboard with distance and location controls"><img src="assets/images/case-studies/trialbridge/figma-dashboard-focus.png" alt="Suggested Trials dashboard with distance and location controls" loading="lazy" decoding="async"></a><figcaption>Suggested trials appear alongside practical filters. A suggestion is a starting point for review.</figcaption></figure>
+            <div class="cs-reasoning"><div><h4>What we learned</h4><p>Physician feedback showed that “Matching” implied more certainty than the concept could support. Round 2 included terminology and data-sharing concerns; round 3 returned to suggestion accuracy.</p></div><div><h4>What changed</h4><p>The team renamed “Matching Trials” to “Suggested Trials” and kept eligibility considerations and clinician review visible in trial details.</p></div></div>
+            <div class="cs-language"><span><small>Earlier label</small>Matching Trials</span><span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span><span><small>Revised label</small>Suggested Trials</span></div>
+            <details class="cs-detail"><summary>Inspect trial details and clinical scope</summary>
+              <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-details.png" target="_blank" rel="noopener" aria-label="Open complete screen: Trial details with an eligibility review note"><img src="assets/images/case-studies/trialbridge/figma-details-focus.png" alt="Trial details with an eligibility review note" loading="lazy" decoding="async"></a><figcaption>Study context and eligibility considerations sit alongside a clinician-review note.</figcaption></figure>
+              <p>A clinician dashboard and a broader physician/EHR decision hub were explored but not adopted because of their supporting feature requirements and scope. Selected elements informed the final concept.</p>
+            </details>
+          </article>
+
+          <article class="cs-decision" aria-labelledby="trial-onboarding-title">
+            <header><p class="cs-label">Decision 02 · Onboarding &amp; practical fit</p><h3 id="trial-onboarding-title">Offer a shorter path without making record sharing compulsory.</h3></header>
+            <div class="cs-visual-pair"><figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-onboarding.png" target="_blank" rel="noopener" aria-label="Open complete screen: Choice between EHR integration and manual medical history"><img src="assets/images/case-studies/trialbridge/figma-onboarding-focus.png" alt="Choice between EHR integration and manual medical history" loading="lazy" decoding="async"></a><figcaption>A proposed record-sync path sits alongside manual entry.</figcaption></figure><figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-medical-entry.png" target="_blank" rel="noopener" aria-label="Open complete screen: Manual entry of cancer type, stage and metastasis status"><img src="assets/images/case-studies/trialbridge/figma-medical-entry-focus.png" alt="Manual entry of cancer type, stage and metastasis status" loading="lazy" decoding="async"></a><figcaption>Manual entry breaks medical history into focused steps.</figcaption></figure></div>
+            <div class="cs-reasoning"><div><h4>What we learned</h4><p>Earlier concepts used detailed manual history and document upload. Onboarding depth surfaced in rounds 1 and 3 of physician testing.</p></div><div><h4>My response</h4><p>I owned key onboarding flows and translated physician feedback into refinements. The team explored EHR sync while retaining manual entry for people who preferred not to share records.</p></div></div>
+            <details class="cs-detail"><summary>See travel preferences and the earlier annotated flow</summary>
+              <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-travel.png" target="_blank" rel="noopener" aria-label="Open complete screen: Travel distance and visit frequency preferences"><img src="assets/images/case-studies/trialbridge/figma-travel-focus.png" alt="Travel distance and visit frequency preferences" loading="lazy" decoding="async"></a><figcaption>Practical constraints supplement medical information in the proposed journey.</figcaption></figure>
+              <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/onboarding-annotated.png" target="_blank" rel="noopener" aria-label="Open complete screen: Annotated onboarding design"><img src="assets/images/case-studies/trialbridge/onboarding-annotated.png" alt="Annotated onboarding design" loading="lazy" decoding="async"></a><figcaption>Existing annotated onboarding artifact, retained for a closer view of the design work.</figcaption></figure>
+              <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/onboarding-travel-preferences.png" target="_blank" rel="noopener" aria-label="Open complete screen: Earlier onboarding travel preferences"><img src="assets/images/case-studies/trialbridge/onboarding-travel-preferences.png" alt="Earlier onboarding travel preferences" loading="lazy" decoding="async"></a><figcaption>Earlier travel-preference artifact. EHR integration remained a prototype proposal.</figcaption></figure>
+            </details>
+          </article>
+
+          <article class="cs-decision" aria-labelledby="trial-comparison-title">
+            <header><p class="cs-label">Decision 03 · Trial comparison</p><h3 id="trial-comparison-title">Put important differences side by side.</h3></header>
+            <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-comparison.png" target="_blank" rel="noopener" aria-label="Open complete screen: Two trials compared across timeline, eligibility, advantages and considerations"><img src="assets/images/case-studies/trialbridge/figma-comparison-focus.png" alt="Two trials compared across timeline, eligibility, advantages and considerations" loading="lazy" decoding="async"></a><figcaption>Aligned categories give patients a way to inspect differences without switching between trial pages. Illustrative prototype content.</figcaption></figure>
+            <div class="cs-reasoning"><div><h4>Design rationale</h4><p>Trial choices contain many details. A side-by-side view makes those differences visible together rather than relying on memory.</p></div><div><h4>My contribution</h4><p>I worked on trial comparison within the guided-journey concept. This is a design response to information complexity; a measured improvement in patient comprehension was not established.</p></div></div>
+          </article>
+
+          <article class="cs-decision" aria-labelledby="trial-caregiver-title">
+            <header><p class="cs-label">Decision 04 · Caregivers, privacy &amp; consent</p><h3 id="trial-caregiver-title">Let patients choose who participates—and what they can see.</h3></header>
+            <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-caregiver.png" target="_blank" rel="noopener" aria-label="Open complete screen: Patient-controlled caregiver permissions for records, trials and appointments"><img src="assets/images/case-studies/trialbridge/figma-caregiver-focus.png" alt="Patient-controlled caregiver permissions for records, trials and appointments" loading="lazy" decoding="async"></a><figcaption>Patients choose what caregivers can view and manage, then save their permissions.</figcaption></figure>
+            <div class="cs-reasoning"><div><h4>What we learned</h4><p>Round 1 raised unwanted community messaging. Later feedback focused on privacy and caregiver data sharing.</p></div><div><h4>My response</h4><p>I proposed approval-based peer connection requests and worked on Care Circle interactions and sharing controls. The team refined patient control over caregiver participation.</p></div></div>
+            <details class="cs-detail"><summary>Explore peer connections and Care Circle artifacts</summary>
+              <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-connections.png" target="_blank" rel="noopener" aria-label="Open complete screen: TrialBridge peer connection interface"><img src="assets/images/case-studies/trialbridge/figma-connections.png" alt="TrialBridge peer connection interface" loading="lazy" decoding="async"></a><figcaption>Peer communication was designed around patient approval.</figcaption></figure>
+              <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/care-circle-assigned-tasks.png" target="_blank" rel="noopener" aria-label="Open complete screen: Care Circle assigned tasks"><img src="assets/images/case-studies/trialbridge/care-circle-assigned-tasks.png" alt="Care Circle assigned tasks" loading="lazy" decoding="async"></a><figcaption>Caregiver support includes task coordination within the concept.</figcaption></figure>
+              <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/community-hub-annotated.png" target="_blank" rel="noopener" aria-label="Open complete screen: Annotated community hub"><img src="assets/images/case-studies/trialbridge/community-hub-annotated.png" alt="Annotated community hub" loading="lazy" decoding="async"></a><figcaption>Existing annotated community artifact.</figcaption></figure>
+            </details>
+          </article>
+
+          <aside class="cs-considerations">
+            <h3>Designing for understanding and control</h3>
+            <div class="cs-reasoning"><div><h4>Accessibility considerations</h4><p>Focused steps, aligned comparison categories, and explanations of medical language were design responses to cognitive effort. Patient accessibility testing and formal conformance results are not documented.</p></div><div><h4>Privacy &amp; consent considerations</h4><p>Manual entry, caregiver permissions, and approved peer connections express patient choice. These prototype controls do not establish implemented security, regulatory compliance, or an operational consent system.</p></div></div>
+            <details class="cs-detail"><summary>Explore education and the assistant concept</summary>
+              <div class="cs-visual-pair"><figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/figma-assistant.png" target="_blank" rel="noopener" aria-label="Open complete screen: TrialGuide explaining Phase II trials"><img src="assets/images/case-studies/trialbridge/figma-assistant.png" alt="TrialGuide explaining Phase II trials" loading="lazy" decoding="async"></a><figcaption>Educational assistant concept; no production AI functionality is claimed.</figcaption></figure><figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/assistant-chat.png" target="_blank" rel="noopener" aria-label="Open complete screen: Earlier educational assistant chat"><img src="assets/images/case-studies/trialbridge/assistant-chat.png" alt="Earlier educational assistant chat" loading="lazy" decoding="async"></a><figcaption>Earlier assistant artifact retained alongside the high-fidelity concept.</figcaption></figure></div>
+              <p>I led educational resources, FAQs, and the educational assistant interface. Separately, I used AI in my own process to accelerate low- and high-fidelity prototypes and communicate concepts with designers and non-designers.</p>
+            </details>
+          </aside>
+        </section>
+
+        <section class="case-section cs-chapter cs-impact" id="trial-impact">
+          <div class="cs-section-heading"><p class="case-kicker">04 / Impact</p><h2>A refined design direction, supported by physician review.</h2><p>The demonstrated outcomes are design deliverables and observed testing feedback.</p></div>
+          <div class="cs-outcomes"><article><strong>35+</strong><h3>Screens delivered</h3><p>Team prototype output across the proposed experience.</p></article><article><strong>3</strong><h3>Physician testing rounds</h3><p>Think-aloud sessions informed scope, terminology, and patient controls.</p></article><article><strong>4</strong><h3>Physicians per session</h3><p>Clinical perspectives informed iteration; sessions were not patient testing.</p></article></div>
+          <div class="cs-evidence-list">
+            <div><span>Round 1</span><p>Unwanted messaging and onboarding depth prompted discussion of connection approval and the entry experience.</p></div>
+            <div><span>Round 2</span><p>Privacy, sharing, and terminology informed caregiver controls and the shift to “Suggested Trials.”</p></div>
+            <div><span>Round 3</span><p>Onboarding depth and suggestion accuracy remained areas for further review.</p></div>
+          </div>
+          <p class="cs-boundary">These activity counts do not measure product impact. Scores and trial information shown in the prototype are illustrative, not validated eligibility or clinical predictions. The project does not establish patient outcomes, clinical effectiveness, or deployed AI functionality.</p>
+          <div class="cs-role"><h3>What I would carry forward</h3><p>Working with physicians taught me to balance clarity with clinical accuracy, institutional constraints, and patient control. Clear prototypes helped make multidisciplinary discussions concrete. Direct patient research and implemented-system evaluation would be needed to assess the experience beyond physician review.</p></div>
+          <details class="cs-detail cs-archive"><summary>Full project narrative &amp; original evidence</summary><p>The original case study is retained below, including contribution detail, prior annotations, scope decisions, and reflection.</p><div class="cs-archive-content">
+            <section class="case-section case-overview" id="trial-archive-overview">
               <p class="case-kicker">Healthcare &middot; Product Design</p>
               <h1>TrialBridge</h1>
               <p class="case-lede">A patient-centered clinical trial matching platform created as an academic healthcare project.</p>
@@ -30,18 +120,18 @@
                 <div><dt>Collaboration</dt><dd>Mayo Clinic physicians + academic faculty</dd></div>
                 <div><dt>Validation</dt><dd>3 physician testing rounds</dd></div>
               </dl>
-              <a class="case-ai-teaser case-inpage-jump" href="#trial-ai">
+              <a class="case-ai-teaser case-inpage-jump" href="#trial-archive-ai">
                 <span class="case-ai-teaser__icon ai-sparkle" aria-hidden="true">&#10023;</span>
                 <div class="case-ai-teaser__copy">
                   <span class="case-ai-teaser__label">AI in my process</span>
                   <p>Used AI to accelerate low- and high-fidelity prototyping and communicate concepts faster.</p>
                 </div>
-                <span class="case-ai-teaser__cta" aria-hidden="true">&rarr;</span>
+                <span class="case-ai-teaser__cta ui-icon ui-icon--arrow-right" aria-hidden="true"></span>
                 <span class="sr-only">Jump to AI in my process section</span>
               </a>
             </section>
 
-            <section class="case-section section-challenge" id="trial-challenge">
+            <section class="case-section section-challenge" id="trial-archive-challenge">
               <div class="section-copy">
                 <p class="case-kicker">Challenge</p>
                 <h2>Clinical trial discovery asked patients to navigate complexity at an already difficult moment.</h2>
@@ -49,7 +139,7 @@
               </div>
             </section>
 
-            <section class="case-section section-sage" id="trial-thinking">
+            <section class="case-section section-sage" id="trial-archive-thinking">
               <div class="section-copy">
                 <p class="case-kicker">What shaped the direction</p>
                 <h2>Three constraints shaped the product direction.</h2>
@@ -83,7 +173,7 @@
               </details>
             </section>
 
-            <section class="case-section" id="trial-contribution">
+            <section class="case-section" id="trial-archive-contribution">
               <div class="section-copy">
                 <p class="case-kicker">Where I contributed</p>
                 <h2>I owned specific parts of a larger team product.</h2>
@@ -129,7 +219,7 @@
               <p class="team-note"><strong>Built within a six-person team:</strong> research synthesis, broader product direction, testing, and system-level decisions were collaborative unless identified above as my direct ownership.</p>
             </section>
 
-            <section class="case-section section-decisions" id="trial-decisions">
+            <section class="case-section section-decisions" id="trial-archive-decisions">
               <div class="section-copy">
                 <p class="case-kicker">Key decisions</p>
                 <h2>Design decisions connected physician feedback to product changes.</h2>
@@ -188,13 +278,13 @@
                 </div>
                 <div class="before-after">
                   <article><span>Before</span><strong>Matching Trials</strong></article>
-                  <span class="before-after-arrow" aria-hidden="true">&rarr;</span>
+                  <span class="before-after-arrow ui-icon ui-icon--arrow-right" aria-hidden="true"></span>
                   <article><span>After</span><strong>Suggested Trials</strong></article>
                 </div>
               </section>
             </section>
 
-            <section class="case-section section-forest" id="trial-final">
+            <section class="case-section section-forest" id="trial-archive-final">
               <div class="section-copy">
                 <p class="case-kicker">Final experience</p>
                 <h2>From onboarding to informed next steps.</h2>
@@ -208,7 +298,7 @@
               </div>
             </section>
 
-            <section class="case-section section-neutral" id="trial-validation">
+            <section class="case-section section-neutral" id="trial-archive-validation">
               <div class="section-copy">
                 <p class="case-kicker">Validation &amp; delivery</p>
                 <h2>Physician testing helped the team refine scope, language, and control.</h2>
@@ -231,7 +321,7 @@
               </div>
             </section>
 
-            <section class="case-section section-sage" id="trial-ai">
+            <section class="case-section section-sage" id="trial-archive-ai">
               <div class="ai-process-module">
                 <p class="case-kicker">AI in my process</p>
                 <p>I used AI to move concepts into low- and high-fidelity prototypes more quickly, helping me communicate ideas with designers and non-designers.</p>
@@ -239,7 +329,7 @@
               </div>
             </section>
 
-            <section class="case-section" id="trial-beyond">
+            <section class="case-section" id="trial-archive-beyond">
               <div class="section-copy">
                 <h2>Designing beyond the interface</h2>
               </div>
@@ -250,23 +340,20 @@
               </div>
             </section>
 
-            <section class="case-section reflection-section" id="trial-reflection">
+            <section class="case-section reflection-section" id="trial-archive-reflection">
               <div class="section-copy">
                 <p class="case-kicker">Reflection</p>
                 <h2>What I'd carry forward</h2>
                 <p>Working with physicians taught me that healthcare UX cannot be designed in isolation. I learned to balance clarity with clinical accuracy, institutional constraints, and patient control, and that a clear prototype can align a multidisciplinary team more effectively than an abstract diagram.</p>
               </div>
             </section>
-            </div>
-          </div>
-
-          <section class="case-next-project next-project" aria-labelledby="trial-next-project-title">
-            <div class="case-next-project__inner">
-              <p class="case-kicker">Next project</p>
-              <h3 id="trial-next-project-title">RUHL AI</h3>
-              <p>Designing a clearer path through building sustainability complexity.</p>
-              <a href="#case-ruhl" data-page="case-ruhl">View case study &rarr;</a>
-            </div>
-          </section>
-        </article>
-      </section>
+</div>
+            <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/dashboard-annotated.png" target="_blank" rel="noopener" aria-label="Open complete screen: Annotated trial discovery dashboard"><img src="assets/images/case-studies/trialbridge/dashboard-annotated.png" alt="Annotated trial discovery dashboard" loading="lazy" decoding="async"></a><figcaption>Original dashboard annotations retained as supporting evidence.</figcaption></figure>
+            <figure class="cs-figure"><a href="assets/images/case-studies/trialbridge/dashboard-matching-trials.png" target="_blank" rel="noopener" aria-label="Open complete screen: Earlier matching trials dashboard"><img src="assets/images/case-studies/trialbridge/dashboard-matching-trials.png" alt="Earlier matching trials dashboard" loading="lazy" decoding="async"></a><figcaption>Earlier dashboard artifact preserves the terminology before refinement.</figcaption></figure>
+          </details>
+        </section>
+      </div>
+    </div>
+    <section class="case-next-project next-project" aria-labelledby="trial-next-project-title"><div class="case-next-project__inner"><p class="case-kicker">Next project</p><h3 id="trial-next-project-title">RUHL AI</h3><p>Designing a clearer path through building sustainability complexity.</p><a class="icon-link" href="#case-ruhl" data-page="case-ruhl">View case study<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a></div></section>
+  </article>
+</section>
