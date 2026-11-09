@@ -441,6 +441,101 @@ function bootstrapApp() {
   appBootstrapped = true;
   initGameVideos();
 
+  const trialStudy = document.querySelector("#trial-case-study");
+  const trialImageModal = trialStudy?.querySelector(".tb-image-modal");
+  if (trialImageModal && typeof trialImageModal.showModal === "function") {
+    const modalImage = trialImageModal.querySelector(".tb-modal-image");
+    const modalCaption = trialImageModal.querySelector("#trial-image-modal-caption");
+    const imageStage = trialImageModal.querySelector(".tb-modal-stage");
+    const imageCanvas = trialImageModal.querySelector(".tb-modal-canvas");
+    let imageZoom = 1;
+    function setTrialImageZoom(nextZoom, anchor) {
+      if (!trialImageModal.open || !modalImage.naturalWidth) return;
+      const viewWidth = Math.max(1, imageStage.clientWidth - 32);
+      const viewHeight = Math.max(1, imageStage.clientHeight - 32);
+      const before = modalImage.getBoundingClientRect();
+      const stageBounds = imageStage.getBoundingClientRect();
+      const point = anchor || { x: stageBounds.left + imageStage.clientWidth / 2, y: stageBounds.top + imageStage.clientHeight / 2 };
+      const imageX = before.width ? Math.max(0, Math.min(1, (point.x - before.left) / before.width)) : 0.5;
+      const imageY = before.height ? Math.max(0, Math.min(1, (point.y - before.top) / before.height)) : 0.5;
+      imageZoom = Math.max(1, Math.min(4, nextZoom));
+      const fitScale = Math.min(viewWidth / modalImage.naturalWidth, viewHeight / modalImage.naturalHeight, 1);
+      const width = modalImage.naturalWidth * fitScale * imageZoom;
+      const height = modalImage.naturalHeight * fitScale * imageZoom;
+      modalImage.style.width = width + "px";
+      modalImage.style.height = height + "px";
+      imageCanvas.style.width = Math.max(viewWidth, width) + "px";
+      imageCanvas.style.height = Math.max(viewHeight, height) + "px";
+      const after = modalImage.getBoundingClientRect();
+      imageStage.scrollLeft = imageZoom === 1 ? 0 : imageStage.scrollLeft + after.left + imageX * after.width - point.x;
+      imageStage.scrollTop = imageZoom === 1 ? 0 : imageStage.scrollTop + after.top + imageY * after.height - point.y;
+      modalImage.style.cursor = imageZoom >= 4 ? "zoom-out" : "zoom-in";
+    }
+    modalImage.addEventListener("load", () => setTrialImageZoom(1));
+    modalImage.addEventListener("wheel", (event) => {
+      if (!trialImageModal.open || !modalImage.naturalWidth) return;
+      event.preventDefault();
+      const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? imageStage.clientHeight : 1);
+      setTrialImageZoom(imageZoom * Math.exp(-Math.max(-200, Math.min(200, delta)) * 0.003), { x: event.clientX, y: event.clientY });
+      modalImage.style.cursor = delta > 0 ? "zoom-out" : "zoom-in";
+    }, { passive: false });
+    let imageDrag;
+    modalImage.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "mouse" || event.button !== 0 || imageZoom <= 1) return;
+      event.preventDefault();
+      imageDrag = { id: event.pointerId, x: event.clientX, y: event.clientY, left: imageStage.scrollLeft, top: imageStage.scrollTop };
+      modalImage.setPointerCapture(event.pointerId);
+    });
+    modalImage.addEventListener("pointermove", (event) => {
+      if (imageDrag?.id !== event.pointerId) return;
+      imageStage.scrollLeft = imageDrag.left - (event.clientX - imageDrag.x);
+      imageStage.scrollTop = imageDrag.top - (event.clientY - imageDrag.y);
+    });
+    modalImage.addEventListener("pointerup", () => { imageDrag = null; });
+    modalImage.addEventListener("pointercancel", () => { imageDrag = null; });
+    modalImage.addEventListener("lostpointercapture", () => { imageDrag = null; });
+    trialImageModal.addEventListener("keydown", (event) => {
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
+      if (!["+", "=", "-", "0"].includes(event.key)) return;
+      event.preventDefault();
+      setTrialImageZoom(event.key === "0" ? 1 : imageZoom + (event.key === "-" ? -0.5 : 0.5));
+    });
+    window.addEventListener("resize", () => {
+      if (trialImageModal.open) setTrialImageZoom(imageZoom);
+    });
+    let imageOpener;
+    let previousOverflow;
+    trialStudy.querySelectorAll(".tb-image > a").forEach((link) => {
+      link.setAttribute("aria-haspopup", "dialog");
+      link.addEventListener("click", (event) => {
+        if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        imageOpener = link;
+        imageZoom = 1;
+        imageDrag = null;
+        modalImage.style.width = "";
+        modalImage.style.height = "";
+        imageCanvas.style.width = "0px";
+        imageCanvas.style.height = "0px";
+        modalImage.alt = link.querySelector("img").alt;
+        modalImage.src = link.href;
+        modalCaption.textContent = link.closest("figure").querySelector("figcaption")?.textContent || modalImage.alt;
+        previousOverflow = document.documentElement.style.overflow;
+        trialImageModal.showModal();
+        imageStage.scrollTo(0, 0);
+        if (modalImage.complete && modalImage.naturalWidth) setTrialImageZoom(1);
+        document.documentElement.style.overflow = "hidden";
+      });
+    });
+    trialImageModal.querySelector(".tb-modal-close").addEventListener("click", () => trialImageModal.close());
+    trialImageModal.addEventListener("close", () => {
+      imageDrag = null;
+      document.documentElement.style.overflow = previousOverflow;
+      imageOpener?.focus({ preventScroll: true });
+      modalImage.removeAttribute("src");
+    });
+  }
+
   const photoViewport = document.querySelector(".about-photo-viewport");
   if (photoViewport) {
     const wall = photoViewport.querySelector(".about-photo-wall");
