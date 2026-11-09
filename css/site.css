@@ -4625,6 +4625,157 @@ dd,
 
 /* Showroom evidence uses the shared case-study typography and surfaces. */
 .case-study-showroom .showroom-hero { margin-top: 32px; }
+.ruhl-source-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--accent-green);
+  font-weight: 600;
+  text-underline-offset: 0.25em;
+}
+
+.ruhl-ownership {
+  margin-top: 2rem;
+}
+
+.ruhl-search-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.ruhl-search-flow article {
+  padding: clamp(1.25rem, 2vw, 2rem);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  background: var(--card-bg);
+}
+
+.ruhl-search-flow article > span {
+  font-size: 0.8rem;
+  color: var(--accent-green);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ruhl-search-flow h3 { margin-block: 0.75rem; }
+.ruhl-search-flow p { margin-bottom: 0; }
+
+.ruhl-particle-demo { margin-top: 2rem; }
+.ruhl-particle-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: var(--type-body-sm);
+}
+
+.ruhl-particle-toolbar button {
+  flex-shrink: 0;
+  border: 1px solid var(--accent-green);
+  border-radius: 999px;
+  padding: 0.65rem 1.2rem;
+  background: var(--accent-green);
+  color: var(--text-inverse);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ruhl-particle-toolbar button:focus-visible {
+  outline: 3px solid var(--accent-green);
+  outline-offset: 4px;
+}
+
+.ruhl-particle-stage {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: var(--radius-media);
+  background: #00375a;
+}
+
+.ruhl-particle-stage iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.ruhl-particle-stage p {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding-inline: 1rem;
+  transform: translateY(-50%);
+  color: #fff;
+  text-align: center;
+  font-size: clamp(1.25rem, 4vw, 2.8rem);
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .ruhl-search-flow { grid-template-columns: 1fr; }
+  .ruhl-particle-toolbar { align-items: flex-start; flex-direction: column; }
+}
+
+.case-study-trialbridge .case-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.case-study-trialbridge .case-media a {
+  display: block;
+  border-radius: var(--radius-media);
+}
+
+.case-study-trialbridge .case-media a:focus-visible {
+  outline: 3px solid var(--accent-green);
+  outline-offset: 5px;
+}
+
+.case-study-trialbridge .media-pair,
+.case-study-trialbridge .final-composition {
+  align-items: start;
+}
+
+.case-study-trialbridge .media-pair .secondary-media {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+}
+
+.case-study-trialbridge .section-forest h2,
+.case-study-trialbridge .section-forest .case-kicker {
+  color: #f7f4ed;
+}
+
+.case-study-trialbridge .section-forest figcaption {
+  color: #d9e3da;
+}
+
+.case-study-trialbridge .chatbot-frame {
+  aspect-ratio: auto;
+  overflow: visible;
+}
+
+.case-study-trialbridge .chatbot-frame a {
+  max-width: 384px;
+  margin-inline: auto;
+}
+
+.case-study-trialbridge .chatbot-frame figcaption {
+  max-width: 540px;
+  margin-inline: auto;
+  text-align: center;
+}
+
 .case-study-showroom .case-media img { display: block; height: auto; }
 .case-study-showroom .case-media a { display: block; border-radius: var(--radius-media); }
 .case-study-showroom .case-media a:focus-visible { outline: 3px solid var(--accent-green); outline-offset: 4px; }

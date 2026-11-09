@@ -17,12 +17,53 @@
     "translating physician feedback into design refinements"
   ],
   "assetsUsed": [
-    "trialbridge__dashboard__annotated__04.png",
-    "trialbridge__onboarding__annotated__04.png",
-    "trialbridge__onboarding__travel-preferences__04.png",
-    "trialbridge__dashboard__matching-trials__01.png",
-    "trialbridge__community__hub-annotated__04.png",
-    "trialbridge__care-circle__assigned-tasks__04.png",
-    "trialbridge__assistant__chat__04.png"
-  ]
+    "figma-assistant.png",
+    "figma-caregiver-focus.png",
+    "figma-comparison-focus.png",
+    "figma-dashboard-focus.png",
+    "figma-details-focus.png",
+    "figma-medical-entry-focus.png",
+    "figma-onboarding-focus.png",
+    "figma-travel-focus.png"
+  ],
+  "figmaSource": {
+    "fileKey": "mYwrcT8iuqvuLjgbmrUvLn",
+    "url": "https://www.figma.com/design/mYwrcT8iuqvuLjgbmrUvLn/CX-Hi-fi",
+    "screens": {
+      "dashboard": "352:8027",
+      "comparison": "603:7881",
+      "onboarding": "720:6336",
+      "caregiver": "746:5493",
+      "details": "448:8828",
+      "assistant": "712:7767",
+      "medical-entry": "208:4078",
+      "travel": "746:4766"
+    },
+    "focusCrops": {
+      "dashboard": [
+        64,
+        412,
+        1376,
+        1096
+      ],
+      "onboarding": [
+        296,
+        132,
+        1144,
+        690
+      ],
+      "caregiver": [
+        88,
+        780,
+        1352,
+        1530
+      ],
+      "comparison": [
+        88,
+        728,
+        1352,
+        1548
+      ]
+    }
+  }
 }

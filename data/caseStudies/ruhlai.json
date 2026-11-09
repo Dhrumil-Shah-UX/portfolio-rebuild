@@ -1,0 +1,47 @@
+{
+  "id": "ruhlai",
+  "title": "RUHL AI",
+  "scope": "Personal property-search, website design and development work; not the subsequent employee rebuild.",
+  "sources": [
+    {
+      "kind": "owner account",
+      "date": "2026-11-04",
+      "verified": [
+        "Initial NYC building discovery UX direction",
+        "Stakeholder introduced a different visual and structural direction",
+        "Personally redesigned and redeveloped the Wix Studio landing page and inquiry form with NYC address search",
+        "Work involved Next.js, Supabase and Vercel; specific integration roles not code-verified",
+        "Assigned website and search work completed",
+        "Another employee later rebuilt the broader site during the owner absence"
+      ]
+    },
+    {
+      "url": "https://dashah99.wixstudio.com/ruhlai/home?rc=test-site",
+      "kind": "archived incomplete prototype",
+      "verified": [
+        "NYC address and other-city address fields",
+        "Property name, address, BIN, BBL, borough, use type and floor-area labels",
+        "Add action and added-properties area",
+        "Wix HTML component embeds original GitHub Pages particle demo"
+      ]
+    },
+    {
+      "url": "https://dhrumil-shah-ux.github.io/mep-particles/",
+      "kind": "original particle source",
+      "verified": [
+        "Three.js WebGLRenderer",
+        "Canvas text sampled into points",
+        "Pointer attraction",
+        "Constrained particle motion",
+        "Speed and device-pixel-ratio caps"
+      ]
+    }
+  ],
+  "limitations": [
+    "No performance, conversion, usability or business metrics verified",
+    "Original search code not supplied or reviewed",
+    "Detailed visual before-and-after artifacts not supplied",
+    "No attribution to the current site"
+  ],
+  "interactiveEmbed": "https://dhrumil-shah-ux.github.io/mep-particles/"
+}
