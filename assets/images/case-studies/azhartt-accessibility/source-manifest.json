@@ -1,0 +1,30 @@
+{
+  "source": "https://dhrumilshahux.framer.website/azhartt-accessibility-project",
+  "figmaFile": "4gARJra4hNm38GLdeg9muL",
+  "assets": [
+    {
+      "file": "website-overview.png",
+      "source": "https://framerusercontent.com/images/3EhXAAcqS9NvtFCKPRaDZjK9tQ.png?scale-down-to=1024&width=3600&height=2400"
+    },
+    {
+      "file": "audit-overview.png",
+      "source": "https://framerusercontent.com/images/TMP8JNAilxeO8oPSb2VWf5lrSo8.png?width=5504&height=3308"
+    },
+    {
+      "file": "compliance-notes.png",
+      "source": "https://framerusercontent.com/images/Lo2CmzO62OVBE4JNKkpynUwcI.png?width=2448&height=1440"
+    },
+    {
+      "file": "home-annotations.png",
+      "figmaNode": "14:541"
+    },
+    {
+      "file": "lost-pet-annotations.png",
+      "figmaNode": "14:542"
+    },
+    {
+      "file": "found-pet-annotations.png",
+      "figmaNode": "14:543"
+    }
+  ]
+}

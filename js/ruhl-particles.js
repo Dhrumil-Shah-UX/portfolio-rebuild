@@ -11,8 +11,8 @@
       button.textContent = 'Start demo';
       button.setAttribute('aria-expanded', 'false');
     };
-    button.addEventListener('click', () => {
-      if (stage.querySelector('iframe')) return stop();
+    const start = () => {
+      if (stage.querySelector('iframe')) return;
       const frame = document.createElement('iframe');
       frame.src = 'https://dhrumil-shah-ux.github.io/mep-particles/';
       frame.title = 'Original RUHL AI particle text: move your pointer over the text';
@@ -23,14 +23,21 @@
       stage.append(frame);
       button.textContent = 'Stop demo';
       button.setAttribute('aria-expanded', 'true');
+    };
+    button.addEventListener('click', () => {
+      if (stage.querySelector('iframe')) stop();
+      else start();
     });
     // Unload WebGL when this routed view becomes hidden.
     const page = demo.closest('[data-page-view]');
     new MutationObserver(() => {
-      if (!page.classList.contains('is-visible')) stop();
+      if (page.classList.contains('is-visible') && !document.hidden) start();
+      else stop();
     }).observe(page, { attributes: true, attributeFilter: ['class'] });
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) stop();
+      else if (page.classList.contains('is-visible')) start();
     });
+    if (page.classList.contains('is-visible') && !document.hidden) start();
   }).catch(() => {});
 })();

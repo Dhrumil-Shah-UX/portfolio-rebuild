@@ -35,13 +35,44 @@
         "Constrained particle motion",
         "Speed and device-pixel-ratio caps"
       ]
+    },
+    {
+      "kind": "owner clarification",
+      "date": "2026-11-09",
+      "verified": [
+        "ChatGPT used for coding assistance; no specific prompt history or per-function AI attribution supplied"
+      ]
+    },
+    {
+      "kind": "reviewed local source and authored commit history",
+      "verified": [
+        "July 2026 commit e5d9418 by Dhrumil adds public building search and preview endpoints",
+        "Commits 9468add and 1ee31b5 add homepage building deep links and loading feedback",
+        "Reviewed API source and tests cover defined response fields, query/ID validation, errors and origin checks",
+        "Reviewed source does not prove these endpoints back the archived Wix form"
+      ]
+    },
+    {
+      "kind": "archived Wix visual capture",
+      "date": "2026-11-09",
+      "verified": [
+        "Earlier /home landing with particle treatment",
+        "Revised root landing with hero address entry",
+        "Focused early inquiry form with contact fields, NYC address search and Add action"
+      ],
+      "assets": [
+        "archived-early-landing.png",
+        "archived-revised-landing.png",
+        "archived-building-inquiry.png"
+      ]
     }
   ],
   "limitations": [
     "No performance, conversion, usability or business metrics verified",
-    "Original search code not supplied or reviewed",
-    "Detailed visual before-and-after artifacts not supplied",
-    "No attribution to the current site"
+    "Original Wix search backend not reviewed; reviewed Next.js contributions do not establish Wix-to-API integration",
+    "Archived layout comparisons establish visual differences, not measured improvement or precise version chronology",
+    "Existing source tests were inspected, not executed as a production acceptance test",
+    "No attribution to the current employee-rebuilt site or the separate RUHL.org project"
   ],
   "interactiveEmbed": "https://dhrumil-shah-ux.github.io/mep-particles/"
 }

@@ -1,232 +1,25 @@
 <section class="page" data-page-view="case-soor">
-        <article class="case-study case-study-soor-malhar">
-          <div class="case-study-shell">
-            <aside class="case-sidebar" aria-label="Soor Malhar case study sections">
-              <div class="case-sidebar-inner">
-                <button class="back-link icon-button-label" type="button" data-page="work"><span class="ui-icon ui-icon--chevron-left" aria-hidden="true"></span>All Work</button>
-                <nav>
-                  <a href="#soor-overview" aria-current="true">Overview</a>
-                  <a href="#soor-challenge">Challenge</a>
-                  <a href="#soor-thinking">Thinking</a>
-                  <a href="#soor-decisions">Key Decisions</a>
-                  <a href="#soor-implementation">Implementation</a>
-                  <a href="#soor-validation">Validation</a>
-                  <a href="#soor-reflection">Reflection</a>
-                </nav>
-              </div>
-            </aside>
-
-            <div class="case-study-content">
-              <section class="case-section case-overview" id="soor-overview">
-                <p class="case-kicker">Mobile UX &middot; Music Education</p>
-                <h1>Soor Malhar</h1>
-                <p class="case-lede">Redesigning a music-learning Android experience to make core tasks clearer, more usable, and easier to navigate.</p>
-                <div class="case-todo case-media-hero" data-todo-type="ASSET">
-                  <strong>[NEEDS ASSET]</strong>
-                  <span>Create or select a clean hero composition using 2-3 final Soor Malhar screens with the <code>soor-malhar__</code> asset prefix. Do not use wireframes or annotated iterations here.</span>
-                </div>
-                <dl class="project-snapshot" aria-label="Project snapshot">
-                  <div><dt>Role</dt><dd>UX/UI Design Intern</dd></div>
-                  <div><dt>Project</dt><dd>Android app redesign</dd></div>
-                  <div><dt>Design</dt><dd>Figma</dd></div>
-                  <div><dt>Implementation</dt><dd>Jetpack Compose / Android Studio</dd></div>
-                  <div><dt>Timeline</dt><dd>May-June 2021</dd></div>
-                </dl>
-              </section>
-
-              <section class="case-section section-challenge" id="soor-challenge">
-                <div class="section-copy">
-                  <p class="case-kicker">Challenge</p>
-                  <h2>Core learning flows needed to feel clearer without making the app more complex.</h2>
-                  <p>The app served learners across different age groups, but several core flows created friction through unclear feedback, dense layouts, inconsistent navigation, and interaction patterns that were difficult to understand.</p>
-                </div>
-              </section>
-
-              <section class="case-section section-sage" id="soor-thinking">
-                <div class="section-copy">
-                  <p class="case-kicker">What shaped my thinking</p>
-                  <h2>Mentor feedback shifted the project from adding UI to improving usability.</h2>
-                </div>
-                <div class="case-card-grid case-card-grid--insights">
-                  <article class="case-info-card">
-                    <span class="case-info-card__index" aria-hidden="true">01</span>
-                    <div class="case-info-card__body">
-                      <h3>Usability had to matter more than visual novelty.</h3>
-                      <p>I learned to distinguish feature expansion from usability improvement and focused the redesign on clearer core tasks.</p>
-                    </div>
-                  </article>
-                  <article class="case-info-card">
-                    <span class="case-info-card__index" aria-hidden="true">02</span>
-                    <div class="case-info-card__body">
-                      <h3>Core actions needed clearer feedback.</h3>
-                      <p>Field states, errors, touch targets, labels, and navigation cues needed to make the interface easier to recover from.</p>
-                    </div>
-                  </article>
-                  <article class="case-info-card">
-                    <span class="case-info-card__index" aria-hidden="true">03</span>
-                    <div class="case-info-card__body">
-                      <h3>The redesign had to fit Android patterns.</h3>
-                      <p>I used Material Design guidance and implementation constraints to keep the proposed screens realistic for Android.</p>
-                    </div>
-                  </article>
-                </div>
-                <details class="expandable-detail">
-                  <summary>See early research and design references</summary>
-                  <p>[NEEDS EVIDENCE] Add verified early research, informal user feedback, Material Design references, UX references, or sketches from the Soor Malhar project documents before publishing this expanded evidence path.</p>
-                </details>
-              </section>
-
-              <section class="case-section section-decisions" id="soor-decisions">
-                <div class="section-copy">
-                  <p class="case-kicker">Key decisions</p>
-                  <h2>Four decisions show how the redesign became simpler, clearer, and more implementable.</h2>
-                </div>
-
-                <section class="decision-card decision-card--stacked">
-                  <div class="decision-copy">
-                    <span>Decision 01</span>
-                    <h3>Make sign-up and login easier to recover from.</h3>
-                    <p><strong>Challenge:</strong> Login and sign-up needed clearer feedback when users entered incomplete or incorrect information.</p>
-                    <p><strong>My thinking:</strong> Recovery should happen close to the field instead of forcing users to interpret a separate modal or remember what went wrong.</p>
-                    <p><strong>Progress:</strong> I explored password visibility, visible password hints, stronger field focus, inline errors, spacing, touch interaction, and labels outside fields where useful.</p>
-                    <p><strong>Solution:</strong> The final direction made requirements and errors visible in context so users could understand and correct input more easily.</p>
-                  </div>
-                  <div class="media-pair">
-                    <div class="case-todo" data-todo-type="ASSET">
-                      <strong>[NEEDS ASSET]</strong>
-                      <span>Add a selective early-to-iteration-to-final sequence using <code>soor-malhar__wireframe__sign-up-page__</code>, <code>soor-malhar__iteration__sign-up-page__</code>, and matching final login/sign-up assets.</span>
-                    </div>
-                    <div class="case-todo" data-todo-type="ASSET">
-                      <strong>[NEEDS ASSET]</strong>
-                      <span>Add focused evidence for login fields and inline errors using <code>soor-malhar__iteration__login-fields__</code> and <code>soor-malhar__iteration__login-errors__</code>.</span>
-                    </div>
-                  </div>
-                  <div class="scope-note">
-                    <span>Social login tradeoff</span>
-                    <h3>[NEEDS EVIDENCE]</h3>
-                    <p>Verify the documented Google/Facebook login feedback and final decision before publishing this callout. Do not claim participant counts, preference results, or testing conclusions until the primary source is added.</p>
-                  </div>
-                </section>
-
-                <section class="decision-card decision-card--stacked">
-                  <div class="decision-copy">
-                    <span>Decision 02</span>
-                    <h3>Make enrolled courses easier to return to.</h3>
-                    <p><strong>Challenge:</strong> Learners needed a clearer path back to enrolled and recent courses without scanning unrelated content first.</p>
-                    <p><strong>My thinking:</strong> Navigation should make repeated learning tasks visible and predictable.</p>
-                    <p><strong>Progress:</strong> I introduced the My Classes destination in the bottom navigation, moved notifications to the top bar, separated recent courses from enrolled courses, and adjusted scrolling direction to improve organization.</p>
-                    <p><strong>Solution:</strong> The navigation direction made returning to learning activity a primary path rather than a buried task.</p>
-                  </div>
-                  <div class="media-pair">
-                    <div class="case-todo" data-todo-type="ASSET">
-                      <strong>[NEEDS ASSET]</strong>
-                      <span>Add bottom-navigation iterations and My Classes wireframes/iterations using renamed <code>soor-malhar__</code> assets.</span>
-                    </div>
-                    <div class="case-todo" data-todo-type="ASSET">
-                      <strong>[NEEDS ASSET]</strong>
-                      <span>Add one final mockup proving the navigation change, preferably My Classes or a course-return flow.</span>
-                    </div>
-                  </div>
-                </section>
-
-                <section class="decision-card decision-card--stacked">
-                  <div class="decision-copy">
-                    <span>Decision 03</span>
-                    <h3>Reduce visual clutter and clarify hierarchy.</h3>
-                    <p><strong>Challenge:</strong> Too many visual elements competed for attention across learning and discovery screens.</p>
-                    <p><strong>My thinking:</strong> Users should be able to distinguish primary actions, navigational content, informational content, and clickable versus non-clickable areas.</p>
-                    <p><strong>Progress:</strong> I refined layouts such as Home, Explore, Course Overview, cards, categories, and tab labels to reduce decorative clutter and clarify what could be acted on.</p>
-                    <p><strong>Solution:</strong> The strongest final examples should show fewer competing elements and a clearer path through content.</p>
-                  </div>
-                  <div class="media-pair">
-                    <div class="case-todo" data-todo-type="ASSET">
-                      <strong>[NEEDS ASSET]</strong>
-                      <span>Add 1-2 before/after examples from Home, Explore, Course Overview, cards, or categories. Choose only visuals that prove hierarchy improved.</span>
-                    </div>
-                    <div class="case-todo" data-todo-type="ASSET">
-                      <strong>[NEEDS ASSET]</strong>
-                      <span>Add the strongest final screen, not a gallery of all redesigned screens.</span>
-                    </div>
-                  </div>
-                </section>
-
-                <section class="decision-card decision-card--stacked">
-                  <div class="decision-copy">
-                    <span>Decision 04</span>
-                    <h3>Remove or simplify UI that looked interactive or confusing.</h3>
-                    <p><strong>Challenge:</strong> Some interface elements risked looking tappable or visually important even when they were not the main action.</p>
-                    <p><strong>My thinking:</strong> Visual emphasis should match user intent. If an element looks interactive, it needs to behave that way or be simplified.</p>
-                    <p><strong>Progress:</strong> I reviewed examples such as Course Class and No Internet states for ambiguous iconography, unclear action emphasis, and confusing visual priority.</p>
-                    <p><strong>Solution:</strong> The final example should focus on one clear story, such as a clearer Try Again action or a simplified class/progress interface.</p>
-                  </div>
-                  <div class="case-todo" data-todo-type="ASSET">
-                    <strong>[NEEDS ASSET]</strong>
-                    <span>Add one supported before/after sequence from Course Class, No Internet, or a better verified example. Do not include every minor redesign.</span>
-                  </div>
-                </section>
-              </section>
-
-              <section class="case-section section-forest" id="soor-implementation">
-                <div class="section-copy">
-                  <p class="case-kicker">Design to implementation</p>
-                  <h2>Taking the redesign into Android</h2>
-                  <p>I implemented 8 core redesigned screens in Android Studio using Jetpack Compose. This was UI implementation work; no backend implementation or complete production integration is claimed here.</p>
-                </div>
-                <div class="final-composition">
-                  <div class="case-todo final-wide" data-todo-type="ASSET">
-                    <strong>[NEEDS ASSET]</strong>
-                    <span>Pair a finalized Figma screen with its Jetpack Compose implementation using matched <code>soor-malhar__screen-mockup__</code> and implementation screenshots.</span>
-                  </div>
-                  <div class="case-todo" data-todo-type="ASSET">
-                    <strong>[NEEDS ASSET]</strong>
-                    <span>Add representative Figma design example 01.</span>
-                  </div>
-                  <div class="case-todo" data-todo-type="ASSET">
-                    <strong>[NEEDS ASSET]</strong>
-                    <span>Add matching Jetpack Compose implementation example 01.</span>
-                  </div>
-                </div>
-              </section>
-
-              <section class="case-section section-neutral" id="soor-validation">
-                <div class="section-copy">
-                  <p class="case-kicker">Validation &amp; outcome</p>
-                  <h2>The project delivered redesigned exploration and implemented core Android UI screens.</h2>
-                </div>
-                <div class="stat-grid">
-                  <article><strong>~20</strong><span>screens explored/redesigned</span></article>
-                  <article><strong>8</strong><span>core screens implemented in Jetpack Compose</span></article>
-                  <article><strong>May-June</strong><span>2021 internship period</span></article>
-                  <article><strong>TODO</strong><span>verified user-research count</span></article>
-                </div>
-                <div class="scope-note">
-                  <span>Metric withheld</span>
-                  <h3>[NEEDS METRIC VERIFICATION]</h3>
-                  <p>Verify the source, measurement method, definition of engagement, sample size, and whether the reported 15% engagement improvement came from prototype testing or product analytics before publishing any metric.</p>
-                </div>
-                <details class="expandable-detail">
-                  <summary>See additional redesigns</summary>
-                  <p>[NEEDS ASSET] Add extra verified screenshots here only after the main story is supported. Keep the recruiter path focused on the 8-12 most meaningful visual moments.</p>
-                </details>
-              </section>
-
-              <section class="case-section reflection-section" id="soor-reflection">
-                <div class="section-copy">
-                  <p class="case-kicker">Reflection</p>
-                  <h2>What I carried forward</h2>
-                  <p>I learned that improving a product does not always mean adding features. Mentor feedback pushed me to separate product expansion from usability improvement, simplify interactions, and support my decisions with stronger evidence. Working from Figma into Jetpack Compose also helped me understand how design decisions translate into implementation constraints.</p>
-                </div>
-              </section>
-            </div>
-          </div>
-
-          <section class="case-next-project next-project" aria-labelledby="soor-next-project-title">
-            <div class="case-next-project__inner">
-              <p class="case-kicker">Next project</p>
-              <h3 id="soor-next-project-title">TrialBridge</h3>
-              <p>Designing a patient-centered clinical trial matching platform.</p>
-              <a class="icon-link" href="#case-trial" data-page="case-trial">View case study<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a>
-            </div>
-          </section>
-        </article>
-      </section>
+<link rel="stylesheet" href="css/case-soor.css">
+<article id="soor-case-study" class="case-study case-study-soor-malhar sm-editorial"><div class="case-study-shell">
+<aside class="case-sidebar" aria-label="Soor Malhar case study sections"><div class="case-sidebar-inner"><button class="back-link icon-button-label" type="button" data-page="work"><span class="ui-icon ui-icon--chevron-left" aria-hidden="true"></span>All Work</button><p class="sm-nav-title">Soor Malhar</p><nav aria-label="Case study"><a href="#soor-overview" aria-current="true">Overview</a><a href="#soor-problem">Problem</a><a href="#soor-decisions">Decisions</a><a href="#soor-impact">Impact</a></nav></div></aside>
+<div class="case-study-content"><section id="soor-overview" class="sm-chapter"><p class="sm-section-label">Overview</p><header class="sm-intro"><p class="sm-eyebrow">Android UX · Music education</p><h1>Soor Malhar</h1><p class="sm-deck">Less friction between signing in and learning music.</p><p class="sm-summary">An Android app redesign focused on recovering from errors, finding enrolled courses, and understanding the next step in a lesson.</p></header>
+<figure class="sm-image sm-hero"><a href="assets/images/case-studies/soor-malhar/redesign-overview.png" data-sm-image aria-label="Enlarge Soor Malhar redesign overview"><img src="assets/images/case-studies/soor-malhar/redesign-overview.png" alt="Original project mockup showing redesigned sign-in, home, explore and My Classes screens." fetchpriority="high"></a><figcaption>Redesigned core screens. Select any image to inspect it; scroll or pinch in the viewer to zoom.</figcaption></figure>
+<dl class="sm-facts"><div><dt>My role</dt><dd>UX/UI Design Intern</dd></div><div><dt>Timeline</dt><dd>May–June 2021</dd></div><div><dt>Tools</dt><dd>Figma · Android Studio · Jetpack Compose</dd></div><div><dt>AI involvement</dt><dd>None. I did not use AI tools on this project.</dd></div></dl>
+<div class="sm-ownership"><h2>My contribution</h2><p>I explored and refined the interface in Figma and implemented core Android UI screens in Jetpack Compose. Mentor feedback helped me move from adding features to improving everyday usability. The existing app and its learning content were the starting point, not my original product.</p></div></section>
+<section id="soor-problem" class="sm-chapter"><header class="sm-section-head"><p class="sm-section-label">Problem</p><h2>Learning was not the only thing users had to figure out.</h2><p>The original interface made people interpret errors, hunt for enrolled classes, and distinguish controls from decoration. The redesign focused on those recurring tasks before expanding the feature set.</p></header>
+<ol class="sm-journey"><li><span>Enter</span><strong>Errors away from the field</strong><p>A blocking dialog separated the problem from the input that needed attention.</p></li><li><span>Find</span><strong>Classes without a clear home</strong><p>Enrolled courses competed with discovery content on the home screen.</p></li><li><span>Continue</span><strong>Unclear interaction cues</strong><p>A completion indicator resembled loading; non-interactive cards looked tappable.</p></li></ol>
+<figure class="sm-image sm-research"><a href="assets/images/case-studies/soor-malhar/research-affinity.png" data-sm-image aria-label="Enlarge original research synthesis"><img src="assets/images/case-studies/soor-malhar/research-affinity.png" alt="Existing affinity diagram grouping learner frustrations and business hurdles, including login recall and finding ongoing classes." loading="lazy"></a><figcaption>Existing synthesis artifact: login recall, finding ongoing classes, and an overwhelming interface. The available record does not document a sample size or research method.</figcaption></figure><p class="sm-note">These artifacts informed the design direction; they are not evidence of measured usability improvement.</p></section>
+<section id="soor-decisions" class="sm-chapter"><header class="sm-section-head"><p class="sm-section-label">Decisions</p><h2>Make the path back to learning easier to recognize.</h2><p>Four connected decisions follow the core journey: sign in, return to a class, assess a course, and continue a lesson. These are documented design iterations, not results from a controlled user test.</p></header>
+<section class="sm-decision"><header><p class="sm-decision-marker"><span class="sm-decision-number">01<small>/04</small></span>Enter · Recover</p><h3>Put the error where it can be fixed.</h3><p>I replaced the all-errors dialog with field-level messages and outlines. Labels and password guidance stay visible so learners do not have to remember instructions while typing.</p></header><div class="sm-image-pair"><figure class="sm-image"><p class="sm-image-label">Before</p><a href="assets/images/case-studies/soor-malhar/source-10-log-in-page.png" data-sm-image aria-label="Enlarge: Before"><img src="assets/images/case-studies/soor-malhar/source-10-log-in-page.png" alt="A blocking dialog interrupts sign-in and lists errors separately from the fields." loading="lazy"></a><figcaption>A blocking dialog interrupts sign-in and lists errors separately from the fields.</figcaption></figure><figure class="sm-image"><p class="sm-image-label">Redesign</p><a href="assets/images/case-studies/soor-malhar/source-09-log-in-page.png" data-sm-image aria-label="Enlarge: Redesign"><img src="assets/images/case-studies/soor-malhar/source-09-log-in-page.png" alt="Inline messages identify the specific fields that need attention." loading="lazy"></a><figcaption>Inline messages identify the specific fields that need attention.</figcaption></figure></div><p class="sm-evidence"><strong>Iteration:</strong> I removed the extra confirm-password field from the signup exploration to avoid repeated entry and retained password visibility control. Social sign-in remained a feature suggestion, not a delivered integration.</p></section>
+<section class="sm-decision"><header><p class="sm-decision-marker"><span class="sm-decision-number">02<small>/04</small></span>Find · Return</p><h3>Give enrolled classes their own destination.</h3><p>My Classes replaced notifications in the bottom navigation; notifications moved to the top bar. Recent lessons sit above the enrolled-course grid, making resuming and browsing distinct tasks.</p></header><div class="sm-nav-comparison"><figure class="sm-image"><p class="sm-image-label">Before · Notifications</p><a href="assets/images/case-studies/soor-malhar/source-12-bottom-navigation-bar.png" data-sm-image aria-label="Enlarge: Before · Notifications"><img src="assets/images/case-studies/soor-malhar/source-12-bottom-navigation-bar.png" alt="Original bottom navigation." loading="lazy"></a><figcaption>Original bottom navigation.</figcaption></figure><figure class="sm-image"><p class="sm-image-label">Redesign · My Classes</p><a href="assets/images/case-studies/soor-malhar/source-11-bottom-navigation-bar.png" data-sm-image aria-label="Enlarge: Redesign · My Classes"><img src="assets/images/case-studies/soor-malhar/source-11-bottom-navigation-bar.png" alt="Revised navigation gives enrolled classes a direct destination." loading="lazy"></a><figcaption>Revised navigation gives enrolled classes a direct destination.</figcaption></figure></div><div class="sm-feature"><figure class="sm-image"><p class="sm-image-label">My Classes</p><a href="assets/images/case-studies/soor-malhar/source-29-my-classes.png" data-sm-image aria-label="Enlarge: My Classes"><img src="assets/images/case-studies/soor-malhar/source-29-my-classes.png" alt="A horizontal Recent row leaves vertical space for the My Courses grid." loading="lazy"></a><figcaption>A horizontal Recent row leaves vertical space for the My Courses grid.</figcaption></figure><div><h4>One destination, two intentions</h4><p><strong>Resume:</strong> recent lessons are grouped first.</p><p><strong>Browse:</strong> enrolled courses remain visible below.</p><p class="sm-note">The earlier list layout was revised because its course images were not working well in that format.</p></div></div><p class="sm-evidence"><strong>Trade-off:</strong> move a less central destination out of the bottom bar without removing access to it. Home can focus on discovery instead of duplicating enrolled courses.</p></section>
+<section class="sm-decision"><header><p class="sm-decision-marker"><span class="sm-decision-number">03<small>/04</small></span>Assess · Choose</p><h3>Let the course content carry the hierarchy.</h3><p>I grouped course facts, learning goals, and the description into a clearer reading order. Removing card-like styling from static information reduced false affordances; reviews retained their interactive treatment.</p></header><div class="sm-image-pair"><figure class="sm-image"><p class="sm-image-label">Before</p><a href="assets/images/case-studies/soor-malhar/source-37-course-overview.png" data-sm-image aria-label="Enlarge: Before"><img src="assets/images/case-studies/soor-malhar/source-37-course-overview.png" alt="The original overview divides course information across visually heavy cards." loading="lazy"></a><figcaption>The original overview divides course information across visually heavy cards.</figcaption></figure><figure class="sm-image"><p class="sm-image-label">Redesign</p><a href="assets/images/case-studies/soor-malhar/source-39-course-overview.png" data-sm-image aria-label="Enlarge: Redesign"><img src="assets/images/case-studies/soor-malhar/source-39-course-overview.png" alt="The redesign groups course contents, learning goals and Description above the start action." loading="lazy"></a><figcaption>The redesign groups course contents, learning goals and Description above the start action.</figcaption></figure></div><p class="sm-evidence"><strong>Refinement:</strong> I tried an orange start action in an earlier visual iteration, then returned to the brand color. Ratings, student counts, and other screenshot values are example course content—not redesign outcomes.</p></section>
+<section class="sm-decision"><header><p class="sm-decision-marker"><span class="sm-decision-number">04<small>/04</small></span>Continue · Recover</p><h3>Make the next action unmistakable.</h3><p>In lessons, consistent Previous and Next controls replaced inconsistent navigation, and I removed a completion indicator that looked like loading. The same principle shaped the offline state: one clear recovery action.</p></header><div class="sm-image-pair"><figure class="sm-image"><p class="sm-image-label">Before</p><a href="assets/images/case-studies/soor-malhar/source-13-no-internet-page.png" data-sm-image aria-label="Enlarge: Before"><img src="assets/images/case-studies/soor-malhar/source-13-no-internet-page.png" alt="Overlapping text and a prominent graphic compete with Try Again." loading="lazy"></a><figcaption>Overlapping text and a prominent graphic compete with Try Again.</figcaption></figure><figure class="sm-image"><p class="sm-image-label">Redesign</p><a href="assets/images/case-studies/soor-malhar/source-15-no-internet-page.png" data-sm-image aria-label="Enlarge: Redesign"><img src="assets/images/case-studies/soor-malhar/source-15-no-internet-page.png" alt="A subdued illustration leaves a clearly outlined Try Again button as the action." loading="lazy"></a><figcaption>A subdued illustration leaves a clearly outlined Try Again button as the action.</figcaption></figure></div><p class="sm-evidence"><strong>Across the lesson flow:</strong> I also moved comment composition away from a blocking dialog toward an input attached to the keyboard. These are documented interaction decisions, not validated completion-rate gains.</p></section>
+</section>
+<section id="soor-impact" class="sm-chapter"><header class="sm-section-head"><p class="sm-section-label">Impact</p><h2>Core flows redesigned. Native UI built.</h2><p>The project delivered design iterations and Android UI implementation—not a measured improvement in engagement, learning, or task success.</p></header>
+<dl class="sm-delivery"><div><dt>Design delivery</dt><dd>The existing project record lists approximately 20 explored or redesigned screens. The source document preserves original screens, intermediate versions, and final design decisions.</dd></div><div><dt>Android UI</dt><dd>The existing record lists 8 core screens implemented in Jetpack Compose. This describes UI work, not a complete backend integration or a verified production release.</dd></div><div><dt>Testing &amp; outcomes</dt><dd>No documented participant count, before/after usability measurement, or verified engagement lift is available. I do not attribute product-impact metrics to this redesign.</dd></div></dl>
+<div class="sm-outcome"><h3>Explorations beyond the core journey</h3><p>The project also explored a wishlist, saved posts, course FAQs, progress reporting, and completion feedback. Social login, voice search, and XP-based ideas were proposals rather than verified shipped functionality.</p></div>
+<div class="sm-explorations"><figure class="sm-image"><p class="sm-image-label">Course FAQs · Exploration</p><a href="assets/images/case-studies/soor-malhar/source-64-course-faqs.png" data-sm-image aria-label="Enlarge: Course FAQs · Exploration"><img src="assets/images/case-studies/soor-malhar/source-64-course-faqs.png" alt="A course-level FAQ destination proposed alongside the learning flow." loading="lazy"></a><figcaption>A course-level FAQ destination proposed alongside the learning flow.</figcaption></figure><figure class="sm-image"><p class="sm-image-label">Completion feedback · Exploration</p><a href="assets/images/case-studies/soor-malhar/source-65-course-complete-finish-course-screen.png" data-sm-image aria-label="Enlarge: Completion feedback · Exploration"><img src="assets/images/case-studies/soor-malhar/source-65-course-complete-finish-course-screen.png" alt="A completion concept with a clearer next-session action; XP was a proposal." loading="lazy"></a><figcaption>A completion concept with a clearer next-session action; XP was a proposal.</figcaption></figure></div>
+<div class="sm-outcome"><h3>What I took forward</h3><p>More features did not automatically make a better learning experience. The useful shift was to clarify errors, navigation, and action cues first, then carry that intent from Figma into native Android UI.</p></div>
+<a class="sm-source" href="https://docs.google.com/document/d/1hfEzwyqcRw54NyaoS7_Gg3wZdSWGiVsRpV5feabLjZg/edit?tab=t.0" target="_blank" rel="noopener">Explore the original design record <span class="ui-icon ui-icon--arrow-up-right" aria-hidden="true"></span></a></section>
+</div></div><dialog class="sm-modal portfolio-image-modal" aria-labelledby="sm-modal-title"><header><h2 id="sm-modal-title">Image detail</h2><button type="button" data-sm-close aria-label="Close image viewer"><span class="ui-icon ui-icon--close" aria-hidden="true"></span></button></header><p class="sm-modal-help">Scroll or pinch to zoom · Drag to pan · Esc to close</p><div class="sm-modal-stage" tabindex="0" aria-label="Image. Scroll to zoom, drag to pan. Keyboard: plus, minus, zero to reset."><div class="sm-modal-canvas"><img alt="" draggable="false"></div></div><p class="sm-modal-caption"></p></dialog>
+</article></section>

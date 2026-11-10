@@ -1,0 +1,175 @@
+/* AI Lab cases only: established case-study typography, tokens and navigation. */
+body:has(.page.is-visible > .lab-editorial) .page-back-wrap { position:static; margin-left:16px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial { padding-top:96px; color:var(--text-primary); font:400 1rem/1.6 var(--font-sans); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-study-shell { display:grid; grid-template-columns:180px minmax(0,1fr); width:min(100%,1280px); margin-inline:auto; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-study-content { min-width:0; width:100%; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar { display:block; position:static; inset:auto; width:auto; height:auto; max-height:none; padding:48px 16px; border:0; border-radius:0; transform:none; background:var(--bg-main); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar-inner { display:block; position:sticky; top:32px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-nav-title { margin:32px 0 12px; color:var(--text-primary); font-size:.875rem; font-weight:600; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar nav { display:grid; gap:4px; min-width:0; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar nav a { min-height:44px; padding:10px 12px; color:var(--text-secondary); font-size:.875rem; font-weight:400; transform:none; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar nav a[aria-current="true"] { background:var(--surface-sage); color:var(--accent-green); font-weight:600; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-chapter { padding:56px 48px; scroll-margin-top:24px; border-top:1px solid var(--border-default); background:var(--bg-main); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-chapter:first-child { border-top:0; padding-top:40px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial :is(h1,h2,h3,h4,p,dl,ol,figure) { margin:0; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial h1 { color:var(--text-primary); font:400 clamp(2.75rem,5vw,4rem)/1.08 var(--font-display); letter-spacing:-.025em; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial h2, :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-decision h3 { color:var(--text-primary); font:400 clamp(1.65rem,2.6vw,2.125rem)/1.2 var(--font-display); letter-spacing:-.015em; text-wrap:pretty; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial h3, :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial h4, :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-ownership h2 { color:var(--text-primary); font:600 1rem/1.4 var(--font-sans); letter-spacing:0; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial p, :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial li { max-width:68ch; color:var(--text-secondary); font-size:1rem; line-height:1.65; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial strong { font-weight:600; color:var(--text-primary); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial a { color:var(--accent-green); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial :is(a,button):focus-visible { outline:3px solid var(--accent-green); outline-offset:4px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial p.lab-section-label { max-width:none; margin:0 0 24px; padding:12px 16px; border-radius:var(--radius-sm); background:var(--surface-sage); color:var(--accent-green); font:600 .9375rem/1.4 var(--font-sans); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial p.lab-eyebrow { margin-bottom:12px; color:var(--accent-green); font:600 .8125rem/1.4 var(--font-sans); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-intro { margin-bottom:28px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial p.lab-deck { margin-top:16px; max-width:44ch; color:var(--text-primary); font-size:1.25rem; line-height:1.45; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-section-head { margin-bottom:28px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-section-head > p:last-child:not(.lab-section-label) { margin-top:16px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image { width:100%; max-width:800px; min-width:0; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image a { display:block; padding:10px; border:1px solid var(--border-default); border-radius:var(--radius-sm); background:var(--surface); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image img { display:block; width:100%; height:auto; border-radius:4px; object-fit:contain; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image figcaption, :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-performance figcaption { max-width:68ch; margin-top:10px; color:var(--text-secondary); font-size:.875rem; line-height:1.5; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 32px; padding-block:24px; margin-top:8px; border-bottom:1px solid var(--border-default); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-facts dt { color:var(--text-secondary); font-size:.875rem; margin-bottom:6px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-facts dd { margin:0; color:var(--text-primary); font-size:.9375rem; line-height:1.5; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-ownership { margin-top:24px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-ownership p { margin-top:10px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial p.lab-note { margin-top:16px; font-size:.875rem; line-height:1.6; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-source { display:inline-flex; margin-top:20px; font-size:.9375rem; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-journey { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; padding:0; list-style:none; margin:32px 0 28px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-journey li { position:relative; border-top:2px solid var(--border-default); padding-top:16px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-journey li:last-child { border-color:var(--accent-green); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-journey li + li::before { content:'\2192'; position:absolute; top:14px; left:-22px; color:var(--accent-green); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-journey span { display:block; margin-bottom:8px; font-size:.875rem; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-journey strong { display:block; font-size:1rem; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-journey p { margin-top:8px; font-size:.9375rem; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-decision { margin-top:56px; padding-top:40px; border-top:1px solid var(--border-default); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial p.lab-decision-marker { display:flex; align-items:baseline; gap:20px; margin:0 0 16px; color:var(--accent-green); font:600 .9375rem/1.4 var(--font-sans); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-decision-number { flex:0 0 auto; color:var(--accent-green); font:400 2.5rem/1 var(--font-display); font-variant-numeric:lining-nums tabular-nums; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-decision-number small { margin-left:4px; color:var(--text-secondary); font-size:1.125rem; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-decision header { margin-bottom:24px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-decision header > p:last-child { margin-top:14px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial p.lab-image-label { color:var(--text-primary); font-size:.875rem; font-weight:600; margin-bottom:12px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial p.lab-evidence { margin-top:24px; padding-left:16px; border-left:2px solid var(--border-default); font-size:.875rem; line-height:1.6; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-evidence strong { display:block; margin-bottom:4px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-delivery > div { display:grid; grid-template-columns:180px minmax(0,1fr); gap:24px; padding-block:20px; border-top:1px solid var(--border-default); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-delivery dt { color:var(--text-primary); font:600 1rem/1.4 var(--font-sans); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-delivery dd { margin:0; color:var(--text-secondary); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-outcome { padding-block:20px; border-top:1px solid var(--border-default); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-outcome p { margin-top:8px; }
+@media (max-width:1000px) {
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-study-shell { grid-template-columns:1fr; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar { position:sticky; top:0; z-index:15; padding:12px 24px; border-bottom:1px solid var(--border-default); }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar-inner { position:static; display:flex; flex-direction:row; gap:20px; align-items:center; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-nav-title { display:none; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar nav { display:flex; gap:4px; overflow-x:auto; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar nav a { white-space:nowrap; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar .back-link { white-space:nowrap; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-chapter { scroll-margin-top:88px; }
+}
+
+@media (max-width:640px) {
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-chapter { padding:40px 24px; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar { padding:8px 12px; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar-inner { display:block; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar .back-link { display:none; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar nav { justify-content:space-between; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar nav a { padding-inline:8px; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-facts { grid-template-columns:1fr; gap:20px; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-journey { grid-template-columns:1fr; gap:20px; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-journey li + li::before { display:none; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-decision { margin-top:32px; padding-top:24px; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-decision-number { font-size:2rem; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair { grid-template-columns:1fr; gap:24px; }
+  body:has(.page.is-visible > .lab-editorial) .back-to-top { width:44px; height:44px; min-width:44px; min-height:44px; padding:8px; right:12px; bottom:12px; }
+  body:has(.page.is-visible > .lab-editorial) .back-to-top-label { display:none; }
+}
+
+@media (max-width:360px) {
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar nav { gap:0; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar nav a { padding-inline:6px; font-size:.8125rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial * { scroll-behavior:auto; transition:none; }
+}
+
+
+/* AI Lab cases: compact, uncropped mobile screenshots with full-resolution access. */
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-summary { margin-top:16px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair { gap:32px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image a { cursor:zoom-in; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal { position:fixed; inset:0; box-sizing:border-box; width:100vw; max-width:none; height:100dvh; max-height:none; margin:0; padding:20px; border:0; background:#f8f8f5; color:#222923; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal[open] { display:flex; flex-direction:column; gap:12px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal::backdrop { background:#101410e6; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal h2 { font:600 1rem/1.4 var(--font-sans); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal button { min-width:88px; min-height:44px; padding:8px 14px; border:1px solid #b4bcb5; border-radius:6px; background:white; color:#222923; font:600 1rem var(--font-sans); cursor:pointer; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-help,:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-caption { color:#465247; font-size:.875rem; max-width:none; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-stage { flex:1; min-height:0; overflow:auto; background:#e8ebe7; touch-action:none; overscroll-behavior:contain; cursor:zoom-in; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-stage[data-zoomed="true"] { cursor:zoom-in; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-stage[data-dragging="true"] { cursor:grabbing; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-stage:focus-visible { outline:3px solid var(--accent-green); outline-offset:2px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-canvas { display:grid; place-items:center; min-width:100%; min-height:100%; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-canvas img { display:block; max-width:none; max-height:none; user-select:none; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-caption { min-height:21px; }
+@media(max-width:640px) {
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair { grid-template-columns:1fr 1fr; gap:14px; }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal { padding:12px; gap:8px; }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-modal-caption { font-size:.8125rem; }
+}
+
+
+
+@media(max-width:640px) { :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-delivery > div { grid-template-columns:1fr; gap:8px; } }
+
+
+
+/* Components below are scoped only to the three AI Lab case-study articles. */
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-section-head > h2 + p { margin-top:16px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-video-poster { position:relative; display:block; width:100%; aspect-ratio:1.6; padding:0; border:1px solid var(--border-default); border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; background:var(--surface); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-video-poster img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
+#mindle-case-study.case-study.lab-editorial .lab-video-poster img { object-fit:cover; object-position:top; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-video-poster span { position:absolute; left:50%; bottom:16px; transform:translateX(-50%); padding:12px 20px; border-radius:var(--radius-sm); background:var(--accent-green); color:white; font:600 .9375rem/1.4 var(--font-sans); white-space:nowrap; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-video :is(video,button)[hidden] { display:none; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-video { max-width:800px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-video video { display:block; width:100%; max-height:460px; object-fit:contain; background:#11151d; border-radius:var(--radius-sm); }
+#mindle-case-study.lab-editorial .lab-video video { aspect-ratio:1.5; object-fit:cover; object-position:top; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-video figcaption { margin-top:10px; color:var(--text-secondary); font-size:.875rem; line-height:1.5; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-summary { margin-top:16px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-links { display:flex; flex-wrap:wrap; gap:20px 28px; margin-top:24px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-flow { margin-top:28px; padding:24px; background:var(--surface-sage); border-radius:var(--radius-sm); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-flow ol { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:24px; list-style:none; padding:0; margin:0; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-flow li span { display:block; color:var(--accent-green); font-size:.875rem; margin-bottom:8px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair .lab-image a { display:flex; justify-content:center; padding:16px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair img { width:auto; max-width:100%; height:400px; object-fit:contain; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-mindle-screen { max-width:700px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-mindle-screen a { padding:0; overflow:hidden; aspect-ratio:1.5; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-mindle-screen img { width:100%; height:100%; object-fit:cover; object-position:top; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-comparison { display:grid; grid-template-columns:1fr 1fr; gap:28px; padding:24px; margin-top:24px; background:var(--surface-sage); border-radius:var(--radius-sm); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-comparison p { margin-top:12px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-comparison ul { padding-left:18px; margin:12px 0 0; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-comparison li { margin-bottom:8px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-comparison figcaption { grid-column:1/-1; color:var(--text-secondary); font-size:.875rem; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-tutorial { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-tutorial img { height:150px; object-fit:contain; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-ai { margin-top:48px; padding-top:28px; border-top:1px solid var(--border-default); }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-ai ol { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; list-style:none; padding:0; margin-top:24px; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-ai span { color:var(--text-primary); font-size:.875rem; font-weight:600; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-ai p { margin-top:8px; font-size:.875rem; }
+:is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-next { margin-top:40px; padding-top:24px; border-top:1px solid var(--border-default); }
+@media(max-width:800px) {
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-tutorial { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-ai ol { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:640px) {
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair .lab-image-label { min-height:2.8em; }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-comparison { grid-template-columns:1fr; padding:20px; }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-flow { padding:20px; }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-flow ol { grid-template-columns:1fr 1fr; gap:20px; }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair { grid-template-columns:1fr 1fr; gap:12px; }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair .lab-image a { padding:6px; }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-image-pair img { height:240px; }
+ :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-ai ol { gap:24px 20px; }
+}
+

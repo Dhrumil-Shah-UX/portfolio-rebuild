@@ -1,0 +1,153 @@
+/* Virtual Showroom only. Matches TrialBridge's editorial tokens without changing shared styles. */
+body[data-current-page="case-showroom"] .page-back-wrap { position:static; margin-left:16px; }
+#showroom-case-study.case-study-showroom.vs-editorial { padding-top:96px; color:var(--text-primary); font:400 1rem/1.6 var(--font-sans); }
+#showroom-case-study.case-study-showroom.vs-editorial .case-study-shell { display:grid; grid-template-columns:180px minmax(0,1fr); width:min(100%,1280px); margin-inline:auto; }
+#showroom-case-study.case-study-showroom.vs-editorial .case-study-content { min-width:0; width:100%; }
+#showroom-case-study.case-study-showroom.vs-editorial .case-sidebar { display:block; position:static; inset:auto; width:auto; height:auto; max-height:none; padding:48px 16px; border:0; border-radius:0; transform:none; background:var(--bg-main); }
+#showroom-case-study.case-study-showroom.vs-editorial .case-sidebar-inner { display:block; position:sticky; top:32px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-nav-title { margin:32px 0 12px; color:var(--text-primary); font-size:.875rem; font-weight:600; }
+#showroom-case-study.case-study-showroom.vs-editorial .case-sidebar nav { display:grid; gap:4px; min-width:0; }
+#showroom-case-study.case-study-showroom.vs-editorial .case-sidebar nav a { min-height:44px; padding:10px 12px; color:var(--text-secondary); font-size:.875rem; font-weight:400; transform:none; }
+#showroom-case-study.case-study-showroom.vs-editorial .case-sidebar nav a[aria-current="true"] { background:var(--surface-sage); color:var(--accent-green); font-weight:600; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-chapter { padding:56px 48px; scroll-margin-top:24px; border-top:1px solid var(--border-default); background:var(--bg-main); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-chapter:first-child { border-top:0; padding-top:40px; }
+#showroom-case-study.case-study-showroom.vs-editorial :is(h1,h2,h3,h4,p,dl,ol,figure) { margin:0; }
+#showroom-case-study.case-study-showroom.vs-editorial h1 { color:var(--text-primary); font:400 clamp(2.75rem,5vw,4rem)/1.08 var(--font-display); letter-spacing:-.025em; }
+#showroom-case-study.case-study-showroom.vs-editorial h2, #showroom-case-study.case-study-showroom.vs-editorial .vs-decision h3 { color:var(--text-primary); font:400 clamp(1.65rem,2.6vw,2.125rem)/1.2 var(--font-display); letter-spacing:-.015em; text-wrap:pretty; }
+#showroom-case-study.case-study-showroom.vs-editorial h3, #showroom-case-study.case-study-showroom.vs-editorial h4, #showroom-case-study.case-study-showroom.vs-editorial .vs-ownership h2 { color:var(--text-primary); font:600 1rem/1.4 var(--font-sans); letter-spacing:0; }
+#showroom-case-study.case-study-showroom.vs-editorial p, #showroom-case-study.case-study-showroom.vs-editorial li { max-width:68ch; color:var(--text-secondary); font-size:1rem; line-height:1.65; }
+#showroom-case-study.case-study-showroom.vs-editorial strong { font-weight:600; color:var(--text-primary); }
+#showroom-case-study.case-study-showroom.vs-editorial a { color:var(--accent-green); }
+#showroom-case-study.case-study-showroom.vs-editorial :is(a,button):focus-visible { outline:3px solid var(--accent-green); outline-offset:4px; }
+#showroom-case-study.case-study-showroom.vs-editorial p.vs-section-label { max-width:none; margin:0 0 24px; padding:12px 16px; border-radius:var(--radius-sm); background:var(--surface-sage); color:var(--accent-green); font:600 .9375rem/1.4 var(--font-sans); }
+#showroom-case-study.case-study-showroom.vs-editorial p.vs-eyebrow { margin-bottom:12px; color:var(--accent-green); font:600 .8125rem/1.4 var(--font-sans); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-intro { margin-bottom:28px; }
+#showroom-case-study.case-study-showroom.vs-editorial p.vs-deck { margin-top:16px; max-width:44ch; color:var(--text-primary); font-size:1.25rem; line-height:1.45; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-section-head { margin-bottom:28px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-section-head > p:last-child:not(.vs-section-label) { margin-top:16px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-image { width:100%; max-width:800px; min-width:0; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-image a { display:block; padding:10px; border:1px solid var(--border-default); border-radius:var(--radius-sm); background:var(--surface); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-image img { display:block; width:100%; height:auto; border-radius:4px; object-fit:contain; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-image figcaption, #showroom-case-study.case-study-showroom.vs-editorial .vs-performance figcaption { max-width:68ch; margin-top:10px; color:var(--text-secondary); font-size:.875rem; line-height:1.5; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-live { display:flex; flex-wrap:wrap; gap:8px 24px; align-items:baseline; margin-top:20px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-live a { font-size:.9375rem; font-weight:600; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-live p { font-size:.875rem; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 32px; padding-block:24px; margin-top:8px; border-bottom:1px solid var(--border-default); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-facts dt { color:var(--text-secondary); font-size:.875rem; margin-bottom:6px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-facts dd { margin:0; color:var(--text-primary); font-size:.9375rem; line-height:1.5; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-ownership { margin-top:24px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-ownership p { margin-top:10px; }
+#showroom-case-study.case-study-showroom.vs-editorial p.vs-note { margin-top:16px; font-size:.875rem; line-height:1.6; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-evolution { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; padding:0; list-style:none; margin:32px 0 28px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-evolution li { position:relative; border-top:2px solid var(--border-default); padding-top:16px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-evolution li:last-child { border-color:var(--accent-green); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-evolution li + li::before { content:'→'; position:absolute; top:13px; left:-22px; color:var(--accent-green); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-evolution span { display:block; font-size:.875rem; margin-bottom:8px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-evolution strong { display:block; font-size:1rem; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-evolution p { margin-top:8px; font-size:.9375rem; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-problem-map > div { display:grid; grid-template-columns:180px minmax(0,1fr); gap:24px; padding-block:18px; border-top:1px solid var(--border-default); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-problem-map dt { font-weight:600; color:var(--text-primary); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-problem-map dd { margin:0; color:var(--text-secondary); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-decision { margin-top:56px; padding-top:40px; border-top:1px solid var(--border-default); }
+#showroom-case-study.case-study-showroom.vs-editorial p.vs-decision-marker { display:flex; align-items:baseline; gap:20px; margin:0 0 16px; color:var(--accent-green); font:600 .9375rem/1.4 var(--font-sans); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-decision-number { flex:0 0 auto; color:var(--accent-green); font:400 2.5rem/1 var(--font-display); font-variant-numeric:lining-nums tabular-nums; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-decision-number small { margin-left:4px; color:var(--text-secondary); font-size:1.125rem; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-decision header { margin-bottom:24px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-decision header > p:last-child { margin-top:14px; }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-sequence { margin-top:24px; }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-step-strip { max-width:800px; grid-template-columns:repeat(3,minmax(0,1fr)); margin:0 0 16px; }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-step-strip [role="tab"]::after { display:block; content:attr(data-summary); margin-top:8px; font-size:.875rem; font-weight:400; line-height:1.5; }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-step-strip [role="tab"] { padding:12px 8px; min-height:64px; font:600 .8125rem/1.4 var(--font-sans); }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-step-strip [role="tab"][aria-selected="true"] { color:var(--text-inverse); }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-step-strip [role="tab"][aria-selected="true"] span { color:var(--text-inverse); }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-step-strip span { margin-bottom:4px; }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-evidence { margin-top:0; }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-sequence figcaption { min-height:0; display:block; }
+#showroom-case-study.case-study-showroom.vs-editorial .showroom-sequence figcaption strong { margin-right:12px; }
+#showroom-case-study.case-study-showroom.vs-editorial p.vs-evidence { margin-top:24px; padding-left:16px; border-left:2px solid var(--border-default); font-size:.875rem; line-height:1.6; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-evidence strong { display:block; margin-bottom:4px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-annotations { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin-top:24px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-annotations p { margin-top:8px; font-size:.9375rem; line-height:1.6; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-annotations-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-transfer { margin-top:24px; padding:20px 24px; border-radius:var(--radius-sm); background:var(--surface-sage); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-transfer p { display:flex; align-items:center; gap:16px; color:var(--text-primary); font-size:.9375rem; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-transfer > div { display:flex; align-items:center; gap:12px; padding-block:10px; color:var(--accent-green); font-size:.875rem; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-transfer > div > span { font-size:1.5rem; line-height:1; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-phone-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; max-width:720px; }
+#showroom-case-study.case-study-showroom.vs-editorial p.vs-image-label { margin-bottom:12px; color:var(--text-primary); font-size:.875rem; font-weight:600; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-image a.vs-phone-stage { display:flex; align-items:center; justify-content:center; height:400px; padding:16px; background:var(--surface-muted); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-phone-stage img { width:auto; max-width:100%; height:100%; object-fit:contain; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-performance { padding:24px; background:var(--surface-sage); border-radius:var(--radius-sm); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-performance h4 { margin-bottom:24px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-bar-row { display:grid; grid-template-columns:48px minmax(0,1fr) 100px; gap:16px; align-items:center; margin-top:16px; font-size:.875rem; color:var(--text-primary); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-bar-row strong { text-align:right; font-variant-numeric:tabular-nums; font-size:.9375rem; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-bar-track { height:20px; background:var(--surface); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-bar-track span { display:block; width:var(--bar-size); height:100%; background:var(--accent-green); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-performance figcaption { margin-top:20px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-ai { margin-top:48px; padding-top:24px; border-top:1px solid var(--border-default); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-ai ol { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0; padding:0; margin-top:20px; list-style:none; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-ai li { padding:12px 16px; border-top:2px solid var(--border-default); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-ai li:first-child { padding-left:0; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-ai li > span { display:block; color:var(--text-primary); font:600 .875rem/1.4 var(--font-sans); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-ai li > p { margin-top:8px; font-size:.875rem; line-height:1.5; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-ai li.vs-ai-judgment { border-top-color:var(--accent-green); background:var(--surface-sage); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-results { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin-bottom:28px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-results dt { color:var(--accent-green); font:400 2.5rem/1.1 var(--font-display); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-results dd { margin:10px 0 0; color:var(--text-primary); font-size:.9375rem; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-outcome { padding-block:20px; border-top:1px solid var(--border-default); }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-outcome p { margin-top:8px; }
+#showroom-case-study.case-study-showroom.vs-editorial .vs-final-link { margin-top:24px; font-size:.9375rem; }
+@media (max-width:1000px) {
+  #showroom-case-study.case-study-showroom.vs-editorial .case-study-shell { grid-template-columns:1fr; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar { position:sticky; top:0; z-index:15; padding:12px 24px; border-bottom:1px solid var(--border-default); }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar-inner { position:static; display:flex; flex-direction:row; gap:20px; align-items:center; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-nav-title { display:none; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar nav { display:flex; gap:4px; overflow-x:auto; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar nav a { white-space:nowrap; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar .back-link { white-space:nowrap; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-chapter { scroll-margin-top:88px; }
+}
+@media (max-width:800px) {
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-annotations { grid-template-columns:1fr; gap:20px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-ai ol { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-ai li:first-child { padding-left:16px; }
+}
+@media (max-width:640px) {
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-chapter { padding:40px 24px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar { padding:8px 12px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar-inner { display:block; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar .back-link { display:none; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar nav { justify-content:space-between; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar nav a { padding-inline:8px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-facts { grid-template-columns:1fr; gap:20px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-evolution { grid-template-columns:1fr; gap:20px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-evolution li + li::before { display:none; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-problem-map > div { grid-template-columns:1fr; gap:8px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-decision { margin-top:32px; padding-top:24px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-decision-number { font-size:2rem; }
+  #showroom-case-study.case-study-showroom.vs-editorial .showroom-step-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-phone-pair { gap:16px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-image a.vs-phone-stage { height:280px; padding:8px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-performance { padding:20px 16px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-bar-row { grid-template-columns:44px minmax(0,1fr) 88px; gap:8px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-bar-row strong { font-size:.8125rem; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-transfer { padding:16px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-results { grid-template-columns:1fr; gap:20px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-results > div { display:grid; grid-template-columns:110px minmax(0,1fr); gap:16px; align-items:center; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-results dt { font-size:2rem; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-results dd { margin:0; }
+  body[data-current-page="case-showroom"] .back-to-top { width:44px; height:44px; min-width:44px; min-height:44px; padding:8px; right:12px; bottom:12px; }
+  body[data-current-page="case-showroom"] .back-to-top-label { display:none; }
+}
+@media (max-width:420px) {
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-image a.vs-phone-stage { height:240px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-ai ol { grid-template-columns:1fr; gap:12px; }
+  #showroom-case-study.case-study-showroom.vs-editorial .vs-results > div { grid-template-columns:1fr; gap:8px; }
+}
+@media (max-width:360px) {
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar nav { gap:0; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar nav a { padding-inline:6px; font-size:.8125rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  #showroom-case-study.case-study-showroom.vs-editorial * { scroll-behavior:auto; transition:none; }
+}

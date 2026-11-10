@@ -1,0 +1,9 @@
+# Accessibility project-card illustration
+
+Generated with the built-in image generation tool. Conceptual cover art, not project research evidence or an implemented product screenshot. Only the accessibility card in pages/work.html uses this asset; the case-study hero and source evidence remain unchanged.
+
+Asset: assets/images/case-studies/azhartt-accessibility/card-inclusive-rescue.png
+
+## Final prompt
+
+Create a polished editorial 3D illustration for a UX portfolio project card about an accessibility audit of an animal-rescue website. No text, no letters, no numbers, no logos, no watermark. Landscape 3:2 composition, designed to remain clear as a small card thumbnail and center crop. Meaningful visual concept: a large elegant warm-white browser window is an open, welcoming doorway, with a friendly small sandy rescue dog and a charcoal-and-cream cat sitting safely together inside it. A continuous broad smooth teal path leads through the browser doorway to the animals, representing barrier-free access to rescue help. A restrained dark-green rounded rectangular keyboard-focus outline traces the doorway. In the foreground beside the path, two tactile ivory keyboard arrow keys and a small teal speaker with simple curved sound-wave shapes subtly represent keyboard and screen-reader access. All parts form one coherent miniature scene, not scattered floating icons. Sophisticated soft matte clay/ceramic materials, high-end product-design editorial aesthetic, softly lit warm cream background, muted sage and teal palette with forest-green accents, subtle realistic contact shadows, calm and welcoming. A few elements only, generous negative space, central scene contained within the middle 75% for responsive cropping. Accessibility is a way to reach the rescue animals, not a wheelchair icon or disability stereotype. Do not include fake interface text, accessibility compliance badges, checkmarks, charts, or claims.

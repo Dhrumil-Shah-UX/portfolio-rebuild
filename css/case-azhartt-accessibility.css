@@ -1,0 +1,188 @@
+/* AZHARTT Accessibility only: established case-study typography, tokens and navigation. */
+body[data-current-page="case-azhartt-accessibility"] .page-back-wrap { position:static; margin-left:16px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial { padding-top:96px; color:var(--text-primary); font:400 1rem/1.6 var(--font-sans); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .case-study-shell { display:grid; grid-template-columns:180px minmax(0,1fr); width:min(100%,1280px); margin-inline:auto; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .case-study-content { min-width:0; width:100%; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar { display:block; position:static; inset:auto; width:auto; height:auto; max-height:none; padding:48px 16px; border:0; border-radius:0; transform:none; background:var(--bg-main); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar-inner { display:block; position:sticky; top:32px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-nav-title { margin:32px 0 12px; color:var(--text-primary); font-size:.875rem; font-weight:600; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar nav { display:grid; gap:4px; min-width:0; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar nav a { min-height:44px; padding:10px 12px; color:var(--text-secondary); font-size:.875rem; font-weight:400; transform:none; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar nav a[aria-current="true"] { background:var(--surface-sage); color:var(--accent-green); font-weight:600; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-chapter { padding:56px 48px; scroll-margin-top:24px; border-top:1px solid var(--border-default); background:var(--bg-main); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-chapter:first-child { border-top:0; padding-top:40px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial :is(h1,h2,h3,h4,p,dl,ol,figure) { margin:0; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial h1 { color:var(--text-primary); font:400 clamp(2.75rem,5vw,4rem)/1.08 var(--font-display); letter-spacing:-.025em; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial h2, #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-decision h3 { color:var(--text-primary); font:400 clamp(1.65rem,2.6vw,2.125rem)/1.2 var(--font-display); letter-spacing:-.015em; text-wrap:pretty; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial h3, #access-case-study.case-study-azhartt-accessibility.ac-editorial h4, #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-ownership h2 { color:var(--text-primary); font:600 1rem/1.4 var(--font-sans); letter-spacing:0; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial p, #access-case-study.case-study-azhartt-accessibility.ac-editorial li { max-width:68ch; color:var(--text-secondary); font-size:1rem; line-height:1.65; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial strong { font-weight:600; color:var(--text-primary); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial a { color:var(--accent-green); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial :is(a,button):focus-visible { outline:3px solid var(--accent-green); outline-offset:4px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial p.ac-section-label { max-width:none; margin:0 0 24px; padding:12px 16px; border-radius:var(--radius-sm); background:var(--surface-sage); color:var(--accent-green); font:600 .9375rem/1.4 var(--font-sans); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial p.ac-eyebrow { margin-bottom:12px; color:var(--accent-green); font:600 .8125rem/1.4 var(--font-sans); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-intro { margin-bottom:28px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial p.ac-deck { margin-top:16px; max-width:44ch; color:var(--text-primary); font-size:1.25rem; line-height:1.45; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-section-head { margin-bottom:28px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-section-head > p:last-child:not(.ac-section-label) { margin-top:16px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image { width:100%; max-width:800px; min-width:0; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image a { display:block; padding:10px; border:1px solid var(--border-default); border-radius:var(--radius-sm); background:var(--surface); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image img { display:block; width:100%; height:auto; border-radius:4px; object-fit:contain; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image figcaption, #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-performance figcaption { max-width:68ch; margin-top:10px; color:var(--text-secondary); font-size:.875rem; line-height:1.5; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 32px; padding-block:24px; margin-top:8px; border-bottom:1px solid var(--border-default); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-facts dt { color:var(--text-secondary); font-size:.875rem; margin-bottom:6px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-facts dd { margin:0; color:var(--text-primary); font-size:.9375rem; line-height:1.5; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-ownership { margin-top:24px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-ownership p { margin-top:10px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial p.ac-note { margin-top:16px; font-size:.875rem; line-height:1.6; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-source { display:inline-flex; margin-top:20px; font-size:.9375rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-journey { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; padding:0; list-style:none; margin:32px 0 28px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-journey li { position:relative; border-top:2px solid var(--border-default); padding-top:16px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-journey li:last-child { border-color:var(--accent-green); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-journey li + li::before { content:'\2192'; position:absolute; top:14px; left:-22px; color:var(--accent-green); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-journey span { display:block; margin-bottom:8px; font-size:.875rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-journey strong { display:block; font-size:1rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-journey p { margin-top:8px; font-size:.9375rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-decision { margin-top:56px; padding-top:40px; border-top:1px solid var(--border-default); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial p.ac-decision-marker { display:flex; align-items:baseline; gap:20px; margin:0 0 16px; color:var(--accent-green); font:600 .9375rem/1.4 var(--font-sans); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-decision-number { flex:0 0 auto; color:var(--accent-green); font:400 2.5rem/1 var(--font-display); font-variant-numeric:lining-nums tabular-nums; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-decision-number small { margin-left:4px; color:var(--text-secondary); font-size:1.125rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-decision header { margin-bottom:24px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-decision header > p:last-child { margin-top:14px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial p.ac-image-label { color:var(--text-primary); font-size:.875rem; font-weight:600; margin-bottom:12px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial p.ac-evidence { margin-top:24px; padding-left:16px; border-left:2px solid var(--border-default); font-size:.875rem; line-height:1.6; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-evidence strong { display:block; margin-bottom:4px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-delivery > div { display:grid; grid-template-columns:180px minmax(0,1fr); gap:24px; padding-block:20px; border-top:1px solid var(--border-default); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-delivery dt { color:var(--text-primary); font:600 1rem/1.4 var(--font-sans); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-delivery dd { margin:0; color:var(--text-secondary); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-outcome { padding-block:20px; border-top:1px solid var(--border-default); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-outcome p { margin-top:8px; }
+@media (max-width:1000px) {
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-study-shell { grid-template-columns:1fr; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar { position:sticky; top:0; z-index:15; padding:12px 24px; border-bottom:1px solid var(--border-default); }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar-inner { position:static; display:flex; flex-direction:row; gap:20px; align-items:center; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-nav-title { display:none; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar nav { display:flex; gap:4px; overflow-x:auto; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar nav a { white-space:nowrap; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar .back-link { white-space:nowrap; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-chapter { scroll-margin-top:88px; }
+}
+
+@media (max-width:640px) {
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-chapter { padding:40px 24px; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar { padding:8px 12px; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar-inner { display:block; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar .back-link { display:none; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar nav { justify-content:space-between; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar nav a { padding-inline:8px; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-facts { grid-template-columns:1fr; gap:20px; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-journey { grid-template-columns:1fr; gap:20px; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-journey li + li::before { display:none; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-decision { margin-top:32px; padding-top:24px; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-decision-number { font-size:2rem; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image-pair { grid-template-columns:1fr; gap:24px; }
+  body[data-current-page="case-azhartt-accessibility"] .back-to-top { width:44px; height:44px; min-width:44px; min-height:44px; padding:8px; right:12px; bottom:12px; }
+  body[data-current-page="case-azhartt-accessibility"] .back-to-top-label { display:none; }
+}
+
+@media (max-width:360px) {
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar nav { gap:0; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar nav a { padding-inline:6px; font-size:.8125rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial * { scroll-behavior:auto; transition:none; }
+}
+
+
+/* AZHARTT Accessibility: compact, uncropped mobile screenshots with full-resolution access. */
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-summary { margin-top:16px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image-pair { gap:32px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image a { cursor:zoom-in; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal { position:fixed; inset:0; box-sizing:border-box; width:100vw; max-width:none; height:100dvh; max-height:none; margin:0; padding:20px; border:0; background:#f8f8f5; color:#222923; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal[open] { display:flex; flex-direction:column; gap:12px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal::backdrop { background:#101410e6; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal h2 { font:600 1rem/1.4 var(--font-sans); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal button { min-width:88px; min-height:44px; padding:8px 14px; border:1px solid #b4bcb5; border-radius:6px; background:white; color:#222923; font:600 1rem var(--font-sans); cursor:pointer; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-help,#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-caption { color:#465247; font-size:.875rem; max-width:none; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-stage { flex:1; min-height:0; overflow:auto; background:#e8ebe7; touch-action:none; overscroll-behavior:contain; cursor:zoom-in; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-stage[data-zoomed="true"] { cursor:zoom-in; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-stage[data-dragging="true"] { cursor:grabbing; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-stage:focus-visible { outline:3px solid var(--accent-green); outline-offset:2px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-canvas { display:grid; place-items:center; min-width:100%; min-height:100%; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-canvas img { display:block; max-width:none; max-height:none; user-select:none; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-caption { min-height:21px; }
+@media(max-width:640px) {
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image-pair { grid-template-columns:1fr 1fr; gap:14px; }
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal { padding:12px; gap:8px; }
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-modal-caption { font-size:.8125rem; }
+}
+
+
+
+@media(max-width:640px) { #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-delivery > div { grid-template-columns:1fr; gap:8px; } }
+
+
+
+/* Wide evidence crops retain their original aspect ratio and full-image access. */
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image-pair .ac-image a { padding:10px; background:var(--surface); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image-pair img { width:100%; height:auto; max-height:300px; object-fit:contain; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-decision:first-of-type .ac-image-pair img { height:180px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-baseline { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:28px; margin-block:28px; background:var(--surface-sage); border-radius:var(--radius-sm); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-baseline strong { display:block; font:400 clamp(2.3rem,5vw,3.5rem)/1.1 var(--font-display); color:var(--accent-green); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-baseline span { display:block; margin-top:8px; font-size:.9375rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-baseline figcaption { grid-column:1/-1; color:var(--text-secondary); font-size:.875rem; line-height:1.6; max-width:72ch; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-flow { margin-top:28px; padding:24px; background:var(--surface-sage); border-radius:var(--radius-sm); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-flow ol { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; padding:0; list-style:none; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-flow span { display:block; margin-bottom:8px; color:var(--accent-green); font-size:.875rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-flow figcaption { margin-top:20px; color:var(--text-secondary); font-size:.875rem; line-height:1.5; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-timings { width:100%; margin-top:16px; border-collapse:collapse; color:var(--text-secondary); text-align:left; font-size:.9375rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-timings caption { text-align:left; padding-bottom:12px; font-size:.875rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-timings :is(td,th) { padding:12px 8px; border-bottom:1px solid var(--border-default); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-timings th { font-weight:400; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-timings thead th { font-weight:600; color:var(--text-primary); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-next { margin-top:40px; padding-top:28px; border-top:1px solid var(--border-default); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-next p { margin-top:8px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-next a { margin-top:16px; }
+@media(max-width:640px) {
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-image-pair { grid-template-columns:1fr; gap:24px; }
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-baseline { padding:20px 16px; gap:20px; }
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-flow ol { grid-template-columns:1fr; gap:20px; }
+}
+
+
+#access-case-study.case-study-azhartt-accessibility.ac-editorial h1 { font-size:clamp(2.5rem,4.4vw,3.5rem); max-width:23ch; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-board { max-width:700px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-board a { display:block; position:relative; overflow:hidden; padding:0; aspect-ratio:1.5; background:#444; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-board img { position:absolute; max-width:none; width:285.714%; height:auto; left:-20.7%; top:-11.6%; border-radius:0; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-found img { width:235.3%; left:-11.76%; top:-7%; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-lost img { width:270.27%; left:-22.3%; top:-8%; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-board.ac-lost a { aspect-ratio:1.2; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-table-wrap { overflow:auto; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-patterns { width:100%; border-collapse:collapse; text-align:left; font-size:.9375rem; color:var(--text-secondary); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-patterns caption { text-align:left; margin-bottom:16px; font-weight:600; color:var(--text-primary); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-patterns :is(th,td) { border-bottom:1px solid var(--border-default); padding:14px 10px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-patterns th { font-weight:600; color:var(--text-primary); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-semantics { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:24px; margin-top:24px; background:var(--surface-sage); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-semantics p { margin-top:12px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial code { font-size:.875rem; color:var(--accent-green); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-detail { margin-top:24px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-detail > div { display:grid; grid-template-columns:150px 1fr; gap:24px; padding:16px 0; border-top:1px solid var(--border-default); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-detail dt { font-weight:600; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-detail dd { margin:0; color:var(--text-secondary); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-ai { margin-top:56px; padding-top:32px; border-top:1px solid var(--border-default); }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-ai ol { display:grid; grid-template-columns:repeat(4,1fr); padding:0; margin-top:24px; list-style:none; gap:24px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-ai span { color:var(--text-primary); font-weight:600; font-size:.875rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-ai p { margin-top:8px; font-size:.875rem; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-chart { margin-bottom:28px; }
+#access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-links { display:flex; flex-wrap:wrap; gap:20px 28px; margin-top:24px; font-size:.9375rem; }
+@media(max-width:640px) {
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-patterns { font-size:.8125rem; }
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-patterns :is(th,td) { padding:12px 4px; }
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-board a { aspect-ratio:1.5; }
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-ai ol { grid-template-columns:1fr 1fr; gap:24px 20px; }
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-detail > div { grid-template-columns:1fr; gap:8px; }
+ #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-semantics { grid-template-columns:1fr; gap:20px; padding:20px; }
+}
+

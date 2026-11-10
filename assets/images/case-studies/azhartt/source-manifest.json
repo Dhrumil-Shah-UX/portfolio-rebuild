@@ -1,0 +1,430 @@
+{
+  "source": "https://dhrumilshahux.framer.website/azhartt-usability-project",
+  "images": [
+    {
+      "index": 0,
+      "file": "source-00.png",
+      "url": "https://framerusercontent.com/images/3EhXAAcqS9NvtFCKPRaDZjK9tQ.png"
+    },
+    {
+      "index": 1,
+      "file": "source-01.png",
+      "url": "https://framerusercontent.com/images/KZEqkzit386kNjDvCnTPFnXZH4k.png"
+    },
+    {
+      "index": 2,
+      "file": "source-02.png",
+      "url": "https://framerusercontent.com/images/dQnYKjmjhW1D6qqOWO7lHmks.png"
+    },
+    {
+      "index": 3,
+      "file": "source-03.png",
+      "url": "https://framerusercontent.com/images/AonwtqCkjQstC3RfPUkSzWspHg.png"
+    },
+    {
+      "index": 4,
+      "file": "source-04.png",
+      "url": "https://framerusercontent.com/images/6dWQdLJTjTXo8KQuiKZstieFjMk.png"
+    },
+    {
+      "index": 5,
+      "file": "source-05.png",
+      "url": "https://framerusercontent.com/images/rbPmzqbmvmHEBxPjKBEQhtetbg.png"
+    },
+    {
+      "index": 6,
+      "file": "source-06.png",
+      "url": "https://framerusercontent.com/images/s3ZmwmfQzgCmIdi4TbaUmdLF7pw.png"
+    },
+    {
+      "index": 7,
+      "file": "source-07.png",
+      "url": "https://framerusercontent.com/images/B2ZHHUxS0S3UohlnkMJPJdOvBQ.png"
+    },
+    {
+      "index": 8,
+      "file": "source-08.png",
+      "url": "https://framerusercontent.com/images/uIqwORz7Vmz3qtkDw80nQIxapk.png"
+    },
+    {
+      "index": 9,
+      "file": "source-09.png",
+      "url": "https://framerusercontent.com/images/9MuJWAvBJcQkxdjHKR65KEb1U.png"
+    },
+    {
+      "index": 10,
+      "file": "source-10.png",
+      "url": "https://framerusercontent.com/images/TsWw8uXdkYXSvh2Ruhovun45hSQ.png"
+    },
+    {
+      "index": 11,
+      "file": "source-11.png",
+      "url": "https://framerusercontent.com/images/6bF47X5XXDeZJiCK3IOoRIh98Y.png"
+    },
+    {
+      "index": 12,
+      "file": "source-12.png",
+      "url": "https://framerusercontent.com/images/aw6v8ZZGGLUDoQSPBHNBuOEiwdk.png"
+    },
+    {
+      "index": 13,
+      "file": "source-13.png",
+      "url": "https://framerusercontent.com/images/7AtzzQ9CCWziJGofpbGhYRlbsko.png"
+    },
+    {
+      "index": 14,
+      "file": "source-14.png",
+      "url": "https://framerusercontent.com/images/Rz7fTMen1CQU0BgSLNcO4VdJjU.png"
+    },
+    {
+      "index": 15,
+      "file": "source-15.png",
+      "url": "https://framerusercontent.com/images/mDPmZ96UnbrA4Bu5f1I7B55ZfUM.png"
+    },
+    {
+      "index": 16,
+      "file": "source-16.png",
+      "url": "https://framerusercontent.com/images/4JeL93FzSsW9a2tEzhTSO72iHT4.png"
+    },
+    {
+      "index": 17,
+      "file": "source-17.png",
+      "url": "https://framerusercontent.com/images/zVLRXbD9GzFypj6tHZ6nLzZEos.png"
+    },
+    {
+      "index": 18,
+      "file": "source-18.png",
+      "url": "https://framerusercontent.com/images/90gRPl4usLaJEtBybftAf24bv9A.png"
+    },
+    {
+      "index": 19,
+      "file": "source-19.png",
+      "url": "https://framerusercontent.com/images/dz23yEVg2Lye2mG4bOrbl8cb258.png"
+    },
+    {
+      "index": 20,
+      "file": "source-20.png",
+      "url": "https://framerusercontent.com/images/hEtHaRM7d6kmtajaCO7m0CU.png"
+    },
+    {
+      "index": 21,
+      "file": "source-21.png",
+      "url": "https://framerusercontent.com/images/1GQO52R5t9GzwMwAkaekTlBxLNo.png"
+    },
+    {
+      "index": 22,
+      "file": "source-22.png",
+      "url": "https://framerusercontent.com/images/bk3WoYXCPyOfQk3nz1q5qYSM.png"
+    },
+    {
+      "index": 23,
+      "file": "source-23.png",
+      "url": "https://framerusercontent.com/images/HMBtYIwiHs0LhVMr5OIN02raY8o.png"
+    },
+    {
+      "index": 24,
+      "file": "source-24.png",
+      "url": "https://framerusercontent.com/images/DMKSHVfY5pL3enoQOQLT5IrCiTg.png"
+    },
+    {
+      "index": 25,
+      "file": "source-25.png",
+      "url": "https://framerusercontent.com/images/KlROxX20EIkeLLTpVGk7Pvdeo.png"
+    },
+    {
+      "index": 26,
+      "file": "source-26.png",
+      "url": "https://framerusercontent.com/images/C9oN6ev0mJLSj42tBR9QRCNb8OA.png"
+    },
+    {
+      "index": 27,
+      "file": "source-27.png",
+      "url": "https://framerusercontent.com/images/9p6kT5yHM6Gy1DnBN6hEvoI3A.png"
+    },
+    {
+      "index": 28,
+      "file": "source-28.png",
+      "url": "https://framerusercontent.com/images/VHN4WtxVFaQHW9hCbpuuignVk0.png"
+    },
+    {
+      "index": 29,
+      "file": "source-29.png",
+      "url": "https://framerusercontent.com/images/ll5GFtExRHQR4aeATzsMuxlxRA.png"
+    },
+    {
+      "index": 30,
+      "file": "source-30.png",
+      "url": "https://framerusercontent.com/images/EVSQag4IQzFI20cnVXb3UiLdOyI.png"
+    },
+    {
+      "index": 31,
+      "file": "source-31.png",
+      "url": "https://framerusercontent.com/images/ExKm74nLbKWsE3qwC0wf554rs0.png"
+    },
+    {
+      "index": 32,
+      "file": "source-32.png",
+      "url": "https://framerusercontent.com/images/ij7XK8upzBw0rxroo7tYXhzMjc.png"
+    },
+    {
+      "index": 33,
+      "file": "source-33.png",
+      "url": "https://framerusercontent.com/images/En42ESZdfGjI3Ag6kOxl5Ew4RCA.png"
+    },
+    {
+      "index": 34,
+      "file": "source-34.png",
+      "url": "https://framerusercontent.com/images/GlXJFasVG8LV4MesrJZ2dQVW86A.png"
+    },
+    {
+      "index": 35,
+      "file": "source-35.png",
+      "url": "https://framerusercontent.com/images/8swBgG53AONEkQYMHs0zUJORQ.png"
+    },
+    {
+      "index": 36,
+      "file": "source-36.png",
+      "url": "https://framerusercontent.com/images/hJhyDySyaEW4ISU7iDwXOZMbPhY.png"
+    },
+    {
+      "index": 37,
+      "file": "source-37.png",
+      "url": "https://framerusercontent.com/images/JZjiexDU8VMhahRcBb9stwYpk.png"
+    },
+    {
+      "index": 38,
+      "file": "source-38.png",
+      "url": "https://framerusercontent.com/images/SArJFAZga2MP6179kn2o12tbW7w.png"
+    },
+    {
+      "index": 39,
+      "file": "source-39.png",
+      "url": "https://framerusercontent.com/images/W9dQPWiPSo86t2AByNQbeWtf30.png"
+    },
+    {
+      "index": 40,
+      "file": "source-40.png",
+      "url": "https://framerusercontent.com/images/wIxZoTkWzGiBl01de67K4KLrd8.png"
+    },
+    {
+      "index": 41,
+      "file": "source-41.png",
+      "url": "https://framerusercontent.com/images/ymVfejgK7lFNZ03r7QvXgdZagk.png"
+    },
+    {
+      "index": 42,
+      "file": "source-42.png",
+      "url": "https://framerusercontent.com/images/IEfexMX2ltiidq0QKYwitZa1BuU.png"
+    },
+    {
+      "index": 43,
+      "file": "source-43.png",
+      "url": "https://framerusercontent.com/images/JUPbQKpqcRjBOLUcwyoVpIuCewg.png"
+    },
+    {
+      "index": 44,
+      "file": "source-44.png",
+      "url": "https://framerusercontent.com/images/EKGvRoynawnwsmSTMao88Prvp8.png"
+    },
+    {
+      "index": 45,
+      "file": "source-45.png",
+      "url": "https://framerusercontent.com/images/Ihgz0x4FzBGmvw7tdA8WZBIr8A.png"
+    },
+    {
+      "index": 46,
+      "file": "source-46.png",
+      "url": "https://framerusercontent.com/images/wSkXT9gwnuPaQ4roThf6KgftTc.png"
+    },
+    {
+      "index": 47,
+      "file": "source-47.png",
+      "url": "https://framerusercontent.com/images/zVzV9HvGMN084zd91zt1YJz5w.png"
+    },
+    {
+      "index": 48,
+      "file": "source-48.png",
+      "url": "https://framerusercontent.com/images/MplsE008ihTpC2MzKJSzbcAqkA.png"
+    },
+    {
+      "index": 49,
+      "file": "source-49.png",
+      "url": "https://framerusercontent.com/images/dz5ZoBZWJrFtqVlgw3bhq4EfvI.png"
+    },
+    {
+      "index": 50,
+      "file": "source-50.png",
+      "url": "https://framerusercontent.com/images/NgBoX4hOL2hI2jTOqFDA2GRMEG4.png"
+    },
+    {
+      "index": 51,
+      "file": "source-51.png",
+      "url": "https://framerusercontent.com/images/ehZPQ7uXiQVlATsWbEd8fb1ITGk.png"
+    },
+    {
+      "index": 52,
+      "file": "source-52.png",
+      "url": "https://framerusercontent.com/images/OIPE1JWHLEKTn3MZ1RWHoIJaST4.png"
+    },
+    {
+      "index": 53,
+      "file": "source-53.png",
+      "url": "https://framerusercontent.com/images/xwP0QvTsN2AqvgPfRfeTJEHLpXY.png"
+    },
+    {
+      "index": 54,
+      "file": "source-54.png",
+      "url": "https://framerusercontent.com/images/G02ySPHyXAuUOnAdZ2jG2CJRP6k.png"
+    },
+    {
+      "index": 55,
+      "file": "source-55.png",
+      "url": "https://framerusercontent.com/images/ZbQOdnCAomdURtL8N3UglkVB8.png"
+    },
+    {
+      "index": 56,
+      "file": "source-56.png",
+      "url": "https://framerusercontent.com/images/wXcyaeqphVUHrGHvRemZ3YQfm0.png"
+    },
+    {
+      "index": 57,
+      "file": "source-57.png",
+      "url": "https://framerusercontent.com/images/uCbWnvsPck0KTRvE38MSFOMZzVw.png"
+    },
+    {
+      "index": 58,
+      "file": "source-58.png",
+      "url": "https://framerusercontent.com/images/pZBj6hFCGGmV3Xrinq0Y182z53U.png"
+    },
+    {
+      "index": 59,
+      "file": "source-59.png",
+      "url": "https://framerusercontent.com/images/KsV29KWMc0xucpdF6zbMxhC3zrM.png"
+    },
+    {
+      "index": 60,
+      "file": "source-60.png",
+      "url": "https://framerusercontent.com/images/K2COnh5m9HLHX8uvZwIQAerZ4.png"
+    },
+    {
+      "index": 61,
+      "file": "source-61.png",
+      "url": "https://framerusercontent.com/images/Ivb6f9N1uG7gHm6nW0N0hXN8Jw.png"
+    },
+    {
+      "index": 62,
+      "file": "source-62.png",
+      "url": "https://framerusercontent.com/images/QBJ0NBoIGDBtdfVNHk6ituOL01M.png"
+    },
+    {
+      "index": 63,
+      "file": "source-63.png",
+      "url": "https://framerusercontent.com/images/Iz7BeOVK8BovAEWVGfBIX36tc.png"
+    },
+    {
+      "index": 64,
+      "file": "source-64.png",
+      "url": "https://framerusercontent.com/images/tDVK3KTiOPm5sfDZe9y0762LK0.png"
+    },
+    {
+      "index": 65,
+      "file": "source-65.png",
+      "url": "https://framerusercontent.com/images/VTsofLffmZAcqbDLgWOn83ADs.png"
+    },
+    {
+      "index": 66,
+      "file": "source-66.png",
+      "url": "https://framerusercontent.com/images/2B0g84poXYeruWB3vBryLK2CCs.png"
+    },
+    {
+      "index": 67,
+      "file": "source-67.png",
+      "url": "https://framerusercontent.com/images/iih1WnghjJBk9iFUjuEFphd16kA.png"
+    },
+    {
+      "index": 68,
+      "file": "source-68.png",
+      "url": "https://framerusercontent.com/images/20WUBfZPBkugsdHSsuadukfl6I.png"
+    },
+    {
+      "index": 69,
+      "file": "source-69.png",
+      "url": "https://framerusercontent.com/images/QXOxfvSK05b8t0kOX1uJ9P5lbA.png"
+    },
+    {
+      "index": 70,
+      "file": "source-70.png",
+      "url": "https://framerusercontent.com/images/U2KiR63W6dfZksjJtPNvipAP8.png"
+    },
+    {
+      "index": 71,
+      "file": "source-71.png",
+      "url": "https://framerusercontent.com/images/8fSif9BxLA9d9fDtM1VqtIcxSz0.png"
+    },
+    {
+      "index": 72,
+      "file": "source-72.png",
+      "url": "https://framerusercontent.com/images/0ob9ZOBYEvQWKYoKDfS1nrXeL0.png"
+    },
+    {
+      "index": 73,
+      "file": "source-73.png",
+      "url": "https://framerusercontent.com/images/kSlTcLnhpzfdyIYEB6GQa9UII.png"
+    },
+    {
+      "index": 74,
+      "file": "source-74.png",
+      "url": "https://framerusercontent.com/images/Lgt7jxwO4Fr8vHgrklUTqY1ToFk.png"
+    },
+    {
+      "index": 75,
+      "file": "source-75.png",
+      "url": "https://framerusercontent.com/images/sy5esw5fwDqfmBCfDYZ5baKEA.png"
+    },
+    {
+      "index": 76,
+      "file": "source-76.png",
+      "url": "https://framerusercontent.com/images/rxq2RwCWXpfhI2GQBBQsEA3Ydc.png"
+    },
+    {
+      "index": 77,
+      "file": "source-77.png",
+      "url": "https://framerusercontent.com/images/pknFQlxQvQP9450EMgEi28BZD2Y.png"
+    },
+    {
+      "index": 78,
+      "file": "source-78.png",
+      "url": "https://framerusercontent.com/images/euw9umI4L7ryyvMtGAI6K8LLH9o.png"
+    },
+    {
+      "index": 79,
+      "file": "source-79.png",
+      "url": "https://framerusercontent.com/images/Mz1TpONAwSEgYkPV3bkx0xBOnBs.png"
+    },
+    {
+      "index": 80,
+      "file": "source-80.png",
+      "url": "https://framerusercontent.com/images/JxuqYIyskCY9ZhMu9yMpehAjw8k.png"
+    },
+    {
+      "index": 81,
+      "file": "source-81.png",
+      "url": "https://framerusercontent.com/images/KI2T13G47G9m8Z2QY1wr8jzO0n4.png"
+    },
+    {
+      "index": 82,
+      "file": "source-82.png",
+      "url": "https://framerusercontent.com/images/qQatiwkNYD6H7CmBrP5sbb5U.png"
+    },
+    {
+      "index": 83,
+      "file": "source-83.png",
+      "url": "https://framerusercontent.com/images/kov3p8HA8WrVgxsITYwfjkJmfdE.png"
+    },
+    {
+      "index": 84,
+      "file": "source-84.png",
+      "url": "https://framerusercontent.com/images/fKmEbQKy0soWx8hZuB8v8Np5YM.png"
+    }
+  ]
+}

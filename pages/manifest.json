@@ -51,6 +51,11 @@
       "defaultVisible": false
     },
     {
+      "id": "case-azhartt-accessibility",
+      "file": "case-azhartt-accessibility.html",
+      "defaultVisible": false
+    },
+    {
       "id": "case-trial",
       "file": "case-trial.html",
       "defaultVisible": false
