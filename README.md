@@ -2,6 +2,8 @@
 
 Portfolio site (HTML, CSS, vanilla JavaScript) with server-side Gemini API routes. Run `npm start` for the portfolio and local API. See [assistant setup](docs/portfolio-assistant.md) for environment variables, Vercel deployment, retrieval, analytics, and tests.
 
+The build prerenders every public page and article to a clean, crawlable URL while preserving interactive navigation and legacy hash links. See the [SEO audit and maintenance guide](docs/seo-audit.md) for routes, validation results, domain configuration, and pending manual checks. Canonicals default to `config/seo.json`; override the origin at build time with `SITE_ORIGIN`.
+
 ## Project layout
 
 ```
@@ -44,6 +46,8 @@ scripts/
 ```bash
 npm start                 # Preview at http://localhost:3000
 npm run check:case-studies
+npm run build              # Generate the static Vercel output in dist/
+npm run test:seo           # Routes, metadata, HTML, sitemap, assets, and redirects
 ```
 
 ## Conventions

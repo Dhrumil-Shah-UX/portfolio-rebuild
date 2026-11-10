@@ -34,7 +34,7 @@ let currentNoteIndex = 0;
 let currentArticleIndex = 0;
 let designNotesPageFlip = null;
 
-function showPage(pageName, scrollTargetId = "") {
+function showPage(pageName, scrollTargetId = "", { historyMode = "push" } = {}) {
   const articleSlug = pageName.startsWith("article-")
     ? pageName.replace("article-", "")
     : pageName.startsWith("writing/")
@@ -63,12 +63,13 @@ function showPage(pageName, scrollTargetId = "") {
     nav.classList.remove("is-open");
   }
 
-  const nextHash = scrollTargetId || pageName;
+  const nextURL = window.PortfolioSEO.url(pageName, scrollTargetId);
   pageBackWrap.hidden = nextPage === "home";
-  if (location.hash.slice(1) !== nextHash) {
-    portfolioHistoryDepth += 1;
-    history.pushState({ portfolioDepth: portfolioHistoryDepth }, "", `#${nextHash}`);
+  if (location.pathname + location.search + location.hash !== nextURL) {
+    if (historyMode === "push") portfolioHistoryDepth += 1;
+    history[historyMode === "push" ? "pushState" : "replaceState"]({ ...history.state, portfolioDepth: portfolioHistoryDepth }, "", nextURL);
   }
+  window.PortfolioSEO.update(pageName);
 
   requestAnimationFrame(() => {
     const scrollTarget = scrollTargetId ? document.getElementById(scrollTargetId) : null;
@@ -257,74 +258,17 @@ function renderArticleCards() {
     return;
   }
 
-  list.innerHTML = articles
-    .map((article, index) => `
-      <article class="article-card" data-article-card="${index}" role="link" tabindex="0">
-        <div class="article-card-copy">
-          <h3>${article.title}</h3>
-          <p>${article.summary}</p>
-          <span>${article.platform} &middot; ${article.topic}</span>
-        </div>
-        <div class="article-card-image">${article.image ? `<img src="${article.image}" alt="" />` : `<span>${article.platform}</span>`}</div>
-      </article>
-    `)
-    .join("");
+  list.innerHTML = window.PortfolioContent.cards(articles);
   list.querySelectorAll("[data-article-card]").forEach((card) => {
     const openArticle = () => {
       showPage(`writing/${articles[Number(card.dataset.articleCard)].slug}`);
     };
-    card.addEventListener("click", openArticle);
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openArticle();
-      }
+    card.addEventListener("click", event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      event.preventDefault();
+      openArticle();
     });
   });
-}
-
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-function articleBlockMarkup(block) {
-  if (typeof block === "string") {
-    return `<p>${escapeHtml(block)}</p>`;
-  }
-
-  if (block.type === "image") {
-    const alt = escapeHtml(block.alt || "");
-    const caption = block.caption ? `<figcaption>${escapeHtml(block.caption)}</figcaption>` : "";
-    return `<figure class="article-figure"><img src="${escapeHtml(block.src || "")}" alt="${alt}" />${caption}</figure>`;
-  }
-
-  if (block.type === "h2") {
-    return `<h2>${escapeHtml(block.text)}</h2>`;
-  }
-
-  if (block.type === "h3") {
-    return `<h3>${escapeHtml(block.text)}</h3>`;
-  }
-
-  if (block.type === "blockquote") {
-    return `<blockquote>${escapeHtml(block.text)}</blockquote>`;
-  }
-
-  if (block.type === "ul" || block.type === "ol") {
-    const items = (block.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
-    return `<${block.type}>${items}</${block.type}>`;
-  }
-
-  if (block.type === "note") {
-    return `<aside class="article-source-note">${escapeHtml(block.text)}</aside>`;
-  }
-
-  return `<p>${escapeHtml(block.text || "")}</p>`;
 }
 
 function renderMoreWriting(article) {
@@ -333,23 +277,11 @@ function renderMoreWriting(article) {
     return;
   }
 
-  list.innerHTML = articles
-    .filter((item) => item.slug !== article.slug)
-    .slice(0, 1)
-    .map(
-      (item) => `
-        <a class="more-writing-link" href="#writing/${item.slug}" data-more-writing-link="${item.slug}">
-          <span>${item.topic}</span>
-          <strong>${item.title}</strong>
-          <small>${item.summary}</small>
-          <em class="icon-link">Read article <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></em>
-        </a>
-      `
-    )
-    .join("");
+  list.innerHTML = window.PortfolioContent.more(articles, article);
 
   list.querySelectorAll("[data-more-writing-link]").forEach((link) => {
     link.addEventListener("click", (event) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
       event.preventDefault();
       showPage(`writing/${link.dataset.moreWritingLink}`);
     });
@@ -366,7 +298,7 @@ function renderArticle(slug) {
   const external = document.querySelector("[data-article-external]");
   external.href = article.originalUrl || "#";
   external.toggleAttribute("aria-disabled", !article.originalUrl);
-  document.querySelector("[data-article-body]").innerHTML = article.content.map(articleBlockMarkup).join("");
+  document.querySelector("[data-article-body]").innerHTML = article.content.map(window.PortfolioContent.block).join("");
   renderMoreWriting(article);
 }
 
@@ -422,6 +354,9 @@ function initGameVideos() {
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(({ target: video, isIntersecting }) => {
       if (isIntersecting) {
+        const sources = video.querySelectorAll('source[data-src]');
+        sources.forEach(source => { source.src = source.dataset.src; delete source.dataset.src; });
+        if (sources.length) video.load();
         video.play().catch(() => {});
       } else {
         video.pause();
@@ -790,7 +725,7 @@ function bootstrapApp() {
         taught: "My AI workflow across design and build, with a live demo from a ChatGPT idea to a working interaction in Cursor.",
         artifacts: "FigJam board, live demo, and workflow examples.",
         takeaways: ["Understand AI fundamentals and where its limits are.", "Build an intentional workflow instead of copying prompts.", "Explore how AI can support everyday design work."],
-        visual: "assets/images/workshops/ws1.png"
+        visual: "/assets/images/workshops/ws1.png"
       },
       {
         title: "Prompt Writing for Designers",
@@ -801,7 +736,7 @@ function bootstrapApp() {
         taught: "How designers can use sketches, prototypes, references, and data to give AI stronger context.",
         artifacts: "FigJam board, prompt refinement activity, design references, and a persona generation demo.",
         takeaways: ["Use a repeatable framework instead of endlessly rewriting prompts.", "See how context and iteration change an output.", "Evaluate when an AI result is actually useful."],
-        visual: "assets/images/workshops/ws2.png"
+        visual: "/assets/images/workshops/ws2.png"
       },
       {
         title: "The New Designer Role & Process with AI",
@@ -812,7 +747,7 @@ function bootstrapApp() {
         taught: "A real project timeline showing AI assisting research, prototyping, debugging, and delivery while the process stayed human-led.",
         artifacts: "FigJam workflow map, process timeline, and real project example.",
         takeaways: ["There is no single correct AI-enabled design process.", "Learn how peers are integrating AI into their work.", "Identify where AI can amplify your strengths."],
-        visual: "assets/images/workshops/ws3.png"
+        visual: "/assets/images/workshops/ws3.png"
       },
       {
         title: "AI in Ideation, Prototyping & Design Delivery",
@@ -823,7 +758,7 @@ function bootstrapApp() {
         taught: "A structured Pomodoro prototype activity with requirements, constraints, and a done checklist.",
         artifacts: "FigJam board, activity PRD, completion checklist, and participant sharing spaces.",
         takeaways: ["Prototype with AI from idea to working demo.", "Maintain brand and design consistency.", "Tell polished output apart from output that works."],
-        visual: "assets/images/workshops/ws4.png"
+        visual: "/assets/images/workshops/ws4.png"
       },
       {
         title: "AI Portfolio Playground: Mini Hackathon",
@@ -834,7 +769,7 @@ function bootstrapApp() {
         taught: "A mini hackathon format for ideation, rapid prototyping, sharing, and lightweight voting.",
         artifacts: "FigJam board, challenge template, working areas, prototype checklist, and participant outputs.",
         takeaways: ["Turn an AI portfolio idea into a rough prototype.", "Explore ways a portfolio can respond, guide, or surprise.", "Keep AI interactions intentional instead of generic."],
-        visual: "assets/images/workshops/ws5.png"
+        visual: "/assets/images/workshops/ws5.png"
       },
       {
         title: "Making Decisions With AI When Building Products",
@@ -845,7 +780,7 @@ function bootstrapApp() {
         taught: "Reflection exercises to map ideation patterns and notice when AI influences or redirects a decision.",
         artifacts: "FigJam board, ideation pattern exercise, self-reflection prompt, and interactive game.",
         takeaways: ["Understand why and how you use AI to make decisions.", "Recognize when AI begins driving instead of assisting.", "Keep ownership of decisions you can explain."],
-        visual: "assets/images/workshops/ws6.png"
+        visual: "/assets/images/workshops/ws6.png"
       }
     ];
     const fields = {
@@ -892,6 +827,7 @@ function bootstrapApp() {
       });
     }
     control.addEventListener("click", (event) => {
+      if (control.tagName === "A" && (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0)) return;
       const pageName = control.dataset.page;
       if (!pageName) {
         return;
@@ -900,6 +836,17 @@ function bootstrapApp() {
       event.preventDefault();
       showPage(pageName, control.dataset.scrollTarget || "");
     });
+  });
+
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link || event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0 || link.target === '_blank' || link.hasAttribute('download')) return;
+    const destination = new URL(link.href);
+    if (destination.origin !== location.origin || link.getAttribute('href').startsWith('#')) return;
+    const entry = Object.entries(window.PortfolioSEO.pages).find(([, page]) => page.path === destination.pathname);
+    if (!entry) return;
+    event.preventDefault();
+    showPage(entry[0], decodeURIComponent(destination.hash.slice(1)));
   });
 
   document.querySelector("[data-note-prev]")?.addEventListener("click", () => {
@@ -974,7 +921,7 @@ function bootstrapApp() {
         item.tabIndex = selected ? 0 : -1;
       });
       const phaseTitle = tab.textContent.trim().replace(/^\d+\s*/, "");
-      const source = `assets/images/case-studies/showroom/${tab.dataset.image}`;
+      const source = `/assets/images/case-studies/showroom/${tab.dataset.image}`;
       image.src = source;
       image.alt = tab.dataset.alt;
       imageLink.href = source;
@@ -1083,13 +1030,9 @@ function bootstrapApp() {
     });
   }
 
-  function showHashPage(hash) {
-    if (["about-journey", "about-sketchbook", "about-outside"].includes(hash)) {
-      showPage("about", hash);
-      return;
-    }
-    const homeAnchor = hash === "about-home" ? "about" : "";
-    showPage(homeAnchor ? "home" : hash, homeAnchor);
+  function showLocationPage() {
+    const route = window.PortfolioSEO.readLocation();
+    showPage(route.id, route.anchor, { historyMode: "replace" });
   }
 
   pageBackButton.addEventListener("click", () => {
@@ -1099,22 +1042,21 @@ function bootstrapApp() {
       const current = document.querySelector("[data-page-view].is-visible")?.dataset.pageView || "home";
       const fallback = current === "article" ? "writing" : ["case-perspective", "case-space-shooter", "case-mindle"].includes(current) ? "ai-lab" : current.startsWith("case-") ? "work" : "home";
       // Replace direct-entry routes so Back does not loop into the same detail page.
-      history.replaceState({ ...history.state, portfolioDepth: 0 }, "", `#${fallback}`);
-      showPage(fallback);
+      showPage(fallback, "", { historyMode: "replace" });
       pageRoot?.focus({ preventScroll: true });
     }
   });
   window.addEventListener("popstate", (event) => {
     portfolioHistoryDepth = event.state?.portfolioDepth || 0;
-    showHashPage(location.hash.slice(1) || "home");
+    showLocationPage();
     pageRoot?.focus({ preventScroll: true });
   });
 
   window.addEventListener("hashchange", () => {
-    showHashPage(location.hash.slice(1) || "home");
+    showLocationPage();
   });
 
-  showHashPage(location.hash.slice(1) || "home");
+  showLocationPage();
 }
 
 document.addEventListener("keydown", (event) => {

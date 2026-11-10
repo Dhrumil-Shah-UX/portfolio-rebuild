@@ -3,6 +3,14 @@
   "framework": null,
   "buildCommand": "node scripts/build-static.js",
   "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    { "source": "/pages/:path*", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] },
+    { "source": "/api/:path*", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] },
+    { "source": "/404", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] },
+    { "source": "/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }] }
+  ],
   "functions": {
     "api/*.js": { "maxDuration": 30 }
   }

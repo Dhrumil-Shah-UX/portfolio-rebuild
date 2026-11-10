@@ -311,7 +311,7 @@ img {
 }
 
 .hero-content h1,
-.work-page h1,
+.work-page :is(h1, h2:where(.work-subheading)),
 .about-copy h1,
 .wide-heading,
 .sketch-block h2,
@@ -1910,6 +1910,7 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   box-sizing: border-box;
   width: min(100%, calc(var(--writing-book-max-height) * 1100 / 733));
   height: auto;
+  min-height: 400px;
   max-height: var(--writing-book-max-height);
   aspect-ratio: 1100 / 733;
   margin-inline: auto;
@@ -2716,12 +2717,12 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   padding-bottom: 100px;
 }
 
-.work-page h1 {
+.work-page :is(h1, h2:where(.work-subheading)) {
   margin: 0 0 50px;
   font-size: 52px;
 }
 
-.work-page h1:not(:first-child) {
+.work-page :is(h1, h2:where(.work-subheading)):not(:first-child) {
   margin-top: 76px;
 }
 
@@ -4088,7 +4089,7 @@ body {
 .testimonials h2,
 .ai-lab-section-heading h2,
 .case-study h2,
-.work-page h1,
+.work-page :is(h1, h2:where(.work-subheading)),
 .about-copy h1,
 .wide-heading,
 .sketch-block h2,
@@ -4313,7 +4314,7 @@ dd,
   font-size: var(--type-body-sm);
 }
 
-.work-page h1,
+.work-page :is(h1, h2:where(.work-subheading)),
 .about-copy h1,
 .case-page h1 {
   max-width: 760px;

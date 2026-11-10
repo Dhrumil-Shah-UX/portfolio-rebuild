@@ -8,7 +8,7 @@ var articles = [
     platform: "Substack",
     originalUrl: "https://designedminds.substack.com/p/the-art-of-task-framing",
     publishedDate: "",
-    image: "assets/images/writing/better_ai_inputs_article.webp",
+    image: "/assets/images/writing/better_ai_inputs_article.webp",
     content: [
       { type: "p", text: "Sometimes, the better result does not come from changing the AI tool." },
       { type: "p", text: "It comes from changing how you frame the task." },
@@ -30,7 +30,7 @@ var articles = [
       },
       {
         type: "image",
-        src: "assets/images/writing/better_ai_inputs_article.webp",
+        src: "/assets/images/writing/better_ai_inputs_article.webp",
         alt: "AI input experiment reference visual",
         caption: "Initial experiment reference for testing icon extraction."
       },
@@ -50,7 +50,7 @@ var articles = [
       },
       {
         type: "image",
-        src: "assets/images/writing/better_ai_inputs_article_2.webp",
+        src: "/assets/images/writing/better_ai_inputs_article_2.webp",
         alt: "Comparison of AI-generated icon extraction outputs",
         caption: "Comparing outputs helped reveal where the extraction task was breaking down."
       },
@@ -71,7 +71,7 @@ var articles = [
       },
       {
         type: "image",
-        src: "assets/images/writing/better_ai_inputs_article_3.webp",
+        src: "/assets/images/writing/better_ai_inputs_article_3.webp",
         alt: "Cropped-icon AI output after reframing the input",
         caption: "Cropping the input made the task narrower and improved the result."
       },
@@ -113,7 +113,7 @@ var articles = [
     platform: "Substack",
     originalUrl: "https://designedminds.substack.com/p/sometimes-the-best-ai-prompt-is-a",
     publishedDate: "",
-    image: "assets/images/writing/ai_with_sketch.webp",
+    image: "/assets/images/writing/ai_with_sketch.webp",
     content: [
       { type: "p", text: "I was experimenting with AI image generation for a case study visual." },
       { type: "p", text: "The output was close, but not exactly what I wanted." },
@@ -139,7 +139,7 @@ var articles = [
       },
       {
         type: "image",
-        src: "assets/images/writing/ai_with_sketch.webp",
+        src: "/assets/images/writing/ai_with_sketch.webp",
         alt: "Sketch used to guide an AI visual generation workflow",
         caption: "A rough sketch gave the AI clearer visual context than text alone."
       },
@@ -192,11 +192,11 @@ var articles = [
     originalUrl:
       "https://medium.com/@dhrumilshah_4837/accessibility-isnt-a-checklist-it-s-a-product-responsibility-cd38087749e9",
     publishedDate: "January 27, 2026",
-    image: "assets/images/writing/accessibility_article.webp",
+    image: "/assets/images/writing/accessibility_article.webp",
     content: [
       {
         type: "image",
-        src: "assets/images/writing/accessibility_article.webp",
+        src: "/assets/images/writing/accessibility_article.webp",
         alt: "Accessibility audit article visual",
         caption: "Accessibility issues often reveal deeper system and product responsibility gaps."
       },

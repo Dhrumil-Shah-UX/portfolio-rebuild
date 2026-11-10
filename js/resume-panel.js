@@ -23,7 +23,7 @@
     if (!link || !link.href.includes(sourceId) || link.hasAttribute('data-original-resume') || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     trigger = link;
-    if (!loading) loading = fetch('pages/resume-panel.html').then(response => {
+    if (!loading) loading = fetch('/pages/resume-panel').then(response => {
       if (!response.ok) throw new Error('Resume unavailable');
       return response.text();
     }).catch(error => { loading = null; throw error; });

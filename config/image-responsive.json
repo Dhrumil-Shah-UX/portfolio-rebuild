@@ -1,0 +1,28 @@
+{
+  "/assets/images/work/trialbridge-card.png": [
+    {
+      "src": "/assets/images/seo-optimized/trialbridge-clinical-trial-discovery-480w.webp",
+      "width": 480
+    },
+    {
+      "src": "/assets/images/seo-optimized/trialbridge-clinical-trial-discovery-960w.webp",
+      "width": 960
+    }
+  ],
+  "/assets/images/case-studies/trialbridge/figma-dashboard-focus.png": [
+    {
+      "src": "/assets/images/seo-optimized/trialbridge-dashboard-480w.webp",
+      "width": 480
+    },
+    {
+      "src": "/assets/images/seo-optimized/trialbridge-dashboard-960w.webp",
+      "width": 960
+    }
+  ],
+  "/assets/images/about/me.png": [
+    {
+      "src": "/assets/images/seo-optimized/dhrumil-shah-portrait-480w.webp",
+      "width": 480
+    }
+  ]
+}

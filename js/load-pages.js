@@ -5,7 +5,7 @@
     return;
   }
 
-  window.portfolioPagesReady = fetch("pages/manifest.json")
+  window.portfolioPagesReady = fetch("/pages/manifest.json")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Could not load pages/manifest.json");
@@ -14,8 +14,8 @@
     })
     .then((manifest) =>
       Promise.all(
-        manifest.pages.map((page) =>
-          fetch(`pages/${page.file}`).then((response) => {
+        manifest.pages.filter(page => !root.querySelector(`[data-page-view="${page.id}"]`)).map((page) =>
+          fetch(`/pages/${page.file.replace(/\.html$/, '')}`).then((response) => {
             if (!response.ok) {
               throw new Error(`Could not load pages/${page.file}`);
             }
@@ -25,6 +25,14 @@
       )
     )
     .then((sections) => {
-      root.innerHTML = sections.join("");
+      const template = document.createElement('template');
+      template.innerHTML = sections.join("");
+      // Inactive media must not compete with the statically rendered entry page.
+      template.content.querySelectorAll('video source[src]').forEach(source => {
+        source.dataset.src = source.getAttribute('src');
+        source.removeAttribute('src');
+      });
+      root.append(template.content);
+      window.PortfolioSEO.normalizeLinks();
     });
 })();

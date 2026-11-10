@@ -415,7 +415,7 @@
     height: 18%;
   }
 
-  .work-page h1,
+  .work-page :is(h1, h2:where(.work-subheading)),
   .about-copy h1,
   .wide-heading,
   .sketch-block h2,
@@ -760,7 +760,7 @@
   .testimonials h2,
   .ai-lab-section-heading h2,
   .case-study h2,
-  .work-page h1,
+  .work-page :is(h1, h2:where(.work-subheading)),
   .about-copy h1,
   .wide-heading,
   .sketch-block h2,
@@ -829,7 +829,7 @@
   .testimonials h2,
   .ai-lab-section-heading h2,
   .case-study h2,
-  .work-page h1,
+  .work-page :is(h1, h2:where(.work-subheading)),
   .about-copy h1,
   .wide-heading,
   .sketch-block h2,
