@@ -15,7 +15,9 @@
     .then((manifest) =>
       Promise.all(
         manifest.pages.filter(page => !root.querySelector(`[data-page-view="${page.id}"]`)).map((page) =>
-          fetch(`/pages/${page.file.replace(/\.html$/, '')}`).then((response) => {
+          // Request the real fragment filename so static hosts and older local
+          // servers do not need extensionless rewrite support.
+          fetch(`/pages/${page.file}`).then((response) => {
             if (!response.ok) {
               throw new Error(`Could not load pages/${page.file}`);
             }
