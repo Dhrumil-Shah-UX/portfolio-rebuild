@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="css/image-viewers.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <a class="logo-link" href="#home" aria-label="Dhrumil Shah home" data-page="home">
         <img src="assets/brand/logo-dark.png" alt="" />
       </a>
-      <button class="menu-toggle icon-button-label" type="button" aria-label="Toggle navigation"><span class="ui-icon ui-icon--menu" aria-hidden="true"></span><span>Menu</span></button>
-      <nav class="nav-links" aria-label="Primary navigation">
+      <button class="menu-toggle icon-button-label" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation"><span class="ui-icon ui-icon--menu" aria-hidden="true"></span><span>Menu</span></button>
+      <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
         <a class="nav-link" href="#home" data-page="home">Home</a>
         <a class="nav-link" href="#work" data-page="work">Work</a>
         <a class="nav-link" href="#ai-lab" data-page="ai-lab">AI Lab</a>
@@ -25,9 +26,9 @@
       </nav>
     </header>
 
-    <main data-page-root></main>
+    <main id="main-content" data-page-root tabindex="-1"></main>
 
-    <button class="back-to-top" type="button" aria-label="Back to top" aria-hidden="true">
+    <button class="back-to-top" type="button" aria-label="Back to top" aria-hidden="true" tabindex="-1">
       <span class="ui-icon ui-icon--arrow-up" aria-hidden="true"></span>
     </button>
 

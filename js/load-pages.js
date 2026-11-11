@@ -5,7 +5,10 @@
     return;
   }
 
-  window.portfolioPagesReady = fetch("/pages/manifest.json")
+  const seoReady = window.portfolioSEOReady || Promise.resolve();
+  window.portfolioPagesReady = Promise.all([
+    seoReady,
+    fetch("/pages/manifest.json")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Could not load pages/manifest.json");
@@ -35,6 +38,6 @@
         source.removeAttribute('src');
       });
       root.append(template.content);
-      window.PortfolioSEO.normalizeLinks();
-    });
+    })
+  ]).then(() => window.PortfolioSEO.normalizeLinks());
 })();

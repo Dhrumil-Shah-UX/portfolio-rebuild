@@ -98,7 +98,7 @@ body[data-current-page="case-showroom"] .page-back-wrap { position:static; margi
 #showroom-case-study.case-study-showroom.vs-editorial .vs-outcome p { margin-top:8px; }
 #showroom-case-study.case-study-showroom.vs-editorial .vs-final-link { margin-top:24px; font-size:.9375rem; }
 @media (max-width:1000px) {
-  #showroom-case-study.case-study-showroom.vs-editorial .case-study-shell { grid-template-columns:1fr; }
+  #showroom-case-study.case-study-showroom.vs-editorial .case-study-shell { grid-template-columns:minmax(0,1fr); }
   #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar { position:sticky; top:0; z-index:15; padding:12px 24px; border-bottom:1px solid var(--border-default); }
   #showroom-case-study.case-study-showroom.vs-editorial .case-sidebar-inner { position:static; display:flex; flex-direction:row; gap:20px; align-items:center; }
   #showroom-case-study.case-study-showroom.vs-editorial .vs-nav-title { display:none; }

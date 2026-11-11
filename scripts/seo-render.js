@@ -140,6 +140,7 @@ function renderFragment(id, { hidden = false } = {}) {
     html = html.replace('<div class="article-card-grid" data-article-list></div>', `<div class="article-card-grid" data-article-list>${markup.cards(articles)}</div>`);
     const notePages = notes.map((note, index) => `<article class="notebook-page notebook-page-left" data-note-index="${index}"><div class="notebook-page-content"><h2>${escape(note.title)}</h2><figure class="note-figure"><div class="note-image-shell"><img src="${escape(note.image)}" alt="${escape(note.caption || '')}"></div></figure><p class="note-number">${index + 1}</p></div></article><article class="notebook-page notebook-page-right" data-note-index="${index}"><div class="notebook-page-content">${[['Viewpoint', note.viewpoint], ['Experience', note.experience], ['Possible solution', note.solution]].filter(([, text]) => text).map(([label, text]) => `<section class="note-detail"><h3>${label}</h3><p>${escape(text)}</p></section>`).join('')}</div></article>`).join('');
     html = html.replace('<div class="notebook" data-note-book></div>', `<div class="notebook" data-note-book>${notePages}</div>`);
+    html = html.replaceAll('<div class="notebook-page-content">', '<div class="notebook-page-content" tabindex="0" role="group" aria-label="Design note content">');
   }
   return rewriteHTML(html, { hidden, id, data });
 }
@@ -173,7 +174,7 @@ function renderPage(id) {
   shell = shell.replace(/<title>.*?<\/title>/, `<title>${escape(page.title)}</title>\n    ${meta}`);
   const activeNav = id.startsWith('writing/') ? 'writing' : ['case-mindle', 'case-perspective', 'case-space-shooter'].includes(id) ? 'ai-lab' : id;
   shell = shell.replace('<body>', `<body data-current-page="${activeNav}">`);
-  shell = shell.replace('<main data-page-root></main>', `<main data-page-root tabindex="-1">${renderFragment(id)}</main>`);
+  shell = shell.replace('<main id="main-content" data-page-root tabindex="-1"></main>', `<main id="main-content" data-page-root tabindex="-1">${renderFragment(id)}</main>`);
   return shell;
 }
 function sitemap() {

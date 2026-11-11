@@ -59,7 +59,7 @@ body[data-current-page="case-azhartt"] .page-back-wrap { position:static; margin
 #azhartt-case-study.case-study-azhartt-usability.az-editorial .az-outcome { padding-block:20px; border-top:1px solid var(--border-default); }
 #azhartt-case-study.case-study-azhartt-usability.az-editorial .az-outcome p { margin-top:8px; }
 @media (max-width:1000px) {
-  #azhartt-case-study.case-study-azhartt-usability.az-editorial .case-study-shell { grid-template-columns:1fr; }
+  #azhartt-case-study.case-study-azhartt-usability.az-editorial .case-study-shell { grid-template-columns:minmax(0,1fr); }
   #azhartt-case-study.case-study-azhartt-usability.az-editorial .case-sidebar { position:sticky; top:0; z-index:15; padding:12px 24px; border-bottom:1px solid var(--border-default); }
   #azhartt-case-study.case-study-azhartt-usability.az-editorial .case-sidebar-inner { position:static; display:flex; flex-direction:row; gap:20px; align-items:center; }
   #azhartt-case-study.case-study-azhartt-usability.az-editorial .az-nav-title { display:none; }

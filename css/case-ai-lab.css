@@ -59,7 +59,7 @@ body:has(.page.is-visible > .lab-editorial) .page-back-wrap { position:static; m
 :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-outcome { padding-block:20px; border-top:1px solid var(--border-default); }
 :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-outcome p { margin-top:8px; }
 @media (max-width:1000px) {
-  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-study-shell { grid-template-columns:1fr; }
+  :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-study-shell { grid-template-columns:minmax(0,1fr); }
   :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar { position:sticky; top:0; z-index:15; padding:12px 24px; border-bottom:1px solid var(--border-default); }
   :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .case-sidebar-inner { position:static; display:flex; flex-direction:row; gap:20px; align-items:center; }
   :is(#mindle-case-study,#perspective-case-study,#space-shooter-case-study).case-study.lab-editorial .lab-nav-title { display:none; }

@@ -5,6 +5,7 @@
     const button = demo.querySelector('[data-ruhl-particle-toggle]');
     const stage = demo.querySelector('.ruhl-particle-stage');
     const placeholder = stage.querySelector('[data-ruhl-particle-placeholder]');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
     const stop = () => {
       stage.querySelector('iframe')?.remove();
       placeholder.hidden = false;
@@ -31,13 +32,14 @@
     // Unload WebGL when this routed view becomes hidden.
     const page = demo.closest('[data-page-view]');
     new MutationObserver(() => {
-      if (page.classList.contains('is-visible') && !document.hidden) start();
+      if (page.classList.contains('is-visible') && !document.hidden && !reducedMotion.matches) start();
       else stop();
     }).observe(page, { attributes: true, attributeFilter: ['class'] });
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) stop();
-      else if (page.classList.contains('is-visible')) start();
+      else if (page.classList.contains('is-visible') && !reducedMotion.matches) start();
     });
-    if (page.classList.contains('is-visible') && !document.hidden) start();
+    reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) stop(); });
+    if (page.classList.contains('is-visible') && !document.hidden && !reducedMotion.matches) start();
   }).catch(() => {});
 })();

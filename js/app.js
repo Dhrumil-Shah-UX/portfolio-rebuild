@@ -57,10 +57,13 @@ function showPage(pageName, scrollTargetId = "", { historyMode = "push" } = {}) 
   navLinks.forEach((link) => {
     const activePage = activeNavPage;
     link.classList.toggle("is-active", link.dataset.page === activePage && !link.dataset.scrollTarget);
+    if (link.classList.contains("is-active")) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
   });
 
   if (nav) {
     nav.classList.remove("is-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
   }
 
   const nextURL = window.PortfolioSEO.url(pageName, scrollTargetId);
@@ -83,6 +86,11 @@ function showPage(pageName, scrollTargetId = "", { historyMode = "push" } = {}) 
     }
 
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    if (historyMode === "push") {
+      const heading = document.querySelector('.page.is-visible h1');
+      heading?.setAttribute('tabindex', '-1');
+      heading?.focus({ preventScroll: true });
+    }
     initBackToTopObserver();
     if (nextPage === "writing") {
       ensureVisibleNoteBook();
@@ -96,7 +104,7 @@ function padNumber(index) {
 
 function noteImageMarkup(note) {
   return note.image
-    ? `<img src="${note.image}" alt="" />`
+    ? `<img src="${note.image}" alt="${String(note.caption || note.title).replace(/[&<>\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]))}" />`
     : `<span>${note.caption || "[NEEDS NOTE IMAGE]"}</span>`;
 }
 
@@ -115,7 +123,7 @@ function notePageMarkup(note, index, side) {
   if (side === "left") {
     return `
       <article class="notebook-page notebook-page-left" data-note-index="${index}">
-        <div class="notebook-page-content">
+        <div class="notebook-page-content" tabindex="0" role="group" aria-label="Design note image">
           <h2>${note.title}</h2>
           <figure class="note-figure">
             <div class="note-image-shell">${noteImageMarkup(note)}</div>
@@ -128,7 +136,7 @@ function notePageMarkup(note, index, side) {
 
   return `
     <article class="notebook-page notebook-page-right" data-note-index="${index}">
-      <div class="notebook-page-content">${noteSectionsMarkup(note)}</div>
+      <div class="notebook-page-content" tabindex="0" role="group" aria-label="Design note details">${noteSectionsMarkup(note)}</div>
     </article>
   `;
 }
@@ -136,8 +144,11 @@ function notePageMarkup(note, index, side) {
 function updateNoteControls(index) {
   currentNoteIndex = Math.max(0, Math.min(index, designNotes.length - 1));
   document.querySelector("[data-note-indicator]").textContent = `${currentNoteIndex + 1} / ${designNotes.length}`;
-  document.querySelector("[data-note-prev]").disabled = currentNoteIndex === 0;
-  document.querySelector("[data-note-next]").disabled = currentNoteIndex === designNotes.length - 1;
+  const portrait = designNotesPageFlip?.getOrientation() === "portrait";
+  const currentPage = portrait ? designNotesPageFlip.getCurrentPageIndex() : currentNoteIndex;
+  const lastPage = portrait ? designNotes.length * 2 - 1 : designNotes.length - 1;
+  document.querySelector("[data-note-prev]").disabled = currentPage === 0;
+  document.querySelector("[data-note-next]").disabled = currentPage >= lastPage;
 }
 
 function renderNoteBook() {
@@ -163,9 +174,9 @@ function renderNoteBook() {
     width: 550,
     height: 733,
     size: "stretch",
-    minWidth: 300,
+    minWidth: 240,
     maxWidth: 550,
-    minHeight: 400,
+    minHeight: 320,
     maxHeight: 733,
     drawShadow: !reducedMotion,
     flippingTime: reducedMotion ? 1 : 1000,
@@ -228,7 +239,7 @@ function selectNote(index) {
     updateNoteControls(index);
   }
 
-  document.querySelector("#design-notes-viewer")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  document.querySelector("#design-notes-viewer")?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
 }
 
 function renderNoteCards() {
@@ -321,6 +332,7 @@ function setBackToTopVisible(isVisible) {
 
   backToTopButton.classList.toggle("is-visible", isVisible);
   backToTopButton.setAttribute("aria-hidden", isVisible ? "false" : "true");
+  backToTopButton.tabIndex = isVisible ? 0 : -1;
 }
 
 function initBackToTopObserver() {
@@ -351,13 +363,55 @@ function initBackToTopObserver() {
 }
 
 function initGameVideos() {
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const videos = [...document.querySelectorAll('.project-video-card video, .case-game-video')];
+  videos.forEach(video => {
+    if (reducedMotion.matches) { video.autoplay = false; video.pause(); }
+    video.addEventListener('pause', () => {
+      if (video.dataset.inView === 'true') video.dataset.userPaused = 'true';
+    });
+    video.addEventListener('play', () => { delete video.dataset.userPaused; });
+  });
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) videos.forEach(video => video.pause());
+  });
+  document.querySelectorAll('.ai-project-grid:has(video)').forEach(grid => {
+    const control = document.createElement('button');
+    control.type = 'button';
+    control.className = 'preview-motion-toggle';
+    let paused = reducedMotion.matches;
+    const update = () => {
+      control.textContent = paused ? 'Play previews' : 'Pause previews';
+      control.setAttribute('aria-label', paused ? 'Play project video previews' : 'Pause project video previews');
+    };
+    control.addEventListener('click', () => {
+      paused = !paused;
+      grid.querySelectorAll('video').forEach(video => {
+        video.dataset.userPaused = String(paused);
+        if (paused) video.pause();
+        else if (video.dataset.inView === 'true') video.play().catch(() => {});
+      });
+      update();
+    });
+    reducedMotion.addEventListener('change', () => {
+      paused = reducedMotion.matches;
+      grid.querySelectorAll('video').forEach(video => {
+        video.dataset.userPaused = String(paused);
+        if (paused) video.pause();
+      });
+      update();
+    });
+    update();
+    grid.before(control);
+  });
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(({ target: video, isIntersecting }) => {
+      video.dataset.inView = String(isIntersecting);
       if (isIntersecting) {
         const sources = video.querySelectorAll('source[data-src]');
         sources.forEach(source => { source.src = source.dataset.src; delete source.dataset.src; });
         if (sources.length) video.load();
-        video.play().catch(() => {});
+        if (!reducedMotion.matches && video.dataset.userPaused !== 'true') video.play().catch(() => {});
       } else {
         video.pause();
       }
@@ -850,9 +904,12 @@ function bootstrapApp() {
   });
 
   document.querySelector("[data-note-prev]")?.addEventListener("click", () => {
-    if (currentNoteIndex > 0) {
+    if (!document.querySelector("[data-note-prev]").disabled) {
       if (designNotesPageFlip && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         designNotesPageFlip.flipPrev("bottom");
+      } else if (designNotesPageFlip?.getOrientation() === "portrait") {
+        designNotesPageFlip.turnToPage(designNotesPageFlip.getCurrentPageIndex() - 1);
+        updateNoteControls(Math.floor(designNotesPageFlip.getCurrentPageIndex() / 2));
       } else {
         selectNote(currentNoteIndex - 1);
       }
@@ -860,9 +917,12 @@ function bootstrapApp() {
   });
 
   document.querySelector("[data-note-next]")?.addEventListener("click", () => {
-    if (currentNoteIndex < designNotes.length - 1) {
+    if (!document.querySelector("[data-note-next]").disabled) {
       if (designNotesPageFlip && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         designNotesPageFlip.flipNext("bottom");
+      } else if (designNotesPageFlip?.getOrientation() === "portrait") {
+        designNotesPageFlip.turnToPage(designNotesPageFlip.getCurrentPageIndex() + 1);
+        updateNoteControls(Math.floor(designNotesPageFlip.getCurrentPageIndex() / 2));
       } else {
         selectNote(currentNoteIndex + 1);
       }
@@ -875,6 +935,13 @@ function bootstrapApp() {
   if (menuToggle && nav) {
     menuToggle.addEventListener("click", () => {
       nav.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(nav.classList.contains("is-open")));
+    });
+    nav.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || !nav.classList.contains("is-open")) return;
+      nav.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.focus();
     });
   }
 
@@ -969,7 +1036,7 @@ function bootstrapApp() {
       return;
     }
 
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    section.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? "auto" : "smooth", block: "start" });
     const navLink = activeLink || caseSidebarLinks.find((link) => link.getAttribute("href") === href);
     if (navLink) {
       setActiveCaseNavLink(navLink);
@@ -992,7 +1059,7 @@ function bootstrapApp() {
 
   if (backToTopButton) {
     backToTopButton.addEventListener("click", () => {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, left: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? "auto" : "smooth" });
     });
   }
 
@@ -1023,6 +1090,7 @@ function bootstrapApp() {
       const button = form.querySelector("button");
       const originalText = button.textContent;
       button.textContent = "Message ready";
+      form.querySelector('[role="status"]').textContent = "Message ready.";
       setTimeout(() => {
         button.textContent = originalText;
         form.reset();
@@ -1060,16 +1128,27 @@ function bootstrapApp() {
 }
 
 document.addEventListener("keydown", (event) => {
+  const openDialog = document.querySelector('dialog[open]');
+  if (openDialog) {
+    if (event.key === 'Tab' && !event.defaultPrevented) {
+      const controls = [...openDialog.querySelectorAll('a[href], button, input, textarea, select, summary, iframe, video[controls], [tabindex="0"]')]
+        .filter(element => !element.disabled && element.getClientRects().length && getComputedStyle(element).visibility !== 'hidden' && element.tabIndex >= 0);
+      const first = controls[0], last = controls[controls.length - 1];
+      if (first && event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (first && !event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+    return;
+  }
   if (!document.querySelector('[data-page-view="writing"].is-visible')) {
     return;
   }
 
-  if (event.key === "ArrowLeft" && currentNoteIndex > 0) {
-    selectNote(currentNoteIndex - 1);
+  if (event.key === "ArrowLeft" && !document.querySelector("[data-note-prev]")?.disabled) {
+    document.querySelector("[data-note-prev]").click();
   }
 
-  if (event.key === "ArrowRight" && currentNoteIndex < designNotes.length - 1) {
-    selectNote(currentNoteIndex + 1);
+  if (event.key === "ArrowRight" && !document.querySelector("[data-note-next]")?.disabled) {
+    document.querySelector("[data-note-next]").click();
   }
 });
 

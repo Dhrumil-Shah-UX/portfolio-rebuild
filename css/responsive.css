@@ -107,7 +107,7 @@
   }
 
   .writing-hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto;
     min-height: auto;
     padding-top: 120px;
@@ -143,6 +143,7 @@
 
   .notebook-stage {
     justify-self: center;
+    grid-template-columns: minmax(0, 1fr);
     max-width: 100%;
   }
 
@@ -908,7 +909,7 @@
   margin: 0 0 clamp(2rem, 5vw, 3.25rem);
 }
 .ai-lab-page .ai-lab-section-heading > span,
-.ai-lab-page .ai-lab-process .ai-lab-section-heading > span { display: block; margin: 0; color: rgba(54, 84, 68, 0.72); }
+.ai-lab-page .ai-lab-process .ai-lab-section-heading > span { display: block; margin: 0; color: var(--accent-green); }
 .ai-lab-page .ai-lab-section-heading h2,
 .ai-lab-page .ai-lab-process #ai-process-title { margin: 0.55rem 0 0; font-family: var(--font-display); font-size: clamp(2.4rem, 4.3vw, 4.3rem); font-weight: 400; line-height: 0.98; }
 @media (max-width: 760px) {
@@ -944,6 +945,7 @@
 
 @media (max-width: 620px) {
   .writing-list-image.ai-card-media { min-height: 150px; }
+  .ai-workshop-intro .section-kicker { position: static; margin-bottom: 0.5rem; }
 }
 
 @media (max-width: 800px) {

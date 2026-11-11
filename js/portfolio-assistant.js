@@ -27,10 +27,11 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
     </header>
     <div class="assistant-scroll" tabindex="0" aria-label="Portfolio conversation">
       <section class="assistant-intro"><h3>Where would you like to start?</h3><div class="assistant-starters">${starters.map((question) => `<button type="button" data-question="${escape(question)}">${escape(question)}</button>`).join('')}</div></section>
-      <div class="assistant-history"></div>
-      <form class="assistant-jd" hidden>
+      <div class="assistant-history" role="log" aria-label="Portfolio questions and responses" aria-live="polite" aria-relevant="additions"></div>
+      <form class="assistant-jd" hidden novalidate>
         <label for="assistant-jd-text">Paste a job description</label>
-        <textarea id="assistant-jd-text" placeholder="Paste the job description here…" required maxlength="12000" aria-describedby="assistant-jd-note assistant-jd-usage"></textarea>
+        <textarea id="assistant-jd-text" placeholder="Paste the job description here…" required maxlength="12000" aria-describedby="assistant-jd-error assistant-jd-note assistant-jd-usage"></textarea>
+        <p class="assistant-notice" id="assistant-jd-error" role="alert"></p>
         <p class="assistant-notice" id="assistant-jd-note">Text only. Your description is sent to Gemini for this comparison, but isn’t stored in portfolio analytics. Avoid confidential or personal information.</p>
         <p class="assistant-notice" id="assistant-jd-usage" aria-live="polite" hidden></p>
         <nav class="assistant-actions" data-jd-limit-links aria-label="Explore the portfolio" hidden><a class="assistant-action icon-link" href="#work" data-assistant-link>View work<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a><a class="assistant-action icon-link" href="${escape(resume)}" target="_blank" rel="noopener">View resume<span class="ui-icon ui-icon--arrow-up-right" aria-hidden="true"></span></a></nav>
@@ -162,8 +163,8 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
     jdForm.hidden = false;
     composer.hidden = true;
     updateAllowance();
-    jdInput.focus();
-    jdForm.scrollIntoView({ block: 'nearest' });
+    jdInput.focus({ preventScroll: true });
+    scroll.scrollTop = jdForm.offsetTop - scroll.offsetTop;
   }
 
   function ask(question) {
@@ -210,9 +211,15 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
   composer.addEventListener('submit', (event) => { event.preventDefault(); ask(input.value); });
   jdForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    if (!jdInput.value.trim()) { jdInput.setCustomValidity('Paste or type a job description first.'); jdInput.reportValidity(); return; }
+    const showError = message => {
+      jdInput.setCustomValidity(message);
+      jdInput.setAttribute('aria-invalid', 'true');
+      dialog.querySelector('#assistant-jd-error').textContent = message;
+      jdInput.focus({ preventScroll: true });
+    };
+    if (!jdInput.value.trim()) { showError('Paste or type a job description first.'); return; }
     const jobDescription = jdInput.value.trim();
-    if (jobDescription.length > 12000) { jdInput.setCustomValidity('Please keep the description within 12,000 characters.'); jdInput.reportValidity(); return; }
+    if (jobDescription.length > 12000) { showError('Please keep the description within 12,000 characters.'); return; }
     if (busy) return;
     jdForm.hidden = true;
     composer.hidden = false;
@@ -220,7 +227,11 @@ window.initPortfolioAssistant = function initPortfolioAssistant() {
     input.placeholder = 'Ask a follow-up\u2026';
     requestReply('/api/portfolio-jd-match', { jobDescription }, 'Review this job description').then((success) => { if (success) jdInput.value = ''; });
   });
-  jdInput.addEventListener('input', () => jdInput.setCustomValidity(''));
+  jdInput.addEventListener('input', () => {
+    jdInput.setCustomValidity('');
+    jdInput.removeAttribute('aria-invalid');
+    dialog.querySelector('#assistant-jd-error').textContent = '';
+  });
   entry.addEventListener('submit', (event) => { event.preventDefault(); const heroInput = entry.querySelector('input'); open(heroInput.value); heroInput.value = ''; });
   // Focusing the existing entry opens the initial workspace without changing the hero.
   entry.querySelector('input').addEventListener('click', () => open());

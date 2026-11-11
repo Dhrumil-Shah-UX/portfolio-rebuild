@@ -59,7 +59,7 @@ body[data-current-page="case-azhartt-accessibility"] .page-back-wrap { position:
 #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-outcome { padding-block:20px; border-top:1px solid var(--border-default); }
 #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-outcome p { margin-top:8px; }
 @media (max-width:1000px) {
-  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-study-shell { grid-template-columns:1fr; }
+  #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-study-shell { grid-template-columns:minmax(0,1fr); }
   #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar { position:sticky; top:0; z-index:15; padding:12px 24px; border-bottom:1px solid var(--border-default); }
   #access-case-study.case-study-azhartt-accessibility.ac-editorial .case-sidebar-inner { position:static; display:flex; flex-direction:row; gap:20px; align-items:center; }
   #access-case-study.case-study-azhartt-accessibility.ac-editorial .ac-nav-title { display:none; }

@@ -94,7 +94,7 @@ body[data-current-page="case-ruhl"] .page-back-wrap { position:static; margin-le
 #ruhl-case-study.case-study-ruhl.ra-editorial .ra-outcome p { margin-top:8px; }
 #ruhl-case-study.case-study-ruhl.ra-editorial .ra-links { display:flex; gap:16px 24px; flex-wrap:wrap; margin-top:24px; font-size:.9375rem; }
 @media (max-width:1000px) {
-  #ruhl-case-study.case-study-ruhl.ra-editorial .case-study-shell { grid-template-columns:1fr; }
+  #ruhl-case-study.case-study-ruhl.ra-editorial .case-study-shell { grid-template-columns:minmax(0,1fr); }
   #ruhl-case-study.case-study-ruhl.ra-editorial .case-sidebar { position:sticky; top:0; z-index:15; padding:12px 24px; border-bottom:1px solid var(--border-default); }
   #ruhl-case-study.case-study-ruhl.ra-editorial .case-sidebar-inner { position:static; display:flex; flex-direction:row; gap:20px; align-items:center; }
   #ruhl-case-study.case-study-ruhl.ra-editorial .ra-nav-title { display:none; }

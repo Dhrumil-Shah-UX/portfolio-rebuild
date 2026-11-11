@@ -231,7 +231,7 @@
   line-height: 1.5;
 }
 @media (max-width: 1000px) {
-  #trial-case-study.case-study-trialbridge.tb-editorial .case-study-shell { grid-template-columns: 1fr; }
+  #trial-case-study.case-study-trialbridge.tb-editorial .case-study-shell { grid-template-columns: minmax(0, 1fr); }
   #trial-case-study.case-study-trialbridge.tb-editorial .case-sidebar { position: sticky; top: 0; z-index: 15; padding: 12px 24px; border-bottom: 1px solid var(--border-default); }
   #trial-case-study.case-study-trialbridge.tb-editorial .case-sidebar-inner { position: static; display: flex; flex-direction: row; gap: 20px; align-items: center; }
   #trial-case-study.case-study-trialbridge.tb-editorial .cs-nav-title { display: none; }

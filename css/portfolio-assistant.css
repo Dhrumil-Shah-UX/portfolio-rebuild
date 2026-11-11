@@ -4,6 +4,7 @@
   max-height: 80dvh;
   max-width: none;
   padding: 0;
+  overflow: clip;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-card);
   background: var(--surface);
