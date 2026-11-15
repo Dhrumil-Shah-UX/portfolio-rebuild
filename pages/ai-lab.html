@@ -122,7 +122,7 @@
         <div class="ai-card-copy">
           <h3 id="mindle-card-title">Mindle</h3>
           <p>A weekly UX word game designed to turn a short puzzle into learning, reflection, and community participation.</p>
-          <span class="project-card-cue">View case study</span>
+          <span class="project-card-cue icon-link">View case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
         </div>
       </a>
 
@@ -135,7 +135,7 @@
         <div class="ai-card-copy">
           <h3 id="space-shooter-card-title">Space Shooter</h3>
           <p>My first AI-assisted build: from a rough game idea in ChatGPT to a playable experience in Cursor.</p>
-          <span class="project-card-cue">View case study</span>
+          <span class="project-card-cue icon-link">View case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
         </div>
       </a>
 
@@ -148,7 +148,7 @@
         <div class="ai-card-copy">
           <h3 id="perspective-card-title">Perspective</h3>
           <p>A Workshop 6 concept game that makes AI-assisted decision-making something people can feel.</p>
-          <span class="project-card-cue">View case study</span>
+          <span class="project-card-cue icon-link">View case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
         </div>
       </a>
     </div>
@@ -159,86 +159,39 @@
       <span>03</span>
       <div>
         <p class="section-kicker">Workshops</p>
-        <h2 id="ai-workshops-title">AI in Design Workshop Series</h2>
+        <h2 id="ai-workshops-title">AI Design Workshops</h2>
       </div>
     </div>
-    <div class="ai-workshop-sidebar" role="group" aria-label="AI in Design Workshop Series">
-
+    <div class="ai-workshop-selector" role="group" aria-label="Select a workshop">
       <div class="ai-workshop-list">
-        <button class="ai-workshop-list-item is-selected" type="button" data-workshop="0" aria-pressed="true">
-          <div>
-            <h3>AI for Designers</h3>
-            <p>FOUNDATIONS · 68 JOINED</p>
-          </div>
-          <span aria-hidden="true">›</span>
-        </button>
-
-        <button class="ai-workshop-list-item" type="button" data-workshop="1" aria-pressed="false">
-          <div>
-            <h3>Prompt Writing for Designers</h3>
-            <p>PROMPTING &amp; ITERATION · 35 JOINED</p>
-          </div>
-          <span aria-hidden="true">›</span>
-        </button>
-
-        <button class="ai-workshop-list-item" type="button" data-workshop="2" aria-pressed="false">
-          <div>
-            <h3>The New Designer Role &amp; Process with AI</h3>
-            <p>WORKFLOW MAPPING · 71 JOINED</p>
-          </div>
-          <span aria-hidden="true">›</span>
-        </button>
-
-        <button class="ai-workshop-list-item" type="button" data-workshop="3" aria-pressed="false">
-          <div>
-            <h3>AI in Ideation, Prototyping &amp; Delivery</h3>
-            <p>AI PROTOTYPING · 37 JOINED</p>
-          </div>
-          <span aria-hidden="true">›</span>
-        </button>
-        <button class="ai-workshop-list-item" type="button" data-workshop="4" aria-pressed="false">
-          <div>
-            <h3>AI Portfolio Playground</h3>
-            <p>MINI HACKATHON · 41 JOINED</p>
-          </div>
-          <span aria-hidden="true">›</span>
-        </button>
-        <button class="ai-workshop-list-item" type="button" data-workshop="5" aria-pressed="false">
-          <div>
-            <h3>Making Decisions With AI When Building Products</h3>
-            <p>DECISION-MAKING WITH AI · 12 JOINED</p>
-          </div>
-          <span aria-hidden="true">›</span>
-        </button>
+        <button class="ai-workshop-list-item is-selected" type="button" data-workshop="0" aria-pressed="true" aria-label="Workshop 1: AI for Designers" aria-controls="ai-workshop-details"><span class="ai-workshop-tab-label" aria-hidden="true">Workshop</span><span aria-hidden="true">01</span></button>
+        <button class="ai-workshop-list-item" type="button" data-workshop="1" aria-pressed="false" aria-label="Workshop 2: Prompt Writing for Designers" aria-controls="ai-workshop-details"><span class="ai-workshop-tab-label" aria-hidden="true">Workshop</span><span aria-hidden="true">02</span></button>
+        <button class="ai-workshop-list-item" type="button" data-workshop="2" aria-pressed="false" aria-label="Workshop 3: Designer Roles and AI" aria-controls="ai-workshop-details"><span class="ai-workshop-tab-label" aria-hidden="true">Workshop</span><span aria-hidden="true">03</span></button>
+        <button class="ai-workshop-list-item" type="button" data-workshop="3" aria-pressed="false" aria-label="Workshop 4: AI Prototyping and Delivery" aria-controls="ai-workshop-details"><span class="ai-workshop-tab-label" aria-hidden="true">Workshop</span><span aria-hidden="true">04</span></button>
+        <button class="ai-workshop-list-item" type="button" data-workshop="4" aria-pressed="false" aria-label="Workshop 5: AI Portfolio Playground" aria-controls="ai-workshop-details"><span class="ai-workshop-tab-label" aria-hidden="true">Workshop</span><span aria-hidden="true">05</span></button>
+        <button class="ai-workshop-list-item" type="button" data-workshop="5" aria-pressed="false" aria-label="Workshop 6: Product Decisions with AI" aria-controls="ai-workshop-details"><span class="ai-workshop-tab-label" aria-hidden="true">Workshop</span><span aria-hidden="true">06</span></button>
       </div>
     </div>
 
-    <article class="ai-workshop-detail" aria-labelledby="ai-workshop-feature-title">
+    <article id="ai-workshop-details" class="ai-workshop-detail" aria-labelledby="ai-workshop-feature-title">
       <div class="ai-workshop-intro">
-        <p class="section-kicker" data-workshop-kicker>Workshop</p>
+        <div class="ai-workshop-heading-meta"><p class="section-kicker" data-workshop-kicker>Workshop 01</p><p class="ai-workshop-attendance" data-workshop-attendance>68 joined</p></div>
         <h2 id="ai-workshop-feature-title" data-workshop-title>AI for Designers</h2>
-        <p class="ai-workshop-summary" data-workshop-summary>A grounding session for designers to understand what AI is, what it can and cannot do, and how to approach AI tools more intentionally instead of relying on trial and error.</p>
-
-        <dl class="ai-workshop-meta">
-          <div>
-            <dt>My Role</dt>
-            <dd data-workshop-role>Co-designed and co-hosted</dd>
-          </div>
-          <div>
-            <dt>Audience</dt>
-            <dd data-workshop-audience>Designers, product teams, and curious builders</dd>
-          </div>
-          <div>
-            <dt>Format</dt>
-            <dd data-workshop-format>90-minute interactive virtual workshop &middot; 68 joined</dd>
-          </div>
-        </dl>
+        <p class="ai-workshop-summary" data-workshop-summary>Learn AI fundamentals, limitations, and a more intentional approach to design tools.</p>
       </div>
 
       <div class="ai-workshop-feature">
-        <div class="ai-workshop-visual"><img data-workshop-visual src="assets/images/workshops/ws1.png" alt="AI for Designers workshop visual" decoding="async" /></div>
+        <div class="ai-workshop-teaching">
+          <div class="ai-workshop-visual"><img data-workshop-visual src="assets/images/workshops/ws1.png" alt="AI for Designers workshop visual" decoding="async" /></div>
+          <div class="ai-workshop-outcomes">
+        <section>
+          <h3>What I taught</h3>
+          <p data-workshop-taught>My AI workflow across design and build, including a live demo from a ChatGPT idea to a working interaction in Cursor.</p>
+        </section>
+      </div>
+        </div>
         <section class="ai-workshop-takeaways" aria-labelledby="ai-workshop-takeaways-title">
-          <h3 id="ai-workshop-takeaways-title">Key takeaways</h3>
+          <h3 id="ai-workshop-takeaways-title">Workshop takeaways</h3>
           <ol>
             <li data-workshop-takeaway>Understand AI fundamentals and where its limits are.</li>
             <li data-workshop-takeaway>Build an intentional workflow instead of copying prompts.</li>
@@ -247,16 +200,7 @@
         </section>
       </div>
 
-      <div class="ai-workshop-outcomes">
-        <section>
-          <h3>What I taught</h3>
-          <p data-workshop-taught>My AI workflow across design and build, including a live demo from a ChatGPT idea to a working interaction in Cursor.</p>
-        </section>
-        <section>
-          <h3>Artifacts</h3>
-          <p data-workshop-artifacts>FigJam board, live demo, and workflow examples.</p>
-        </section>
-      </div>
+      
     </article>
   </section>
 </section>

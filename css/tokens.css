@@ -48,10 +48,14 @@
   --space-24: 6rem;
   --space-32: 8rem;
 
-  --container-page: min(100% - 3rem, 1280px);
-  --container-editorial: min(100% - 3rem, 1100px);
-  --container-article: min(100% - 3rem, 760px);
-  --container-text: min(100% - 3rem, 680px);
+  /* Shared outer grid; narrower measures are reserved for reading. */
+  --page-max-width: 1100px;
+  --page-gutter: 24px;
+  --page-edge: max(var(--page-gutter), calc((100% - var(--page-max-width)) / 2));
+  --container-page: min(calc(100% - 2 * var(--page-gutter)), var(--page-max-width));
+  --container-editorial: var(--container-page);
+  --container-article: min(calc(100% - 2 * var(--page-gutter)), 760px);
+  --container-text: min(calc(100% - 2 * var(--page-gutter)), 680px);
 
   --radius-sm: 8px;
   --radius-card: 16px;
@@ -77,4 +81,8 @@
   --aqua: var(--surface-sage);
   --yellow: var(--accent-warm);
   --shadow: var(--shadow-soft);
+}
+
+@media (max-width: 640px) {
+  :root { --page-gutter: 20px; }
 }

@@ -8,7 +8,15 @@
         return response.json();
       });
 
-  window.portfolioSEOReady = dataReady.then(data => {
+  window.portfolioSEOReady = dataReady.then(async data => {
+  // Basic static servers do not resolve clean URLs. Use reload-safe hash routes
+  // only for local previews where a known public route cannot be fetched.
+  const localPreview = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+  let useHashRoutes = false;
+  if (localPreview) {
+    try { useHashRoutes = !(await fetch('/work', { method: 'HEAD', cache: 'no-store' })).ok; }
+    catch { useHashRoutes = true; }
+  }
   const byPath = new Map(Object.entries(data.pages).map(([id, page]) => [page.path, id]));
   const normalizePath = path => path === '/' ? '/' : path.replace(/\/+$/, '');
   function route(id) {
@@ -19,11 +27,16 @@
   }
   function url(id, anchor = '') {
     if (id === 'home' && anchor === 'about') anchor = 'about-home';
+    if (useHashRoutes) return '/#' + encodeURIComponent(route(id) || 'home') + (anchor ? '~' + encodeURIComponent(anchor) : '');
     return (data.pages[route(id)]?.path || '/') + (anchor ? '#' + encodeURIComponent(anchor) : '');
   }
   function readLocation() {
     let hash;
     try { hash = decodeURIComponent(location.hash.slice(1)); } catch { hash = ''; }
+    if (useHashRoutes && hash.includes('~')) {
+      const [id, ...anchor] = hash.split('~');
+      if (route(id)) return { id: route(id), anchor: anchor.join('~'), legacy: true };
+    }
     const legacy = route(hash);
     if (legacy) return { id: legacy, anchor: '', legacy: true };
     if (['about-journey', 'about-sketchbook', 'about-outside'].includes(hash)) return { id: 'about', anchor: hash, legacy: true };

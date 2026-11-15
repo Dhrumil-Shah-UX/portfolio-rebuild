@@ -15,7 +15,7 @@
     return `<p>${escape(block.text || '')}</p>`;
   }
   function cards(articles) {
-    return articles.map((article, index) => `<a class="article-card" data-article-card="${index}" href="/writing/${escape(article.slug)}"><div class="article-card-copy"><h3>${escape(article.title)}</h3><p>${escape(article.summary)}</p><span>${escape(article.platform)} &middot; ${escape(article.topic)}</span></div><div class="article-card-image">${article.image ? `<img src="${escape(asset(article.image))}" alt="" loading="lazy" decoding="async" />` : `<span>${escape(article.platform)}</span>`}</div></a>`).join('');
+    return articles.map((article, index) => `<a class="article-card" data-article-card="${index}" href="/writing/${escape(article.slug)}"><div class="article-card-copy"><h3>${escape(article.title)}</h3><p>${escape(article.summary)}</p><span>${escape(article.platform)} &middot; ${escape(article.topic)}</span><span class="article-card-action icon-link">Read article <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span></div><div class="article-card-image">${article.image ? `<img src="${escape(asset(article.image))}" alt="" loading="lazy" decoding="async" />` : `<span>${escape(article.platform)}</span>`}</div></a>`).join('');
   }
   function more(articles, current) {
     return articles.filter(item => item.slug !== current.slug).slice(0, 1).map(item => `<a class="more-writing-link" href="/writing/${escape(item.slug)}" data-more-writing-link="${escape(item.slug)}"><span>${escape(item.topic)}</span><strong>${escape(item.title)}</strong><small>${escape(item.summary)}</small><em class="icon-link">Read article <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></em></a>`).join('');

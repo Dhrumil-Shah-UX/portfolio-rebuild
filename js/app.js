@@ -19,6 +19,15 @@ pageBackWrap.innerHTML = '<button class="page-back icon-button-label" type="butt
 const pageRoot = document.querySelector("[data-page-root]");
 const siteHeader = document.querySelector(".site-header");
 const headerLogo = siteHeader?.querySelector(".logo-link");
+// Keep the initial header integrated with the page, then reveal a compact bar.
+function updateHeaderScrollState() {
+  const wasScrolled = siteHeader?.classList.contains("is-scrolled") ?? false;
+  const scrolled = wasScrolled ? window.scrollY > 48 : window.scrollY > 120;
+  siteHeader?.classList.toggle("is-scrolled", scrolled);
+  document.body.classList.toggle("has-scrolled-nav", scrolled);
+}
+window.addEventListener("scroll", updateHeaderScrollState, { passive: true });
+updateHeaderScrollState();
 if (headerLogo) {
   const headerControls = document.createElement("div");
   headerControls.className = "header-brand-controls";
@@ -67,7 +76,7 @@ function showPage(pageName, scrollTargetId = "", { historyMode = "push" } = {}) 
   }
 
   const nextURL = window.PortfolioSEO.url(pageName, scrollTargetId);
-  pageBackWrap.hidden = nextPage === "home";
+  pageBackWrap.hidden = !(nextPage === "article" || nextPage.startsWith("case-"));
   if (location.pathname + location.search + location.hash !== nextURL) {
     if (historyMode === "push") portfolioHistoryDepth += 1;
     history[historyMode === "push" ? "pushState" : "replaceState"]({ ...history.state, portfolioDepth: portfolioHistoryDepth }, "", nextURL);
@@ -772,7 +781,7 @@ function bootstrapApp() {
     const workshops = [
       {
         title: "AI for Designers",
-        summary: "A grounding session for designers to understand what AI is, what it can and cannot do, and how to approach AI tools more intentionally instead of relying on trial and error.",
+        summary: "Learn AI fundamentals, limitations, and a more intentional approach to design tools.",
         role: "Co-designed and co-hosted",
         audience: "Designers, product teams, and curious builders",
         attendance: 68,
@@ -783,7 +792,7 @@ function bootstrapApp() {
       },
       {
         title: "Prompt Writing for Designers",
-        summary: "Move beyond repeated prompt tweaking and learn to direct, refine, and evaluate AI outputs with more intention.",
+        summary: "Direct, refine, and evaluate AI outputs with intention.",
         role: "Co-designed and co-hosted",
         audience: "Designers seeking more consistent AI workflows",
         attendance: 35,
@@ -793,8 +802,8 @@ function bootstrapApp() {
         visual: "/assets/images/workshops/ws2.png"
       },
       {
-        title: "The New Designer Role & Process with AI",
-        summary: "Compare how designers are bringing AI into their process, and where it amplifies or interferes with their abilities.",
+        title: "Designer Roles & AI",
+        summary: "Explore where AI supports or interferes with design work.",
         role: "Co-designed and co-hosted",
         audience: "Designers and design leaders",
         attendance: 71,
@@ -804,8 +813,8 @@ function bootstrapApp() {
         visual: "/assets/images/workshops/ws3.png"
       },
       {
-        title: "AI in Ideation, Prototyping & Design Delivery",
-        summary: "Move from design intent to a working prototype while preserving brand consistency, design logic, and the original vision.",
+        title: "AI Prototyping & Delivery",
+        summary: "Build a working prototype while preserving design intent and brand consistency.",
         role: "Co-designed and co-hosted",
         audience: "Designers experienced in prototyping and delivery",
         attendance: 37,
@@ -815,8 +824,8 @@ function bootstrapApp() {
         visual: "/assets/images/workshops/ws4.png"
       },
       {
-        title: "AI Portfolio Playground: Mini Hackathon",
-        summary: "Small groups built an AI-enhanced portfolio interaction to help visitors understand a designer’s work, thinking, or personality.",
+        title: "AI Portfolio Playground",
+        summary: "Small groups built AI-enhanced portfolio interactions to communicate a designer's work.",
         role: "Designed and led",
         audience: "Designers, product teams, and curious builders",
         attendance: 41,
@@ -826,8 +835,8 @@ function bootstrapApp() {
         visual: "/assets/images/workshops/ws5.png"
       },
       {
-        title: "Making Decisions With AI When Building Products",
-        summary: "Notice when AI begins steering your thinking, and become more intentional about making your own decisions.",
+        title: "Product Decisions with AI",
+        summary: "Recognize the influence of AI and make more intentional product decisions.",
         role: "Designed and led",
         audience: "Designers and builders at any AI experience level",
         attendance: 12,
@@ -840,13 +849,10 @@ function bootstrapApp() {
     const fields = {
       kicker: document.querySelector("[data-workshop-kicker]"),
       summary: document.querySelector("[data-workshop-summary]"),
-      role: document.querySelector("[data-workshop-role]"),
-      audience: document.querySelector("[data-workshop-audience]"),
-      format: document.querySelector("[data-workshop-format]"),
+      attendance: document.querySelector("[data-workshop-attendance]"),
       visual: document.querySelector("[data-workshop-visual]"),
       takeaways: [...document.querySelectorAll("[data-workshop-takeaway]")],
-      taught: document.querySelector("[data-workshop-taught]"),
-      artifacts: document.querySelector("[data-workshop-artifacts]")
+      taught: document.querySelector("[data-workshop-taught]")
     };
     const selectWorkshop = (index) => {
       const workshop = workshops[index];
@@ -858,13 +864,10 @@ function bootstrapApp() {
       });
       workshopTitle.textContent = workshop.title;
       fields.kicker.textContent = `Workshop ${String(index + 1).padStart(2, "0")}`;
+      fields.attendance.textContent = `${workshop.attendance} joined`;
       fields.summary.textContent = workshop.summary;
-      fields.role.textContent = workshop.role;
-      fields.audience.textContent = workshop.audience;
-      fields.format.textContent = `90-minute interactive virtual workshop · ${workshop.attendance} joined`;
       fields.takeaways.forEach((item, itemIndex) => { item.textContent = workshop.takeaways[itemIndex] || ""; });
       fields.taught.textContent = workshop.taught;
-      fields.artifacts.textContent = workshop.artifacts;
       fields.visual.src = workshop.visual;
       fields.visual.alt = `${workshop.title} workshop visual`;
     };

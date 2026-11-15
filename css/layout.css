@@ -1,0 +1,408 @@
+/* One outer grid across pages. Full-bleed backgrounds retain aligned content. */
+body .site-header,
+body .site-footer {
+  padding-inline: var(--page-edge);
+}
+body :is(.section, .page-pad, .home-section, .hero-testimonial-feed,
+  .about-container, .writing-section, .ai-lab-jump, .ai-lab-section) {
+  width: var(--container-page);
+  margin-inline: auto;
+}
+body :is(.ai-lab-jump, .ai-lab-section) { padding-inline: 0; }
+body .writing-hero {
+  width: 100%;
+  padding-inline: var(--page-edge);
+}
+body .article-page.page-pad { width: 100%; }
+body .article-hero { width: var(--container-page); }
+body .article-hero-inner { width: 100%; }
+body :is(.article-body, .article-footer) { width: var(--container-article); }
+
+/* Case navigation and content share the same outer boundary as listing pages.
+   Structural scope wins over the individual case-study styles loaded on demand. */
+#main-content .page .case-study[class] .case-study-shell {
+  width: var(--container-page);
+  margin-inline: auto;
+  column-gap: var(--space-12);
+}
+#main-content .page .case-study[class] .case-section {
+  padding-inline: 0;
+}
+#main-content .page .case-study[class] .case-sidebar {
+  padding-inline: 0;
+}
+#main-content .page .case-study[class] .case-next-project {
+  padding-inline: 0;
+}
+@media (min-width: 981px) {
+  body .writing-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+  body .ai-lab-hero .ai-lab-hero-copy { left: var(--page-edge); }
+}
+@media (max-width: 1000px) {
+  #main-content .page .case-study[class] .case-study-shell { column-gap: 0; }
+}
+
+/* Keep the same secondary navigation position on every non-home page. */
+body[data-current-page^="case-"] .site-header .header-brand-controls .page-back-wrap,
+body[data-current-page="article"] .site-header .header-brand-controls .page-back-wrap {
+  position: static;
+  margin-left: var(--space-4);
+}
+body .case-page.page-pad { max-width: none; }
+@media (min-width: 801px) {
+  body .ai-lab-hero .ai-lab-hero-copy { left: var(--page-edge); }
+}
+@media (max-width: 800px) {
+  body .ai-lab-hero:has(.ai-lab-process) { padding-inline: var(--page-gutter); }
+}
+
+/* Shared project and article card interactions, matching AI project cards. */
+:is(.ai-project-grid .ai-project-card, .work-page .selected-project,
+    #selected-work .featured-work-card, .article-card,
+    .home-section.writing-preview .writing-list article) {
+  border: 1px solid rgba(104, 112, 105, 0.16);
+  border-radius: var(--radius-card);
+  background: rgba(255, 252, 245, 0.42);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+:is(.ai-project-grid .ai-project-card, .work-page .selected-project,
+    #selected-work .featured-work-card, .article-card,
+    .home-section.writing-preview .writing-list article):is(:hover, :focus-within) {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(54, 84, 68, 0.38);
+  box-shadow: 0 16px 36px rgba(54, 84, 68, 0.12);
+}
+:is(.ai-project-grid .ai-project-card, .work-page .selected-project,
+    #selected-work .featured-work-card, .article-card,
+    .writing-preview-card-link):focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 4px;
+}
+#selected-work .featured-work-card:is(:hover, :focus-visible) .featured-work-link {
+  text-decoration: none;
+}
+.work-page .selected-project:is(:hover, :focus-visible) .project-card-cue {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.ai-project-grid .ai-project-card, .work-page .selected-project,
+      #selected-work .featured-work-card, .article-card,
+      .home-section.writing-preview .writing-list article) { transition: none; }
+  :is(.ai-project-grid .ai-project-card, .work-page .selected-project,
+      #selected-work .featured-work-card, .article-card,
+      .home-section.writing-preview .writing-list article):is(:hover, :focus-within) { transform: none; }
+}
+
+/* Card actions follow the writing cards: right-aligned text with a direction icon. */
+body .ai-project-grid .ai-card-copy > .project-card-cue,
+body .work-page .selected-project-copy > .project-card-cue,
+body #selected-work .featured-work-copy > .featured-work-link,
+body .home-section.writing-preview .writing-list-copy > .writing-card-action,
+body .article-card .article-card-copy > .article-card-action {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: var(--space-2);
+  margin: auto 0 0 auto;
+  padding: var(--space-2) 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--accent-green);
+  font: 600 var(--type-body-sm)/var(--leading-label) var(--font-sans);
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: none;
+}
+body .work-page .selected-project-copy { display: flex; flex-direction: column; align-items: flex-start; height: 100%; }
+body .work-page .selected-project-copy > .project-card-cue { margin-top: var(--space-6); }
+body .article-card .article-card-copy > .article-card-action { margin-top: var(--space-6); }
+body :is(.project-card-cue, .featured-work-link, .writing-card-action, .article-card-action) > .ui-icon {
+  display: inline-block;
+  flex: 0 0 1em;
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+/* Compact navigation after leaving the top of the page. */
+html { scroll-padding-top: 88px; }
+body .site-header {
+  transition: width 250ms ease, height 250ms ease, padding 250ms ease,
+    background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+body .site-header.is-scrolled {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  z-index: 80;
+  width: min(840px, calc(100% - 48px));
+  height: 60px;
+  min-height: 0;
+  padding: 0 24px;
+  transform: translateX(-50%);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  box-shadow: 0 6px 20px rgba(23, 34, 28, 0.1);
+}
+@supports (backdrop-filter: blur(14px)) or (-webkit-backdrop-filter: blur(14px)) {
+  body .site-header.is-scrolled {
+    background: rgba(248, 245, 238, 0.9);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+}
+body .site-header.is-scrolled .logo-link { width: 42px; height: 42px; }
+body .site-header.is-scrolled .nav-links { gap: clamp(1.5rem, 3vw, 3rem); }
+body[data-current-page="ai-lab"] .site-header.is-scrolled::before { display: none; }
+body[data-current-page="ai-lab"] .site-header.is-scrolled .nav-link { color: var(--text-primary); }
+body[data-current-page="ai-lab"] .site-header.is-scrolled .nav-link:is(:hover, :focus-visible, .is-active) { color: var(--accent-green-hover); }
+@media (max-width: 980px) {
+  body .site-header.is-scrolled {
+    width: min(480px, calc(100% - 32px));
+    height: 60px;
+    padding-inline: 12px;
+  }
+  body .site-header.is-scrolled .menu-toggle,
+  body[data-current-page="ai-lab"] .site-header.is-scrolled .menu-toggle {
+    min-height: 44px;
+    border-color: var(--border-default);
+    background: var(--surface);
+    color: var(--accent-green);
+  }
+  body .site-header.is-scrolled .nav-links,
+  body[data-current-page="ai-lab"] .site-header.is-scrolled .nav-links {
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--surface);
+    border-color: var(--border-default);
+  }
+}
+@media (max-width: 1000px) {
+  body.has-scrolled-nav #main-content .page .case-study[class] .case-sidebar { top: 84px; }
+  body #main-content .page .case-study[class] .case-section { scroll-margin-top: 88px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .site-header { transition: none; }
+}
+
+/* Keep one fixed header and interpolate its geometry in both directions. */
+body .site-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid transparent;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: 0 6px 20px rgba(23, 34, 28, 0);
+  transition: top 400ms ease-in-out, width 400ms ease-in-out,
+    height 400ms ease-in-out, padding 400ms ease-in-out,
+    border-radius 400ms ease-in-out, background-color 400ms ease-in-out,
+    border-color 400ms ease-in-out, box-shadow 400ms ease-in-out,
+    backdrop-filter 400ms ease-in-out, -webkit-backdrop-filter 400ms ease-in-out;
+}
+body .site-header .logo-link { transition: width 400ms ease-in-out, height 400ms ease-in-out; }
+body .site-header .nav-links { transition: gap 400ms ease-in-out; }
+body .site-header .menu-toggle { transition: background-color 400ms ease-in-out, border-color 400ms ease-in-out, color 400ms ease-in-out; }
+body[data-current-page="ai-lab"] .site-header::before { opacity: 1; transition: opacity 400ms ease-in-out; }
+body[data-current-page="ai-lab"] .site-header.is-scrolled::before { display: block; opacity: 0; }
+@supports (backdrop-filter: blur(14px)) or (-webkit-backdrop-filter: blur(14px)) {
+  body .site-header { -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); }
+}
+@media (max-width: 980px) {
+  body .site-header { height: 82px; }
+}
+@media (max-width: 620px) {
+  body .site-header { height: 80px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .site-header, body .site-header .logo-link, body .site-header .nav-links,
+  body .site-header .menu-toggle, body[data-current-page="ai-lab"] .site-header::before { transition: none; }
+}
+
+/* Square Featured Work tiles, with room for their text at narrow widths. */
+#selected-work .featured-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#selected-work .featured-work-card { aspect-ratio: 1; }
+#selected-work .featured-work-media { flex: 1 1 0; min-height: 130px; aspect-ratio: auto; }
+#selected-work .featured-work-copy { flex: 0 0 auto; width: 100%; }
+#selected-work .featured-work-tags { min-height: 0; margin: 0 0 var(--space-4); }
+@media (max-width: 600px) {
+  #selected-work .featured-work-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 1000px) {
+  #selected-work .featured-work-card { aspect-ratio: auto; }
+  #selected-work .featured-work-media { flex: none; aspect-ratio: 16 / 10; }
+  #selected-work .featured-work-copy { flex: 1; }
+}
+
+/* Fill card media frames consistently, cropping around their center. */
+#selected-work .featured-work-media { position: relative; }
+#selected-work .featured-work-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.home-section.writing-preview .writing-list-image img,
+.work-page .selected-project > img,
+.article-card .article-card-image img,
+.note-card .note-card-thumb img,
+.feature-card img {
+  object-fit: cover;
+  object-position: center;
+}
+.ai-project-card .project-video-card video { object-fit: cover; }
+.ai-project-card .project-video-card--mindle video { object-position: center top; }
+#selected-work .featured-work-media img[src*="archived-revised-landing"] { object-position: left center; }
+
+/* Compact workshop navigation and details. */
+#ai-workshops.ai-workshop-series {
+  grid-template-columns: minmax(210px, 0.85fr) minmax(0, 2.4fr);
+  align-items: start;
+  height: auto;
+  min-height: 0;
+  gap: var(--space-6);
+  padding-block: var(--space-12);
+}
+#ai-workshops .ai-workshop-heading { margin-bottom: var(--space-2); }
+#ai-workshops .ai-workshop-sidebar { display: block; padding: var(--space-3); overflow: visible; }
+#ai-workshops .ai-workshop-list { display: grid; grid-template-rows: none; gap: var(--space-2); }
+#ai-workshops .ai-workshop-list-item { min-height: 60px; padding: var(--space-3); }
+#ai-workshops .ai-workshop-list-item h3 { font: 600 var(--type-body-sm)/1.25 var(--font-sans); letter-spacing: 0; }
+#ai-workshops .ai-workshop-list-item p { margin: var(--space-1) 0 0; font: 400 var(--type-caption)/1.3 var(--font-sans); letter-spacing: 0; text-transform: none; }
+#ai-workshops .ai-workshop-list-item > span { font-size: 1.4rem; }
+#ai-workshops .ai-workshop-detail { display: block; padding: var(--space-6); overflow: visible; }
+#ai-workshops .ai-workshop-intro { padding-bottom: var(--space-4); }
+#ai-workshops .ai-workshop-intro .section-kicker { position: static; margin: 0 0 var(--space-2); }
+#ai-workshops .ai-workshop-detail h2 { max-width: none; margin: 0; font-size: var(--type-heading-lg); line-height: 1.15; }
+#ai-workshops .ai-workshop-summary { max-width: none; margin: var(--space-2) 0 0; font-size: var(--type-body-sm); line-height: 1.5; }
+#ai-workshops .ai-workshop-feature {
+  grid-template-columns: minmax(0, 1.4fr) minmax(190px, 0.8fr);
+  align-items: start;
+  gap: var(--space-6);
+  margin: 0;
+  padding: var(--space-6) 0 0;
+  border: 0;
+  background: transparent;
+}
+#ai-workshops .ai-workshop-visual { aspect-ratio: auto; height: auto; }
+#ai-workshops .ai-workshop-visual img { position: static; display: block; width: 100%; height: auto; object-fit: contain; }
+#ai-workshops .ai-workshop-takeaways ol { gap: var(--space-3); margin-top: var(--space-3); }
+#ai-workshops .ai-workshop-takeaways li { grid-template-columns: 1.6rem minmax(0, 1fr); gap: var(--space-2); font-size: var(--type-body-sm); line-height: 1.4; }
+#ai-workshops .ai-workshop-takeaways li::before { width: 1.6rem; height: 1.6rem; font-size: var(--type-caption); }
+#ai-workshops .ai-workshop-outcomes { display: block; margin-top: var(--space-4); padding: 0; }
+#ai-workshops .ai-workshop-outcomes section { padding: var(--space-3) var(--space-4); }
+#ai-workshops .ai-workshop-outcomes p { margin: var(--space-2) 0 0; font-size: var(--type-body-sm); line-height: 1.45; }
+@media (max-width: 980px) and (min-width: 701px) {
+  #ai-workshops.ai-workshop-series { grid-template-columns: minmax(190px, 0.9fr) minmax(0, 2fr); }
+  #ai-workshops .ai-workshop-feature { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  #ai-workshops.ai-workshop-series { grid-template-columns: 1fr; }
+  #ai-workshops .ai-workshop-feature { grid-template-columns: 1fr; }
+  #ai-workshops .ai-workshop-detail { padding: var(--space-4); }
+}
+#ai-workshops .ai-workshop-heading { grid-template-columns: 48px minmax(0, 1fr); }
+@media (max-width: 620px) { #ai-workshops .ai-workshop-heading { grid-template-columns: 1fr; } }
+
+/* Workshop selector: one numbered row above the full-width detail. */
+#ai-workshops.ai-workshop-series { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+#ai-workshops .ai-workshop-heading { grid-column: 1; }
+#ai-workshops .ai-workshop-selector { min-width: 0; }
+#ai-workshops .ai-workshop-selector-label {
+  margin: 0 0 var(--space-2);
+  color: var(--text-secondary);
+  font: 600 var(--type-caption)/1.4 var(--font-sans);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+#ai-workshops .ai-workshop-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: none;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  background: var(--card-bg);
+}
+#ai-workshops .ai-workshop-list-item {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 56px;
+  padding: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+  background: transparent;
+}
+#ai-workshops .ai-workshop-list-item > span {
+  color: var(--text-secondary);
+  font: 600 1rem/1 var(--font-sans);
+}
+#ai-workshops .ai-workshop-list-item.is-selected { background: var(--surface-sage); border-color: var(--border-default); box-shadow: none; }
+#ai-workshops .ai-workshop-list-item.is-selected > span { color: var(--accent-green); }
+#ai-workshops .ai-workshop-list-item.is-selected::after {
+  position: absolute;
+  right: 28%;
+  bottom: 6px;
+  left: 28%;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-green);
+  content: "";
+}
+#ai-workshops .ai-workshop-list-item:hover { background: var(--surface-muted); border-color: var(--border-default); box-shadow: none; }
+#ai-workshops .ai-workshop-detail { width: 100%; padding: clamp(1rem, 2.5vw, 2rem); }
+#ai-workshops .ai-workshop-attendance { margin: var(--space-2) 0 0; color: var(--accent-green); font: 600 var(--type-body-sm)/1.4 var(--font-sans); }
+#ai-workshops .ai-workshop-feature { grid-template-columns: minmax(0, 1.7fr) minmax(230px, .8fr); align-items: start; gap: var(--space-8); }
+#ai-workshops .ai-workshop-outcomes { margin-top: var(--space-6); }
+@media (max-width: 700px) {
+  #ai-workshops .ai-workshop-list { gap: var(--space-1); padding: var(--space-1); }
+  #ai-workshops .ai-workshop-list-item { min-height: 48px; padding: var(--space-1); }
+  #ai-workshops .ai-workshop-feature { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+
+/* Workshop numbers and attendance sit opposite the selected title. */
+#ai-workshops .ai-workshop-intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--space-4); align-items: start; }
+#ai-workshops .ai-workshop-heading-meta { grid-column: 2; grid-row: 1 / span 2; text-align: right; }
+#ai-workshops .ai-workshop-intro .ai-workshop-heading-meta .section-kicker { margin: 0; }
+#ai-workshops .ai-workshop-heading-meta .ai-workshop-attendance { margin: var(--space-1) 0 0; }
+#ai-workshops .ai-workshop-intro > h2, #ai-workshops .ai-workshop-intro > .ai-workshop-summary { grid-column: 1; }
+#ai-workshops .ai-workshop-list-item { display: flex; flex-direction: column; justify-content: center; gap: var(--space-2); min-height: 74px; }
+#ai-workshops .ai-workshop-list-item > .ai-workshop-tab-label { color: var(--text-secondary); font: 400 var(--type-caption)/1 var(--font-sans); }
+#ai-workshops .ai-workshop-list-item > span:not(.ai-workshop-tab-label) { color: var(--text-primary); font: 600 1.15rem/1 var(--font-sans); }
+#ai-workshops .ai-workshop-list-item.is-selected > span:not(.ai-workshop-tab-label) { color: var(--accent-green); }
+@media (max-width: 600px) {
+  #ai-workshops .ai-workshop-list-item { min-height: 66px; gap: var(--space-2); }
+  #ai-workshops .ai-workshop-list-item > .ai-workshop-tab-label { font-size: .625rem; }
+  #ai-workshops .ai-workshop-list-item > span:not(.ai-workshop-tab-label) { font-size: 1rem; }
+  #ai-workshops .ai-workshop-intro { column-gap: var(--space-2); }
+  #ai-workshops .ai-workshop-intro > .ai-workshop-summary { grid-column: 1 / -1; }
+}
+
+/* Connect the teaching summary directly to its workshop visual. */
+#ai-workshops .ai-workshop-teaching {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+#ai-workshops .ai-workshop-teaching .ai-workshop-visual { border: 0; border-radius: 0; }
+#ai-workshops .ai-workshop-teaching .ai-workshop-outcomes { margin: 0; padding: 0; }
+#ai-workshops .ai-workshop-teaching .ai-workshop-outcomes section {
+  padding: var(--space-4);
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 0;
+  background: transparent;
+}

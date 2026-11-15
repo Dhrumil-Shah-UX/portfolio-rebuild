@@ -14,7 +14,7 @@
               <a class="hero-cta hero-cta-primary" href="#work" data-page="work">View My Work</a>
               <a class="hero-cta hero-cta-secondary icon-link" href="https://drive.google.com/file/d/1yRVfSXOwIiojgWTzY-lU1nko6k3m3KHi/view?usp=sharing" target="_blank" rel="noopener">Resume<span class="ui-icon ui-icon--panel-open" aria-hidden="true"></span></a>
             </div>
-            <form class="portfolio-ai-input" action="#contact" aria-label="Ask about Dhrumil Shah's work">
+           <!-- <form class="portfolio-ai-input" action="#contact" aria-label="Ask about Dhrumil Shah's work">
               <label class="sr-only" for="portfolio-ai-query">Ask about my work</label>
               <span class="ai-sparkle" aria-hidden="true">&#10023;</span>
               <input id="portfolio-ai-query" name="portfolio-ai-query" type="text" placeholder="Ask about my work..." />
@@ -25,7 +25,7 @@
               <button type="button">What’s his strongest healthcare work?</button>
               <button type="button">How does he use AI?</button>
               <button type="button">What technical work has he done?</button>
-            </div>
+            </div>-->
           </div>
         </section>
 
@@ -50,53 +50,51 @@
           </article>
         </section>
 
-        <section class="home-section selected-work" id="selected-work" aria-labelledby="selected-work-title">
+        <section class="home-section selected-work featured-work" id="selected-work" aria-labelledby="selected-work-title">
           <div class="home-section-heading">
-            <p>Selected Work</p>
+            <p>Featured Work</p>
             <h2 id="selected-work-title">Strong product stories</h2>
             <a class="icon-link" href="#work" data-page="work">View all work<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a>
           </div>
-          <div class="selected-work-list">
-            <a class="selected-project" href="#case-ruhl" data-page="case-ruhl">
-              <img src="assets/images/work/work-ruhl.png" alt="RUHL Ai product interface preview" />
-              <div class="selected-project-copy">
-                <p class="project-kicker">Sustainability SaaS</p>
-                <h3>RUHL AI</h3>
-                <p>Helping building owners understand complex sustainability regulations and identify practical next steps.</p>
-                <dl>
-                  <div><dt>Role</dt><dd>Product Designer + Frontend Developer</dd></div>
-                  <div><dt>Collaboration</dt><dd>Cross-functional team</dd></div>
-                </dl>
-                <p class="project-impact">Designed and implemented a 16-page responsive experience</p>
-                <span class="project-card-cue">View case study</span>
+          <div class="featured-work-grid">
+            <a class="featured-work-card" href="#case-trial" data-page="case-trial" aria-labelledby="featured-trial-title">
+              <div class="featured-work-media"><img src="assets/images/case-studies/trialbridge/figma-dashboard-focus.png" alt="TrialBridge prototype showing suggested clinical trials and comparison controls" loading="lazy" decoding="async" /></div>
+              <div class="featured-work-copy">
+                <p class="featured-work-category">Healthcare &middot; Academic project</p>
+                <h3 id="featured-trial-title">TrialBridge</h3>
+                <p class="featured-work-description">Helping patients discover and compare clinical trials with clarity and control.</p>
+                <ul class="featured-work-tags" aria-label="Skills"><li>UX design</li><li>Prototyping</li><li>Physician testing</li></ul>
+                <span class="featured-work-link icon-link">Case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
               </div>
             </a>
-            <a class="selected-project" href="#case-trial" data-page="case-trial">
-              <img src="assets/images/work/trialbridge-card.png" alt="A patient connected by a branching bridge to two clinical trial options" width="1448" height="1086" loading="lazy" decoding="async" />
-              <div class="selected-project-copy">
-                <p class="project-kicker">Healthcare Platform</p>
-                <h3>TrialBridge</h3>
-                <p>Helping people navigate complex clinical trial discovery and management workflows with clarity.</p>
-                <dl>
-                  <div><dt>Role</dt><dd>Product Designer</dd></div>
-                  <div><dt>Collaboration</dt><dd>Clinical team collaboration</dd></div>
-                </dl>
-                <p class="project-impact">High-fidelity UX across 25+ workflows</p>
-                <span class="project-card-cue">View case study</span>
+            <a class="featured-work-card" href="#case-showroom" data-page="case-showroom" aria-labelledby="featured-showroom-title">
+              <div class="featured-work-media"><img src="assets/images/case-studies/showroom/live-rooftop.png" alt="Virtual Showroom rooftop with HVAC equipment and guided system flow controls" loading="lazy" decoding="async" /></div>
+              <div class="featured-work-copy">
+                <p class="featured-work-category">Interactive 3D experience</p>
+                <h3 id="featured-showroom-title">Virtual Showroom</h3>
+                <p class="featured-work-description">Making rooftop HVAC systems easier to explore through a guided 3D experience.</p>
+                <ul class="featured-work-tags" aria-label="Skills"><li>Interaction design</li><li>Three.js</li><li>Frontend development</li></ul>
+                <span class="featured-work-link icon-link">Case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
               </div>
             </a>
-            <a class="selected-project" href="#case-azhartt" data-page="case-azhartt">
-              <img src="assets/images/work/work-trial.png" alt="AZHARTT usability evaluation preview" />
-              <div class="selected-project-copy">
-                <p class="project-kicker">Usability Research</p>
-                <h3>AZHARTT</h3>
-                <p>Evaluating where navigation, forms, and information hierarchy slowed users down across core nonprofit tasks.</p>
-                <dl>
-                  <div><dt>Method</dt><dd>Moderated usability testing</dd></div>
-                  <div><dt>Evidence</dt><dd>5 participants, 8 tasks, 27 issues</dd></div>
-                </dl>
-                <p class="project-impact">Research findings translated into targeted recommendations</p>
-                <span class="project-card-cue">View case study</span>
+            <a class="featured-work-card" href="#case-ruhl" data-page="case-ruhl" aria-labelledby="featured-ruhl-title">
+              <div class="featured-work-media"><img src="assets/images/case-studies/ruhl/archived-revised-landing.png" alt="Archived RUHL AI landing page with building address search" loading="lazy" decoding="async" /></div>
+              <div class="featured-work-copy">
+                <p class="featured-work-category">Property discovery &middot; Web</p>
+                <h3 id="featured-ruhl-title">RUHL AI</h3>
+                <p class="featured-work-description">Connecting NYC building-address search to a clear property inquiry journey.</p>
+                <ul class="featured-work-tags" aria-label="Skills"><li>UX/UI design</li><li>Wix Studio</li><li>Search implementation</li></ul>
+                <span class="featured-work-link icon-link">Case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
+              </div>
+            </a>
+            <a class="featured-work-card" href="#case-azhartt" data-page="case-azhartt" aria-labelledby="featured-azhartt-title">
+              <div class="featured-work-media"><img src="assets/images/work/work-trial.png" alt="AZHARTT animal rescue website shown on a desktop monitor" loading="lazy" decoding="async" /></div>
+              <div class="featured-work-copy">
+                <p class="featured-work-category">Nonprofit usability research</p>
+                <h3 id="featured-azhartt-title">AZHARTT</h3>
+                <p class="featured-work-description">Evaluating navigation and forms to identify usability issues on an animal rescue website.</p>
+                <ul class="featured-work-tags" aria-label="Skills"><li>Usability testing</li><li>Research synthesis</li><li>Recommendations</li></ul>
+                <span class="featured-work-link icon-link">Case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
               </div>
             </a>
           </div>
@@ -118,7 +116,7 @@
         <div class="ai-card-copy">
           <h3 id="home-mindle-card-title">Mindle</h3>
           <p>A weekly UX word game designed to turn a short puzzle into learning, reflection, and community participation.</p>
-          <span class="project-card-cue">View case study</span>
+          <span class="project-card-cue icon-link">View case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
         </div>
       </a>
 
@@ -131,7 +129,7 @@
         <div class="ai-card-copy">
           <h3 id="home-space-shooter-card-title">Space Shooter</h3>
           <p>My first AI-assisted build: from a rough game idea in ChatGPT to a playable experience in Cursor.</p>
-          <span class="project-card-cue">View case study</span>
+          <span class="project-card-cue icon-link">View case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
         </div>
       </a>
 
@@ -144,7 +142,7 @@
         <div class="ai-card-copy">
           <h3 id="home-perspective-card-title">Perspective</h3>
           <p>A Workshop 6 concept game that makes AI-assisted decision-making something people can feel.</p>
-          <span class="project-card-cue">View case study</span>
+          <span class="project-card-cue icon-link">View case study <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span>
         </div>
       </a>
     </div>
