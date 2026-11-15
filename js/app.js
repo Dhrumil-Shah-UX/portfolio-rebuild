@@ -378,7 +378,7 @@ function initBackToTopObserver() {
 
 function initGameVideos() {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const videos = [...document.querySelectorAll('.project-video-card video, .case-game-video')];
+  const videos = [...document.querySelectorAll('.project-video-card video, .case-game-video, .lab-desk-project video')];
   videos.forEach(video => {
     if (reducedMotion.matches) { video.autoplay = false; video.pause(); }
     video.addEventListener('pause', () => {
@@ -389,7 +389,7 @@ function initGameVideos() {
   reducedMotion.addEventListener('change', () => {
     if (reducedMotion.matches) videos.forEach(video => video.pause());
   });
-  document.querySelectorAll('.ai-project-grid:has(video)').forEach(grid => {
+  document.querySelectorAll('.ai-project-grid:not([hidden]):has(video)').forEach(grid => {
     const control = document.createElement('button');
     control.type = 'button';
     control.className = 'preview-motion-toggle';
@@ -432,7 +432,7 @@ function initGameVideos() {
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll(".project-video-card video, .case-game-video").forEach((video) => {
+  document.querySelectorAll(".project-video-card video, .case-game-video, .lab-desk-project video").forEach((video) => {
     videoObserver.observe(video);
   });
 }

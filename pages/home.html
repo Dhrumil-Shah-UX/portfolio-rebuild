@@ -101,12 +101,27 @@
         </section>
 
         <section class="home-section ai-lab-preview" aria-labelledby="ai-lab-preview-title">
-          <div class="home-section-heading">
-            <p>AI Lab</p>
-            <h2 id="ai-lab-preview-title">Small experiments</h2>
-            <a class="icon-link" href="#ai-lab" data-page="ai-lab">Explore AI Lab<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a>
+          <div class="lab-desk-copy">
+            <p class="section-kicker">AI Lab</p>
+            <h2 id="ai-lab-preview-title">Explore, build,<br />and <em>share with AI.</em></h2>
+            <div class="lab-desk-topics">
+              <div><h3>AI Projects</h3><p>Hands-on experiments and builds.</p></div>
+              <div><h3>Workshops</h3><p>Live sessions on design and AI,<br />with a community of curious designers.</p></div>
+            </div>
+            <a class="icon-link lab-desk-link" href="#ai-lab" data-page="ai-lab">Explore AI Lab<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a>
           </div>
-    <div class="lab-preview-grid ai-project-grid">
+          <div class="lab-desk-visuals">
+            <a class="lab-desk-frame lab-desk-project" href="#case-space-shooter" data-page="case-space-shooter" aria-label="Explore the Space Shooter AI project">
+              <span class="lab-desk-tape">AI Projects</span>
+              <video muted autoplay loop playsinline preload="metadata" aria-label="Space Shooter gameplay preview"><source src="assets/videos/space_shooter-preview.mp4" type="video/mp4" /></video>
+            </a>
+            <span class="lab-desk-note" aria-hidden="true">from building<br />to learning<br />together <svg class="lab-desk-arrow" viewBox="0 0 100 90" fill="none"><path d="M82 7 C88 44 62 68 15 65 M28 53 L14 65 L29 75" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+            <a class="lab-desk-frame lab-desk-workshop" href="#ai-lab" data-page="ai-lab" aria-label="Explore AI Lab workshops">
+              <span class="lab-desk-tape">Workshops</span>
+              <img src="assets/images/workshops/SS1.png" alt="AI design workshop screenshot" loading="lazy" />
+            </a>
+          </div>
+    <div class="lab-preview-grid ai-project-grid" hidden>
       <a class="ai-project-card perspective-project-card" href="#case-mindle" data-page="case-mindle" aria-labelledby="home-mindle-card-title">
         <div class="ai-card-media project-video-card project-video-card--mindle" aria-hidden="true">
           <video muted autoplay loop playsinline preload="metadata" tabindex="-1">
@@ -169,12 +184,32 @@
         </section>
 
         <section class="home-section writing-preview" aria-labelledby="writing-preview-title">
-          <div class="home-section-heading">
-            <p>Writing</p>
-            <h2 id="writing-preview-title">UX Diaries and articles</h2>
-            <a class="icon-link" href="#writing" data-page="writing">View all writing<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a>
+          <div class="writing-desk-copy">
+            <p class="section-kicker">Writing</p>
+            <h2 id="writing-preview-title">UX Diary<br /><em>&amp; Articles</em></h2>
+            <p>Reflections, experiments, and practical ideas from my design and AI journey.</p>
+            <a class="icon-link lab-desk-link" href="#writing" data-page="writing">Explore writing<span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></a>
           </div>
-          <div class="writing-list">
+          <div class="writing-desk-art">
+            <a class="writing-desk-book" href="#writing" data-page="writing" aria-label="Explore the UX Diary">
+              <span class="writing-desk-label">UX Diary</span>
+              <div class="writing-desk-page writing-desk-page-left">
+                <h3>Frustration of opening<br />the door</h3>
+                <img src="assets/images/writing/Frustration of opening the door.webp" alt="Door on ASU campus" loading="lazy" />
+                <span class="writing-desk-number">1</span>
+              </div>
+              <div class="writing-desk-page writing-desk-page-right">
+                <div><h4>Viewpoint</h4><p>Which side should I use, and should I push or pull?</p></div>
+                <div><h4>Experience</h4><p>When I was new on campus, this door made me pause almost every time. I learned to push it, but the handle still made the correct side unclear.</p></div>
+                <div><h4>Possible solution</h4><p>Place a simple push plate on the side meant to be pushed. A handle is not needed there.</p></div>
+              </div>
+            </a>
+            <a class="writing-desk-article" href="/writing/the-art-of-task-framing" aria-label="Read Designing Better AI Inputs">
+              <div class="writing-desk-article-copy"><span class="section-kicker">Article</span><h3>Designing Better<br />AI Inputs</h3><p>A practical note on how better task framing can produce better AI outputs than changing tools or writing longer prompts.</p></div>
+              <figure><span class="writing-desk-clip" aria-hidden="true"></span><img src="assets/images/writing/better_ai_inputs_article.webp" alt="Task framing illustration" loading="lazy" /></figure>
+            </a>
+          </div>
+          <div class="writing-list" hidden>
             <article>
               <a class="writing-preview-card-link" href="#writing" data-page="writing" aria-label="Explore UX Diaries">
               <div class="writing-list-image"><img src="assets/images/writing/accessibility_article.webp" alt="Illustrated accessibility notes from the UX Diaries" loading="lazy" decoding="async" /></div>
