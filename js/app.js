@@ -152,7 +152,12 @@ function notePageMarkup(note, index, side) {
 
 function updateNoteControls(index) {
   currentNoteIndex = Math.max(0, Math.min(index, designNotes.length - 1));
-  document.querySelector("[data-note-indicator]").textContent = `${currentNoteIndex + 1} / ${designNotes.length}`;
+  document.querySelector("[data-note-indicator]").textContent = `Note ${padNumber(currentNoteIndex)} of ${designNotes.length}`;
+  const wrap = document.querySelector(".notebook-wrap");
+  if (wrap) {
+    wrap.style.setProperty("--left-stack", `${2 + currentNoteIndex * 0.55}px`);
+    wrap.style.setProperty("--right-stack", `${2 + (designNotes.length - 1 - currentNoteIndex) * 0.55}px`);
+  }
   const portrait = designNotesPageFlip?.getOrientation() === "portrait";
   const currentPage = portrait ? designNotesPageFlip.getCurrentPageIndex() : currentNoteIndex;
   const lastPage = portrait ? designNotes.length * 2 - 1 : designNotes.length - 1;
