@@ -1,0 +1,76 @@
+/* Shared text actions; exclude navigation and button-styled controls. */
+/* These invariants intentionally override older page-specific hover rules. */
+html body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a) {
+  font-family: var(--font-sans) !important;
+  font-size: .9375rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a)::after {
+  height: 2px !important;
+  min-height: 2px !important;
+  max-height: 2px !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background: currentColor !important;
+  border: 0 !important;
+  transform: none !important;
+  transition: none !important;
+  pointer-events: none;
+}
+html body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a),
+html body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a):is(:hover, :focus-visible),
+html body .case-study[class] :is(a.icon-link:not(.hero-cta):not(.icon-button-label), a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a) {
+  font-family: var(--font-sans);
+  font-size: .9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .6em;
+  width: fit-content;
+  min-height: 44px;
+  color: var(--accent-green);
+  font-family: var(--font-sans);
+  text-decoration: none;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  transition: color 220ms ease-out;
+}
+body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  height: 2px;
+  background: currentColor;
+  transform: none;
+  transform-origin: left;
+  transition: none;
+}
+body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a) > .ui-icon { transition: transform 220ms ease-out; }
+body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a):is(:hover, :focus-visible),
+body a:is(:hover, :focus-visible) :is(.project-card-cue, .featured-work-link, .writing-card-action, .article-card-action) { color: var(--accent-green-hover); }
+/* Keep the shared pseudo-element as the only underline in every state. */
+html body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a):is(:hover, :focus-visible),
+html body a:is(:hover, :focus-visible) :is(.project-card-cue, .featured-work-link, .writing-card-action, .article-card-action) { text-decoration: none; font-weight: 600; }
+body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a):is(:hover, :focus-visible)::after,
+body a:is(:hover, :focus-visible) :is(.project-card-cue, .featured-work-link, .writing-card-action, .article-card-action)::after { transform: none; }
+body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a):is(:hover, :focus-visible) > .ui-icon,
+body a:is(:hover, :focus-visible) :is(.project-card-cue, .featured-work-link, .writing-card-action, .article-card-action) > .ui-icon { transform: translateX(4px); }
+body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a):focus-visible { outline: 2px solid var(--accent-green); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  body :is(a.icon-link, .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a),
+  body :is(a.icon-link, .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a)::after,
+  body :is(a.icon-link, .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a) > .ui-icon { transition: none; }
+  body :is(a.icon-link, .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a):is(:hover, :focus-visible) > .ui-icon { transform: none; }
+}

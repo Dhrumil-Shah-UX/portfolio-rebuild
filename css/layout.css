@@ -9,6 +9,10 @@ body :is(.section, .page-pad, .home-section, .hero-testimonial-feed,
   margin-inline: auto;
 }
 body :is(.ai-lab-jump, .ai-lab-section) { padding-inline: 0; }
+
+/* Internal pages use the persistent site navigation and section navigation. */
+body .page-back-wrap,
+body .page .back-link { display: none !important; }
 body .writing-hero {
   width: 100%;
   padding-inline: var(--page-edge);

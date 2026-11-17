@@ -1,0 +1,31 @@
+#main-content .case-study .overview-impact { margin: var(--space-8) 0 var(--space-12); padding: var(--space-8) 0; border-block: 1px solid var(--border-default); }
+#main-content .case-study .overview-impact > h2 { margin: 0 0 var(--space-6); font: 600 var(--type-label)/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-green); }
+#main-content .case-study .overview-impact ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); padding: 0; margin: 0 0 var(--space-6); list-style: none; counter-reset: impact; }
+#main-content .case-study .overview-impact li { counter-increment: impact; }
+#main-content .case-study .overview-impact li::before { content: '0' counter(impact); display: block; margin-bottom: var(--space-4); color: var(--accent-green); font: 400 var(--type-display-md)/1 var(--font-display); }
+#main-content .case-study .overview-impact h3 { margin: 0 0 var(--space-3); font: 500 var(--type-heading-sm)/var(--leading-heading) var(--font-sans); color: var(--text-primary); }
+#main-content .case-study .overview-impact p { margin: 0; font: 400 var(--type-body-sm)/var(--leading-body) var(--font-sans); color: var(--text-secondary); }
+#main-content .case-study .overview-context { margin-block: var(--space-8); }
+#main-content .case-study .overview-metadata { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); margin: 0; padding: var(--space-8); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--surface) 65%, transparent); }
+#main-content .case-study .overview-metadata > div { min-width: 0; margin: 0; padding: 0; border: 0; background: transparent; }
+#main-content .case-study .overview-metadata dt { margin: 0 0 var(--space-2); color: var(--text-secondary); font: 500 var(--type-body-sm)/var(--leading-label) var(--font-sans); letter-spacing: 0; text-transform: none; }
+#main-content .case-study .overview-metadata dd { margin: 0; color: var(--text-primary); font: 400 var(--type-body-md)/var(--leading-body) var(--font-sans); overflow-wrap: anywhere; }
+@media(max-width: 640px) { #main-content .case-study .overview-metadata { grid-template-columns: 1fr; padding: var(--space-6); gap: var(--space-6); } }
+#main-content .case-study .overview-primary { display: flex; flex-wrap: wrap; gap: var(--space-8); border: 0; padding: 0; margin: 0 0 var(--space-6); background: transparent; }
+#main-content .case-study .overview-primary > div { flex: 1 1 180px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: var(--space-6); background: color-mix(in srgb, var(--surface) 65%, transparent); }
+#main-content .case-study .overview-details { padding: 0; }
+#main-content .case-study .overview-details > h2 { margin: 0; color: var(--accent-green); font: 600 var(--type-label)/1.5 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
+#main-content .case-study .overview-details dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); margin: var(--space-6) 0 0; padding: 0; border: 0; background: transparent; }
+#main-content .case-study .overview-details dl > div { border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: var(--space-6); background: color-mix(in srgb, var(--surface) 65%, transparent); }
+@media(max-width: 760px) { #main-content .case-study .overview-impact ol, #main-content .case-study .overview-details dl { grid-template-columns: 1fr; } }
+
+/* One shared surface, with outcomes following the project context. */
+html body #main-content .page .case-study[class] .overview-context { padding: var(--space-8); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--surface) 65%, transparent); }
+html body #main-content .page .case-study[class] .overview-metadata { padding: 0; border: 0; border-radius: 0; background: transparent; }
+html body #main-content .page .case-study[class] .overview-impact { margin: var(--space-8) 0 0; padding: var(--space-8) 0 0; border: 0; border-top: 1px solid var(--border-default); }
+html body #main-content .page .case-study[class] .overview-impact > h2 { margin: 0 0 var(--space-6); color: var(--text-secondary); font: 500 var(--type-body-sm)/var(--leading-label) var(--font-sans); letter-spacing: 0; text-transform: none; }
+html body #main-content .page .case-study[class] .overview-impact ol { margin-bottom: 0; }
+html body #main-content .page .case-study[class] .overview-impact li::before { content: none; }
+html body #main-content .page .case-study[class] .overview-impact h3 { margin: 0 0 var(--space-3); color: var(--accent-green); font: 400 var(--type-heading-md)/var(--leading-heading) var(--font-display); letter-spacing: -.02em; text-transform: none; }
+html body #main-content .page .case-study[class] .overview-impact p { color: var(--text-primary); font: 400 var(--type-body-md)/var(--leading-body) var(--font-sans); }
+@media(max-width: 640px) { html body #main-content .page .case-study[class] .overview-context { padding: var(--space-6); } }
