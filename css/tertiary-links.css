@@ -74,3 +74,8 @@ body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), a.az-source, a.ac-s
   body :is(a.icon-link, .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a) > .ui-icon { transition: none; }
   body :is(a.icon-link, .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a):is(:hover, :focus-visible) > .ui-icon { transform: none; }
 }
+
+/* Footer separators live in the gap; link underlines stay within each label. */
+html body .footer-utility { gap: 2.5rem; }
+html body .footer-utility > a.icon-link { padding-inline: 0; }
+html body .footer-utility > a.icon-link + a.icon-link::before { left: -1.25rem; }

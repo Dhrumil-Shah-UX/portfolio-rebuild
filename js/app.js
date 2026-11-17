@@ -32,7 +32,7 @@ if (headerLogo) {
   const headerControls = document.createElement("div");
   headerControls.className = "header-brand-controls";
   headerLogo.before(headerControls);
-  headerControls.append(headerLogo, pageBackWrap);
+  headerControls.append(headerLogo);
 }
 pageRoot?.setAttribute("tabindex", "-1");
 const pageBackButton = pageBackWrap.querySelector("button");
@@ -76,6 +76,8 @@ function showPage(pageName, scrollTargetId = "", { historyMode = "push" } = {}) 
   }
 
   const nextURL = window.PortfolioSEO.url(pageName, scrollTargetId);
+  const backContainer = target?.querySelector(".case-sidebar-inner") || pageRoot;
+  backContainer?.prepend(pageBackWrap);
   pageBackWrap.hidden = !(nextPage === "article" || nextPage.startsWith("case-"));
   if (location.pathname + location.search + location.hash !== nextURL) {
     if (historyMode === "push") portfolioHistoryDepth += 1;
@@ -395,7 +397,7 @@ function initGameVideos() {
     control.className = 'preview-motion-toggle';
     let paused = reducedMotion.matches;
     const update = () => {
-      control.textContent = paused ? 'Play previews' : 'Pause previews';
+      control.innerHTML = `<img src="assets/icons/${paused ? 'play' : 'pause'}.svg" alt="" width="24" height="24">`;
       control.setAttribute('aria-label', paused ? 'Play project video previews' : 'Pause project video previews');
     };
     control.addEventListener('click', () => {
@@ -416,7 +418,28 @@ function initGameVideos() {
       update();
     });
     update();
-    grid.before(control);
+    grid.closest('section')?.querySelector('.ai-lab-section-heading')?.append(control);
+  });
+  document.querySelectorAll('.lab-desk-project').forEach(card => {
+    const video = card.querySelector('video');
+    if (!video) return;
+    const control = document.createElement('button');
+    control.type = 'button';
+    control.className = 'preview-motion-toggle home-game-motion-toggle';
+    const update = () => {
+      const paused = video.paused;
+      control.innerHTML = `<img src="assets/icons/${paused ? 'play' : 'pause'}.svg" alt="" width="24" height="24">`;
+      control.setAttribute('aria-label', paused ? 'Play game preview' : 'Pause game preview');
+    };
+    control.addEventListener('click', () => {
+      if (video.paused) { delete video.dataset.userPaused; video.play().catch(() => {}); }
+      else { video.dataset.userPaused = 'true'; video.pause(); }
+      update();
+    });
+    video.addEventListener('play', update);
+    video.addEventListener('pause', update);
+    update();
+    card.append(control);
   });
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(({ target: video, isIntersecting }) => {
@@ -740,7 +763,7 @@ function bootstrapApp() {
     document.querySelectorAll("[data-about-art]").forEach((button) => {
       button.addEventListener("click", () => {
         opener = button;
-        const group = button.closest(".about-sketch-gallery, .about-photo-wall");
+        const group = button.closest(".about-sketch-gallery, .about-team-collage, .about-photo-wall");
         gallery = [...group.querySelectorAll("[data-about-art]")].filter((item, index, all) => all.findIndex(other => other.querySelector("img").src === item.querySelector("img").src) === index);
         showArt(gallery.findIndex(item => item.querySelector("img").src === button.querySelector("img").src));
         aboutArtDialog.showModal();

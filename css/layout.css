@@ -1,3 +1,15 @@
+/* Preview playback controls stay alongside their content. */
+#ai-projects .ai-lab-section-heading { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
+.preview-motion-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 10px; margin: 0; cursor: pointer; flex-shrink: 0; }
+.preview-motion-toggle img { display: block; width: 24px; height: 24px; }
+.preview-motion-toggle:focus-visible { outline: 2px solid var(--accent-green); outline-offset: 4px; }
+.lab-desk-project { position: relative; }
+.lab-desk-project .home-game-motion-toggle { position: absolute; right: 12px; bottom: 12px; z-index: 3; border-radius: 50%; }
+@media (max-width: 620px) {
+  #ai-projects .ai-lab-section-heading { grid-template-columns: minmax(0, 1fr) auto; }
+  #ai-projects .ai-lab-section-heading > span { grid-column: 1 / -1; }
+}
+
 /* One outer grid across pages. Full-bleed backgrounds retain aligned content. */
 body .site-header,
 body .site-footer {
@@ -10,9 +22,55 @@ body :is(.section, .page-pad, .home-section, .hero-testimonial-feed,
 }
 body :is(.ai-lab-jump, .ai-lab-section) { padding-inline: 0; }
 
-/* Internal pages use the persistent site navigation and section navigation. */
-body .page-back-wrap,
+/* Internal pages keep one history-aware Back control above section navigation. */
+body {
+  --page-header-height: 96px;
+  --page-back-gap: 40px;
+  --page-back-top: calc(var(--page-header-height) + var(--page-back-gap));
+}
+body .page-back-wrap[hidden],
 body .page .back-link { display: none !important; }
+body .page-back-wrap:not([hidden]) { display: flex; }
+#main-content > .page-back-wrap {
+  position: static;
+  width: var(--container-page);
+  margin: 0 auto;
+  padding-top: var(--page-back-top);
+}
+#main-content .page .case-sidebar-inner > .page-back-wrap {
+  position: static;
+  margin: 0 0 var(--space-4);
+  width: 100%;
+  flex: 0 0 100%;
+}
+#main-content .page .case-sidebar-inner > .page-back-wrap .page-back {
+  min-height: 44px;
+}
+#main-content .page .case-study[class] .case-sidebar .case-sidebar-inner {
+  top: var(--page-back-top);
+  padding-top: 0;
+}
+body.has-scrolled-nav #main-content .page .case-study[class] .case-sidebar .case-sidebar-inner {
+  top: calc(72px + var(--page-back-gap));
+}
+@media (min-width: 1001px) {
+  #main-content .page .case-study[class] { padding-top: var(--page-header-height); }
+  #main-content .page .case-study[class] .case-sidebar { padding-top: var(--page-back-gap); }
+  #main-content .page .case-study[class] .case-study-content > .case-section:first-child { padding-top: var(--page-back-gap); }
+}
+@media (max-width: 1000px) {
+  #main-content .page .case-sidebar-inner { flex-wrap: wrap; }
+  #main-content .page .case-study[class] { padding-top: var(--page-back-top); }
+  #main-content .page .case-study[class] .case-sidebar { top: var(--page-back-top); padding-top: 0; }
+  #main-content .page .case-study[class] .case-sidebar .case-sidebar-inner,
+  body.has-scrolled-nav #main-content .page .case-study[class] .case-sidebar .case-sidebar-inner { top: auto; }
+}
+@media (max-width: 980px) {
+  body { --page-header-height: 82px; }
+}
+@media (max-width: 620px) {
+  body { --page-header-height: 80px; }
+}
 body .writing-hero {
   width: 100%;
   padding-inline: var(--page-edge);
@@ -46,12 +104,6 @@ body :is(.article-body, .article-footer) { width: var(--container-article); }
   #main-content .page .case-study[class] .case-study-shell { column-gap: 0; }
 }
 
-/* Keep the same secondary navigation position on every non-home page. */
-body[data-current-page^="case-"] .site-header .header-brand-controls .page-back-wrap,
-body[data-current-page="article"] .site-header .header-brand-controls .page-back-wrap {
-  position: static;
-  margin-left: var(--space-4);
-}
 body .case-page.page-pad { max-width: none; }
 @media (min-width: 801px) {
   body .ai-lab-hero .ai-lab-hero-copy { left: var(--page-edge); }
@@ -62,7 +114,7 @@ body .case-page.page-pad { max-width: none; }
 
 /* Shared project and article card interactions, matching AI project cards. */
 :is(.ai-project-grid .ai-project-card, .work-page .selected-project,
-    #selected-work .featured-work-card, .article-card,
+    :is(#selected-work, .work-page) .featured-work-card, .article-card,
     .home-section.writing-preview .writing-list article) {
   border: 1px solid rgba(104, 112, 105, 0.16);
   border-radius: var(--radius-card);
@@ -72,19 +124,19 @@ body .case-page.page-pad { max-width: none; }
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 :is(.ai-project-grid .ai-project-card, .work-page .selected-project,
-    #selected-work .featured-work-card, .article-card,
+    :is(#selected-work, .work-page) .featured-work-card, .article-card,
     .home-section.writing-preview .writing-list article):is(:hover, :focus-within) {
   transform: translateY(-4px) scale(1.01);
   border-color: rgba(54, 84, 68, 0.38);
   box-shadow: 0 16px 36px rgba(54, 84, 68, 0.12);
 }
 :is(.ai-project-grid .ai-project-card, .work-page .selected-project,
-    #selected-work .featured-work-card, .article-card,
+    :is(#selected-work, .work-page) .featured-work-card, .article-card,
     .writing-preview-card-link):focus-visible {
   outline: 2px solid var(--accent-green);
   outline-offset: 4px;
 }
-#selected-work .featured-work-card:is(:hover, :focus-visible) .featured-work-link {
+:is(#selected-work, .work-page) .featured-work-card:is(:hover, :focus-visible) .featured-work-link {
   text-decoration: none;
 }
 .work-page .selected-project:is(:hover, :focus-visible) .project-card-cue {
@@ -92,17 +144,17 @@ body .case-page.page-pad { max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   :is(.ai-project-grid .ai-project-card, .work-page .selected-project,
-      #selected-work .featured-work-card, .article-card,
+      :is(#selected-work, .work-page) .featured-work-card, .article-card,
       .home-section.writing-preview .writing-list article) { transition: none; }
   :is(.ai-project-grid .ai-project-card, .work-page .selected-project,
-      #selected-work .featured-work-card, .article-card,
+      :is(#selected-work, .work-page) .featured-work-card, .article-card,
       .home-section.writing-preview .writing-list article):is(:hover, :focus-within) { transform: none; }
 }
 
 /* Card actions follow the writing cards: right-aligned text with a direction icon. */
 body .ai-project-grid .ai-card-copy > .project-card-cue,
 body .work-page .selected-project-copy > .project-card-cue,
-body #selected-work .featured-work-copy > .featured-work-link,
+body :is(#selected-work, .work-page) .featured-work-copy > .featured-work-link,
 body .home-section.writing-preview .writing-list-copy > .writing-card-action,
 body .article-card .article-card-copy > .article-card-action {
   display: inline-flex;
@@ -187,7 +239,7 @@ body[data-current-page="ai-lab"] .site-header.is-scrolled .nav-link:is(:hover, :
   }
 }
 @media (max-width: 1000px) {
-  body.has-scrolled-nav #main-content .page .case-study[class] .case-sidebar { top: 84px; }
+  body.has-scrolled-nav #main-content .page .case-study[class] .case-sidebar { top: calc(72px + var(--page-back-gap)); }
   body #main-content .page .case-study[class] .case-section { scroll-margin-top: 88px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -230,23 +282,23 @@ body[data-current-page="ai-lab"] .site-header.is-scrolled::before { display: blo
 }
 
 /* Square Featured Work tiles, with room for their text at narrow widths. */
-#selected-work .featured-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-#selected-work .featured-work-card { aspect-ratio: 1; }
-#selected-work .featured-work-media { flex: 1 1 0; min-height: 130px; aspect-ratio: auto; }
-#selected-work .featured-work-copy { flex: 0 0 auto; width: 100%; }
-#selected-work .featured-work-tags { min-height: 0; margin: 0 0 var(--space-4); }
+:is(#selected-work, .work-page) .featured-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+:is(#selected-work, .work-page) .featured-work-card { aspect-ratio: auto; }
+:is(#selected-work, .work-page) .featured-work-media { flex: none; min-height: 0; aspect-ratio: 16 / 10; }
+:is(#selected-work, .work-page) .featured-work-copy { flex: 0 0 auto; width: 100%; }
+:is(#selected-work, .work-page) .featured-work-tags { min-height: 0; margin: 0 0 var(--space-4); }
 @media (max-width: 600px) {
-  #selected-work .featured-work-grid { grid-template-columns: minmax(0, 1fr); }
+  :is(#selected-work, .work-page) .featured-work-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 1000px) {
-  #selected-work .featured-work-card { aspect-ratio: auto; }
-  #selected-work .featured-work-media { flex: none; aspect-ratio: 16 / 10; }
-  #selected-work .featured-work-copy { flex: 1; }
+  :is(#selected-work, .work-page) .featured-work-card { aspect-ratio: auto; }
+  :is(#selected-work, .work-page) .featured-work-media { flex: none; aspect-ratio: 16 / 10; }
+  :is(#selected-work, .work-page) .featured-work-copy { flex: 1; }
 }
 
 /* Fill card media frames consistently, cropping around their center. */
-#selected-work .featured-work-media { position: relative; }
-#selected-work .featured-work-media img {
+:is(#selected-work, .work-page) .featured-work-media { position: relative; }
+:is(#selected-work, .work-page) .featured-work-media img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -264,7 +316,23 @@ body[data-current-page="ai-lab"] .site-header.is-scrolled::before { display: blo
 }
 .ai-project-card .project-video-card video { object-fit: cover; }
 .ai-project-card .project-video-card--mindle video { object-position: center top; }
-#selected-work .featured-work-media img[src*="archived-revised-landing"] { object-position: left center; }
+:is(#selected-work, .work-page) .featured-work-media img[src*="archived-revised-landing"] { object-position: 50% 45%; }
+:is(#selected-work, .work-page) .featured-work-media img[src*="figma-dashboard-focus"],
+:is(#selected-work, .work-page) .featured-work-media img[src*="redesign-overview"] { object-position: center; }
+:is(#selected-work, .work-page) .featured-work-media img[src*="website-overview"] { object-position: 50% 45%; transform: scale(1.45); }
+:is(#selected-work, .work-page) .featured-work-media img[src*="live-rooftop"] { object-position: 50% 35%; }
+
+/* Keep these interface screenshots fully visible inside the existing card frame. */
+:is(#selected-work, .work-page) .featured-work-card:is([data-page="case-ruhl"], [data-page="case-trial"], [data-page="case-azhartt"]) .featured-work-media img {
+  box-sizing: border-box;
+  padding: clamp(10px, 2vw, 20px);
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
+:is(#selected-work, .work-page) .featured-work-card[data-page="case-ruhl"] .featured-work-media { background: #101212; }
+:is(#selected-work, .work-page) .featured-work-card[data-page="case-trial"] .featured-work-media { background: #e9eff2; }
+:is(#selected-work, .work-page) .featured-work-card[data-page="case-azhartt"] .featured-work-media { background: #fff; }
 
 /* Compact workshop navigation and details. */
 #ai-workshops.ai-workshop-series {
