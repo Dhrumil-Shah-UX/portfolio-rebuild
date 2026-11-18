@@ -217,8 +217,8 @@ img {
   position: relative;
   display: grid;
   place-items: center;
-  height: 100vh;
-  min-height: 100vh;
+  height: 90vh;
+  min-height: 90vh;
   overflow: hidden;
   padding: clamp(8rem, 16vh, 12rem) clamp(1.25rem, 5vw, 4rem) clamp(4rem, 10vh, 7rem);
   background: var(--bg) url("../assets/images/home/hero-background.png") center / cover no-repeat;
@@ -385,13 +385,21 @@ img {
 }
 
 .hero-chip {
+  position: relative;
+  isolation: isolate;
   margin: 1.7rem 0 0;
-  padding: 0.65rem 1.15rem;
-  border: 1px solid rgba(213, 209, 200, 0.82);
-  border-radius: 999px;
-  background: rgba(232, 228, 218, 0.58);
+  padding: 0.3rem 0.65rem;
   color: var(--text-secondary);
   font-size: clamp(0.9rem, 1.2vw, 1rem);
+}
+.hero-chip::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 18% -0.15rem 12%;
+  background: rgba(199, 173, 104, 0.24);
+  clip-path: polygon(1% 12%, 99% 0, 98.5% 87%, 0 100%, 0.8% 56%);
+  transform: rotate(-0.6deg);
 }
 
 .hero-actions {
@@ -3932,15 +3940,20 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
 
 .footer-belief-title {
   margin: 0;
-  font-size: clamp(1.65rem, 3vw, 2.35rem);
-  font-weight: 700;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--type-caption);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   line-height: 1;
 }
 
 .footer-belief-copy {
-  margin: 0.3rem 0 0;
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
-  line-height: 1.35;
+  margin: 0.55rem 0 0;
+  color: var(--accent-green);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.2;
 }
 
 .footer-logo {
@@ -5451,12 +5464,15 @@ dd,
   list-style: none;
 }
 :is(#selected-work, .work-page) .featured-work-tags li {
-  padding: var(--space-1) var(--space-2);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
+  padding: 0;
+  font-style: italic;
   color: var(--text-secondary);
   font-size: var(--type-caption);
   line-height: 1.4;
+}
+:is(#selected-work, .work-page) .featured-work-tags li + li::before {
+  content: '\00b7';
+  margin-right: var(--space-2);
 }
 :is(#selected-work, .work-page) .featured-work-link {
   color: var(--accent-green);

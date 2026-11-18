@@ -1,4 +1,4 @@
-let pages = [];
+﻿let pages = [];
 const navLinks = [...document.querySelectorAll(".nav-link")];
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav-links");
@@ -847,7 +847,7 @@ function bootstrapApp() {
         role: "Co-designed and co-hosted",
         audience: "Designers, product teams, and curious builders",
         attendance: 68,
-        taught: "My AI workflow across design and build, with a live demo from a ChatGPT idea to a working interaction in Cursor.",
+        taught: "My AI workflow across design and implementation, including a live demonstration of LLM-supported concept development and implementation in Cursor.",
         artifacts: "FigJam board, live demo, and workflow examples.",
         takeaways: ["Understand AI fundamentals and where its limits are.", "Build an intentional workflow instead of copying prompts.", "Explore how AI can support everyday design work."],
         visual: "/assets/images/workshops/ws1.png"
@@ -926,7 +926,7 @@ function bootstrapApp() {
       });
       workshopTitle.textContent = workshop.title;
       fields.kicker.textContent = `Workshop ${String(index + 1).padStart(2, "0")}`;
-      fields.attendance.textContent = `${workshop.attendance} joined`;
+      fields.attendance.textContent = `${workshop.attendance} attended`;
       fields.summary.textContent = workshop.summary;
       fields.takeaways.forEach((item, itemIndex) => { item.textContent = workshop.takeaways[itemIndex] || ""; });
       fields.taught.textContent = workshop.taught;
@@ -1220,3 +1220,5 @@ const pagesReady = window.portfolioPagesReady || Promise.resolve();
 pagesReady.then(bootstrapApp).catch((error) => {
   console.error("Failed to load page content:", error);
 });
+
+

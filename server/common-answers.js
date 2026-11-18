@@ -1,4 +1,4 @@
-// Maintain curated recruiter answers, accepted phrasings, citations and follow-ups here.
+﻿// Maintain curated recruiter answers, accepted phrasings, citations and follow-ups here.
 // Patterns are complete phrases, never keywords or fuzzy substring matches.
 const link = (title, url) => ({ title, url, description: title });
 const trial = link('TrialBridge', '#case-trial');
@@ -69,8 +69,8 @@ const entries = [
   },
   {
     id: 'virtual-showroom', canonicalQuestion: 'What is the Virtual Showroom?',
-    patterns: ['Tell me about the Virtual Showroom', 'What is RUHL’s Virtual Showroom?', 'What is the 200 Water showroom?'],
-    answer: 'The Virtual Showroom is an interactive 3D rooftop experience created for RUHL’s 200 Water project. Users can explore rooftop systems and equipment inside a dedicated Three.js environment instead of relying only on static property content.',
+    patterns: ['Tell me about the Virtual Showroom', 'What is RUHL’s Virtual Showroom?', 'What is the Interactive Rooftop Showroom?'],
+    answer: 'The Interactive Rooftop Showroom is an interactive 3D rooftop experience created for RUHL. Users can explore rooftop systems and equipment inside a dedicated Three.js environment instead of relying only on static property content.',
     evidence: [showroom], followUps: ['technical-skills', 'project-ownership'], tags: ['showroom', 'technical'], intent: 'project-overview'
   },
   {
@@ -106,7 +106,7 @@ const entries = [
   {
     id: 'tools', canonicalQuestion: 'What tools does Dhrumil use?',
     patterns: ['What tools does he use?', 'What is his design toolkit?', 'What design tools do you use?'],
-    answer: 'His design toolkit includes Figma and Adobe tools, alongside frontend technologies such as HTML/CSS/JavaScript, React/Next.js, Three.js, Supabase, Vercel, and Cloudflare. His AI workflow includes tools such as ChatGPT and Cursor.',
+    answer: 'His design toolkit includes Figma and Adobe tools, alongside frontend technologies such as HTML/CSS/JavaScript, React/Next.js, Three.js, Supabase, Vercel, and Cloudflare. His AI workflow includes LLM-supported ideation and tools such as Cursor.',
     evidence: [link('Mindle', '#case-mindle'), showroom, ai], followUps: ['technical-skills', 'ai-workflow'], tags: ['tools', 'skills'], intent: 'tools'
   },
   {
@@ -142,3 +142,4 @@ function commonResponse(entry) {
   };
 }
 module.exports = { entries, normalizeQuestion, matchCommonAnswer, commonResponse };
+

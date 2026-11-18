@@ -55,7 +55,7 @@ function pageData() {
   for (const [id, page] of Object.entries(pages)) {
     page.image ||= config.defaultImage;
     page.image = imageVariants[page.image] || page.image;
-    page.imageAlt = page.article ? page.title.replace(' | Dhrumil Shah', '') : id === 'about' ? 'Dhrumil Shah outdoors by the water' : id === 'home' || id === 'work' || id === 'contact' || id === 'case-showroom' ? '200 Water Street Virtual Showroom on a desktop monitor' : page.title.replace(' | Dhrumil Shah', '') + ' project preview';
+    page.imageAlt = page.article ? page.title.replace(' | Dhrumil Shah', '') : id === 'about' ? 'Dhrumil Shah outdoors by the water' : id === 'home' || id === 'work' || id === 'contact' || id === 'case-showroom' ? 'Interactive Rooftop Showroom on a desktop monitor' : page.title.replace(' | Dhrumil Shah', '') + ' project preview';
     page.imageSize = imageDimensions(page.image);
     const parent = page.article ? 'writing' : id.startsWith('case-') ? ['case-mindle', 'case-perspective', 'case-space-shooter'].includes(id) ? 'ai-lab' : 'work' : null;
     const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin + '/' }];
@@ -80,6 +80,8 @@ function routeId(id, data = pageData()) {
   return Object.hasOwn(data.pages, id) ? id : null;
 }
 function rewriteHTML(html, { hidden = false, id = '', data = pageData() } = {}) {
+  // A fragment BOM becomes body text when embedded in the static page.
+  html = html.replace(/\uFEFF/g, '');
   // Resolve assets from nested routes without a <base> that would break fragments.
   html = html.replace(/\b(src|href|poster|action)=(['"])((?:assets|css|js|pages)\/[^'"]*)\2/g, '$1=$2/$3$2');
   html = html.replace(/\b(src|poster)=(['"])(\/assets\/[^'"]+)\2/g, (match, attribute, quote, src) => {
