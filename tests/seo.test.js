@@ -11,6 +11,10 @@ before(async () => {
 });
 after(() => new Promise(resolve => server.close(resolve)));
 const pages = seo.pageData().pages;
+test('production SEO configuration uses the custom canonical domain', () => {
+  assert.equal(require('../config/seo.json').origin, 'https://dhrumilworks.com');
+  assert.equal(Object.keys(pages).length, 19);
+});
 for (const [id, page] of Object.entries(pages)) {
   test('crawlable HTML, metadata and assets: ' + page.path, async () => {
     const response = await fetch(origin + page.path);
