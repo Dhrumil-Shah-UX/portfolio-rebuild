@@ -337,10 +337,12 @@
 
   .site-footer {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 2.25rem 6vw;
+    row-gap: 1rem;
+    padding-block: 1.5rem;
     text-align: center;
   }
+
+  .footer-belief { grid-column: 1; }
 
   .footer-brand,
   .footer-contact,
@@ -960,7 +962,7 @@
   .ai-lab-hero .ai-lab-section.ai-lab-process {
     position: relative;
     inset: auto;
-    height: 500px;
+    height: 190px;
     min-height: 0;
     margin: 1.5rem 0 0;
     pointer-events: auto;
@@ -970,7 +972,7 @@
     position: relative;
     inset: auto;
     height: 100%;
-    padding: 21rem 1rem 1rem;
+    padding: 1rem 1rem 2rem;
     overflow-x: auto;
     overflow-y: visible;
     scrollbar-width: thin;
@@ -1012,11 +1014,14 @@
     left: 0;
     right: auto;
     width: 19rem;
-    max-width: calc(100vw - 2rem);
+    max-width: calc(100vw - 2 * var(--page-gutter) - 2rem);
     transform: translate(0, 0.5rem);
   }
   .ai-lab-hero .ai-process-phase:nth-child(n+5) .ai-process-tooltip { left: auto; right: 0; }
   .ai-lab-hero .ai-process-tooltip li { padding: 0.85rem 1.1rem; font-size: 1.05rem; }
+  .ai-lab-hero.has-process-interaction .ai-lab-section.ai-lab-process { height: 500px; }
+  .ai-lab-hero.has-process-interaction .ai-process-scroll { padding-top: 21rem; }
+  .ai-lab-hero .ai-process-motion-toggle { position: static; margin-top: 1rem; }
   .ai-lab-hero .ai-process-phase:nth-child(n):is(.is-active, :hover, :focus-within):not([data-dismissed]) .ai-process-tooltip { transform: translate(0, 0); }
 }
 @media (prefers-reduced-motion: reduce) {

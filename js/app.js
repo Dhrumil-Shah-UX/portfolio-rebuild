@@ -35,6 +35,11 @@ if (headerLogo) {
   headerControls.append(headerLogo);
 }
 pageRoot?.setAttribute("tabindex", "-1");
+document.querySelector('.skip-link')?.addEventListener('click', event => {
+  event.preventDefault();
+  pageRoot?.focus({ preventScroll: true });
+  pageRoot?.scrollIntoView({ behavior: 'auto', block: 'start' });
+});
 const pageBackButton = pageBackWrap.querySelector("button");
 let portfolioHistoryDepth = history.state?.portfolioDepth || 0;
 history.replaceState({ ...history.state, portfolioDepth: portfolioHistoryDepth }, "", location.href);
@@ -89,6 +94,8 @@ function showPage(pageName, scrollTargetId = "", { historyMode = "push" } = {}) 
     const scrollTarget = scrollTargetId ? document.getElementById(scrollTargetId) : null;
     if (scrollTarget) {
       scrollTarget.scrollIntoView({ behavior: "auto", block: "start" });
+      scrollTarget.setAttribute('tabindex', '-1');
+      scrollTarget.focus({ preventScroll: true });
       initBackToTopObserver();
       if (nextPage === "writing") {
         ensureVisibleNoteBook();
@@ -398,7 +405,8 @@ function initGameVideos() {
     let paused = reducedMotion.matches;
     const update = () => {
       control.innerHTML = `<img src="assets/icons/${paused ? 'play' : 'pause'}.svg" alt="" width="24" height="24">`;
-      control.setAttribute('aria-label', paused ? 'Play project video previews' : 'Pause project video previews');
+      control.setAttribute('aria-label', paused ? 'Play preview videos' : 'Pause preview videos');
+      control.dataset.previewLabel = paused ? 'Play preview' : 'Pause preview';
     };
     control.addEventListener('click', () => {
       paused = !paused;
@@ -429,7 +437,8 @@ function initGameVideos() {
     const update = () => {
       const paused = video.paused;
       control.innerHTML = `<img src="assets/icons/${paused ? 'play' : 'pause'}.svg" alt="" width="24" height="24">`;
-      control.setAttribute('aria-label', paused ? 'Play game preview' : 'Pause game preview');
+      control.setAttribute('aria-label', paused ? 'Play preview' : 'Pause preview');
+      control.dataset.previewLabel = paused ? 'Play preview' : 'Pause preview';
     };
     control.addEventListener('click', () => {
       if (video.paused) { delete video.dataset.userPaused; video.play().catch(() => {}); }
@@ -784,12 +793,37 @@ function bootstrapApp() {
   }
 
   const processPhases = [...document.querySelectorAll(".ai-process-phase")];
+  const processHero = document.querySelector('.ai-lab-hero');
+  if (processHero) {
+    const motionControl = document.createElement('button');
+    motionControl.type = 'button';
+    motionControl.className = 'ai-process-motion-toggle';
+    motionControl.textContent = 'Pause animation';
+    motionControl.setAttribute('aria-pressed', 'false');
+    motionControl.addEventListener('click', () => {
+      const paused = processHero.classList.toggle('is-motion-paused');
+      motionControl.textContent = paused ? 'Play animation' : 'Pause animation';
+      motionControl.setAttribute('aria-pressed', String(paused));
+    });
+    processHero.append(motionControl);
+  }
   processPhases.forEach((phase) => {
     const hero = phase.closest(".ai-lab-hero");
     const activate = () => {
       processPhases.forEach((item) => item.classList.toggle("is-active", item === phase));
       hero?.classList.add("has-process-interaction");
       delete phase.dataset.dismissed;
+      if (hero && matchMedia('(max-width: 980px)').matches) {
+        requestAnimationFrame(() => {
+          const scroller = phase.closest('.ai-process-scroll');
+          const tooltip = phase.querySelector('.ai-process-tooltip');
+          if (!scroller || !tooltip) return;
+          const viewport = scroller.getBoundingClientRect();
+          const bounds = tooltip.getBoundingClientRect();
+          if (bounds.right > viewport.right - 16) scroller.scrollLeft += bounds.right - viewport.right + 16;
+          else if (bounds.left < viewport.left + 16) scroller.scrollLeft -= viewport.left + 16 - bounds.left;
+        });
+      }
     };
     phase.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
@@ -1120,11 +1154,10 @@ function bootstrapApp() {
       event.preventDefault();
       const button = form.querySelector("button");
       const originalText = button.textContent;
-      button.textContent = "Message ready";
-      form.querySelector('[role="status"]').textContent = "Message ready.";
+      button.textContent = "Email to contact";
+      form.querySelector('[role="status"]').textContent = "This form cannot send messages yet. Please email dhrumilshah09@outlook.com. Your entries have been kept so you can copy them.";
       setTimeout(() => {
         button.textContent = originalText;
-        form.reset();
       }, 1400);
     });
   }

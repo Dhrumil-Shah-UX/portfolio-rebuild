@@ -29,3 +29,7 @@
   .experience-community { grid-template-columns: 1fr; gap: 1rem; }
   .experience-community > div { border-left: 0; padding-left: 0; }
 }
+@media (max-width: 400px) {
+  .experience-timeline li { grid-template-columns: minmax(0, 1fr); }
+  .experience-timeline li > span { padding: 0 0 .5rem 1.3rem; }
+}

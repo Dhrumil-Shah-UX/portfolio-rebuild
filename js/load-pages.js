@@ -33,7 +33,7 @@
       const template = document.createElement('template');
       template.innerHTML = sections.join("");
       // Inactive media must not compete with the statically rendered entry page.
-      template.content.querySelectorAll('video source[src]').forEach(source => {
+      template.content.querySelectorAll('video:not(.hero-video) source[src]').forEach(source => {
         source.dataset.src = source.getAttribute('src');
         source.removeAttribute('src');
       });
