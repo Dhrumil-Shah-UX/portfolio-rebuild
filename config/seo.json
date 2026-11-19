@@ -49,12 +49,14 @@
                                      "image":  "/assets/images/work/trialbridge-card.png"
                                  },
                   "case-showroom":  {
+                                        "temporarilyHidden": true,
                                         "path":  "/work/virtual-showroom",
                                         "title":  "Rooftop Showroom | Dhrumil Shah",
                                         "description":  "Designing and developing an interactive 3D rooftop HVAC showroom: camera navigation, equipment exploration, responsive interaction, accessibility, and performance.",
                                         "image":  "/assets/images/work/work-showroom.webp"
                                     },
                   "case-ruhl":  {
+                                    "temporarilyHidden": true,
                                     "path":  "/work/ruhl-ai",
                                     "title":  "RUHL AI | Dhrumil Shah",
                                     "description":  "A property-search UX and website redevelopment case study covering stakeholder collaboration, Wix Studio implementation, and an interactive particle demo.",

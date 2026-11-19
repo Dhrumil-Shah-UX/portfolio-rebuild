@@ -47,6 +47,7 @@
     const page = data.pages[route(id)];
     if (!page) return;
     document.title = page.title;
+    document.querySelector('meta[name="robots"]')?.setAttribute('content', page.temporarilyHidden ? 'noindex,follow' : 'index,follow,max-image-preview:large');
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = data.origin + page.path;
     const values = { description: page.description, 'og:title': page.title, 'og:description': page.description, 'og:url': data.origin + page.path, 'og:image': data.origin + page.image, 'og:image:alt': page.imageAlt, 'og:image:width': page.imageSize?.[0], 'og:image:height': page.imageSize?.[1], 'og:type': page.article ? 'article' : 'website', 'twitter:title': page.title, 'twitter:description': page.description, 'twitter:image': data.origin + page.image, 'twitter:image:alt': page.imageAlt };
@@ -55,7 +56,10 @@
     if (structuredData && page.structuredData) structuredData.textContent = JSON.stringify(page.structuredData);
   }
   function normalizeLinks(root = document) {
-    root.querySelectorAll('a[data-page]').forEach(link => link.setAttribute('href', url(link.dataset.page, link.dataset.scrollTarget || '')));
+    root.querySelectorAll('a[data-page]').forEach(link => {
+      if (data.pages[link.dataset.page]?.temporarilyHidden) { link.remove(); return; }
+      link.setAttribute('href', url(link.dataset.page, link.dataset.scrollTarget || ''));
+    });
   }
   window.PortfolioSEO = { ...data, route, url, readLocation, update, normalizeLinks };
   // Upgrade legacy links from assistant responses without changing their behavior.

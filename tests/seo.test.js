@@ -11,6 +11,17 @@ before(async () => {
 });
 after(() => new Promise(resolve => server.close(resolve)));
 const pages = seo.pageData().pages;
+test('temporarily hidden case studies stay accessible but are not promoted or indexed', () => {
+  for (const id of ['case-ruhl', 'case-showroom']) {
+    assert.ok(seo.renderPage(id).includes('<meta name="robots" content="noindex,follow">'));
+    assert.ok(!seo.sitemap().includes(pages[id].path));
+    for (const listing of ['home', 'work']) {
+      assert.ok(!seo.renderFragment(listing).includes(`data-page="${id}"`));
+    }
+  }
+  assert.ok(seo.renderPage('case-trial').includes('content="index,follow,max-image-preview:large"'));
+  assert.ok(seo.renderFragment('work').includes('data-page="case-trial"'));
+});
 test('production SEO configuration uses the custom canonical domain', () => {
   assert.equal(require('../config/seo.json').origin, 'https://dhrumilworks.com');
   assert.equal(Object.keys(pages).length, 19);
@@ -51,7 +62,7 @@ test('unique titles, descriptions, paths and complete sitemap', async () => {
   for (const field of ['title', 'description', 'path']) assert.equal(new Set(Object.values(pages).map(page => page[field])).size, Object.keys(pages).length);
   const sitemap = await (await fetch(origin + '/sitemap.xml')).text();
   const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
-  assert.deepEqual(locations.sort(), Object.values(pages).map(page => seo.getOrigin() + page.path).sort());
+  assert.deepEqual(locations.sort(), Object.values(pages).filter(page => !page.temporarilyHidden).map(page => seo.getOrigin() + page.path).sort());
   const robots = await (await fetch(origin + '/robots.txt')).text();
   assert.ok(robots.includes('Sitemap: ' + seo.getOrigin() + '/sitemap.xml'));
   assert.ok(!robots.includes('Disallow: /\n'));

@@ -135,6 +135,9 @@ function renderFragment(id, { hidden = false } = {}) {
   const entry = manifest.pages.find(page => page.id === (id.startsWith('writing/') ? 'article' : id));
   if (!entry) throw new Error('Unknown page: ' + id);
   let html = fs.readFileSync(path.join(root, 'pages', entry.file), 'utf8');
+  // Keep card source intact so temporarily paused projects are easy to restore.
+  html = html.replace(/<a\b[^>]*\bdata-page="([^"]+)"[^>]*>[\s\S]*?<\/a>/g,
+    (card, target) => data.pages[target]?.temporarilyHidden ? '' : card);
   html = html.replace(/class="page\b([^"]*)"/, (_, classes) => `class="page${classes.replace(/\bis-visible\b/g, '').trimEnd()}${hidden ? '' : ' is-visible'}"`);
   if (id.startsWith('writing/')) html = renderArticle(articles.find(article => 'writing/' + article.slug === id), html);
   if (id === 'writing') {
@@ -155,7 +158,7 @@ function renderPage(id) {
   shell = rewriteHTML(shell, { id: 'shell', data });
   const meta = `<meta name="description" content="${escape(page.description)}">
     <meta name="author" content="${escape(config.name)}">
-    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="robots" content="${page.temporarilyHidden ? 'noindex,follow' : 'index,follow,max-image-preview:large'}">
     <link rel="canonical" href="${data.origin + page.path}">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="${escape(data.siteName)}">
@@ -181,7 +184,7 @@ function renderPage(id) {
 }
 function sitemap() {
   const data = pageData();
-  return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + Object.values(data.pages).map(page => `  <url><loc>${escape(data.origin + page.path)}</loc></url>`).join('\n') + '\n</urlset>\n';
+  return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + Object.values(data.pages).filter(page => !page.temporarilyHidden).map(page => `  <url><loc>${escape(data.origin + page.path)}</loc></url>`).join('\n') + '\n</urlset>\n';
 }
 function robots() { return `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${getOrigin()}/sitemap.xml\n`; }
 function rewriteCSS(css) {
