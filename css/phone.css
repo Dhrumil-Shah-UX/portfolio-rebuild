@@ -1,0 +1,221 @@
+.case-section-toggle { display: none; }
+
+/* Match the phone layout without entering the tablet breakpoint. */
+@media (width < 768px),
+       (768px <= width <= 980px) and (height < 600px) and (pointer: coarse) and (any-hover: none) {
+  .site-header .menu-toggle {
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .site-header .menu-toggle > .menu-toggle-label { display: none; }
+  .site-header .menu-toggle .ui-icon { width: 20px; height: 20px; }
+
+  #main-content:has(> [data-page-view="article"].is-visible) > .page-back-wrap {
+    padding-top: calc(var(--page-header-height) + var(--space-6));
+  }
+
+  body .article-hero { padding-top: var(--space-6); }
+  body .article-hero .article-header { padding-block: var(--space-8); }
+
+  body .contact-copy h2 {
+    margin-top: var(--space-8);
+    font-size: var(--type-heading-lg);
+  }
+
+  .contact-info {
+    --contact-icon-size: 32px;
+    --contact-icon-gap: 10px;
+    gap: var(--contact-icon-gap);
+    padding-inline: 12px;
+  }
+
+  .contact-info img {
+    flex: 0 0 var(--contact-icon-size);
+    width: var(--contact-icon-size);
+    height: var(--contact-icon-size);
+  }
+
+  .contact-info--phone {
+    padding-inline-start: calc(12px + var(--contact-icon-size) + var(--contact-icon-gap));
+  }
+
+  .contact-page .social-buttons a { width: 44px; height: 44px; }
+
+  html body #main-content .page .case-study[class],
+  #main-content [data-page-view="case-diaries"] .case-page {
+    padding-top: calc(var(--page-header-height) + var(--space-6));
+  }
+
+  html body #main-content .page .case-study[class] .case-study-content > :is(.case-section, section[id]) {
+    padding-inline: 0;
+    scroll-margin-top: var(--space-2);
+  }
+
+  html body #main-content .page .case-study[class] .case-study-content > section:first-child {
+    padding-top: var(--space-4);
+  }
+
+  body:has(.page.is-visible .case-sidebar) {
+    --phone-dock-edge: max(12px, env(safe-area-inset-left));
+    --phone-dock-end: max(12px, env(safe-area-inset-right));
+    --phone-dock-bottom: max(12px, env(safe-area-inset-bottom));
+    --phone-dock-height: 60px;
+  }
+
+  html body #main-content .page :is(.case-study[class], .case-page[class]) .case-sidebar,
+  html body.has-scrolled-nav #main-content .page .case-study[class] .case-sidebar {
+    position: fixed;
+    inset: auto auto var(--phone-dock-bottom) var(--phone-dock-edge);
+    z-index: 45;
+    display: block;
+    width: min(18rem, calc(100% - var(--phone-dock-edge) - var(--phone-dock-end) - 52px));
+    height: var(--phone-dock-height);
+    max-height: none;
+    margin: 0;
+    padding: 7px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+    background: var(--surface);
+    box-shadow: 0 6px 24px rgba(23, 34, 28, 0.14);
+    transform: none;
+  }
+
+  html body #main-content .page :is(.case-study[class], .case-page[class]) .case-sidebar-inner {
+    position: static;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0;
+  }
+
+  #main-content .page .case-sidebar-inner > p { display: none; }
+
+  html body #main-content .page .case-sidebar-inner > .page-back-wrap {
+    flex: 0 0 auto;
+    width: auto;
+    margin: 0;
+  }
+
+  #main-content .case-sidebar-inner .page-back {
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+    color: var(--text-primary);
+    font-size: 0;
+  }
+
+  #main-content .case-sidebar-inner .page-back-icon { width: 20px; height: 20px; }
+
+  .case-section-toggle {
+    display: flex;
+    flex: 1;
+    min-height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-inline: var(--space-4);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+    background: var(--surface);
+    color: var(--text-primary);
+    font: 600 0.9375rem/1.2 var(--font-sans);
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  .case-section-toggle .ui-icon { transform: rotate(90deg); }
+  .case-section-toggle[aria-expanded="true"] .ui-icon { transform: rotate(-90deg); }
+
+  html body #main-content .page :is(.case-study[class], .case-page[class]) .case-sidebar nav {
+    position: absolute;
+    inset: auto 0 calc(100% + 8px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    max-height: max(44px, calc(100dvh - var(--phone-dock-bottom) - var(--phone-dock-height) - 88px));
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: 8px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 6px 24px rgba(23, 34, 28, 0.14);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  html body #main-content .page :is(.case-study[class], .case-page[class]) .case-sidebar
+    .case-section-toggle[aria-expanded="true"] + nav {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  html body #main-content .page :is(.case-study[class], .case-page[class]) .case-sidebar nav a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: var(--text-primary);
+    font: 600 1rem/1.25 var(--font-sans);
+    white-space: normal;
+    transform: none;
+  }
+
+  html body #main-content .page :is(.case-study[class], .case-page[class]) .case-sidebar nav a[aria-current="true"] {
+    background: var(--surface-sage);
+  }
+
+  #main-content .page .case-sidebar a[aria-current="true"]::before { content: none; }
+
+  body:has(.page.is-visible .case-sidebar) .site-footer {
+    padding-bottom: calc(var(--space-8) + var(--phone-dock-height) + var(--phone-dock-bottom));
+  }
+
+  body:has(.page.is-visible .case-sidebar) .back-to-top {
+    right: var(--phone-dock-end);
+    bottom: var(--phone-dock-bottom);
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+
+  body:has(.page.is-visible .case-sidebar) .back-to-top-label { display: none; }
+
+  body:has(.page.is-visible .case-sidebar) :is(.case-study-content, .case-page, .site-footer)
+    :is(a, button, [tabindex]) {
+    scroll-margin-bottom: calc(var(--phone-dock-height) + var(--phone-dock-bottom) + 12px);
+  }
+
+  #diaries-overview, #diaries-impact { scroll-margin-top: var(--space-2); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .case-sidebar nav[inert],
+    .case-sidebar .case-section-toggle[aria-expanded="true"] + nav {
+      transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+    }
+  }
+}
+
+@media (width < 360px) {
+  .contact-info {
+    position: relative;
+    padding-inline: 12px;
+  }
+
+  .contact-info img {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 22px;
+    height: 22px;
+  }
+}

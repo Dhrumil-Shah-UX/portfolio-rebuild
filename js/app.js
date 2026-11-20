@@ -21,6 +21,11 @@ const tabletLayout = matchMedia(
   "(768px <= width <= 1024px) and (min-height: 600px), " +
   "(1024px < width <= 1366px) and (min-height: 700px) and (pointer: coarse) and (any-hover: none)"
 );
+const phoneLayout = matchMedia(
+  "(width < 768px), " +
+  "(768px <= width <= 980px) and (height < 600px) and (pointer: coarse) and (any-hover: none)"
+);
+let closePhoneCaseNav = () => {};
 const siteHeader = document.querySelector(".site-header");
 const headerLogo = siteHeader?.querySelector(".logo-link");
 // Keep the initial header integrated with the page, then reveal a compact bar.
@@ -46,16 +51,18 @@ document.querySelector('.skip-link')?.addEventListener('click', event => {
 });
 const pageBackButton = pageBackWrap.querySelector("button");
 function placePageBack(page) {
-  const selector = tabletLayout.matches
+  const selector = tabletLayout.matches || phoneLayout.matches
     ? ".case-sidebar-inner"
     : ".case-sidebar:not(.case-sidebar--diaries) .case-sidebar-inner";
   (page?.querySelector(selector) || pageRoot)?.prepend(pageBackWrap);
 }
 
-tabletLayout.addEventListener("change", () => {
+function placeDiariesBack() {
   const diaries = pageRoot?.querySelector('[data-page-view="case-diaries"].is-visible');
   if (diaries) placePageBack(diaries);
-});
+}
+tabletLayout.addEventListener("change", placeDiariesBack);
+phoneLayout.addEventListener("change", placeDiariesBack);
 
 let portfolioHistoryDepth = history.state?.portfolioDepth || 0;
 history.replaceState({ ...history.state, portfolioDepth: portfolioHistoryDepth }, "", location.href);
@@ -73,6 +80,7 @@ function showPage(pageName, scrollTargetId = "", { historyMode = "push" } = {}) 
   const targetPageName = articleSlug ? "article" : pageName;
   const target = pages.find((page) => page.dataset.pageView === targetPageName);
   const nextPage = target ? targetPageName : "home";
+  closePhoneCaseNav();
 
   if (articleSlug) {
     renderArticle(articleSlug);
@@ -1093,6 +1101,38 @@ function bootstrapApp() {
   });
 
   window.initPortfolioAssistant();
+  const caseSectionToggles = [...document.querySelectorAll(".case-sidebar nav")].map((sectionNav) => {
+    sectionNav.id = `${sectionNav.closest("[data-page-view]").dataset.pageView}-sections`;
+    const toggle = document.createElement("button");
+    toggle.className = "case-section-toggle";
+    toggle.type = "button";
+    toggle.setAttribute("aria-controls", sectionNav.id);
+    toggle.innerHTML = 'Sections<span class="ui-icon ui-icon--chevron-left" aria-hidden="true"></span>';
+    sectionNav.before(toggle);
+
+    function setOpen(open) {
+      toggle.setAttribute("aria-expanded", String(open));
+      sectionNav.inert = phoneLayout.matches && !open;
+    }
+    setOpen(false);
+    toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") === "false"));
+    return { toggle, setOpen };
+  });
+
+  closePhoneCaseNav = () => caseSectionToggles.forEach(({ setOpen }) => setOpen(false));
+  phoneLayout.addEventListener("change", closePhoneCaseNav);
+  document.addEventListener("pointerdown", (event) => {
+    if (phoneLayout.matches && !event.target.closest(".case-sidebar")) closePhoneCaseNav();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (!phoneLayout.matches || event.key !== "Escape" || event.defaultPrevented) return;
+    const open = caseSectionToggles.find(({ toggle }) => toggle.getAttribute("aria-expanded") === "true");
+    if (open) {
+      event.preventDefault();
+      open.setOpen(false);
+      open.toggle.focus();
+    }
+  });
   const caseSidebarLinks = [...document.querySelectorAll(".case-sidebar nav a")];
   const caseSections = caseSidebarLinks
     .map((link) => document.querySelector(link.getAttribute("href")))
@@ -1120,6 +1160,13 @@ function bootstrapApp() {
   caseSidebarLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
+      if (phoneLayout.matches) {
+        closePhoneCaseNav();
+        const section = document.querySelector(link.hash);
+        const heading = section?.matches("h1") ? section : section?.querySelector("h1, h2") || section;
+        heading?.setAttribute("tabindex", "-1");
+        heading?.focus({ preventScroll: true });
+      }
       jumpToCaseSection(link.getAttribute("href"), link);
     });
   });
@@ -1141,12 +1188,19 @@ function bootstrapApp() {
     let observer;
     function observeCaseSections() {
       observer?.disconnect();
-      // IntersectionObserver percentages resolve against width. Use a vertical
-      // pixel range on tablets so landscape viewports still have an active area.
-      const rootMargin = tabletLayout.matches
+      // Percentage margins resolve against width. Use a vertical pixel range
+      // on phones and tablets so landscape viewports still have an active area.
+      const rootMargin = tabletLayout.matches || phoneLayout.matches
         ? `-120px 0px -${Math.max(0, window.innerHeight - 160)}px 0px`
         : "-35% 0px -55% 0px";
       observer = new IntersectionObserver((entries) => {
+        if (phoneLayout.matches) {
+          const visibleSections = caseSections.filter((section) => section.closest(".page.is-visible"));
+          const section = visibleSections.filter((item) => item.getBoundingClientRect().top <= 120).at(-1) || visibleSections[0];
+          if (section) setActiveCaseNavLink(caseSidebarLinks.find((link) => link.hash === `#${section.id}`));
+          return;
+        }
+
         const visibleEntry = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -1161,8 +1215,9 @@ function bootstrapApp() {
 
     observeCaseSections();
     tabletLayout.addEventListener("change", observeCaseSections);
+    phoneLayout.addEventListener("change", observeCaseSections);
     window.addEventListener("resize", () => {
-      if (tabletLayout.matches) observeCaseSections();
+      if (tabletLayout.matches || phoneLayout.matches) observeCaseSections();
     });
   }
 
