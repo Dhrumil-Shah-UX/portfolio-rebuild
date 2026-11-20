@@ -754,9 +754,9 @@ body .writing-preview { display: grid; grid-template-columns: .72fr 1.8fr; gap: 
 }
 .writing-desk-copy > p:not(.section-kicker) { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.65; }
 .writing-desk-art { position: relative; height: 600px; min-width: 0; }
-.writing-desk-book { position: absolute; top: 0; left: 0; width: 91%; height: 420px; display: grid; grid-template-columns: 1fr 1fr; padding: 9px; background: #3f513b; border-radius: 26px; transform: rotate(-9deg); box-shadow: 0 22px 25px #45301b35; color: #20271f; text-decoration: none; }
+.writing-desk-book { position: absolute; top: 0; left: 0; width: 91%; height: 420px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: minmax(0, 1fr); padding: 9px; background: #3f513b; border-radius: 26px; transform: rotate(-9deg); box-shadow: 0 22px 25px #45301b35; color: #20271f; text-decoration: none; }
 .writing-desk-label { position: absolute; z-index: 2; left: 40px; top: -27px; padding: 9px 23px; color: #31543e; background: #d9e3cc; font: 1.6rem/1.2 'Segoe Print',cursive; transform: rotate(-3deg); clip-path: polygon(2% 0,98% 0,100% 18%,98% 35%,100% 55%,98% 75%,100% 98%,1% 100%,0 79%,2% 58%,0 35%); }
-.writing-desk-page { padding: 24px 20px 15px; background: #f8eedc url('../assets/images/writing/paper_texture.jpg') center / cover; background-blend-mode: multiply; min-width: 0; }
+.writing-desk-page { padding: 24px 20px 15px; background: #f8eedc url('../assets/images/writing/paper_texture.jpg') center / cover; background-blend-mode: multiply; min-width: 0; min-height: 0; overflow: hidden; }
 .writing-desk-page-left { display: flex; flex-direction: column; border-radius: 22px 45% 0 22px / 22px 3% 0 22px; box-shadow: inset -16px 0 22px -18px #493820; }
 .writing-desk-page h3 { margin: 0 0 10px; font: 600 1.05rem/1.3 'Segoe Print','Comic Sans MS',cursive; }
 .writing-desk-page-left img { width: 100%; height: 260px; min-height: 0; object-fit: contain; }
@@ -774,3 +774,29 @@ body .writing-preview { display: grid; grid-template-columns: .72fr 1.8fr; gap: 
 .writing-desk-book:focus-visible, .writing-desk-article:focus-visible { outline: 3px solid var(--accent); outline-offset: 6px; }
 @media(max-width:980px) { body .writing-preview { grid-template-columns: 1fr; } .writing-desk-copy h2 { margin-block: 25px; } .writing-desk-art { max-width: 740px; width: 100%; margin: 30px auto 0; } }
 @media(max-width:600px) { body .writing-preview { padding-block: 48px; } .writing-desk-art { height: auto; display: grid; gap: 24px; padding: 20px 0; } .writing-desk-book { position: relative; width: 100%; height: 320px; transform: rotate(-4deg); } .writing-desk-page { padding: 16px 10px; } .writing-desk-page h3 { font-size: .8rem; } .writing-desk-page p { font-size: .58rem; } .writing-desk-page h4 { font-size: .58rem; } .writing-desk-page-left img { height: 205px; } .writing-desk-article { position: relative; width: 100%; right: auto; padding: 20px; transform: rotate(-2deg); } .writing-desk-article p { font-size: .75rem; } }
+
+/* Final homepage preview annotation placement. */
+body #home .ai-lab-preview .lab-desk-note { right: 0; bottom: 0; width: 9rem; z-index: 4; }
+body #home .ai-lab-preview .lab-desk-workshop { width: 76%; }
+body #home .home-collage-annotation {
+  z-index: 5;
+  overflow: visible;
+  font: 1.05rem/1.4 'Segoe Print', 'Bradley Hand', cursive;
+}
+body #home .home-collage-annotation svg { width: 64px; height: 58px; overflow: visible; }
+body #home .home-collage-annotation path { stroke-width: 3; }
+body #home .home-collage-annotation--people { translate: -46.7% 61.1%; }
+body #home .home-collage-annotation--people svg {
+  top: 100%; left: 8%; translate: 151.8% -20.4%; transform: rotate(-84deg) scaleX(-1);
+}
+body #home .home-collage-annotation--sketch { translate: -22.2% 5.7%; }
+body #home .home-collage-annotation--sketch svg {
+  left: 100%; bottom: 20%; translate: -18.6% -34.2%; transform: rotate(22deg);
+}
+body #home .home-collage-annotation--conversation { translate: 1.9% 49.6%; }
+body #home .home-collage-annotation--conversation svg {
+  top: 100%; bottom: auto; left: 0; translate: 86% -155.2%; transform: rotate(-48deg) scaleX(-1);
+}
+@media (max-width: 620px) {
+  body #home .home-collage-annotation svg { width: 54px; height: 48px; }
+}
