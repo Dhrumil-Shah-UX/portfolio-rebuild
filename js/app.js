@@ -17,6 +17,10 @@ pageBackWrap.className = "page-back-wrap";
 pageBackWrap.hidden = true;
 pageBackWrap.innerHTML = '<button class="page-back icon-button-label" type="button" aria-label="Go back to the previous page"><span class="page-back-icon ui-icon ui-icon--chevron-left" aria-hidden="true"></span>Back</button>';
 const pageRoot = document.querySelector("[data-page-root]");
+const tabletLayout = matchMedia(
+  "(768px <= width <= 1024px) and (min-height: 600px), " +
+  "(1024px < width <= 1366px) and (min-height: 700px) and (pointer: coarse) and (any-hover: none)"
+);
 const siteHeader = document.querySelector(".site-header");
 const headerLogo = siteHeader?.querySelector(".logo-link");
 // Keep the initial header integrated with the page, then reveal a compact bar.
@@ -41,6 +45,18 @@ document.querySelector('.skip-link')?.addEventListener('click', event => {
   pageRoot?.scrollIntoView({ behavior: 'auto', block: 'start' });
 });
 const pageBackButton = pageBackWrap.querySelector("button");
+function placePageBack(page) {
+  const selector = tabletLayout.matches
+    ? ".case-sidebar-inner"
+    : ".case-sidebar:not(.case-sidebar--diaries) .case-sidebar-inner";
+  (page?.querySelector(selector) || pageRoot)?.prepend(pageBackWrap);
+}
+
+tabletLayout.addEventListener("change", () => {
+  const diaries = pageRoot?.querySelector('[data-page-view="case-diaries"].is-visible');
+  if (diaries) placePageBack(diaries);
+});
+
 let portfolioHistoryDepth = history.state?.portfolioDepth || 0;
 history.replaceState({ ...history.state, portfolioDepth: portfolioHistoryDepth }, "", location.href);
 
@@ -81,8 +97,7 @@ function showPage(pageName, scrollTargetId = "", { historyMode = "push" } = {}) 
   }
 
   const nextURL = window.PortfolioSEO.url(pageName, scrollTargetId);
-  const backContainer = target?.querySelector(".case-sidebar-inner") || pageRoot;
-  backContainer?.prepend(pageBackWrap);
+  placePageBack(target);
   pageBackWrap.hidden = !(nextPage === "article" || nextPage.startsWith("case-"));
   if (location.pathname + location.search + location.hash !== nextURL) {
     if (historyMode === "push") portfolioHistoryDepth += 1;
@@ -1123,24 +1138,32 @@ function bootstrapApp() {
   }
 
   if (caseSections.length) {
-    const observer = new IntersectionObserver(
-      (entries) => {
+    let observer;
+    function observeCaseSections() {
+      observer?.disconnect();
+      // IntersectionObserver percentages resolve against width. Use a vertical
+      // pixel range on tablets so landscape viewports still have an active area.
+      const rootMargin = tabletLayout.matches
+        ? `-120px 0px -${Math.max(0, window.innerHeight - 160)}px 0px`
+        : "-35% 0px -55% 0px";
+      observer = new IntersectionObserver((entries) => {
         const visibleEntry = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-        if (!visibleEntry) {
-          return;
+        if (visibleEntry) {
+          const activeLink = caseSidebarLinks.find((link) => link.hash === `#${visibleEntry.target.id}`);
+          setActiveCaseNavLink(activeLink);
         }
+      }, { rootMargin, threshold: [0, 0.2, 0.5, 1] });
+      caseSections.forEach((section) => observer.observe(section));
+    }
 
-        caseSidebarLinks.forEach((link) => {
-          link.setAttribute("aria-current", link.getAttribute("href") === `#${visibleEntry.target.id}` ? "true" : "false");
-        });
-      },
-      { rootMargin: "-35% 0px -55% 0px", threshold: [0, 0.2, 0.5, 1] }
-    );
-
-    caseSections.forEach((section) => observer.observe(section));
+    observeCaseSections();
+    tabletLayout.addEventListener("change", observeCaseSections);
+    window.addEventListener("resize", () => {
+      if (tabletLayout.matches) observeCaseSections();
+    });
   }
 
   if (form) {
