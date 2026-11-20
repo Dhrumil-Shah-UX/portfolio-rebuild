@@ -952,6 +952,8 @@ function bootstrapApp() {
   document.addEventListener('click', event => {
     const link = event.target.closest('a[href]');
     if (!link || event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0 || link.target === '_blank' || link.hasAttribute('download')) return;
+    // Let article cards follow their real URL, including local hash routes.
+    if (link.hasAttribute('data-article-card')) return;
     const destination = new URL(link.href);
     if (destination.origin !== location.origin || link.getAttribute('href').startsWith('#')) return;
     const entry = Object.entries(window.PortfolioSEO.pages).find(([, page]) => page.path === destination.pathname);

@@ -15,7 +15,7 @@
     return `<p>${escape(block.text || '')}</p>`;
   }
   function cards(articles) {
-    return articles.map((article, index) => `<a class="article-card" data-article-card="${index}" href="${escape(globalThis.PortfolioSEO?.url(`writing/${article.slug}`) ?? `/writing/${article.slug}`)}" target="_blank" rel="noopener"><div class="article-card-copy"><h3>${escape(article.title)}</h3><p>${escape(article.summary)}</p><span>${escape(article.platform)} &middot; ${escape(article.topic)}</span><span class="article-card-action icon-link">Read article <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span></div><div class="article-card-image">${article.image ? `<img src="${escape(asset(article.image))}" alt="" loading="lazy" decoding="async" />` : `<span>${escape(article.platform)}</span>`}</div></a>`).join('');
+    return articles.map((article, index) => `<a class="article-card" data-article-card="${index}" href="${escape(globalThis.PortfolioSEO?.url(`writing/${article.slug}`) ?? `/writing/${article.slug}`)}"><div class="article-card-copy"><h3>${escape(article.title)}</h3><p>${escape(article.summary)}</p><span>${escape(article.platform)} &middot; ${escape(article.topic)}</span><span class="article-card-action icon-link">Read article <span class="ui-icon ui-icon--arrow-right" aria-hidden="true"></span></span></div><div class="article-card-image">${article.image ? `<img src="${escape(asset(article.image))}" alt="" loading="lazy" decoding="async" />` : `<span>${escape(article.platform)}</span>`}</div></a>`).join('');
   }
   function more(articles, current) {
     const item = articles.find(article => article.slug !== current.slug);
