@@ -76,14 +76,6 @@
   right: var(--page-edge);
   bottom: 1rem;
   z-index: 4;
-  min-height: 32px;
-  padding: 6px 10px;
-  border: 1px solid var(--accent-green);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-  color: var(--accent-green);
-  font: 500 0.75rem/1.4 var(--font-sans);
-  cursor: pointer;
 }
 .ai-lab-hero.is-motion-paused .ai-process-phase::after { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
@@ -160,8 +152,17 @@ body .writing-hero {
   padding-inline: var(--page-edge);
 }
 body .article-page.page-pad { width: 100%; }
-body .article-hero { width: var(--container-page); }
+/* Match the unscrolled header's content edges inside its 1px border. */
+body .article-hero {
+  width: calc(var(--container-page) - 2px);
+  margin-inline: auto;
+}
 body .article-hero-inner { width: 100%; }
+body .article-hero .article-header {
+  grid-column: 1 / -1;
+  margin-inline: 0;
+  padding-inline: max(var(--page-gutter), calc((100% - var(--container-article)) / 2));
+}
 body :is(.article-body, .article-footer) { width: var(--container-article); }
 
 /* Case navigation and content share the same outer boundary as listing pages.
@@ -177,8 +178,21 @@ body :is(.article-body, .article-footer) { width: var(--container-article); }
 #main-content .page .case-study[class] .case-sidebar {
   padding-inline: 0;
 }
-#main-content .page .case-study[class] .case-next-project {
+#main-content .page .case-next-project {
   padding-inline: max(var(--page-edge), calc((100% - var(--container-page)) / 2));
+}
+.article-page .case-next-project__inner > h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font: 600 1rem/1.4 var(--font-sans);
+  letter-spacing: 0;
+}
+.article-page .case-next-project__inner > p {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
 }
 @media (min-width: 981px) {
   body .writing-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }

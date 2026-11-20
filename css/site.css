@@ -3847,7 +3847,7 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
 
 .case-next-project {
   width: 100%;
-  padding: clamp(3.5rem, 8vw, 5.5rem) clamp(3rem, 7vw, 7rem) clamp(3.5rem, 8vw, 5.5rem) var(--case-content-left);
+  padding: clamp(3.5rem, 8vw, 5.5rem) clamp(3rem, 7vw, 7rem) clamp(3.5rem, 8vw, 5.5rem) var(--case-content-left, var(--page-edge));
   border-top: 1px solid rgba(54, 84, 68, 0.22);
   background: #e8e4da;
 }
@@ -3937,21 +3937,21 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   font-family: var(--font-display);
 }
 
-.footer-belief-title {
+body .site-footer .footer-belief-title {
   margin: 0;
   color: var(--text-secondary);
   font-family: var(--font-sans);
-  font-size: var(--type-caption);
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1;
 }
 
-.footer-belief-copy {
+body .site-footer .footer-belief-copy {
   margin: 0.55rem 0 0;
   color: var(--accent-green);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
   line-height: 1.2;
 }
 

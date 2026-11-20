@@ -1,4 +1,41 @@
 /* Shared section typography and heading/action layout. */
+:is(#selected-work, .work-page) .featured-work-card:is([data-page="case-azhartt"], [data-page="case-azhartt-accessibility"]) .featured-work-media img {
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
+:is(.az-hero, .ac-hero) img[src*="assets/images/work/azhartt-"] {
+  object-fit: contain;
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+}
+.ui-icon--arrow-down { --ui-icon: url("../assets/icons/arrow-down.svg"); }
+body #home .hero-cta { gap: .6em; }
+body :is(.home-section-heading, .experience-heading, .lab-desk-copy, .writing-desk-copy,
+  .home-about-copy, .work-page, .ai-lab-hero-copy, .ai-lab-section-heading,
+  .writing-hero-copy, .writing-section-heading, .about-hero-copy, .about-wall-note,
+  .about-team-note, .about-photo-heading) :is(h1, h2) + p:not(.section-kicker),
+body #home .lab-desk-topics h3 + p { color: var(--text-secondary); }
+body #ai-workshops .ai-workshop-takeaways li {
+  font-size: var(--section-copy-size);
+  line-height: 1.6;
+}
+body .writing-hero .writing-hero-copy { justify-self: end; }
+@media (max-width: 980px) {
+  body .writing-hero .writing-hero-copy { justify-self: stretch; }
+}
+.ai-lab-hero .ai-process-motion-toggle {
+  position: absolute;
+  right: max(var(--page-edge), 3.5rem);
+  bottom: 1rem;
+  z-index: 4;
+  padding: 10px;
+  min-height: 44px;
+}
+@media (max-width: 700px) {
+  .ai-lab-hero .ai-process-motion-toggle { position: static; }
+}
 /* Keep the writing title readable within its narrow collage column. */
 body #home .writing-desk-copy { grid-template-columns: minmax(0, 1fr); }
 body #home .writing-desk-copy h2 { overflow-wrap: normal; word-break: normal; }

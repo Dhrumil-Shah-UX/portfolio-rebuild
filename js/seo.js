@@ -9,12 +9,26 @@
       });
 
   window.portfolioSEOReady = dataReady.then(async data => {
+  // Source previews load the base config, which omits generated article routes.
+  for (const article of window.articles || []) {
+    const id = 'writing/' + article.slug;
+    data.pages[id] ??= {
+      path: '/' + id,
+      title: article.title + ' | Dhrumil Shah',
+      description: article.summary,
+      image: article.image ? '/' + article.image.replace(/^\//, '') : data.defaultImage,
+      article: true
+    };
+  }
   // Basic static servers do not resolve clean URLs. Use reload-safe hash routes
   // only for local previews where a known public route cannot be fetched.
   const localPreview = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
   let useHashRoutes = false;
   if (localPreview) {
-    try { useHashRoutes = !(await fetch('/work', { method: 'HEAD', cache: 'no-store' })).ok; }
+    try {
+      const probe = Object.values(data.pages).find(page => page.article)?.path || '/work';
+      useHashRoutes = !(await fetch(probe, { method: 'HEAD', cache: 'no-store' })).ok;
+    }
     catch { useHashRoutes = true; }
   }
   const byPath = new Map(Object.entries(data.pages).map(([id, page]) => [page.path, id]));
@@ -23,9 +37,10 @@
     if (id.startsWith('article-')) id = 'writing/' + id.slice(8);
     if (id === 'article') return Object.keys(data.pages).find(key => key.startsWith('writing/'));
     if (Object.hasOwn(data.pages, id)) return id;
-    return id.startsWith('writing/') ? id : null;
+    return null;
   }
   function url(id, anchor = '') {
+    if (!route(id)) return '/404.html';
     if (id === 'home' && anchor === 'about') anchor = 'about-home';
     if (useHashRoutes) return '/#' + encodeURIComponent(route(id) || 'home') + (anchor ? '~' + encodeURIComponent(anchor) : '');
     return (data.pages[route(id)]?.path || '/') + (anchor ? '#' + encodeURIComponent(anchor) : '');
@@ -36,6 +51,10 @@
     if (useHashRoutes && hash.includes('~')) {
       const [id, ...anchor] = hash.split('~');
       if (route(id)) return { id: route(id), anchor: anchor.join('~'), legacy: true };
+    }
+    if (hash.startsWith('writing/') && !route(hash)) {
+      location.replace('/404.html');
+      return { id: 'home', anchor: '', legacy: false };
     }
     const legacy = route(hash);
     if (legacy) return { id: legacy, anchor: '', legacy: true };

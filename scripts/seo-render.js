@@ -127,7 +127,7 @@ function renderArticle(article, html) {
   fill('data-article-platform', article.platform);
   html = html.replace('href="#" target="_blank"', `href="${escape(article.originalUrl)}" target="_blank"`);
   html = html.replace('<div class="article-body" data-article-body></div>', `<div class="article-body" data-article-body>${article.content.map(markup.block).join('')}</div>`);
-  html = html.replace('<div class="more-writing-list" data-more-writing></div>', `<div class="more-writing-list" data-more-writing>${markup.more(articles, article)}</div>`);
+  html = html.replace('<div class="case-next-project__inner" data-more-writing></div>', `<div class="case-next-project__inner" data-more-writing>${markup.more(articles, article)}</div>`);
   return html;
 }
 function renderFragment(id, { hidden = false } = {}) {

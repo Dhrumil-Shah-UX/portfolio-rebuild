@@ -1,4 +1,7 @@
 /* Shared text actions; exclude navigation and button-styled controls. */
+html body :is(.project-card-cue, .featured-work-link, .writing-card-action, .article-card-action)::after {
+  content: none !important;
+}
 /* These invariants intentionally override older page-specific hover rules. */
 html body :is(a.icon-link:not(.hero-cta):not(.icon-button-label), .project-card-cue, .featured-work-link, .writing-card-action, .article-card-action, a.az-source, a.ac-source, a.sm-source, a.lab-source, .lab-links a) {
   font-family: var(--font-sans) !important;

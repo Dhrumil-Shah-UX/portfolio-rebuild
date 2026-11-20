@@ -293,16 +293,6 @@ function renderArticleCards() {
   }
 
   list.innerHTML = window.PortfolioContent.cards(articles);
-  list.querySelectorAll("[data-article-card]").forEach((card) => {
-    const openArticle = () => {
-      showPage(`writing/${articles[Number(card.dataset.articleCard)].slug}`);
-    };
-    card.addEventListener("click", event => {
-      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
-      event.preventDefault();
-      openArticle();
-    });
-  });
 }
 
 function renderMoreWriting(article) {
@@ -314,11 +304,9 @@ function renderMoreWriting(article) {
   list.innerHTML = window.PortfolioContent.more(articles, article);
 
   list.querySelectorAll("[data-more-writing-link]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
-      event.preventDefault();
-      showPage(`writing/${link.dataset.moreWritingLink}`);
-    });
+    link.href = window.PortfolioSEO.url(`writing/${link.dataset.moreWritingLink}`);
+    link.target = '_blank';
+    link.rel = 'noopener';
   });
 }
 
@@ -797,13 +785,17 @@ function bootstrapApp() {
   if (processHero) {
     const motionControl = document.createElement('button');
     motionControl.type = 'button';
-    motionControl.className = 'ai-process-motion-toggle';
-    motionControl.textContent = 'Pause animation';
-    motionControl.setAttribute('aria-pressed', 'false');
+    motionControl.className = 'preview-motion-toggle ai-process-motion-toggle';
+    function updateMotionControl(paused) {
+      const label = paused ? 'Play animation' : 'Pause animation';
+      motionControl.innerHTML = `<img src="/assets/icons/${paused ? 'play' : 'pause'}.svg" alt="" width="24" height="24">`;
+      motionControl.setAttribute('aria-label', label);
+      motionControl.dataset.previewLabel = label;
+    }
+    updateMotionControl(false);
     motionControl.addEventListener('click', () => {
       const paused = processHero.classList.toggle('is-motion-paused');
-      motionControl.textContent = paused ? 'Play animation' : 'Pause animation';
-      motionControl.setAttribute('aria-pressed', String(paused));
+      updateMotionControl(paused);
     });
     processHero.append(motionControl);
   }
@@ -946,7 +938,7 @@ function bootstrapApp() {
       });
     }
     control.addEventListener("click", (event) => {
-      if (control.tagName === "A" && (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0)) return;
+      if (control.tagName === "A" && (control.target === "_blank" || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0)) return;
       const pageName = control.dataset.page;
       if (!pageName) {
         return;

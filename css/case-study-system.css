@@ -139,9 +139,9 @@
 #trial-case-study.case-study-trialbridge.tb-editorial .tb-before-after p { margin-top: 6px; color: var(--text-primary); font-size: 1.25rem; }
 #trial-case-study.case-study-trialbridge.tb-editorial .tb-education { display: grid; grid-template-columns: 1fr 240px; gap: 32px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border-default); align-items: start; }
 #trial-case-study.case-study-trialbridge.tb-editorial .tb-education p { margin-top: 12px; }
-#trial-case-study.case-study-trialbridge.tb-editorial .tb-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 28px; }
-#trial-case-study.case-study-trialbridge.tb-editorial .tb-results dt { color: var(--accent-green); font: 400 2.75rem/1.1 var(--font-display); }
-#trial-case-study.case-study-trialbridge.tb-editorial .tb-results dd { margin: 10px 0 0; color: var(--text-primary); font-size: .9375rem; }
+.page .tb-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 28px; }
+.page .tb-results dt { color: var(--accent-green); font: 400 2.75rem/1.1 var(--font-display); }
+.page .tb-results dd { margin: 10px 0 0; color: var(--text-primary); font-size: .9375rem; }
 #trial-case-study.case-study-trialbridge.tb-editorial .tb-outcome { padding-block: 20px; border-top: 1px solid var(--border-default); }
 #trial-case-study.case-study-trialbridge.tb-editorial .tb-outcome p { margin-top: 8px; }
 #trial-case-study.case-study-trialbridge.tb-editorial p.tb-reflection { margin-top: 20px; }
@@ -260,10 +260,10 @@
   #trial-case-study.case-study-trialbridge.tb-editorial .tb-before-after p { font-size: 1rem; }
   #trial-case-study.case-study-trialbridge.tb-editorial .tb-education { grid-template-columns: 1fr; gap: 24px; }
   #trial-case-study.case-study-trialbridge.tb-editorial .tb-education .tb-image { max-width: 200px; }
-  #trial-case-study.case-study-trialbridge.tb-editorial .tb-results { grid-template-columns: 1fr; gap: 20px; }
-  #trial-case-study.case-study-trialbridge.tb-editorial .tb-results > div { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: center; }
-  #trial-case-study.case-study-trialbridge.tb-editorial .tb-results dt { font-size: 2.25rem; }
-  #trial-case-study.case-study-trialbridge.tb-editorial .tb-results dd { margin: 0; font-size: 1rem; }
+  .page .tb-results { grid-template-columns: 1fr; gap: 20px; }
+  .page .tb-results > div { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: center; }
+  .page .tb-results dt { font-size: 2.25rem; }
+  .page .tb-results dd { margin: 0; font-size: 1rem; }
   body[data-current-page="case-trial"] .back-to-top { width: 44px; height: 44px; min-width: 44px; min-height: 44px; padding: 8px; right: 12px; bottom: 12px; }
   body[data-current-page="case-trial"] .back-to-top-label { display: none; }
 }
