@@ -1,0 +1,2381 @@
+[
+  {
+    "id": "work",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 3993
+  },
+  {
+    "id": "home",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9317,
+    "screenshot": "home-320.jpg"
+  },
+  {
+    "id": "about",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4270
+  },
+  {
+    "id": "writing",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2987,
+    "screenshot": "writing-320.jpg"
+  },
+  {
+    "id": "ai-lab",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 4043,
+    "screenshot": "ai-lab-320.jpg"
+  },
+  {
+    "id": "contact",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1844
+  },
+  {
+    "id": "case-trial",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 278,
+        "height": 67,
+        "scrollWidth": 278,
+        "scrollHeight": 180
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9821
+  },
+  {
+    "id": "case-showroom",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 12447
+  },
+  {
+    "id": "case-ruhl",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 11346
+  },
+  {
+    "id": "case-soor",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 11807
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 230,
+        "height": 153,
+        "scrollWidth": 514,
+        "scrollHeight": 432
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 230,
+        "height": 153,
+        "scrollWidth": 610,
+        "scrollHeight": 406
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 230,
+        "height": 191,
+        "scrollWidth": 570,
+        "scrollHeight": 424
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 13470
+  },
+  {
+    "id": "case-azhartt",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 13196
+  },
+  {
+    "id": "case-diaries",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 991
+  },
+  {
+    "id": "case-perspective",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 10713
+  },
+  {
+    "id": "case-mindle",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 11000
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7856
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5158
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3981
+  },
+  {
+    "id": "home",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9178,
+    "screenshot": "home-375.jpg"
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 320,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 6001
+  },
+  {
+    "id": "work",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 3955,
+    "screenshot": "work-375.jpg"
+  },
+  {
+    "id": "about",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4469,
+    "screenshot": "about-375.jpg"
+  },
+  {
+    "id": "contact",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1819,
+    "screenshot": "contact-375.jpg"
+  },
+  {
+    "id": "ai-lab",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3993,
+    "screenshot": "ai-lab-375.jpg"
+  },
+  {
+    "id": "writing",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3032,
+    "screenshot": "writing-375.jpg"
+  },
+  {
+    "id": "case-trial",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 333,
+        "height": 80,
+        "scrollWidth": 333,
+        "scrollHeight": 216
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9437,
+    "screenshot": "case-trial-375.jpg"
+  },
+  {
+    "id": "case-showroom",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 11534,
+    "screenshot": "case-showroom-375.jpg"
+  },
+  {
+    "id": "case-soor",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 10685,
+    "screenshot": "case-soor-375.jpg"
+  },
+  {
+    "id": "case-ruhl",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 10621,
+    "screenshot": "case-ruhl-375.jpg"
+  },
+  {
+    "id": "case-azhartt",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 11931,
+    "screenshot": "case-azhartt-375.jpg"
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 285,
+        "height": 189,
+        "scrollWidth": 637,
+        "scrollHeight": 535
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 285,
+        "height": 189,
+        "scrollWidth": 755,
+        "scrollHeight": 503
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 285,
+        "height": 237,
+        "scrollWidth": 707,
+        "scrollHeight": 525
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 12100,
+    "screenshot": "case-azhartt-accessibility-375.jpg"
+  },
+  {
+    "id": "case-diaries",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 965,
+    "screenshot": "case-diaries-375.jpg"
+  },
+  {
+    "id": "case-mindle",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9787,
+    "screenshot": "case-mindle-375.jpg"
+  },
+  {
+    "id": "case-perspective",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9629,
+    "screenshot": "case-perspective-375.jpg"
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7037,
+    "screenshot": "case-space-shooter-375.jpg"
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 4686,
+    "screenshot": "writing-the-art-of-task-framing-375.jpg"
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3746,
+    "screenshot": "writing-sometimes-the-best-ai-prompt-is-a-375.jpg"
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 375,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5325,
+    "screenshot": "writing-accessibility-isnt-a-checklist-375.jpg"
+  },
+  {
+    "id": "home",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9744
+  },
+  {
+    "id": "work",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4500
+  },
+  {
+    "id": "about",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 5429
+  },
+  {
+    "id": "contact",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1703
+  },
+  {
+    "id": "ai-lab",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 4458
+  },
+  {
+    "id": "writing",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3487
+  },
+  {
+    "id": "case-trial",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 558,
+        "height": 135,
+        "scrollWidth": 558,
+        "scrollHeight": 362
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 8658
+  },
+  {
+    "id": "case-showroom",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9595
+  },
+  {
+    "id": "case-ruhl",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9234
+  },
+  {
+    "id": "case-soor",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8909
+  },
+  {
+    "id": "case-azhartt",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 10233
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 510,
+        "height": 339,
+        "scrollWidth": 1140,
+        "scrollHeight": 957
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 510,
+        "height": 339,
+        "scrollWidth": 1352,
+        "scrollHeight": 900
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 510,
+        "height": 425,
+        "scrollWidth": 1265,
+        "scrollHeight": 940
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 10176
+  },
+  {
+    "id": "case-diaries",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 917
+  },
+  {
+    "id": "case-perspective",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7833
+  },
+  {
+    "id": "case-mindle",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7928
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5955
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3796
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3184
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 600,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 4052
+  },
+  {
+    "id": "home",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7640,
+    "screenshot": "home-768.jpg"
+  },
+  {
+    "id": "work",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 2396
+  },
+  {
+    "id": "about",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 3685
+  },
+  {
+    "id": "contact",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1516
+  },
+  {
+    "id": "ai-lab",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 4575,
+    "screenshot": "ai-lab-768.jpg"
+  },
+  {
+    "id": "writing",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2421,
+    "screenshot": "writing-768.jpg"
+  },
+  {
+    "id": "case-trial",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 718,
+        "height": 175,
+        "scrollWidth": 718,
+        "scrollHeight": 466
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 7976
+  },
+  {
+    "id": "case-showroom",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9492
+  },
+  {
+    "id": "case-ruhl",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7784
+  },
+  {
+    "id": "case-soor",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9002
+  },
+  {
+    "id": "case-azhartt",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8201
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 622,
+        "height": 414,
+        "scrollWidth": 1390,
+        "scrollHeight": 1167
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 622,
+        "height": 414,
+        "scrollWidth": 1648,
+        "scrollHeight": 1097
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 622,
+        "height": 518,
+        "scrollWidth": 1542,
+        "scrollHeight": 1146
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9771
+  },
+  {
+    "id": "case-diaries",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 900
+  },
+  {
+    "id": "case-mindle",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7689
+  },
+  {
+    "id": "case-perspective",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7812
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5797
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3633
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3224
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 768,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3807
+  },
+  {
+    "id": "home",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7739
+  },
+  {
+    "id": "work",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 2492
+  },
+  {
+    "id": "about",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4129
+  },
+  {
+    "id": "contact",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1530
+  },
+  {
+    "id": "ai-lab",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5172
+  },
+  {
+    "id": "writing",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2380
+  },
+  {
+    "id": "case-trial",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 798,
+        "height": 194,
+        "scrollWidth": 798,
+        "scrollHeight": 518
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 7997
+  },
+  {
+    "id": "case-showroom",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9116
+  },
+  {
+    "id": "case-ruhl",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7610
+  },
+  {
+    "id": "case-soor",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9029
+  },
+  {
+    "id": "case-azhartt",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8083
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1560,
+        "scrollHeight": 1310
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1850,
+        "scrollHeight": 1231
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 581,
+        "scrollWidth": 1731,
+        "scrollHeight": 1286
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9733
+  },
+  {
+    "id": "case-diaries",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 908
+  },
+  {
+    "id": "case-mindle",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7277
+  },
+  {
+    "id": "case-perspective",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7164
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5575
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3620
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3276
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 980,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3817
+  },
+  {
+    "id": "home",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5890
+  },
+  {
+    "id": "work",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 2404
+  },
+  {
+    "id": "about",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4037
+  },
+  {
+    "id": "contact",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1475
+  },
+  {
+    "id": "ai-lab",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2787
+  },
+  {
+    "id": "writing",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2260
+  },
+  {
+    "id": "case-trial",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 798,
+        "height": 194,
+        "scrollWidth": 798,
+        "scrollHeight": 518
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 7941
+  },
+  {
+    "id": "case-showroom",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9055
+  },
+  {
+    "id": "case-ruhl",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7506
+  },
+  {
+    "id": "case-soor",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8890
+  },
+  {
+    "id": "case-azhartt",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8005
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1560,
+        "scrollHeight": 1310
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1850,
+        "scrollHeight": 1231
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 581,
+        "scrollWidth": 1731,
+        "scrollHeight": 1286
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9614
+  },
+  {
+    "id": "case-diaries",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 900
+  },
+  {
+    "id": "case-perspective",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7070
+  },
+  {
+    "id": "case-mindle",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7157
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5481
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3527
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3188
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 1000,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3718
+  },
+  {
+    "id": "home",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5887,
+    "screenshot": "home-1024.jpg"
+  },
+  {
+    "id": "work",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 2432,
+    "screenshot": "work-1024.jpg"
+  },
+  {
+    "id": "about",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4090,
+    "screenshot": "about-1024.jpg"
+  },
+  {
+    "id": "contact",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1479,
+    "screenshot": "contact-1024.jpg"
+  },
+  {
+    "id": "ai-lab",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2813,
+    "screenshot": "ai-lab-1024.jpg"
+  },
+  {
+    "id": "writing",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2268,
+    "screenshot": "writing-1024.jpg"
+  },
+  {
+    "id": "case-trial",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 746,
+        "height": 181,
+        "scrollWidth": 746,
+        "scrollHeight": 484
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 7757,
+    "screenshot": "case-trial-1024.jpg"
+  },
+  {
+    "id": "case-showroom",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8910,
+    "screenshot": "case-showroom-1024.jpg"
+  },
+  {
+    "id": "case-ruhl",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7541,
+    "screenshot": "case-ruhl-1024.jpg"
+  },
+  {
+    "id": "case-soor",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8685,
+    "screenshot": "case-soor-1024.jpg"
+  },
+  {
+    "id": "case-azhartt",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7847,
+    "screenshot": "case-azhartt-1024.jpg"
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 650,
+        "height": 433,
+        "scrollWidth": 1453,
+        "scrollHeight": 1220
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 650,
+        "height": 433,
+        "scrollWidth": 1723,
+        "scrollHeight": 1147
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 650,
+        "height": 541,
+        "scrollWidth": 1612,
+        "scrollHeight": 1197
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9567,
+    "screenshot": "case-azhartt-accessibility-1024.jpg"
+  },
+  {
+    "id": "case-diaries",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 900,
+    "screenshot": "case-diaries-1024.jpg"
+  },
+  {
+    "id": "case-mindle",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7321,
+    "screenshot": "case-mindle-1024.jpg"
+  },
+  {
+    "id": "case-perspective",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7157,
+    "screenshot": "case-perspective-1024.jpg"
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5436,
+    "screenshot": "case-space-shooter-1024.jpg"
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3535,
+    "screenshot": "writing-the-art-of-task-framing-1024.jpg"
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3194,
+    "screenshot": "writing-sometimes-the-best-ai-prompt-is-a-1024.jpg"
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 1024,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3726,
+    "screenshot": "writing-accessibility-isnt-a-checklist-1024.jpg"
+  },
+  {
+    "id": "home",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 6180
+  },
+  {
+    "id": "work",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 2578
+  },
+  {
+    "id": "about",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4376
+  },
+  {
+    "id": "contact",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1504
+  },
+  {
+    "id": "ai-lab",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2938
+  },
+  {
+    "id": "writing",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2328
+  },
+  {
+    "id": "case-trial",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 798,
+        "height": 194,
+        "scrollWidth": 798,
+        "scrollHeight": 518
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 7837
+  },
+  {
+    "id": "case-showroom",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9001
+  },
+  {
+    "id": "case-ruhl",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7508
+  },
+  {
+    "id": "case-soor",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8809
+  },
+  {
+    "id": "case-azhartt",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7950
+  },
+  {
+    "id": "case-diaries",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 900
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1560,
+        "scrollHeight": 1310
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1850,
+        "scrollHeight": 1231
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 581,
+        "scrollWidth": 1731,
+        "scrollHeight": 1286
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9590
+  },
+  {
+    "id": "case-mindle",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7205
+  },
+  {
+    "id": "case-perspective",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7062
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5485
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3607
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3247
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 1200,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3806
+  },
+  {
+    "id": "work",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 2619
+  },
+  {
+    "id": "home",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 6338,
+    "screenshot": "home-1440.jpg"
+  },
+  {
+    "id": "about",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4401
+  },
+  {
+    "id": "contact",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1518
+  },
+  {
+    "id": "ai-lab",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3044,
+    "screenshot": "ai-lab-1440.jpg"
+  },
+  {
+    "id": "writing",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2359,
+    "screenshot": "writing-1440.jpg"
+  },
+  {
+    "id": "case-trial",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 798,
+        "height": 194,
+        "scrollWidth": 798,
+        "scrollHeight": 518
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 7880
+  },
+  {
+    "id": "case-showroom",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9044
+  },
+  {
+    "id": "case-ruhl",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7592
+  },
+  {
+    "id": "case-soor",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8893
+  },
+  {
+    "id": "case-azhartt",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7993
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1560,
+        "scrollHeight": 1310
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1850,
+        "scrollHeight": 1231
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 581,
+        "scrollWidth": 1731,
+        "scrollHeight": 1286
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9640
+  },
+  {
+    "id": "case-diaries",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 900
+  },
+  {
+    "id": "case-perspective",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7194
+  },
+  {
+    "id": "case-mindle",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7374
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5611
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3645
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3283
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 1440,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3921
+  },
+  {
+    "id": "home",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 6444,
+    "screenshot": "home-1920.jpg"
+  },
+  {
+    "id": "work",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 2644,
+    "screenshot": "work-1920.jpg"
+  },
+  {
+    "id": "about",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4416,
+    "screenshot": "about-1920.jpg"
+  },
+  {
+    "id": "contact",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1523,
+    "screenshot": "contact-1920.jpg"
+  },
+  {
+    "id": "ai-lab",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3068,
+    "screenshot": "ai-lab-1920.jpg"
+  },
+  {
+    "id": "writing",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2372,
+    "screenshot": "writing-1920.jpg"
+  },
+  {
+    "id": "case-trial",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 798,
+        "height": 194,
+        "scrollWidth": 798,
+        "scrollHeight": 518
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 7885,
+    "screenshot": "case-trial-1920.jpg"
+  },
+  {
+    "id": "case-showroom",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9048,
+    "screenshot": "case-showroom-1920.jpg"
+  },
+  {
+    "id": "case-soor",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8897,
+    "screenshot": "case-soor-1920.jpg"
+  },
+  {
+    "id": "case-ruhl",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7596,
+    "screenshot": "case-ruhl-1920.jpg"
+  },
+  {
+    "id": "case-azhartt",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7997,
+    "screenshot": "case-azhartt-1920.jpg"
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1560,
+        "scrollHeight": 1310
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1850,
+        "scrollHeight": 1231
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 581,
+        "scrollWidth": 1731,
+        "scrollHeight": 1286
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9645,
+    "screenshot": "case-azhartt-accessibility-1920.jpg"
+  },
+  {
+    "id": "case-diaries",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 900,
+    "screenshot": "case-diaries-1920.jpg"
+  },
+  {
+    "id": "case-mindle",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7378,
+    "screenshot": "case-mindle-1920.jpg"
+  },
+  {
+    "id": "case-perspective",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7198,
+    "screenshot": "case-perspective-1920.jpg"
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5615,
+    "screenshot": "case-space-shooter-1920.jpg"
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3730,
+    "screenshot": "writing-the-art-of-task-framing-1920.jpg"
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3296,
+    "screenshot": "writing-sometimes-the-best-ai-prompt-is-a-1920.jpg"
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 1920,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3948,
+    "screenshot": "writing-accessibility-isnt-a-checklist-1920.jpg"
+  },
+  {
+    "id": "home",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 6444,
+    "screenshot": "home-2560.jpg"
+  },
+  {
+    "id": "work",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "H2",
+        "class": "sr-only",
+        "text": "Featured projects",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 206,
+        "scrollHeight": 39
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 2644
+  },
+  {
+    "id": "about",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "P",
+        "class": "about-photo-sr-only",
+        "text": "Drag in any direction, use arrow keys, or hover over the joystick to explore. Se",
+        "width": 1,
+        "height": 1,
+        "scrollWidth": 1078,
+        "scrollHeight": 26
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 4416
+  },
+  {
+    "id": "contact",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 1523
+  },
+  {
+    "id": "ai-lab",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3068,
+    "screenshot": "ai-lab-2560.jpg"
+  },
+  {
+    "id": "writing",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 2372,
+    "screenshot": "writing-2560.jpg"
+  },
+  {
+    "id": "case-trial",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 798,
+        "height": 194,
+        "scrollWidth": 798,
+        "scrollHeight": 518
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 7885
+  },
+  {
+    "id": "case-showroom",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 9048
+  },
+  {
+    "id": "case-ruhl",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7596
+  },
+  {
+    "id": "case-soor",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 8897
+  },
+  {
+    "id": "case-azhartt",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7997
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1560,
+        "scrollHeight": 1310
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 465,
+        "scrollWidth": 1850,
+        "scrollHeight": 1231
+      },
+      {
+        "tag": "A",
+        "class": "",
+        "text": "",
+        "width": 698,
+        "height": 581,
+        "scrollWidth": 1731,
+        "scrollHeight": 1286
+      }
+    ],
+    "headingUnderHeader": false,
+    "documentHeight": 9645
+  },
+  {
+    "id": "case-diaries",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 900
+  },
+  {
+    "id": "case-mindle",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7378
+  },
+  {
+    "id": "case-perspective",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 7198
+  },
+  {
+    "id": "case-space-shooter",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 5615
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3296
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3730
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "width": 2560,
+    "overflow": 0,
+    "clipped": [],
+    "headingUnderHeader": false,
+    "documentHeight": 3948
+  }
+]

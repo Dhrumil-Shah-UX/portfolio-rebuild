@@ -1,0 +1,32 @@
+[
+  {
+    "width": 375,
+    "headingTop": 286.328125,
+    "sidebarBottom": 225,
+    "headerBottom": 72
+  },
+  {
+    "width": 768,
+    "headingTop": 302.4375,
+    "sidebarBottom": 249,
+    "headerBottom": 72
+  },
+  {
+    "width": 1000,
+    "headingTop": 301.78125,
+    "sidebarBottom": 249,
+    "headerBottom": 72
+  },
+  {
+    "width": 1024,
+    "headingTop": 237.796875,
+    "sidebarBottom": 5761.46875,
+    "headerBottom": 72
+  },
+  {
+    "width": 1440,
+    "headingTop": 237.53125,
+    "sidebarBottom": 5839.03125,
+    "headerBottom": 72
+  }
+]

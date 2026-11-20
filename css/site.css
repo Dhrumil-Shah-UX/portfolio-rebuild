@@ -2778,9 +2778,8 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
 }
 
 .work-category + .work-category {
-  margin-top: clamp(4.5rem, 9vw, 8rem);
-  padding-top: clamp(3.5rem, 7vw, 6rem);
-  border-top: 1px solid var(--border-default);
+  margin-top: var(--space-6);
+  padding-top: 0;
 }
 
 .work-category-heading .section-kicker {

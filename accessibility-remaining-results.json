@@ -1,0 +1,201 @@
+[
+  {
+    "route": "/",
+    "viewport": {
+      "width": 320,
+      "height": 740
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/",
+    "viewport": {
+      "width": 740,
+      "height": 320
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/",
+    "smallTargets": []
+  },
+  {
+    "route": "/",
+    "textEnlargement": {
+      "before": "33.6px",
+      "after": "67.2px",
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/ai-lab",
+    "viewport": {
+      "width": 320,
+      "height": 740
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/ai-lab",
+    "viewport": {
+      "width": 740,
+      "height": 320
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/ai-lab",
+    "smallTargets": []
+  },
+  {
+    "route": "/ai-lab",
+    "textEnlargement": {
+      "before": "47.36px",
+      "after": "94.72px",
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/writing",
+    "viewport": {
+      "width": 320,
+      "height": 740
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/writing",
+    "viewport": {
+      "width": 740,
+      "height": 320
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/writing",
+    "smallTargets": []
+  },
+  {
+    "route": "/writing",
+    "textEnlargement": {
+      "before": "51.2px",
+      "after": "102.4px",
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/about",
+    "viewport": {
+      "width": 320,
+      "height": 740
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/about",
+    "viewport": {
+      "width": 740,
+      "height": 320
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/about",
+    "smallTargets": []
+  },
+  {
+    "route": "/about",
+    "textEnlargement": {
+      "before": "38px",
+      "after": "76px",
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/work/trialbridge",
+    "viewport": {
+      "width": 320,
+      "height": 740
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/work/trialbridge",
+    "viewport": {
+      "width": 740,
+      "height": 320
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/work/trialbridge",
+    "smallTargets": []
+  },
+  {
+    "route": "/work/trialbridge",
+    "textEnlargement": {
+      "before": "64px",
+      "after": "128px",
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/ai-lab/mindle",
+    "viewport": {
+      "width": 320,
+      "height": 740
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/ai-lab/mindle",
+    "viewport": {
+      "width": 740,
+      "height": 320
+    },
+    "overflow": 0
+  },
+  {
+    "route": "/ai-lab/mindle",
+    "smallTargets": []
+  },
+  {
+    "route": "/ai-lab/mindle",
+    "textEnlargement": {
+      "before": "64px",
+      "after": "128px",
+      "overflow": 0
+    }
+  },
+  {
+    "reducedMotion": [
+      {
+        "paused": true,
+        "autoplay": false
+      },
+      {
+        "paused": true,
+        "autoplay": false
+      },
+      {
+        "paused": true,
+        "autoplay": false
+      },
+      {
+        "paused": true,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "phaseAccessibleTree": "- button \"PROTOTYPE\"",
+    "phaseStyles": {
+      "outline": "rgb(54, 84, 68) solid 2px",
+      "color": "rgb(35, 60, 46)",
+      "labelBackground": "rgb(54, 93, 67)"
+    }
+  },
+  {
+    "phaseDismissed": true
+  }
+]

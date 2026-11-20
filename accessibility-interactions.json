@@ -1,0 +1,314 @@
+[
+  "Skip link is the first tab stop and moves focus to main content.",
+  "Keyboard route navigation focuses the destination heading.",
+  "Mobile menu opens with Enter, receives keyboard focus, and closes with Escape with focus restored.",
+  {
+    "state": "accessibility image dialog",
+    "violations": []
+  },
+  "Image dialog supports keyboard opening, focus containment, Escape, and return to opener.",
+  "Audit table can receive keyboard focus and arrow scrolling.",
+  "Reduced motion disables phase pulsing. Phase details open on focus and dismiss with Escape.",
+  "Animation pause control stops the phase halos.",
+  "Project preview control exposes matching Play/Pause preview labels.",
+  "Contact form validates required fields, announces sending limitations, and preserves input.",
+  {
+    "id": "home",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "56.32px",
+    "enlarged": "56.32px",
+    "overflow": 0,
+    "media": [
+      {
+        "paused": true,
+        "autoplay": false
+      },
+      {
+        "paused": true,
+        "autoplay": false
+      },
+      {
+        "paused": true,
+        "autoplay": false
+      },
+      {
+        "paused": true,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "id": "home",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "work",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "56.32px",
+    "enlarged": "56.32px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "work",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "about",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "52px",
+    "enlarged": "52px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "about",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "contact",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "56.32px",
+    "enlarged": "56.32px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "contact",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "ai-lab",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "47.36px",
+    "enlarged": "47.36px",
+    "overflow": 0,
+    "media": [
+      {
+        "paused": true,
+        "autoplay": false
+      },
+      {
+        "paused": true,
+        "autoplay": false
+      },
+      {
+        "paused": true,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "id": "ai-lab",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 7
+  },
+  {
+    "id": "writing",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "51.2px",
+    "enlarged": "51.2px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "writing",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-trial",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "64px",
+    "enlarged": "64px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "case-trial",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-showroom",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "64px",
+    "enlarged": "64px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "case-showroom",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-ruhl",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "64px",
+    "enlarged": "64px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "case-ruhl",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-soor",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "64px",
+    "enlarged": "64px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "case-soor",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-azhartt",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "64px",
+    "enlarged": "64px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "case-azhartt",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "56px",
+    "enlarged": "56px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-diaries",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "56.32px",
+    "enlarged": "56.32px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "case-diaries",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-mindle",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "64px",
+    "enlarged": "64px",
+    "overflow": 0,
+    "media": [
+      {
+        "paused": true,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "id": "case-mindle",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-perspective",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "64px",
+    "enlarged": "64px",
+    "overflow": 0,
+    "media": [
+      {
+        "paused": true,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "id": "case-perspective",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "case-space-shooter",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "64px",
+    "enlarged": "64px",
+    "overflow": 0,
+    "media": [
+      {
+        "paused": true,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "id": "case-space-shooter",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "56.32px",
+    "enlarged": "56.32px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "56.32px",
+    "enlarged": "56.32px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "check": "200% CSS zoom simulation at 1280px (640px layout)",
+    "original": "56.32px",
+    "enlarged": "56.32px",
+    "overflow": 0,
+    "media": []
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "check": "WCAG text spacing at 320px",
+    "overflow": 0
+  },
+  {
+    "state": "404 page",
+    "violations": []
+  },
+  {
+    "browserErrors": []
+  }
+]

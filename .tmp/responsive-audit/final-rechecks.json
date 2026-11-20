@@ -1,0 +1,322 @@
+[
+  {
+    "state": "settled resume",
+    "bounds": {
+      "left": 640,
+      "right": 1440,
+      "viewport": 1440
+    }
+  },
+  {
+    "state": "settled text enlargement",
+    "route": "/work/azhartt-usability",
+    "overflow": 0
+  },
+  {
+    "state": "settled text enlargement",
+    "route": "/work/azhartt-accessibility",
+    "overflow": 0
+  },
+  {
+    "state": "final hero",
+    "width": 320,
+    "overflow": 0
+  },
+  {
+    "state": "workshop",
+    "width": 320,
+    "index": 0,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 320,
+    "index": 1,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 320,
+    "index": 2,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 320,
+    "index": 3,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 320,
+    "index": 4,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 320,
+    "index": 5,
+    "selected": "true"
+  },
+  {
+    "state": "final hero",
+    "width": 375,
+    "overflow": 0
+  },
+  {
+    "state": "workshop",
+    "width": 375,
+    "index": 0,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 375,
+    "index": 1,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 375,
+    "index": 2,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 375,
+    "index": 3,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 375,
+    "index": 4,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 375,
+    "index": 5,
+    "selected": "true"
+  },
+  {
+    "state": "final hero",
+    "width": 768,
+    "overflow": 0
+  },
+  {
+    "state": "workshop",
+    "width": 768,
+    "index": 0,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 768,
+    "index": 1,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 768,
+    "index": 2,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 768,
+    "index": 3,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 768,
+    "index": 4,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 768,
+    "index": 5,
+    "selected": "true"
+  },
+  {
+    "state": "final hero",
+    "width": 1024,
+    "overflow": 0
+  },
+  {
+    "state": "workshop",
+    "width": 1024,
+    "index": 0,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1024,
+    "index": 1,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1024,
+    "index": 2,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1024,
+    "index": 3,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1024,
+    "index": 4,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1024,
+    "index": 5,
+    "selected": "true"
+  },
+  {
+    "state": "final hero",
+    "width": 1440,
+    "overflow": 0
+  },
+  {
+    "state": "workshop",
+    "width": 1440,
+    "index": 0,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1440,
+    "index": 1,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1440,
+    "index": 2,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1440,
+    "index": 3,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1440,
+    "index": 4,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1440,
+    "index": 5,
+    "selected": "true"
+  },
+  {
+    "state": "final hero",
+    "width": 1920,
+    "overflow": 0
+  },
+  {
+    "state": "workshop",
+    "width": 1920,
+    "index": 0,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1920,
+    "index": 1,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1920,
+    "index": 2,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1920,
+    "index": 3,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1920,
+    "index": 4,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 1920,
+    "index": 5,
+    "selected": "true"
+  },
+  {
+    "state": "final hero",
+    "width": 2560,
+    "overflow": 0
+  },
+  {
+    "state": "workshop",
+    "width": 2560,
+    "index": 0,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 2560,
+    "index": 1,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 2560,
+    "index": 2,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 2560,
+    "index": 3,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 2560,
+    "index": 4,
+    "selected": "true"
+  },
+  {
+    "state": "workshop",
+    "width": 2560,
+    "index": 5,
+    "selected": "true"
+  },
+  {
+    "state": "404",
+    "width": 320,
+    "overflow": 0
+  },
+  {
+    "state": "404",
+    "width": 1024,
+    "overflow": 0
+  },
+  {
+    "state": "404",
+    "width": 1920,
+    "overflow": 0
+  }
+]

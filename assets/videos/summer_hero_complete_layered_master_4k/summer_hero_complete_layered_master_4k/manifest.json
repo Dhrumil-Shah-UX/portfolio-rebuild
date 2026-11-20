@@ -1,0 +1,53 @@
+{
+  "name": "summer-hero-layered-master-v2",
+  "base_resolution": [
+    1920,
+    1080
+  ],
+  "derived_4k_resolution": [
+    3840,
+    2160
+  ],
+  "4k_is_upscaled": true,
+  "source_photo_is_flattened": true,
+  "window_shadows_geometry": "stationary by default",
+  "files": [
+    "01_layers_1080/00_original_reference.png",
+    "01_layers_1080/01_clean_background_without_window_shadows.png",
+    "01_layers_1080/02_olive_leaves_rgba.png",
+    "01_layers_1080/03_olive_leaf_alpha.png",
+    "01_layers_1080/04_leaf_shadows_rgba.png",
+    "01_layers_1080/05_leaf_shadows_alpha.png",
+    "01_layers_1080/06_window_wall_shadows_rgba.png",
+    "01_layers_1080/07_window_wall_shadows_alpha.png",
+    "01_layers_1080/08_window_table_shadows_rgba.png",
+    "01_layers_1080/09_window_table_shadows_alpha.png",
+    "01_layers_1080/10_furniture_protection_mask.png",
+    "01_layers_1080/11_reassembled_static_background.png",
+    "01_layers_1080/12_original_starter_background.png",
+    "01_layers_1080/13_reassembled_full_scene_reference.png",
+    "02_layers_4k_derived/00_original_reference_4k.png",
+    "02_layers_4k_derived/01_clean_background_without_window_shadows_4k.png",
+    "02_layers_4k_derived/02_olive_leaves_rgba_4k.png",
+    "02_layers_4k_derived/03_olive_leaf_alpha_4k.png",
+    "02_layers_4k_derived/04_leaf_shadows_rgba_4k.png",
+    "02_layers_4k_derived/05_leaf_shadows_alpha_4k.png",
+    "02_layers_4k_derived/06_window_wall_shadows_rgba_4k.png",
+    "02_layers_4k_derived/07_window_wall_shadows_alpha_4k.png",
+    "02_layers_4k_derived/08_window_table_shadows_rgba_4k.png",
+    "02_layers_4k_derived/09_window_table_shadows_alpha_4k.png",
+    "02_layers_4k_derived/10_furniture_protection_mask_4k.png",
+    "02_layers_4k_derived/11_reassembled_static_background_4k.png",
+    "02_layers_4k_derived/12_original_starter_background_4k.png",
+    "02_layers_4k_derived/13_reassembled_full_scene_reference_4k.png",
+    "02_layers_4k_derived/14_original_poster_4k.webp",
+    "03_validation_previews/full_scene_vs_reference.jpg",
+    "03_validation_previews/leaf_motion_reference.jpg",
+    "03_validation_previews/window_layer_validation.jpg",
+    "03_validation_previews/window_shadow_reassembly_error_x16.png",
+    "04_scripts/build_window_shadows_reference.py",
+    "04_scripts/render_leaves_1080_reference.py",
+    "04_scripts/verify_composites.py",
+    "README_START_HERE.md"
+  ]
+}

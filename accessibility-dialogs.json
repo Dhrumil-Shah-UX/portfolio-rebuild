@@ -1,0 +1,53 @@
+[
+  {
+    "url": "/work/trialbridge",
+    "selector": ".tb-image > a",
+    "contained": true,
+    "restored": true,
+    "violations": []
+  },
+  {
+    "url": "/work/soor-malhar",
+    "selector": "[data-sm-image]",
+    "contained": true,
+    "restored": true,
+    "violations": [
+      {
+        "id": "aria-prohibited-attr",
+        "targets": [
+          [
+            ".sm-modal-stage"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/work/azhartt-usability",
+    "selector": "[data-az-image]",
+    "contained": true,
+    "restored": true,
+    "violations": []
+  },
+  {
+    "url": "/ai-lab/mindle",
+    "selector": "[data-lab-image]",
+    "contained": true,
+    "restored": true,
+    "violations": []
+  },
+  {
+    "url": "/about",
+    "selector": ".about-art-button",
+    "contained": true,
+    "restored": true,
+    "violations": []
+  },
+  {
+    "url": "/",
+    "selector": ".footer-utility a:last-child",
+    "contained": true,
+    "restored": true,
+    "violations": []
+  }
+]

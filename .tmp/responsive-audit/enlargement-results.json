@@ -1,0 +1,173 @@
+[
+  {
+    "id": "home",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "56.32px"
+    }
+  },
+  {
+    "id": "work",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "56.32px"
+    }
+  },
+  {
+    "id": "about",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "52px"
+    }
+  },
+  {
+    "id": "contact",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "56.32px"
+    }
+  },
+  {
+    "id": "ai-lab",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "47.36px"
+    }
+  },
+  {
+    "id": "writing",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "40px"
+    }
+  },
+  {
+    "id": "case-trial",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "64px"
+    }
+  },
+  {
+    "id": "case-showroom",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "128px"
+    }
+  },
+  {
+    "id": "case-ruhl",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "128px"
+    }
+  },
+  {
+    "id": "case-soor",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "128px"
+    }
+  },
+  {
+    "id": "case-azhartt",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 489,
+      "heading": "128px"
+    }
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 477,
+      "heading": "112px"
+    }
+  },
+  {
+    "id": "case-diaries",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "33.6px"
+    }
+  },
+  {
+    "id": "case-mindle",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "128px"
+    }
+  },
+  {
+    "id": "case-perspective",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "128px"
+    }
+  },
+  {
+    "id": "case-space-shooter",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "128px"
+    }
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "56.32px"
+    }
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "33.6px"
+    }
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "landscapeOverflow": 0,
+    "zoomSimulationOverflow": 0,
+    "textEnlargement": {
+      "overflow": 0,
+      "heading": "56.32px"
+    }
+  }
+]

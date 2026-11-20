@@ -1,0 +1,853 @@
+[
+  {
+    "id": "home",
+    "path": "/",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "work",
+    "path": "/work",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "about",
+    "path": "/about",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "label-content-name-mismatch"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "id": "contact",
+    "path": "/contact",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "ai-lab",
+    "path": "/ai-lab",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing",
+    "path": "/writing",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-trial",
+    "path": "/work/trialbridge",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-showroom",
+    "path": "/work/virtual-showroom",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-ruhl",
+    "path": "/work/ruhl-ai",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-soor",
+    "path": "/work/soor-malhar",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-azhartt",
+    "path": "/work/azhartt-usability",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "path": "/work/azhartt-accessibility",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-diaries",
+    "path": "/work/ux-diaries",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-mindle",
+    "path": "/ai-lab/mindle",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-perspective",
+    "path": "/ai-lab/perspective",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-space-shooter",
+    "path": "/ai-lab/space-shooter",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "path": "/writing/the-art-of-task-framing",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "path": "/writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "path": "/writing/accessibility-isnt-a-checklist",
+    "width": 1280,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "home",
+    "path": "/",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": [
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "id": "work",
+    "path": "/work",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "about",
+    "path": "/about",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "label-content-name-mismatch"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "id": "contact",
+    "path": "/contact",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "ai-lab",
+    "path": "/ai-lab",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing",
+    "path": "/writing",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-trial",
+    "path": "/work/trialbridge",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-showroom",
+    "path": "/work/virtual-showroom",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-ruhl",
+    "path": "/work/ruhl-ai",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-soor",
+    "path": "/work/soor-malhar",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-azhartt",
+    "path": "/work/azhartt-usability",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "path": "/work/azhartt-accessibility",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-diaries",
+    "path": "/work/ux-diaries",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-mindle",
+    "path": "/ai-lab/mindle",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-perspective",
+    "path": "/ai-lab/perspective",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-space-shooter",
+    "path": "/ai-lab/space-shooter",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "path": "/writing/the-art-of-task-framing",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "path": "/writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "path": "/writing/accessibility-isnt-a-checklist",
+    "width": 768,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "home",
+    "path": "/",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": [
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "id": "work",
+    "path": "/work",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "about",
+    "path": "/about",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "label-content-name-mismatch"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "id": "contact",
+    "path": "/contact",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "ai-lab",
+    "path": "/ai-lab",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": [
+        "ai-process-phases",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "ai-process-phase"
+      ]
+    }
+  },
+  {
+    "id": "writing",
+    "path": "/writing",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-trial",
+    "path": "/work/trialbridge",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": [
+        ""
+      ]
+    }
+  },
+  {
+    "id": "case-showroom",
+    "path": "/work/virtual-showroom",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-ruhl",
+    "path": "/work/ruhl-ai",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-soor",
+    "path": "/work/soor-malhar",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-azhartt",
+    "path": "/work/azhartt-usability",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-azhartt-accessibility",
+    "path": "/work/azhartt-accessibility",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-diaries",
+    "path": "/work/ux-diaries",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-mindle",
+    "path": "/ai-lab/mindle",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-perspective",
+    "path": "/ai-lab/perspective",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "case-space-shooter",
+    "path": "/ai-lab/space-shooter",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast",
+      "video-caption"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing/the-art-of-task-framing",
+    "path": "/writing/the-art-of-task-framing",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing/sometimes-the-best-ai-prompt-is-a",
+    "path": "/writing/sometimes-the-best-ai-prompt-is-a",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  },
+  {
+    "id": "writing/accessibility-isnt-a-checklist",
+    "path": "/writing/accessibility-isnt-a-checklist",
+    "width": 320,
+    "violations": [],
+    "incomplete": [
+      "aria-prohibited-attr",
+      "color-contrast"
+    ],
+    "overflow": {
+      "amount": 0,
+      "elements": []
+    }
+  }
+]

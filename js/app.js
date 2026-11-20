@@ -843,11 +843,11 @@ function bootstrapApp() {
     const workshops = [
       {
         title: "AI for Designers",
-        summary: "Learn AI fundamentals, limitations, and a more intentional approach to design tools.",
+        summary: "We explored what AI can actually help designers do, where it falls short, and how to use it thoughtfully.",
         role: "Co-designed and co-hosted",
         audience: "Designers, product teams, and curious builders",
         attendance: 68,
-        taught: "My AI workflow across design and implementation, including a live demonstration of LLM-supported concept development and implementation in Cursor.",
+        taught: "I shared my AI design-to-build workflow and demonstrated how I use Cursor to turn an idea into a working concept.",
         artifacts: "FigJam board, live demo, and workflow examples.",
         takeaways: ["Understand AI fundamentals and where its limits are.", "Build an intentional workflow instead of copying prompts.", "Explore how AI can support everyday design work."],
         visual: "/assets/images/workshops/ws1.png"
@@ -1220,5 +1220,3 @@ const pagesReady = window.portfolioPagesReady || Promise.resolve();
 pagesReady.then(bootstrapApp).catch((error) => {
   console.error("Failed to load page content:", error);
 });
-
-

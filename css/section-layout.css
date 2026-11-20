@@ -1,0 +1,138 @@
+/* Shared section typography and heading/action layout. */
+/* Keep the writing title readable within its narrow collage column. */
+body #home .writing-desk-copy { grid-template-columns: minmax(0, 1fr); }
+body #home .writing-desk-copy h2 { overflow-wrap: normal; word-break: normal; }
+body #home .writing-desk-copy > a {
+  grid-column: 1; grid-row: 4; justify-self: start; margin-top: 1rem;
+}
+/* Collage annotations sit clear of photo edges and keep their arrows visible. */
+body #home .ai-lab-preview .lab-desk-note {
+  right: 0; bottom: 0; width: 9rem; z-index: 4;
+}
+body #home .ai-lab-preview .lab-desk-workshop { width: 76%; }
+body #home .home-collage-annotation {
+  z-index: 5; overflow: visible; font: 1.05rem/1.4 'Segoe Print','Bradley Hand',cursive;
+}
+body #home .home-collage-annotation svg { width: 64px; height: 58px; overflow: visible; transform: scaleX(-1); }
+body #home .home-collage-annotation path { stroke-width: 3; }
+body #home .home-collage-annotation--people svg { top: 100%; left: 8%; }
+body #home .home-collage-annotation--sketch svg { left: 100%; bottom: 20%; }
+body #home .home-collage-annotation--conversation svg { top: 100%; bottom: auto; left: 0; }
+@media (max-width: 620px) {
+  body #home .home-collage-annotation svg { width: 54px; height: 48px; }
+}
+@media (max-width: 600px) {
+  body #home .ai-lab-preview .lab-desk-note { display: none; }
+}
+/* Page introductions use the same underline and spacing as section headings. */
+body :is(#work .work-page > h1, #ai-lab-title, #writing-title, #about-title) {
+  margin-bottom: 0;
+}
+body :is(#work .work-page > h1, #ai-lab-title, #writing-title, #about-title)::after {
+  content: ''; display: block; position: static;
+  width: min(65%, 22rem); height: 4px;
+  margin: 1.5rem 0 0; border: 0; border-top: 2px solid #efa848;
+  border-radius: 50%; background: none; transform: none;
+}
+body #work .work-page > h1 + p,
+body #ai-lab .ai-lab-hero-copy h1 + p,
+body #writing .writing-hero-copy h1 + p,
+body #about-page .about-hero-copy h1 + p {
+  margin-top: 1.5rem; margin-bottom: 0;
+  font-size: var(--section-copy-size); line-height: 1.6;
+}
+body #work .work-page > h1 + p { margin-bottom: 2rem; }
+body #writing .writing-rule { display: none; }
+body #writing .writing-sublede,
+body #about-page .about-hero-copy p + p { margin-top: 1rem; }
+body #ai-lab .ai-process-guidance {
+  position: relative; width: var(--container-page); margin: 2rem auto 3rem;
+  max-width: 65rem;
+}
+body #ai-lab :is(.ai-lab-section-heading, #ai-workshops .ai-workshop-heading) {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center; gap: 1.5rem; width: 100%; min-width: 0;
+}
+body #ai-lab .ai-lab-section-heading > div { min-width: 0; grid-column: 1; }
+body #ai-lab .ai-lab-section-heading > .preview-motion-toggle { grid-column: 2; margin: 0; }
+body #ai-lab .ai-lab-section-heading h2 { max-width: none; }
+:root { --section-title-size: clamp(2rem, 3.3vw, 3rem); --section-copy-size: 1.125rem; }
+/* Table copy shares the Experience introduction's size and reading rhythm. */
+body :is(#home, #work, #ai-lab, #writing, #about-page) p:not(.section-kicker),
+body :is(#home, #work, #ai-lab, #writing, #about-page) .article-card-summary {
+  font-size: var(--section-copy-size);
+  line-height: 1.6;
+}
+body :is(.home-section, .ai-lab-section, .about-wall-note, .about-team-note, .about-photo-heading, .writing-hero, .articles-section) h2 {
+  margin-block: 0 1.5rem;
+}
+body :is(#home .home-section, #ai-lab .ai-lab-section, #about-page, #writing) h2:not(.notebook h2)::after {
+  content: ''; display: block; position: static;
+  width: min(65%, 22rem); height: 4px;
+  margin-top: 1.5rem; border: 0; border-top: 2px solid #efa848;
+  border-radius: 50%; background: none; transform: none;
+}
+body :is(#home, #work, #ai-lab, #writing, #about-page) h2 + p { margin-top: 1.5rem; }
+body :is(#home, #work, #ai-lab, #writing, #about-page) p + p { margin-top: 1rem; }
+body :is(p, li, a, button, label, input, select, textarea, small, figcaption, .section-kicker) { font-size: max(1rem, 1em); }
+body :is(.home-section, .ai-lab-section, .writing-page, .about-page) h2 {
+  font-size: var(--section-title-size); line-height: 1.15; overflow-wrap: anywhere;
+}
+body :is(.home-section-heading, .experience-heading, .lab-desk-copy, .writing-desk-copy) {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center;
+  gap: 1rem 2rem; min-width: 0;
+}
+body .experience-heading > div { display: contents; }
+body :is(.home-section-heading, .experience-heading, .lab-desk-copy, .writing-desk-copy) h2 {
+  grid-column: 1; grid-row: 2; margin: 0; max-width: none;
+}
+body :is(.home-section-heading, .experience-heading, .lab-desk-copy, .writing-desk-copy) > a {
+  grid-column: 2; grid-row: 2; margin: 0; white-space: nowrap; justify-self: end;
+}
+body :is(.home-section-heading, .experience-heading, .lab-desk-copy, .writing-desk-copy) p {
+  margin: 0; font-size: var(--section-copy-size); line-height: 1.6;
+  text-transform: none; letter-spacing: normal; font-weight: 400;
+}
+body :is(.home-section-heading, .experience-heading, .lab-desk-copy, .writing-desk-copy) .section-kicker,
+body .home-section-heading > p:first-child { grid-column: 1 / -1; grid-row: 1; font-size: 1rem; }
+body .home-section-heading > p:not(:first-child),
+body .experience-heading > div > p:not(.section-kicker),
+body .writing-desk-copy > p:not(.section-kicker),
+body .lab-desk-topics { grid-column: 1 / -1; grid-row: 3; }
+body #home .ai-lab-preview { grid-template-columns: minmax(0, .95fr) minmax(0, 1.7fr); gap: 3rem; align-items: center; }
+body #home .ai-lab-preview .lab-desk-copy { display: block; }
+body #home .ai-lab-preview .lab-desk-copy h2 { margin: 1.5rem 0 2rem; }
+body #home .ai-lab-preview .lab-desk-link { margin-top: 2rem; }
+body #home .ai-lab-preview .lab-desk-topics { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+body #home .ai-lab-preview .lab-desk-visuals {
+  width: 100%; height: 35rem;
+  margin: 0;
+}
+body #home .ai-lab-preview .lab-desk-project { width: 82%; height: 310px; }
+body #home .ai-lab-preview .lab-desk-workshop { width: 76%; height: 290px; left: 0; }
+body .lab-desk-topics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+body .lab-desk-copy h2 em { white-space: normal; }
+body .lab-desk-topics > div { min-width: 0; }
+body .ai-lab-section-heading { display: block; }
+body .ai-lab-section-heading p:not(.section-kicker),
+body .writing-lede, body .writing-sublede { font-size: var(--section-copy-size); line-height: 1.6; }
+@media (max-width: 980px) {
+  body #home .ai-lab-preview { grid-template-columns: minmax(0, 1fr); }
+  body #home .ai-lab-preview .lab-desk-visuals { width: min(100%, 45rem); margin: 2rem auto 0; }
+}
+@media (max-width: 700px) {
+  body #home .ai-lab-preview .lab-desk-visuals { width: 92%; height: 25rem; margin-top: 2rem; }
+  body #home .ai-lab-preview .lab-desk-project { height: 210px; }
+  body #home .ai-lab-preview .lab-desk-workshop { height: 195px; }
+  body :is(.home-section-heading, .experience-heading, .lab-desk-copy, .writing-desk-copy) { column-gap: 1rem; }
+  body :is(.home-section-heading, .experience-heading, .lab-desk-copy, .writing-desk-copy) > a { white-space: normal; max-width: 9rem; }
+  body .lab-desk-topics { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Approved About collage annotation placement. */
+body #home .home-collage-annotation--people { translate: -46.7% 61.1%; }
+body #home .home-collage-annotation--people svg { translate: 151.8% -20.4%; transform: rotate(-84deg) scaleX(-1); }
+body #home .home-collage-annotation--sketch { translate: -22.2% 5.7%; }
+body #home .home-collage-annotation--sketch svg { translate: -18.6% -34.2%; transform: rotate(22deg); }
+body #home .home-collage-annotation--conversation { translate: 1.9% 49.6%; }
+body #home .home-collage-annotation--conversation svg { translate: 86% -155.2%; transform: rotate(-48deg) scaleX(-1); }

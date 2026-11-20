@@ -3,7 +3,7 @@ var articles = [
     slug: "the-art-of-task-framing",
     title: "Designing Better AI Inputs",
     summary:
-      "A practical note on how better task framing can produce better AI outputs than changing tools or writing longer prompts.",
+      "I've found that getting better results from AI often starts with asking a better question, not writing a longer prompt.",
     topic: "Product Thinking",
     platform: "Substack",
     originalUrl: "https://designedminds.substack.com/p/the-art-of-task-framing",
@@ -108,7 +108,7 @@ var articles = [
     slug: "sometimes-the-best-ai-prompt-is-a",
     title: "Talk to AI With a Sketch",
     summary:
-      "A short reflection on using rough sketches and wireframes to communicate visual intent to AI more clearly than words alone.",
+      "Sometimes a rough sketch explains what I want better than a long prompt. Here's what I learned trying it with AI.",
     topic: "AI & Design",
     platform: "Substack",
     originalUrl: "https://designedminds.substack.com/p/sometimes-the-best-ai-prompt-is-a",
@@ -186,7 +186,7 @@ var articles = [
     slug: "accessibility-isnt-a-checklist",
     title: "Accessibility Isn't a Checklist - It's a Product Responsibility",
     summary:
-      "Accessibility issues often reveal deeper product and system-level problems that affect far more users than we expect.",
+      "Accessibility problems often reveal something bigger about the product. Here's why I think they deserve more attention.",
     topic: "Accessibility",
     platform: "Medium",
     originalUrl:
