@@ -3,6 +3,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'dist');
 const seo = require('./seo-render');
+fs.rmSync(output, { recursive: true, force: true });
 // Allowlist public assets. Never copy server code, SQL, tests, or .env files.
 fs.mkdirSync(output, { recursive: true });
 for (const item of ['404.html', 'css', 'js', 'pages', 'assets']) {
@@ -27,3 +28,4 @@ fs.writeFileSync(path.join(output, '404.html'), seo.rewriteHTML(fs.readFileSync(
 fs.writeFileSync(path.join(output, 'robots.txt'), seo.robots());
 fs.writeFileSync(path.join(output, 'sitemap.xml'), seo.sitemap());
 console.log(`Built ${Object.keys(seo.pageData().pages).length} statically rendered routes, public assets, robots.txt, and sitemap.xml in dist/.`);
+require('./restrict-public-build');
