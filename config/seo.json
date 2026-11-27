@@ -25,11 +25,6 @@
                                 "description":  "Get to know Dhrumil Shah\u0027s experience, approach to UX/UI design and engineering, and interests in art, photography, and thoughtful product experiences.",
                                 "image":  "/assets/images/about/me.png"
                             },
-                  "contact":  {
-                                  "path":  "/contact",
-                                  "title":  "Contact | Dhrumil Shah",
-                                  "description":  "Connect with Dhrumil Shah about product design, UX/UI, AI product experiences, accessibility, and UX engineering opportunities."
-                              },
                   "ai-lab":  {
                                  "path":  "/ai-lab",
                                  "title":  "AI Lab | Dhrumil Shah",

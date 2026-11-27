@@ -68,16 +68,6 @@ const results = [];
   await page.locator('.preview-motion-toggle').first().click();
   assert.match(await page.locator('.preview-motion-toggle').first().getAttribute('aria-label'), /Play preview/);
   results.push('Project preview control exposes matching Play/Pause preview labels.');
-  await visit('/contact');
-  await page.locator('.contact-form button').click();
-  assert.equal(await page.locator('.contact-form input[name=name]').evaluate(el => el.validity.valueMissing), true);
-  await page.locator('input[name=name]').fill('Audit visitor');
-  await page.locator('input[name=email]').fill('audit@example.com');
-  await page.locator('.contact-form textarea').fill('Accessibility verification');
-  await page.locator('.contact-form button').click();
-  assert.match(await page.locator('.contact-form [role=status]').textContent(), /cannot send/);
-  assert.equal(await page.locator('input[name=name]').inputValue(), 'Audit visitor');
-  results.push('Contact form validates required fields, announces sending limitations, and preserves input.');
   for (const [id, route] of Object.entries(routes)) {
     await page.setViewportSize({ width: 1280, height: 900 });
     await visit(route.path);

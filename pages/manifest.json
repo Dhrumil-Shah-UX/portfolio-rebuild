@@ -16,11 +16,6 @@
       "defaultVisible": false
     },
     {
-      "id": "contact",
-      "file": "contact.html",
-      "defaultVisible": false
-    },
-    {
       "id": "ai-lab",
       "file": "ai-lab.html",
       "defaultVisible": false

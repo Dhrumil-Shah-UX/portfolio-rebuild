@@ -7,7 +7,6 @@ Each file is one routed view (`data-page-view`). The shell in `index.html` loads
 | `home.html` | `#home` |
 | `work.html` | `#work` |
 | `about.html` | `#about-page` (full about page; home also has `#about` section) |
-| `contact.html` | `#contact` |
 | `ai-lab.html` | `#ai-lab` |
 | `writing.html` | `#writing` |
 | `article.html` | `#article-…` |

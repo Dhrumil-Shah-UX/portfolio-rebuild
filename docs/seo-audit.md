@@ -28,12 +28,13 @@ Reviewed locally on November 10, 2026. Nothing has been deployed, pushed, publis
 
 ## Routes
 
+The contact page was removed on November 27, 2026, including its fragment, metadata, form behavior, styles, and sitemap entry. Its former URLs return 404.
+
 | Existing route ID | Public URL |
 | --- | --- |
 | home | `/` |
 | work | `/work` |
 | about | `/about` |
-| contact | `/contact` |
 | ai-lab | `/ai-lab` |
 | writing | `/writing` |
 | case-trial | `/work/trialbridge` |

@@ -55,13 +55,13 @@ function pageData() {
   for (const [id, page] of Object.entries(pages)) {
     page.image ||= config.defaultImage;
     page.image = imageVariants[page.image] || page.image;
-    page.imageAlt = page.article ? page.title.replace(' | Dhrumil Shah', '') : id === 'about' ? 'Dhrumil Shah outdoors by the water' : id === 'home' || id === 'work' || id === 'contact' || id === 'case-showroom' ? 'Interactive Rooftop Showroom on a desktop monitor' : page.title.replace(' | Dhrumil Shah', '') + ' project preview';
+    page.imageAlt = page.article ? page.title.replace(' | Dhrumil Shah', '') : id === 'about' ? 'Dhrumil Shah outdoors by the water' : id === 'home' || id === 'work' || id === 'case-showroom' ? 'Interactive Rooftop Showroom on a desktop monitor' : page.title.replace(' | Dhrumil Shah', '') + ' project preview';
     page.imageSize = imageDimensions(page.image);
     const parent = page.article ? 'writing' : id.startsWith('case-') ? ['case-mindle', 'case-perspective', 'case-space-shooter'].includes(id) ? 'ai-lab' : 'work' : null;
     const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin + '/' }];
     if (parent) crumbs.push({ '@type': 'ListItem', position: 2, name: parent === 'ai-lab' ? 'AI Lab' : parent === 'writing' ? 'Writing' : 'Work', item: origin + pages[parent].path });
     if (id !== 'home') crumbs.push({ '@type': 'ListItem', position: crumbs.length + 1, name: page.title.split(' | ')[0], item: origin + page.path });
-    const webpage = { '@type': id === 'about' ? 'AboutPage' : id === 'contact' ? 'ContactPage' : ['work', 'ai-lab', 'writing'].includes(id) ? 'CollectionPage' : 'WebPage', '@id': origin + page.path + '#webpage', url: origin + page.path, name: page.title, description: page.description, inLanguage: 'en', image: origin + page.image, isPartOf: { '@id': origin + '/#website' }, author: { '@id': origin + '/#person' }, breadcrumb: { '@id': origin + page.path + '#breadcrumb' } };
+    const webpage = { '@type': id === 'about' ? 'AboutPage' : ['work', 'ai-lab', 'writing'].includes(id) ? 'CollectionPage' : 'WebPage', '@id': origin + page.path + '#webpage', url: origin + page.path, name: page.title, description: page.description, inLanguage: 'en', image: origin + page.image, isPartOf: { '@id': origin + '/#website' }, author: { '@id': origin + '/#person' }, breadcrumb: { '@id': origin + page.path + '#breadcrumb' } };
     if (page.article) webpage.mainEntity = { '@id': origin + page.path + '#article' };
     // No unverified employment, ratings, dates, or product-impact claims.
     page.structuredData = { '@context': 'https://schema.org', '@graph': [

@@ -101,7 +101,6 @@
   .home-about,
   .about-intro,
   .sketch-block,
-  .contact-page,
   .site-footer {
     grid-template-columns: 1fr;
   }
@@ -324,15 +323,6 @@
 
   .photo-strip img {
     min-width: 285px;
-  }
-
-  .contact-page {
-    min-height: auto;
-    gap: 42px;
-  }
-
-  .contact-info {
-    font-size: 15px;
   }
 
   .site-footer {
@@ -585,10 +575,6 @@
     display: none;
   }
 
-  .contact-form {
-    grid-template-columns: 1fr;
-  }
-
   .project-snapshot,
   .case-study-soor-malhar .project-snapshot,
   .case-study-azhartt-usability .project-snapshot,
@@ -741,9 +727,7 @@
   .writing-hero-copy h1,
   .ai-lab-hero-copy h1,
   .article-page h1,
-  .case-study h1,
-  .contact-page h1,
-  .contact-page h2 {
+  .case-study h1 {
     font-size: 2.875rem;
   }
 
@@ -810,9 +794,7 @@
   .writing-hero-copy h1,
   .ai-lab-hero-copy h1,
   .article-page h1,
-  .case-study h1,
-  .contact-page h1,
-  .contact-page h2 {
+  .case-study h1 {
     font-size: 2.375rem;
   }
 

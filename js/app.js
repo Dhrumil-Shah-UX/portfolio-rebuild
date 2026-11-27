@@ -1037,7 +1037,6 @@ function bootstrapApp() {
     }, 7000);
   }
 
-  const form = document.querySelector(".contact-form");
   document.querySelectorAll("[data-showroom-sequence]").forEach((sequence) => {
     const tabs = [...sequence.querySelectorAll('[role="tab"]')];
     const panel = sequence.querySelector("[data-phase-panel]");
@@ -1149,18 +1148,6 @@ function bootstrapApp() {
     caseSections.forEach((section) => observer.observe(section));
   }
 
-  if (form) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const button = form.querySelector("button");
-      const originalText = button.textContent;
-      button.textContent = "Email to contact";
-      form.querySelector('[role="status"]').textContent = "This form cannot send messages yet. Please email dhrumilshah09@outlook.com. Your entries have been kept so you can copy them.";
-      setTimeout(() => {
-        button.textContent = originalText;
-      }, 1400);
-    });
-  }
 
   function showLocationPage() {
     const route = window.PortfolioSEO.readLocation();

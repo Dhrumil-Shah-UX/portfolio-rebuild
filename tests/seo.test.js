@@ -24,7 +24,7 @@ test('temporarily hidden case studies stay accessible but are not promoted or in
 });
 test('production SEO configuration uses the custom canonical domain', () => {
   assert.equal(require('../config/seo.json').origin, 'https://dhrumilworks.com');
-  assert.equal(Object.keys(pages).length, 19);
+  assert.equal(Object.keys(pages).length, 18);
 });
 for (const [id, page] of Object.entries(pages)) {
   test('crawlable HTML, metadata and assets: ' + page.path, async () => {
@@ -68,7 +68,7 @@ test('unique titles, descriptions, paths and complete sitemap', async () => {
   assert.ok(!robots.includes('Disallow: /\n'));
 });
 test('real 404s, non-indexable fragments, canonical redirects and private-file exclusion', async () => {
-  for (const url of ['/missing-page', '/work/missing-case', '/config/seo.json', '/.env.local', '/server/config.js']) assert.equal((await fetch(origin + url)).status, 404);
+  for (const url of ['/contact', '/contact/', '/contact.html', '/pages/contact', '/pages/contact.html', '/missing-page', '/work/missing-case', '/config/seo.json', '/.env.local', '/server/config.js']) assert.equal((await fetch(origin + url)).status, 404);
   assert.equal((await fetch(origin + '/pages/case-trial.html')).headers.get('x-robots-tag'), 'noindex');
   assert.equal((await fetch(origin + '/pages/case-trial')).headers.get('x-robots-tag'), 'noindex');
   for (const [url, destination] of [['/work/', '/work'], ['/work.html', '/work'], ['/index.html', '/']]) {

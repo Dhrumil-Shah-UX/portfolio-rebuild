@@ -2663,8 +2663,6 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
 .feature-card p,
 .skill-card h3,
 .project-row h2,
-.contact-copy h1,
-.contact-copy h2,
 .testimonial-card h3,
 .case-page h2 {
   margin: 0;
@@ -2762,7 +2760,6 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
 
 .work-page,
 .about-page,
-.contact-page,
 .case-page {
   padding-top: 84px;
   padding-bottom: 100px;
@@ -2895,51 +2892,6 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   border-radius: var(--radius-media);
   object-fit: cover;
 }
-
-.contact-page {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 110px;
-  align-items: center;
-  min-height: 1230px;
-}
-
-.contact-copy,
-.contact-form {
-  min-width: 0;
-}
-
-.contact-copy h1,
-.contact-copy h2 {
-  color: var(--blue);
-  font-size: 25px;
-}
-
-.contact-copy h2 {
-  margin-top: 44px;
-}
-
-.contact-copy p {
-  max-width: 430px;
-  margin: 10px 0 0;
-}
-
-.contact-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  width: min(450px, 100%);
-  min-height: 72px;
-  margin-top: 12px;
-  padding: 10px 18px;
-  border: 1.5px solid #51cfd1;
-  border-radius: var(--radius-field);
-  color: var(--blue);
-  font-weight: 900;
-  text-decoration: none;
-}
-
-.contact-info img,
 .icon-fallback {
   width: 50px;
   height: 50px;
@@ -2952,21 +2904,6 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   display: grid;
   place-items: center;
   font-size: 10px;
-}
-
-.contact-info small {
-  display: block;
-  color: var(--muted);
-  font-weight: 700;
-}
-
-.contact-info span {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.contact-info--phone {
-  padding-left: 88px;
 }
 
 .social-buttons {
@@ -2993,62 +2930,6 @@ body[data-current-page="ai-lab"] .nav-link.is-active {
   width: 20px;
   height: 20px;
   object-fit: contain;
-}
-
-.contact-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px 14px;
-  padding: 22px;
-  border-radius: var(--radius-card);
-  background: var(--cream);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.11);
-}
-
-.contact-form label {
-  color: var(--text-secondary);
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  margin-top: 7px;
-  border: 0;
-  border-radius: var(--radius-field);
-  background: #fff;
-  color: var(--ink);
-  font: inherit;
-  font-size: 16px;
-  outline: none;
-  padding: 12px 14px;
-}
-
-.contact-form textarea {
-  min-height: 98px;
-  resize: vertical;
-}
-
-.contact-form :is(input, textarea):focus-visible {
-  outline: 2px solid var(--accent-green);
-  outline-offset: 4px;
-}
-
-.contact-form .full {
-  grid-column: 1 / -1;
-}
-
-.contact-form button {
-  grid-column: 1 / -1;
-  border: 0;
-  border-radius: 999px;
-  background: var(--blue);
-  color: #fff;
-  cursor: pointer;
-  font: inherit;
-  font-weight: 900;
-  padding: 11px;
 }
 
 .case-page {
@@ -4421,9 +4302,7 @@ dd,
 .project-snapshot dd,
 .selected-project-copy dd,
 .selected-project-copy dt,
-.case-sidebar,
-.contact-info small,
-.contact-form label {
+.case-sidebar {
   font-size: var(--type-body-sm);
 }
 
@@ -4432,17 +4311,6 @@ dd,
 .case-page h1 {
   max-width: 760px;
 }
-
-.contact-page h1,
-.contact-page h2 {
-  font-family: var(--font-display);
-  font-size: var(--type-display-lg);
-  font-weight: 400;
-  line-height: var(--leading-display);
-}
-
-.contact-form,
-.contact-card,
 .project-row,
 .skill-card,
 .testimonial-card {
@@ -4452,18 +4320,10 @@ dd,
   box-shadow: none;
 }
 
-.social-buttons a,
-.contact-form button {
+.social-buttons a {
   background: var(--accent-green);
   color: var(--text-inverse);
   font-weight: 600;
-}
-
-.contact-form input,
-.contact-form textarea {
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  font-size: var(--type-body-md);
 }
 
 .site-footer {

@@ -22,7 +22,7 @@ Target: WCAG 2.2 AA. This is an engineering audit, not a conformance certificati
 - Corrected skip-link behavior so focusing main content does not trigger the route handler. Explicit anchor navigation now moves focus to its destination.
 - Made the accessibility comparison table keyboard-focusable with a named region. Added the missing region role to Soor's named image viewer area.
 - Added a shared visible focus treatment and targeted wrapping/minimum-width safeguards. Contained decorative Home artwork overflow and reserved room for AI Lab preview labels.
-- Corrected the contact form's misleading success feedback. It now explains that email is required, announces this in a status region, and preserves entries. Feedback is also visible. The form still requires a sending integration for actual delivery.
+- The contact page and its form were removed on November 27, 2026. Earlier contact-form checks below describe the historical audit.
 - Removed an obsolete commented reference to a missing GIF that caused the existing asset regression check to fail.
 
 ## Manual verification still required
